@@ -56,6 +56,36 @@ body {
     border: 1px solid black !important;
 }
 
+/* Invert top navigation styles */
+
+#topnav {
+    background-color: black !important;
+    color: white !important;
+}
+
+#topnav a.nav-link, #topnav p {
+    color: white !important;
+}
+
+#topnav .dropdown-menu {
+    background-color: black;
+}
+
+#topnav .dropdown-menu a {
+    color: white !important;
+}
+
+/* Button styles inside the navbar */
+#topnav .btn {
+    background-color: white;
+    color: black;
+}
+
+#topnav .btn:hover, #topnav .btn:focus, #topnav .btn:active {
+    background-color: #f1f1f1;
+    color: black;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -79,3 +109,4 @@ body {
         padding-top: 164px;
     }
 }
+
