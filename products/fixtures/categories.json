@@ -1,0 +1,106 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "floral_fragrances",
+            "friendly_name": "Floral Fragrances"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "fruity_fragrances",
+            "friendly_name": "Fruity Fragrances"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "oriental_fragrances",
+            "friendly_name": "Oriental Fragrances"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "fresh_fragrances",
+            "friendly_name": "Fresh Fragrances"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "luxury_gift_sets",
+            "friendly_name": "Luxury Gift Sets"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "woody_fragrances",
+            "friendly_name": "Woody Fragrances"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "spicy_fragrances",
+            "friendly_name": "Spicy Fragrances"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "citrus_fragrances",
+            "friendly_name": "Citrus Fragrances"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "aquatic_fragrances",
+            "friendly_name": "Aquatic Fragrances"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "gourmand_fragrances",
+            "friendly_name": "Gourmand Fragrances"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "new_luxury_arrivals",
+            "friendly_name": "New Luxury Arrivals"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "curated_selections",
+            "friendly_name": "Curated Selections"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "exclusive_promotions",
+            "friendly_name": "Exclusive Promotions"
+        }
+    }
+]

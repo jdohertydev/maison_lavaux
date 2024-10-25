@@ -1,0 +1,362 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730010",
+            "name": "Rose Delight Eau de Parfum",
+            "description": "A delicate floral fragrance with notes of rose, jasmine, and lily.",
+            "category": 1,
+            "price": 59.99,
+            "rating": 4.2
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730020",
+            "name": "Fruity Passion Eau de Toilette",
+            "description": "A burst of fruity goodness with notes of peach, mango, and raspberry.",
+            "category": 2,
+            "price": 45.50,
+            "rating": 4.5
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730030",
+            "name": "Mystic Oud",
+            "description": "An oriental fragrance with warm notes of oud, saffron, and vanilla.",
+            "category": 3,
+            "price": 120.00,
+            "rating": 4.9
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730040",
+            "name": "Ocean Breeze",
+            "description": "A fresh aquatic fragrance reminiscent of the sea breeze, with notes of bergamot and marine accords.",
+            "category": 9,
+            "price": 65.00,
+            "rating": 4.1
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730050",
+            "name": "Citrus Burst",
+            "description": "A zesty fragrance with vibrant notes of lemon, lime, and orange blossom.",
+            "category": 8,
+            "price": 50.99,
+            "rating": 4.4
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730060",
+            "name": "Spiced Leather",
+            "description": "A spicy fragrance with deep notes of cinnamon, leather, and tobacco.",
+            "category": 7,
+            "price": 89.99,
+            "rating": 4.7
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730070",
+            "name": "Woody Essence",
+            "description": "A rich, earthy fragrance with sandalwood, cedar, and patchouli.",
+            "category": 6,
+            "price": 75.00,
+            "rating": 4.6
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730080",
+            "name": "Fresh Spring",
+            "description": "A refreshing blend of fresh florals and green notes for a crisp, clean scent.",
+            "category": 4,
+            "price": 55.00,
+            "rating": 4.3
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730090",
+            "name": "Luxury Gift Set: Floral Edition",
+            "description": "A curated set of luxury floral fragrances, perfect for special occasions.",
+            "category": 5,
+            "price": 150.00,
+            "rating": 4.9
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730100",
+            "name": "Vanilla Caramel",
+            "description": "A gourmand fragrance with sweet notes of vanilla, caramel, and praline.",
+            "category": 10,
+            "price": 70.00,
+            "rating": 4.5
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730110",
+            "name": "Exotic Fruits",
+            "description": "A fruity fragrance with tropical notes of pineapple, papaya, and coconut.",
+            "category": 2,
+            "price": 49.99,
+            "rating": 4.3
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730120",
+            "name": "Midnight Blossom",
+            "description": "A deep floral fragrance with notes of gardenia, tuberose, and amber.",
+            "category": 1,
+            "price": 85.00,
+            "rating": 4.8
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730130",
+            "name": "Amber Oud",
+            "description": "A luxurious oriental fragrance with rich amber and oud notes.",
+            "category": 3,
+            "price": 110.00,
+            "rating": 4.9
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730140",
+            "name": "Citrus Grove",
+            "description": "A bright citrus fragrance with notes of grapefruit, lemon, and orange.",
+            "category": 8,
+            "price": 55.00,
+            "rating": 4.2
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730150",
+            "name": "Luxury Gift Set: Oriental Collection",
+            "description": "A collection of oriental fragrances perfect for those who love warm, exotic scents.",
+            "category": 5,
+            "price": 180.00,
+            "rating": 4.8
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730160",
+            "name": "Tropical Breeze",
+            "description": "A fresh fragrance with aquatic and tropical notes, evoking a beachside escape.",
+            "category": 9,
+            "price": 60.00,
+            "rating": 4.5
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730170",
+            "name": "Spiced Vanilla",
+            "description": "A spicy gourmand fragrance with warm vanilla, clove, and nutmeg.",
+            "category": 7,
+            "price": 85.00,
+            "rating": 4.6
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730180",
+            "name": "Woody Vetiver",
+            "description": "A woody fragrance with deep vetiver, cedarwood, and moss.",
+            "category": 6,
+            "price": 90.00,
+            "rating": 4.8
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730190",
+            "name": "Floral Harmony",
+            "description": "A harmonious blend of floral notes, including peony, rose, and jasmine.",
+            "category": 1,
+            "price": 58.00,
+            "rating": 4.3
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730200",
+            "name": "Luxury Gift Set: Fruity & Floral",
+            "description": "A luxurious gift set featuring fruity and floral fragrances for every occasion.",
+            "category": 5,
+            "price": 145.00,
+            "rating": 4.7
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730210",
+            "name": "Oriental Spice",
+            "description": "An exotic fragrance with spicy notes of cardamom, cinnamon, and amber.",
+            "category": 3,
+            "price": 95.00,
+            "rating": 4.6
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730220",
+            "name": "Aqua Fresh",
+            "description": "A fresh, invigorating fragrance with marine notes and a touch of citrus.",
+            "category": 9,
+            "price": 65.00,
+            "rating": 4.4
+        }
+    },
+    {
+            "pk": 23,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001001",
+                "name": "Lavender Dream Eau de Parfum",
+                "description": "A calming floral fragrance with soft lavender, bergamot, and musk.",
+                "category": 1,
+                "price": 64.99,
+                "rating": 4.5
+            }
+        },
+        {
+            "pk": 24,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001002",
+                "name": "Citrus Blast Eau de Toilette",
+                "description": "A vibrant citrus fragrance with notes of grapefruit, lemon, and orange zest.",
+                "category": 8,
+                "price": 49.50,
+                "rating": 4.0
+            }
+        },
+        {
+            "pk": 25,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001003",
+                "name": "Mystic Spice",
+                "description": "A warm spicy fragrance with cardamom, cinnamon, and amber.",
+                "category": 7,
+                "price": 99.99,
+                "rating": 4.3
+            }
+        },
+        {
+            "pk": 26,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001004",
+                "name": "Ocean Whisper",
+                "description": "A fresh aquatic fragrance with marine notes, bergamot, and sea salt.",
+                "category": 9,
+                "price": 58.00,
+                "rating": 4.1
+            }
+        },
+        {
+            "pk": 27,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001005",
+                "name": "Exotic Woods",
+                "description": "A rich woody fragrance with sandalwood, cedar, and a hint of vetiver.",
+                "category": 6,
+                "price": 80.00,
+                "rating": 4.4
+            }
+        },
+        {
+            "pk": 28,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001006",
+                "name": "Sweet Vanilla Delight",
+                "description": "A gourmand fragrance with sweet notes of vanilla, caramel, and almond.",
+                "category": 10,
+                "price": 75.50,
+                "rating": 4.6
+            }
+        },
+        {
+            "pk": 29,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001007",
+                "name": "Amber Nights",
+                "description": "A deep oriental fragrance with notes of amber, oud, and saffron.",
+                "category": 3,
+                "price": 110.00,
+                "rating": 4.7
+            }
+        },
+        {
+            "pk": 30,
+            "model": "products.product",
+            "fields": {
+                "sku": "pp5002001008",
+                "name": "Fresh Morning",
+                "description": "A light and refreshing floral fragrance with rose, jasmine, and mint.",
+                "category": 4,
+                "price": 52.00,
+                "rating": 4.2
+            }
+        }
+    ]
