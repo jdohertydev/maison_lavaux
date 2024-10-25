@@ -86,6 +86,12 @@ body {
     color: black;
 }
 
+/* Ensures the footer background is black */
+
+.bg-black {
+    background-color: #000; 
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

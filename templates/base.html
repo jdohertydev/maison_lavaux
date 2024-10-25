@@ -3,7 +3,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
@@ -67,7 +66,6 @@
                           </div>
                       </a>
                       <div class="dropdown-menu border-0" aria-labelledby="currency-options">
-                          <!-- Replace with actual currency options or a form -->
                           <a href="?currency=USD" class="dropdown-item">USD</a>
                           <a href="?currency=EUR" class="dropdown-item">EUR</a>
                           <a href="?currency=GBP" class="dropdown-item">GBP</a>
@@ -129,6 +127,32 @@
     {% block postloadjs %}
     {% endblock %}
 
+    <!-- Footer -->
+    <footer class="bg-black text-white py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    {% block page_footer %}
+                    <h5 class="mb-2">Follow Us</h5>
+                    <a href="https://facebook.com" target="_blank" class="text-white mx-2">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="text-white mx-2">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white mx-2">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <p class="mt-3">&copy; 2024 Maison Lavaux. All rights reserved.
+                    {% endblock %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     
   </body>
 </html>
