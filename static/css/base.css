@@ -86,6 +86,17 @@ body {
     color: black;
 }
 
+/* Main Nav Styles */
+
+#main-nav{
+    background-color: #e00034;
+    
+}
+
+#main-nav .nav-link {
+    color: white !important;
+}
+
 /* Ensures the footer background is black */
 
 .border-black {
@@ -95,6 +106,7 @@ body {
 .bg-black {
     background: #000 !important;
 }
+
 
 /* -------------------------------- Media Queries */
 
