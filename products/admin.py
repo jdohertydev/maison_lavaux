@@ -12,10 +12,11 @@ class ProductAdmin(admin.ModelAdmin):
         'is_active',
         'size',
         'rating',
+        'gender',  # Display gender field
         'created_at',
         'updated_at',
     )
-    list_filter = ('category', 'is_active')  # Filter options for category and active status
+    list_filter = ('category', 'is_active', 'gender')  # Filter options for category and active status
     search_fields = ('name', 'sku')  # Enable search by name and SKU
     ordering = ('sku',)
 
