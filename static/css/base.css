@@ -120,14 +120,14 @@ body {
 /* Styles for the product images in the product cards */
 
 /* Base styling for product images */
-.card-img-top {
+.product-card-img {
     border-radius: 10px; /* Adds rounded corners for a softer look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to lift the image off the background */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect for hover animations */
 }
 
 /* Hover effect for product images */
-.card-img-top:hover {
+.product-card-img:hover {
     transform: scale(1.05); /* Slightly enlarges the image on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow depth on hover to enhance the pop effect */
 }
