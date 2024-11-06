@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
@@ -38,9 +39,13 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the product is created
     updated_at = models.DateTimeField(auto_now=True)      # Timestamp for last modification
 
-    def __str__(self):
-        return self.name
-
+    def clean(self):
+        """
+        Ensure that discount_price is valid (less than price).
+        """
+        super().clean()
+        if self.discount_price and self.discount_price >= self.price:
+            raise ValidationError("Discount price must be less than the original price.")
 
     def __str__(self):
         return self.name
