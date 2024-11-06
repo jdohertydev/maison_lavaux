@@ -74,3 +74,23 @@ Sorting
 Sorting Functionality: This project includes a JavaScript-powered dynamic sorting feature. When a user selects an option from the sorting dropdown, the page automatically updates to reflect their choice. The script updates the URL query parameters (sort and direction) based on the selection and reloads the page with the new parameters.
 
 This ensures a seamless and user-friendly way to filter and sort products by criteria like price, rating, or name. Additionally, the "Reset" option clears all sorting parameters and reloads the default product list.
+
+Pricing and Discount Logic Implementation
+
+To enhance the shopping bag functionality, we implemented a system to dynamically handle both regular and discounted product prices. Here’s a summary of what we did:
+
+    Dynamic Price Calculation:
+        Updated the bag_contents function to determine an effective_price for each product, prioritizing the discount_price if available, and falling back to the regular price otherwise.
+        Calculated the subtotal for each item based on its quantity and effective_price.
+
+    Template Adjustments:
+        Updated the shopping bag template to display the effective_price for each product and the calculated subtotal dynamically.
+        Ensured that the totals and subtotals were formatted correctly and reflected discounts when applicable.
+
+    Validation Logic:
+        Ensured that the discount_price field in the database is always less than the price to maintain data integrity.
+
+    User Experience:
+        Provided dynamic updates in the bag to reflect accurate pricing, ensuring customers see discounts applied correctly.
+
+This implementation ensures accuracy and clarity in the pricing displayed to customers, enhancing the overall user experience.

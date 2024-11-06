@@ -12,12 +12,17 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
+        # Determine the effective price (discounted price if available)
+        price = product.discount_price if product.discount_price else product.price
+        subtotal = quantity * price
+        total += subtotal
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+            'effective_price': price,  # Include effective price
+            'subtotal': subtotal,     # Include subtotal for each item
         })
 
     # Calculate delivery cost
@@ -42,3 +47,4 @@ def bag_contents(request):
     }
 
     return context
+
