@@ -30,3 +30,41 @@ f request.GET:
         'products': products,
         'search_term': query,
     }
+
+Summary: Implementing effective_price for Custom Sorting
+
+To allow products to be sorted by price while prioritizing discount_price over the original price, we implemented the following steps:
+
+    Annotated the Queryset:
+        We used Django’s annotate method to dynamically create an effective_price field. This field checks if a discount_price exists for a product and uses it; otherwise, it defaults to the regular price.
+        This was achieved using Case and When expressions:
+
+    products = products.annotate(
+        effective_price=Case(
+            When(discount_price__isnull=False, then=F('discount_price')),
+            default=F('price'),
+        )
+    )
+
+Updated the Sorting Logic:
+
+    In the all_products view, we modified the sort parameter to support effective_price. If the user selects to sort by price, the view orders the products by the annotated effective_price field, ascending or descending based on the direction parameter.
+
+Adjusted Template Links:
+
+    We updated the href attributes of the dropdown links in the template to use effective_price for sorting. For example:
+
+        <a href="{% url 'products' %}?sort=effective_price&direction=asc" class="dropdown-item">By Price</a>
+
+    Handled Sorting Directions:
+        We incorporated the direction parameter to allow both ascending (asc) and descending (desc) sorting by effective_price.
+
+    Tested Functionality:
+        We verified that products with a discount_price appear in the correct order (sorted by discount_price first) and fallback to the original price when no discount_price exists.
+
+Benefits:
+
+    This approach ensures that discounts are prioritized during sorting, providing a better user experience for customers looking for the most relevant price.
+    It is dynamic, leveraging Django’s ORM to handle complex logic without requiring changes to the database schema.
+
+This functionality is fully integrated into the existing filtering and sorting system.
