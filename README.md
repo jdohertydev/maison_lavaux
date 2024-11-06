@@ -68,3 +68,4 @@ Benefits:
     It is dynamic, leveraging Django’s ORM to handle complex logic without requiring changes to the database schema.
 
 This functionality is fully integrated into the existing filtering and sorting system.
+
