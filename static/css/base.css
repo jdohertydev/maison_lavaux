@@ -118,6 +118,11 @@ body {
 	z-index: -1;
 }
 
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 /* Styles for the product images in the product cards */
 
 /* Base styling for product images */
