@@ -38,6 +38,20 @@ body {
     color: white;
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
@@ -63,7 +77,8 @@ body {
     color: white !important;
 }
 
-#topnav a.nav-link, #topnav p {
+#topnav a.nav-link,
+#topnav p {
     color: white !important;
 }
 
@@ -82,16 +97,18 @@ body {
     color: black;
 }
 
-#topnav .btn:hover, #topnav .btn:focus, #topnav .btn:active {
+#topnav .btn:hover,
+#topnav .btn:focus,
+#topnav .btn:active {
     background-color: #f1f1f1;
     color: black;
 }
 
 /* Main Nav Styles */
 
-#main-nav{
+#main-nav {
     background-color: #e00034;
-    
+
 }
 
 #main-nav .nav-link {
@@ -109,16 +126,16 @@ body {
 }
 
 .overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
 }
 
-a.category-badge > span.badge:hover {
+a.category-badge>span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
@@ -127,29 +144,38 @@ a.category-badge > span.badge:hover {
 
 /* Base styling for product images */
 .product-card-img {
-    border-radius: 10px; /* Adds rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to lift the image off the background */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect for hover animations */
+    border-radius: 10px;
+    /* Adds rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow to lift the image off the background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition effect for hover animations */
 }
 
 /* Hover effect for product images */
 .product-card-img:hover {
-    transform: scale(1.05); /* Slightly enlarges the image on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow depth on hover to enhance the pop effect */
+    transform: scale(1.05);
+    /* Slightly enlarges the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Increases shadow depth on hover to enhance the pop effect */
 }
 
 /* Styling for original and discounted prices in product cards */
 
 /* Original price with strikethrough and muted color */
 .original-price {
-    text-decoration: line-through; /* Adds a strikethrough */
-    color: #6c757d; /* Muted color similar to Bootstrap's text-muted */
-    margin-right: 0.5rem; /* Space between original and discounted price */
+    text-decoration: line-through;
+    /* Adds a strikethrough */
+    color: #6c757d;
+    /* Muted color similar to Bootstrap's text-muted */
+    margin-right: 0.5rem;
+    /* Space between original and discounted price */
 }
 
 /* Discounted price with a more prominent color */
 .discounted-price {
-    color: #dc3545; /* Red color similar to Bootstrap's text-danger */
+    color: #dc3545;
+    /* Red color similar to Bootstrap's text-danger */
     font-weight: bold;
 }
 
@@ -169,9 +195,9 @@ a.category-badge > span.badge:hover {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */
