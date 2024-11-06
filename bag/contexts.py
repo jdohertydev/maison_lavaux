@@ -12,14 +12,7 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        
-        # Check if discount_price is being retrieved correctly
-        print(f"Product: {product.name}, Price: {product.price}, Discount Price: {product.discount_price}")
-        
-        # Use discounted price if available, otherwise use regular price
-        price = product.discount_price if product.discount_price else product.price
-        
-        total += quantity * price
+        total += quantity * product.price
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
