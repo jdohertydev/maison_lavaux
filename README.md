@@ -94,3 +94,13 @@ To enhance the shopping bag functionality, we implemented a system to dynamicall
         Provided dynamic updates in the bag to reflect accurate pricing, ensuring customers see discounts applied correctly.
 
 This implementation ensures accuracy and clarity in the pricing displayed to customers, enhancing the overall user experience.
+
+Handling Perrume Sizes in the Shopping Bag
+
+The shopping bag functionality includes a robust solution for handling products with size variations. By dynamically checking whether a product has a size attribute before attempting to use it, the implementation prevents errors when sizes are not applicable. This approach ensures:
+
+    Flexibility for Different Product Types: The code accommodates both products with sizes (e.g., clothing or shoes) and those without sizes (e.g., accessories or generic items), making it versatile for diverse product catalogs.
+    Error Prevention: By using item_data.get('size') to check for size information in the session data, the implementation avoids the NameError issue when a size is not provided or required.
+    User-Friendly Experience: Users can add products to their bag seamlessly, whether the products include size options or not, ensuring a smoother shopping experience.
+
+This dynamic handling of size data ensures the shopping bag logic remains error-free, adaptable, and capable of supporting a wide range of product configurations.

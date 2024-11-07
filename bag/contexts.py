@@ -10,8 +10,16 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, quantity in bag.items():
+    for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
+        # Check if the item includes size information
+        if isinstance(item_data, dict):
+            quantity = item_data['quantity']
+            size = item_data.get('size', None)  # Retrieve size if available
+        else:
+            quantity = item_data
+            size = None
+
         # Determine the effective price (discounted price if available)
         price = product.discount_price if product.discount_price else product.price
         subtotal = quantity * price
@@ -21,6 +29,7 @@ def bag_contents(request):
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+            'size': size,  # Include size if available
             'effective_price': price,  # Include effective price
             'subtotal': subtotal,     # Include subtotal for each item
         })
@@ -47,4 +56,3 @@ def bag_contents(request):
     }
 
     return context
-
