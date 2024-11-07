@@ -138,3 +138,25 @@ In this project, the subtotal for each item in the shopping bag is calculated in
     Flexibility: Passing precomputed values like subtotal to the context allows for easier customization in the future, such as adding taxes, discounts, or other price adjustments.
 
 This approach reflects a clean separation of concerns between business logic and presentation, ensuring the project remains scalable and maintainable.
+
+Issue: Toast Messages Displayed Incorrect Information
+
+Issue: Toast Messages Displayed Incorrect Information
+
+In the initial implementation, toast messages displayed incorrect or unclear information when users added, updated, or removed items from the shopping bag. Specifically, the messages referenced raw data from the session (e.g., item IDs or quantities) instead of meaningful details like the product's name. This caused confusion for users as they were shown numbers instead of the actual product names.
+Fix: Improved Toast Messaging
+
+The messages framework was updated to dynamically include the product's name and relevant details (e.g., size and quantity) in all user feedback. This involved:
+
+    Fetching the product name from the database (Product.objects.get(pk=item_id)).
+    Updating success and warning messages to use clear, user-friendly text.
+    Including size and quantity details where applicable for better context.
+
+This fix ensures that all toast messages provide accurate and meaningful feedback, enhancing the user experience. For example:
+
+    Before: Updated quantity to 2.
+    After: Updated 'Product Name' quantity to 2.
+
+Relevant Files
+
+    views.py: Adjusted logic for add_to_bag, adjust_bag, and remove_from_bag to include meaningful details in toast messages.
