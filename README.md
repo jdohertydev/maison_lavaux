@@ -104,3 +104,23 @@ The shopping bag functionality includes a robust solution for handling products 
     User-Friendly Experience: Users can add products to their bag seamlessly, whether the products include size options or not, ensuring a smoother shopping experience.
 
 This dynamic handling of size data ensures the shopping bag logic remains error-free, adaptable, and capable of supporting a wide range of product configurations.
+
+Quanity input script
+
+This JavaScript snippet provides dynamic management of product quantity inputs in the shopping bag. It ensures a smooth and user-friendly experience by:
+
+    Range Enforcement:
+        Prevents the quantity from going below 1 or above 99 by disabling the - (decrement) and + (increment) buttons when the limits are reached.
+
+    Page Load Handling:
+        Automatically checks and adjusts the state of the - and + buttons for all quantity inputs when the page loads.
+
+    Dynamic Updates:
+        Listens for changes in quantity inputs and updates the state of the - and + buttons accordingly.
+
+    Increment and Decrement Controls:
+        Allows users to increment or decrement the quantity using buttons. The current value is updated dynamically in the input field, and button states are adjusted.
+
+Why This is Useful
+
+This script enhances usability by preventing invalid quantities and provides immediate feedback through button state changes. It improves the shopping experience by making quantity adjustments seamless and intuitive.
