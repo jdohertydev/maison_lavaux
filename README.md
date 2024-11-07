@@ -124,3 +124,17 @@ This JavaScript snippet provides dynamic management of product quantity inputs i
 Why This is Useful
 
 This script enhances usability by preventing invalid quantities and provides immediate feedback through button state changes. It improves the shopping experience by making quantity adjustments seamless and intuitive.
+
+Approach to Subtotal Calculation
+
+In this project, the subtotal for each item in the shopping bag is calculated in the context.py file rather than using a custom Django template filter, as some implementations suggest. This decision was made for the following reasons:
+
+    Centralized Business Logic: Calculating the subtotal in context.py keeps all shopping bag-related logic in one place, making the codebase more maintainable and easier to debug.
+
+    Simpler Templates: By precomputing the subtotal, the templates only need to display the values passed in the context. This avoids adding unnecessary logic or filters to the templates, adhering to Django's philosophy of keeping templates simple and focused on presentation.
+
+    Efficiency: Computing the subtotal in the context avoids redundant calculations in the template rendering process, ensuring the application runs more efficiently, especially for large bags or complex templates.
+
+    Flexibility: Passing precomputed values like subtotal to the context allows for easier customization in the future, such as adding taxes, discounts, or other price adjustments.
+
+This approach reflects a clean separation of concerns between business logic and presentation, ensuring the project remains scalable and maintainable.
