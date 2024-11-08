@@ -9,7 +9,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
-
+    
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         # Check if the item includes size information
@@ -54,5 +54,5 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
-
+    
     return context
