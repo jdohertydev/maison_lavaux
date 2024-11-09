@@ -311,3 +311,9 @@ The improved OrderForm is more robust, user-friendly, and accessible. These enha
     Improve the user experience by guiding users with appropriate input types and placeholders.
     Support accessibility and responsiveness by hiding labels while ensuring fields remain intuitive.
     Provide a foundation for future improvements, such as dropdowns for countries or advanced validation rules.
+
+Issue with JavaScript and Why CSS Was Used
+
+Initially, JavaScript was implemented to manage custom increment and decrement buttons for quantity input fields. While it successfully controlled these buttons and enforced value limits, it did not disable or hide the browser's default spinner arrows for type="number" input fields. These spinner arrows are a built-in feature of modern browsers and are not directly addressed by JavaScript without additional logic, such as altering the input type or blocking arrow key events. However, such approaches add complexity and may lead to inconsistent behavior across different browsers.
+
+To resolve this, CSS was used to hide the spinner arrows. This solution is simpler, cleaner, and more reliable, as it directly targets the browser-specific pseudo-elements responsible for rendering the spinners. By using CSS, the UI was streamlined without compromising functionality, allowing the custom buttons to handle all user interactions seamlessly.
