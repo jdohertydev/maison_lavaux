@@ -295,3 +295,19 @@ a.category-badge>span.badge:hover {
         height: calc(100vh - 116px);
     }
 }
+
+/* 
+  Hide the spinner arrows for number input fields.
+  This ensures a cleaner design by removing the up/down controls,
+  but still allows users to manually type in values. 
+  Applies to modern browsers (Chrome, Safari, Edge, Opera, and Firefox).
+*/
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinner for WebKit-based browsers */
+    margin: 0; /* Remove any default margin */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Remove spinner for Firefox */
+}
