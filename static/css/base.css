@@ -309,5 +309,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type="number"] {
-    -moz-appearance: textfield; /* Remove spinner for Firefox */
+    -webkit-appearance: none; /* For WebKit-based browsers */
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: none; /* Standard property */
 }
