@@ -1,12 +1,10 @@
 from django.http import HttpResponse
-
 from .models import Order, OrderLineItem
 from products.models import Product
 
 import stripe
 import json
 import time
-
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -32,11 +30,11 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         # Retrieve the Charge object
-        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)  # Updated to fetch charge object
+        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
 
-        billing_details = stripe_charge.billing_details  # Updated: Use billing details from stripe_charge
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)  # Updated: Use amount from stripe_charge
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -86,6 +84,7 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
+                # Create order line items and adjust inventory
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
@@ -94,6 +93,9 @@ class StripeWH_Handler:
                             product=product,
                             quantity=item_data,
                         )
+                        # Adjust inventory
+                        product.stock_quantity -= item_data
+                        product.save()
                         order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
@@ -103,6 +105,9 @@ class StripeWH_Handler:
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            # Adjust inventory
+                            product.stock_quantity -= quantity
+                            product.save()
                             order_line_item.save()
             except Exception as e:
                 if order:
@@ -111,7 +116,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order and updated inventory in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
