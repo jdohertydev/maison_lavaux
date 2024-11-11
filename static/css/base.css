@@ -83,11 +83,11 @@ body {
 }
 
 #topnav .dropdown-menu {
-    background-color: black;
+    background-color: white;
 }
 
 #topnav .dropdown-menu a {
-    color: white !important;
+    color: black !important;
 }
 
 /* Button styles inside the navbar */
