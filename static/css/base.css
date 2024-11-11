@@ -52,6 +52,18 @@ body {
     color: white !important;
 }
 
+.btn-white {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid white; /* Optional: Adds a white border */
+}
+
+.btn-white:hover {
+    background-color: #f1f1f1; /* Subtle hover effect */
+
+}
+
+
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
