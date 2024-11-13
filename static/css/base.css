@@ -123,10 +123,12 @@ body {
 
 /* Main Nav Styles */
 
-#main-nav {
+#main-nav, .free-shipping-notice {
     background-color: #e00034;
 
 }
+
+
 
 #main-nav .nav-link {
     color: white !important;
@@ -242,6 +244,8 @@ a.category-badge>span.badge:hover {
     top: -10px;
     right: 36px;
 }
+
+
 
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
