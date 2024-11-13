@@ -1,11 +1,14 @@
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
-
 import stripe
 import json
 import time
+import logging
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -13,13 +16,44 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
+    def _send_confirmation_email(self, order):
+        """Send the user a confirmation email"""
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order}
+        ).strip()  # Remove extra whitespace or newlines
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {
+                'order': order,
+                'contact_email': settings.DEFAULT_FROM_EMAIL,
+                # Round totals to two decimal places
+                'order_total': round(order.order_total, 2),
+                'delivery_cost': round(order.delivery_cost, 2),
+                'grand_total': round(order.grand_total, 2),
+            }
+        )
+
+        try:
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [cust_email]
+            )
+        except Exception as e:
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error sending confirmation email: {e}")
+
     def handle_event(self, event):
         """
         Handle a generic/unknown/unexpected webhook event
         """
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
-            status=200)
+            status=200
+        )
 
     def handle_payment_intent_succeeded(self, event):
         """
@@ -81,9 +115,11 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                status=200)
+                status=200
+            )
         else:
             order = None
             try:
@@ -126,15 +162,18 @@ class StripeWH_Handler:
                             product.stock_quantity -= quantity
                             product.save()
                             order_line_item.save()
+                self._send_confirmation_email(order)
             except Exception as e:
                 if order:
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                    status=500)
+                    status=500
+                )
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order and updated inventory in webhook',
-            status=200)
+            status=200
+        )
 
     def handle_payment_intent_payment_failed(self, event):
         """
@@ -142,4 +181,5 @@ class StripeWH_Handler:
         """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
-            status=200)
+            status=200
+        )
