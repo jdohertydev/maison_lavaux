@@ -102,6 +102,11 @@ body {
     color: black !important;
 }
 
+.dropdown-item:active {
+    background-color: transparent !important; /* Remove the blue background */
+    color: inherit !important; /* Maintain the current text color */
+}
+
 /* Button styles inside the navbar */
 
 #topnav .btn {
