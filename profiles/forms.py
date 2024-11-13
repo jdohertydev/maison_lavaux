@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from .models import UserProfile
 
 
@@ -32,3 +33,31 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
+
+
+class UserUpdateForm(forms.ModelForm):
+    """
+    Form for updating user's name and email.
+    """
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes to user fields
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'email': 'Email Address',
+        }
+
+        for field in self.fields:
+            self.fields[field].widget.attrs['placeholder'] = placeholders[field]
+            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].label = False
+
+        # Set autofocus on the first_name field
+        self.fields['first_name'].widget.attrs['autofocus'] = True
