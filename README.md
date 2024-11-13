@@ -320,3 +320,7 @@ To resolve this, CSS was used to hide the spinner arrows. This solution is simpl
 
 
 {% if grand_total and not on_profile_page %} profile app p6
+
+Pre-Filled Read-Only Fields for Logged-In Users
+
+The contact form now includes a feature that automatically pre-fills the "Name" and "Email" fields for logged-in users. These fields are set to read-only, ensuring that user information remains consistent and cannot be altered unintentionally. This enhancement improves user experience by streamlining the form submission process while maintaining data integrity. The fields are visually greyed out to indicate they are non-editable, providing clear feedback to users.
