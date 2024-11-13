@@ -55,7 +55,7 @@
                 {% if product.stock_quantity > 5 %}
                     <p class="text-muted"><strong>In Stock:</strong> {{ product.stock_quantity }} items available</p>
                 {% elif product.stock_quantity > 0 %}
-                    <p class="text-warning"><strong>Hurry!</strong> Only {{ product.stock_quantity }} left in stock. Order soon!</p>
+                    <p class="text-muted"><strong>Hurry!</strong> Only {{ product.stock_quantity }} left in stock. Order soon!</p>
                 {% else %}
                     <p class="text-danger"><strong>Out of Stock</strong></p>
                 {% endif %}
@@ -95,7 +95,12 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            {% if product.stock_quantity > 0 %}
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            {% else %}
+                                <button class="btn btn-danger rounded-0 text-uppercase mt-5" disabled>Out of Stock</button>
+                            {% endif %}
+
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

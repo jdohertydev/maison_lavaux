@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-
 from products.models import Product
 
-# Create your views here.
 
 def view_bag(request):
     """ A view that renders the bag contents page """
@@ -14,18 +12,31 @@ def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity', 0))
     redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    size = request.POST.get('product_size', None)
     bag = request.session.get('bag', {})
 
+    # Validate stock availability
+    if quantity > product.stock_quantity:
+        messages.error(
+            request, f"Sorry, only {product.stock_quantity} of '{product.name}' are available."
+        )
+        return redirect(redirect_url)
+
     if size:
-        if item_id in list(bag.keys()):
-            if size in bag[item_id]['items_by_size'].keys():
+        if item_id in bag:
+            if size in bag[item_id]['items_by_size']:
                 bag[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f"Updated size {size.upper()} '{product.name}' quantity to {bag[item_id]['items_by_size'][size]}.")
+                if bag[item_id]['items_by_size'][size] > product.stock_quantity:
+                    messages.error(
+                        request, f"Sorry, only {product.stock_quantity} of '{product.name}' in size {size.upper()} are available."
+                    )
+                    bag[item_id]['items_by_size'][size] -= quantity
+                    return redirect(redirect_url)
+                messages.success(
+                    request, f"Updated size {size.upper()} '{product.name}' quantity to {bag[item_id]['items_by_size'][size]}."
+                )
             else:
                 bag[item_id]['items_by_size'][size] = quantity
                 messages.success(request, f"Added size {size.upper()} '{product.name}' to your bag.")
@@ -33,8 +44,14 @@ def add_to_bag(request, item_id):
             bag[item_id] = {'items_by_size': {size: quantity}}
             messages.success(request, f"Added size {size.upper()} '{product.name}' to your bag.")
     else:
-        if item_id in list(bag.keys()):
+        if item_id in bag:
             bag[item_id] += quantity
+            if bag[item_id] > product.stock_quantity:
+                messages.error(
+                    request, f"Sorry, only {product.stock_quantity} of '{product.name}' are available."
+                )
+                bag[item_id] -= quantity
+                return redirect(redirect_url)
             messages.success(request, f"Updated '{product.name}' quantity to {bag[item_id]}.")
         else:
             bag[item_id] = quantity
@@ -45,14 +62,19 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """ Adjust the quantity of the specified product to the specified amount """
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    quantity = int(request.POST.get('quantity', 0))
+    size = request.POST.get('product_size', None)
     bag = request.session.get('bag', {})
+
+    # Validate stock availability
+    if quantity > product.stock_quantity:
+        messages.error(
+            request, f"Sorry, only {product.stock_quantity} of '{product.name}' are available."
+        )
+        return redirect(reverse('view_bag'))
 
     if size:
         if quantity > 0:
@@ -76,13 +98,11 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """ Remove the item from the shopping bag """
 
     try:
         product = get_object_or_404(Product, pk=item_id)
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
+        size = request.POST.get('product_size', None)
         bag = request.session.get('bag', {})
 
         if size:
