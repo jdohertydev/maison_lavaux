@@ -177,6 +177,10 @@ a.category-badge>span.badge:hover {
     /* Increases shadow depth on hover to enhance the pop effect */
 }
 
+.card-img-top {
+    border-radius: 10px; /* Adds rounded corners for a softer look */  
+}
+
 /* Styling for original and discounted prices in product cards */
 
 /* Original price with strikethrough and muted color */
