@@ -28,7 +28,6 @@ class StripeWH_Handler:
             {
                 'order': order,
                 'contact_email': settings.DEFAULT_FROM_EMAIL,
-                # Round totals to two decimal places
                 'order_total': round(order.order_total, 2),
                 'delivery_cost': round(order.delivery_cost, 2),
                 'grand_total': round(order.grand_total, 2),
@@ -50,11 +49,13 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """Handle the payment_intent.succeeded webhook from Stripe"""
+        print(f"Webhook received: {event['type']}")
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
-        save_info = intent.metadata.save_info
+        print(f"Bag retrieved: {bag}")
 
+        save_info = intent.metadata.save_info
         shipping_details = intent.shipping
         grand_total = round(intent.amount / 100, 2)
 
@@ -65,9 +66,11 @@ class StripeWH_Handler:
 
         profile = None
         username = intent.metadata.username
+        print(f"Username from metadata: {username}")
         if username != 'AnonymousUser':
             try:
                 profile = UserProfile.objects.get(user__username=username)
+                print(f"UserProfile found for username: {username}")
                 if save_info:
                     profile.default_phone_number = shipping_details.phone
                     profile.default_country = shipping_details.address.country
@@ -78,19 +81,23 @@ class StripeWH_Handler:
                     profile.default_county = shipping_details.address.state
                     profile.save()
             except UserProfile.DoesNotExist:
-                profile = None  # Allow the order to proceed without a user profile
+                profile = None
+                print(f"No UserProfile found for username: {username}")
 
         # Check if the order already exists
         try:
             order = Order.objects.get(stripe_pid=pid)
-            # If the order already exists, return early
+            print(f"Order already exists: {order.stripe_pid}")
             self._send_confirmation_email(order)
+            # Ensure inventory is updated for existing orders
+            self._update_inventory(order, bag)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Order already exists',
                 status=200,
             )
         except Order.DoesNotExist:
-            pass
+            print(f"No existing order found for PID: {pid}")
+            order = None
 
         # Create the order and update inventory
         try:
@@ -110,32 +117,8 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                     grand_total=grand_total,
                 )
-                for item_id, item_data in json.loads(bag).items():
-                    product = Product.objects.select_for_update().get(id=item_id)
-                    if isinstance(item_data, int):
-                        if product.stock_quantity >= item_data:
-                            product.stock_quantity -= item_data
-                            product.save()
-                            OrderLineItem.objects.create(
-                                order=order,
-                                product=product,
-                                quantity=item_data,
-                            )
-                        else:
-                            raise ValueError(f"Not enough stock for product {product.id}")
-                    else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            if product.stock_quantity >= quantity:
-                                product.stock_quantity -= quantity
-                                product.save()
-                                OrderLineItem.objects.create(
-                                    order=order,
-                                    product=product,
-                                    quantity=quantity,
-                                    product_size=size,
-                                )
-                            else:
-                                raise ValueError(f"Not enough stock for product {product.id}, size {size}")
+                print(f"Order created: {order.id}")
+                self._update_inventory(order, bag)
         except Exception as e:
             if order:
                 order.delete()
@@ -150,6 +133,42 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]} | SUCCESS: Order created and inventory updated',
             status=200,
         )
+
+    def _update_inventory(self, order, bag):
+        """Update inventory based on the bag"""
+        print(f"Updating inventory for order {order.id}")
+        for item_id, item_data in json.loads(bag).items():
+            product = Product.objects.select_for_update().get(id=item_id)
+            print(f"Processing product {product.id}: Current stock {product.stock_quantity}")
+            if isinstance(item_data, int):
+                if product.stock_quantity >= item_data:
+                    product.stock_quantity -= item_data
+                    print(f"New stock for product {product.id}: {product.stock_quantity}")
+                    product.save()
+                    OrderLineItem.objects.create(
+                        order=order,
+                        product=product,
+                        quantity=item_data,
+                    )
+                else:
+                    print(f"Not enough stock for product {product.id}")
+                    raise ValueError(f"Not enough stock for product {product.id}")
+            else:
+                for size, quantity in item_data['items_by_size'].items():
+                    print(f"Processing size {size} for product {product.id}: Current stock {product.stock_quantity}")
+                    if product.stock_quantity >= quantity:
+                        product.stock_quantity -= quantity
+                        print(f"New stock for product {product.id}, size {size}: {product.stock_quantity}")
+                        product.save()
+                        OrderLineItem.objects.create(
+                            order=order,
+                            product=product,
+                            quantity=quantity,
+                            product_size=size,
+                        )
+                    else:
+                        print(f"Not enough stock for product {product.id}, size {size}")
+                        raise ValueError(f"Not enough stock for product {product.id}, size {size}")
 
     def handle_payment_intent_payment_failed(self, event):
         """Handle the payment_intent.payment_failed webhook from Stripe"""
