@@ -382,3 +382,77 @@ Future Improvements
     Optimized Logging: Replace verbose logs with more structured and configurable logging.
 
 This update ensures that the Stripe webhook handler is more reliable, scalable, and user-friendly. All fixes have been committed to the repository and tested extensively.
+
+Review feature
+
+Implementation Details
+1. Database Structure
+
+    Models:
+        Product: Modified to calculate the average rating dynamically from associated reviews.
+        Review: New model that stores product, user, rating, and comment. It includes a unique_together constraint to ensure a user can only review a product once.
+
+2. Views
+
+    Added views for the following operations:
+        add_review: Displays a form to add a review.
+        edit_review: Allows users to modify an existing review.
+        delete_review: Displays a confirmation page and deletes the review upon confirmation.
+
+3. Templates
+
+    Created three templates:
+        Add Review: Provides a user-friendly form with radio buttons for rating selection.
+        Edit Review: Displays the pre-filled form for review editing.
+        Delete Review: Confirmation page showing the review details before deletion.
+
+4. Forms
+
+    Created ReviewForm for adding and editing reviews.
+    Enhanced the rating field with radio buttons for intuitive selection.
+
+5. URL Routing
+
+    Updated products/urls.py to include routes for:
+        Adding a review: products/<product_id>/reviews/add/
+        Editing a review: products/<product_id>/reviews/<review_id>/edit/
+        Deleting a review: products/<product_id>/reviews/<review_id>/delete/
+
+6. Admin Integration
+
+    Updated the admin panel to manage reviews effectively:
+        Included Review in the admin panel.
+        Added inline editing of reviews under the product management interface.
+
+7. Front-End Integration
+
+    Updated the product detail page to include:
+        A review section with:
+            User reviews displayed in a styled list.
+            Buttons for editing and deleting reviews for the respective user.
+        A "Write a Review" button if the user hasn’t reviewed the product yet.
+
+User Flow
+
+    Viewing Reviews:
+        Users navigate to a product detail page and see existing reviews and overall product rating.
+    Adding a Review:
+        If a user hasn’t reviewed the product, they can click "Write a Review," fill out the form, and submit.
+    Editing a Review:
+        Users click "Edit" on their review, modify the details in the pre-filled form, and save changes.
+    Deleting a Review:
+        Users click "Delete" on their review, confirm the deletion, and remove it permanently.
+
+Validation and Security
+
+    Users can only edit or delete their own reviews.
+    Review input is validated to ensure the rating is within 0-5 and comments are optional but encouraged.
+    CSRF tokens are implemented for all forms to prevent cross-site request forgery attacks.
+
+Benefits of the Review Functionality
+
+    Encourages customer engagement and feedback.
+    Helps potential customers make informed purchasing decisions by reading authentic reviews.
+    Provides a clear and transparent mechanism for gathering product feedback.
+
+This feature is a robust addition to the platform, enhancing both user experience and product discoverability.

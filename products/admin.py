@@ -12,14 +12,16 @@ class ProductAdmin(admin.ModelAdmin):
         'stock_quantity',
         'is_active',
         'size',
-        'rating',
-        'gender',  # Display gender field
+        'rating',  # Display rating here
+        'gender',
         'created_at',
         'updated_at',
     )
     list_filter = ('category', 'is_active', 'gender')  # Filter options for category and active status
     search_fields = ('name', 'sku')  # Enable search by name and SKU
     ordering = ('sku',)
+    readonly_fields = ('rating',)  # Make rating visible but read-only in the detail view
+
 
 
 class CategoryAdmin(admin.ModelAdmin):
