@@ -456,3 +456,36 @@ Benefits of the Review Functionality
     Provides a clear and transparent mechanism for gathering product feedback.
 
 This feature is a robust addition to the platform, enhancing both user experience and product discoverability.
+
+Dynamic Product Rating System
+
+The product rating system has been enhanced to dynamically calculate and update the average rating based on user reviews. This ensures that the displayed rating is always accurate and reflects real user feedback.
+Key Features:
+
+    Real-time Updates: The product's average rating updates dynamically whenever a review is added, edited, or deleted.
+    Integration with Admin Panel: The updated rating is displayed in the Django admin interface for better product management.
+    Automatic Calculation: The average rating is calculated using Django signals (post_save and post_delete), ensuring seamless updates without manual intervention.
+
+Technical Implementation:
+
+    Signals Setup:
+        A post_save signal was implemented to update the product's rating whenever a review is saved.
+        A post_delete signal recalculates the rating when a review is deleted.
+
+    Model Adjustments:
+        The rating field in the Product model is marked as editable=False to enforce that it is calculated dynamically.
+
+    App Configuration:
+        The signals.py file is loaded in the ready method of the ProductsConfig class.
+
+How It Works:
+
+    When a review is created, updated, or deleted, the product's update_rating method is triggered via signals.
+    The method calculates the average rating based on all associated reviews.
+    The calculated rating is saved to the rating field in the Product model.
+
+Benefits:
+
+    Ensures the product rating reflects genuine user feedback in real-time.
+    Reduces manual workload for administrators.
+    Enhances user trust by displaying accurate product ratings.
