@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+rom django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Case, When, F, Q
 from django.db.models.functions import Lower
-from django.contrib.auth.decorators import login_required
+
 from .models import Product, Category, Review
-from .forms import ReviewForm
+from .forms import ProductForm, ReviewForm
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -139,3 +140,13 @@ def delete_review(request, product_id, review_id):
         'review': review,
         'product': review.product,
     })
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
