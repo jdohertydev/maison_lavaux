@@ -125,26 +125,29 @@
                             <strong>{{ review.user.username }}</strong>
                             <small class="text-muted ml-2">rated {{ review.rating }} / 5</small>
                         </h5>
-                        <p>{{ review.comment }}</p>
-                        <div class="review-buttons mt-2">
-                            {% if user.is_authenticated %}
-                        <a href="{% url 'edit_review' product.id review.id %}" class="btn btn-warning">
-                            Edit
-                        </a>
-                        <a href="{% url 'delete_review' product.id review.id %}" class="btn btn-danger">
-                            Delete
-                        </a>
-                        {% else %}
-                        <p class="text-muted">Please <a href="{% url 'account_login' %}">login</a> to review this product.</p>
-                        {% endif %}
-                        </div>
 
+                        <!-- Display review creation date -->
+                        <p class="text-muted">Posted on: {{ review.created_at|date:"F j, Y" }} </p>
+
+                        <!-- Review text with paragraphs -->
+                        {% for line in review.comment.splitlines %}
+                        {% if line %}
+                        <p>{{ line }}</p>
+                        {% endif %}
+                        {% endfor %}
+
+                        <div class="review-buttons mt-2">
+                            <a href="{% url 'edit_review' product.id review.id %}" class="btn btn-warning">Edit</a>
+                            <a href="{% url 'delete_review' product.id review.id %}" class="btn btn-danger">Delete</a>
+                        </div>
                     </div>
                 </li>
                 {% endfor %}
+
             </ul>
             {% else %}
-            <p class="text-muted">No reviews yet. Be the first to <a href="{% url 'add_review' product.id %}">write a review</a>!</p>
+            <p class="text-muted">No reviews yet. Be the first to <a href="{% url 'add_review' product.id %}">write a
+                    review</a>!</p>
             {% endif %}
         </div>
     </div>
