@@ -29,3 +29,10 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# Custom error handlers
+handler400 = "maison_lavaux.views.custom_400_view"
+handler403 = "maison_lavaux.views.custom_403_view"
+handler404 = "maison_lavaux.views.custom_404_view"
+handler500 = "maison_lavaux.views.custom_500_view"
