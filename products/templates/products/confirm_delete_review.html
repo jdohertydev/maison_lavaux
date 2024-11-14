@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Confirm Deletion</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Are you sure you want to delete your review for <strong>{{ product.name }}</strong>?</p>
+            <div class="review-details">
+                <p><strong>Rating:</strong> {{ review.rating }} / 5</p>
+                <p><strong>Comment:</strong> {{ review.comment }}</p>
+            </div>
+            <form method="POST" action="{% url 'delete_review' product.id review.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger rounded-0 text-uppercase mt-4">Yes, Delete</button>
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary rounded-0 text-uppercase mt-4">Cancel</a>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Product Details</p>
+            <ul class="list-unstyled">
+                <li><strong>Name:</strong> {{ product.name }}</li>
+                <li><strong>Category:</strong> {{ product.category.friendly_name }}</li>
+                <li><strong>Price:</strong> ${{ product.price }}</li>
+                <li><strong>Rating:</strong> {{ product.rating|default:"No rating yet" }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}

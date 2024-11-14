@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Edit Your Review for {{ product.name }}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Your Review</p>
+                <form class="mt-3" action="{% url 'edit_review' product.id review.id %}" method="POST" id="review-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="id_rating">Rating (0-5):</label>
+                        {% for choice in form.rating.field.choices %}
+                            <div class="form-check">
+                                <input type="radio" 
+                                       id="id_rating_{{ forloop.counter }}" 
+                                       name="rating" 
+                                       value="{{ choice.0 }}" 
+                                       class="form-check-input" 
+                                       {% if form.rating.value == choice.0 %}checked{% endif %}>
+                                <label for="id_rating_{{ forloop.counter }}" class="form-check-label">
+                                    {{ choice.1 }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        {{ form.rating.errors }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="id_comment">Review Comment:</label>
+                        {{ form.comment }}
+                        {{ form.comment.errors }}
+                    </div>
+                    
+                    <button class="btn btn-black rounded-0 text-uppercase float-right mt-4">Update Review</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Product Details</p>
+                <ul class="list-unstyled">
+                    <li><strong>Name:</strong> {{ product.name }}</li>
+                    <li><strong>Category:</strong> {{ product.category.friendly_name }}</li>
+                    <li><strong>Price:</strong> ${{ product.price }}</li>
+                    <li><strong>Rating:</strong> {{ product.rating|default:"No rating yet" }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
