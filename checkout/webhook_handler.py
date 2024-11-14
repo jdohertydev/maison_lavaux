@@ -140,35 +140,46 @@ class StripeWH_Handler:
         for item_id, item_data in json.loads(bag).items():
             product = Product.objects.select_for_update().get(id=item_id)
             print(f"Processing product {product.id}: Current stock {product.stock_quantity}")
+
             if isinstance(item_data, int):
-                if product.stock_quantity >= item_data:
-                    product.stock_quantity -= item_data
-                    print(f"New stock for product {product.id}: {product.stock_quantity}")
-                    product.save()
-                    OrderLineItem.objects.create(
+                # Single quantity items
+                order_line_item, created = OrderLineItem.objects.get_or_create(
+                    order=order,
+                    product=product,
+                    defaults={'quantity': item_data}
+                )
+                if not created:
+                    # If it exists, ensure the quantity matches item_data
+                    print(f"Order line item already exists for product {product.id}. Setting quantity to {item_data}.")
+                    order_line_item.quantity = item_data
+                    order_line_item.save()
+                else:
+                    print(f"Order line item created for product {product.id} with quantity {item_data}.")
+                # Adjust stock for the product
+                product.stock_quantity -= item_data
+                product.save()
+                print(f"Stock reduced for product {product.id}: {product.stock_quantity}")
+            else:
+                # Handle items with sizes
+                for size, quantity in item_data['items_by_size'].items():
+                    order_line_item, created = OrderLineItem.objects.get_or_create(
                         order=order,
                         product=product,
-                        quantity=item_data,
+                        product_size=size,
+                        defaults={'quantity': quantity}
                     )
-                else:
-                    print(f"Not enough stock for product {product.id}")
-                    raise ValueError(f"Not enough stock for product {product.id}")
-            else:
-                for size, quantity in item_data['items_by_size'].items():
-                    print(f"Processing size {size} for product {product.id}: Current stock {product.stock_quantity}")
-                    if product.stock_quantity >= quantity:
-                        product.stock_quantity -= quantity
-                        print(f"New stock for product {product.id}, size {size}: {product.stock_quantity}")
-                        product.save()
-                        OrderLineItem.objects.create(
-                            order=order,
-                            product=product,
-                            quantity=quantity,
-                            product_size=size,
-                        )
+                    if not created:
+                        # If it exists, ensure the quantity matches
+                        print(f"Order line item already exists for product {product.id}, size {size}. Setting quantity to {quantity}.")
+                        order_line_item.quantity = quantity
+                        order_line_item.save()
                     else:
-                        print(f"Not enough stock for product {product.id}, size {size}")
-                        raise ValueError(f"Not enough stock for product {product.id}, size {size}")
+                        print(f"Order line item created for product {product.id}, size {size} with quantity {quantity}.")
+                    # Adjust stock for the product
+                    product.stock_quantity -= quantity
+                    product.save()
+                    print(f"Stock reduced for product {product.id}, size {size}: {product.stock_quantity}")
+
 
     def handle_payment_intent_payment_failed(self, event):
         """Handle the payment_intent.payment_failed webhook from Stripe"""
