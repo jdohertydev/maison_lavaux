@@ -324,3 +324,61 @@ To resolve this, CSS was used to hide the spinner arrows. This solution is simpl
 Pre-Filled Read-Only Fields for Logged-In Users
 
 The contact form now includes a feature that automatically pre-fills the "Name" and "Email" fields for logged-in users. These fields are set to read-only, ensuring that user information remains consistent and cannot be altered unintentionally. This enhancement improves user experience by streamlining the form submission process while maintaining data integrity. The fields are visually greyed out to indicate they are non-editable, providing clear feedback to users.
+
+Updates and Fixes for Stripe Webhooks (Nov 14, 2024)
+Overview
+
+This morning's work focused on refining the Stripe webhook handler to address several critical issues related to order processing, inventory management, and admin functionality. These changes ensure a smoother user experience and improve backend accuracy.
+Key Issues Addressed
+
+    Duplicate Order Line Items in Admin:
+        Fixed a bug where order line items were being duplicated in the admin interface.
+        Ensured that existing line items are updated instead of creating duplicates when processing orders.
+
+    Inventory Management:
+        Resolved a critical issue where stock quantities were not being reduced correctly after order creation.
+        Implemented logic to accurately adjust stock levels for products, whether they are standard items or have specific sizes.
+
+    Order Line Item Quantities:
+        Updated logic to ensure the quantity of existing order line items is reset to the correct value, avoiding unintended accumulation.
+
+    User Profile Handling:
+        Improved handling of user profiles to update saved shipping information only when explicitly requested by the user.
+
+    Logging and Debugging:
+        Added detailed print statements and logging to track inventory updates and order processing in real-time, facilitating debugging and improving transparency.
+
+Steps Taken
+
+    Refactored _update_inventory Method:
+        Centralized logic for handling product stock updates and order line item creation.
+        Used get_or_create for order line items to handle both new and existing entries, updating quantities as needed.
+
+    Improved Stock Adjustments:
+        Ensured that product stock is reduced only once per order, with accurate calculations for single items and items with sizes.
+
+    Enhanced Webhook Logic:
+        Implemented robust error handling and rollback mechanisms to prevent partial orders or incorrect inventory updates.
+        Ensured that emails are sent to users only after all processing steps are successful.
+
+    Manual Testing:
+        Conducted thorough manual testing to verify fixes:
+            Placed orders with varying quantities.
+            Confirmed correct stock adjustments.
+            Checked admin interface for proper order line item behavior.
+
+Results
+
+    Bug-Free Admin Experience: Admins now see accurate order line items without duplication.
+
+    Accurate Inventory Management: Product stock updates correctly reflect user purchases, ensuring inventory integrity.
+
+    Improved User Experience: Users receive accurate order confirmations with proper details.
+
+Future Improvements
+
+    Unit Tests: Add automated tests for webhook handling and inventory updates to catch edge cases.
+    Error Notifications: Implement email or logging notifications for critical webhook errors.
+    Optimized Logging: Replace verbose logs with more structured and configurable logging.
+
+This update ensures that the Stripe webhook handler is more reliable, scalable, and user-friendly. All fixes have been committed to the repository and tested extensively.
