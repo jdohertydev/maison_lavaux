@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Review, Product, Category
 from django.core.exceptions import ValidationError
 
@@ -46,23 +47,33 @@ class ReviewForm(forms.ModelForm):
         return cleaned_data
 
 
+from django import forms
+from .models import Product, Category
+from .widgets import CustomClearableFileInput
+
 class ProductForm(forms.ModelForm):
     """
     Form for adding and editing products.
-    Dynamically updates the category choices.
     """
+    image = forms.ImageField(
+        label='Image',
+        required=False,
+        widget=CustomClearableFileInput
+    )
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['name', 'category', 'price', 'discount_price', 'description', 'stock_quantity', 
+                  'is_active', 'size', 'image']  # Explicitly list fields for better control
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Dynamically fetch category choices
         categories = Category.objects.all()
         friendly_names = [(category.id, category.get_friendly_name()) for category in categories]
-
         self.fields['category'].choices = friendly_names
-        # Add a consistent class to all fields
+
+        # Add consistent styling to all fields
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs.setdefault('class', 'border-black rounded-0')
+
