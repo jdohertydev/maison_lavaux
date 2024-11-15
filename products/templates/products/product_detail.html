@@ -136,14 +136,21 @@
                         {% endif %}
                         {% endfor %}
 
+                        <!-- Conditionally display buttons for the review owner -->
+                        {% if review.user == request.user %}
                         <div class="review-buttons mt-2">
                             <a href="{% url 'edit_review' product.id review.id %}" class="btn btn-warning">Edit</a>
                             <a href="{% url 'delete_review' product.id review.id %}" class="btn btn-danger">Delete</a>
                         </div>
+                        {% else %}
+                        <hr>
+                        <p class="text-muted mt-2">
+                            You can <a href="{% url 'add_review' product.id %}">write a review</a> if you purchased this product.
+                        </p>
+                        {% endif %}
                     </div>
                 </li>
                 {% endfor %}
-
             </ul>
             {% else %}
             <p class="text-muted">No reviews yet. Be the first to <a href="{% url 'add_review' product.id %}">write a
