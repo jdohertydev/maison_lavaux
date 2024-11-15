@@ -1,5 +1,6 @@
 from django import forms
 from .models import Review, Product, Category
+from django.core.exceptions import ValidationError
 
 class ReviewForm(forms.ModelForm):
     """
@@ -23,6 +24,26 @@ class ReviewForm(forms.ModelForm):
                 'placeholder': 'Write your review here...',
             }),
         }
+
+    def __init__(self, *args, **kwargs):
+        # Capture user and product from view to validate uniqueness
+        self.user = kwargs.pop('user', None)
+        self.product = kwargs.pop('product', None)
+        super().__init__(*args, **kwargs)
+
+    def clean(self):
+        """
+        Custom validation to prevent duplicate reviews by the same user for the same product.
+        """
+        cleaned_data = super().clean()
+
+        if not self.instance.pk:  # Ensure this is a new review, not an edit
+            if self.user and self.product:
+                # Check if a review already exists
+                if Review.objects.filter(user=self.user, product=self.product).exists():
+                    raise ValidationError("You have already submitted a review for this product.")
+
+        return cleaned_data
 
 
 class ProductForm(forms.ModelForm):

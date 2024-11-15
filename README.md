@@ -489,3 +489,14 @@ Benefits:
     Ensures the product rating reflects genuine user feedback in real-time.
     Reduces manual workload for administrators.
     Enhances user trust by displaying accurate product ratings.
+
+README Update
+Preventing Duplicate Reviews
+
+This update improves the review system by ensuring that users can submit only one review per product. Duplicate reviews were previously causing database integrity errors due to unique constraints on the Review model. By adding custom validation to the ReviewForm and updating the add_review view, this fix ensures:
+
+    A smoother user experience by informing users they have already reviewed the product.
+    Robust backend validation to avoid crashes or errors if a duplicate review is attempted.
+    Flexibility for users to edit their existing reviews instead of submitting multiple entries.
+
+This enhancement improves application stability and ensures fair and clean review management for all users.

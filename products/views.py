@@ -88,14 +88,25 @@ def add_review(request, product_id):
     """Add a new review for a product."""
     product = get_object_or_404(Product, pk=product_id)
 
+    # Check if the user has already reviewed this product
+    existing_review = Review.objects.filter(product=product, user=request.user).first()
+    if existing_review:
+        messages.error(request, "You have already reviewed this product.")
+        return redirect('product_detail', product_id=product.id)
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            review = form.save(commit=False)
-            review.product = product
-            review.user = request.user  # Assuming user authentication is in place
-            review.save()
-            return redirect('product_detail', product_id=product.id)
+            try:
+                review = form.save(commit=False)
+                review.product = product
+                review.user = request.user
+                review.save()
+                messages.success(request, "Thank you for your review!")
+                return redirect('product_detail', product_id=product.id)
+            except IntegrityError:
+                messages.error(request, "An error occurred while saving your review.")
+                return redirect('product_detail', product_id=product.id)
     else:
         form = ReviewForm()
 
