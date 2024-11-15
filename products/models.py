@@ -34,7 +34,6 @@ class Product(models.Model):
     stock_quantity = models.IntegerField(default=0)  # Track stock quantity for inventory management
     is_active = models.BooleanField(default=True)  # Indicates if the product is active
     size = models.CharField(max_length=50, null=True, blank=True)  # Perfume measurement size    
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the product is created
     updated_at = models.DateTimeField(auto_now=True)      # Timestamp for last modification
