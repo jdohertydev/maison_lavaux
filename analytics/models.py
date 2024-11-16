@@ -12,5 +12,8 @@ class SalesData(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp for when the record was created
     updated_at = models.DateTimeField(auto_now=True)  # Timestamp for the last update
 
+    class Meta:
+        verbose_name_plural = "Sales data"  # Correct the plural name
+
     def __str__(self):
         return f"Analytics for {self.product.name}"
