@@ -58,7 +58,6 @@
                 {% if request.user.is_superuser %}
                 <p class="mt-2">
                     <a href="{% url 'edit_product' product.id %}" class="btn btn-warning btn-sm">Edit</a>
-                    <!-- Delete Button triggers the modal -->
                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
                 </p>
                 {% endif %}
@@ -140,6 +139,8 @@
             <hr>
             <h2 class="logo-font mb-4">Reviews</h2>
             <hr>
+
+            <!-- Display Existing Reviews -->
             {% if reviews %}
             <ul class="list-unstyled">
                 {% for review in reviews %}
@@ -191,6 +192,21 @@
             </ul>
             {% else %}
             <p class="text-muted">No reviews yet. Be the first to <a href="{% url 'add_review' product.id %}">write a review</a>!</p>
+            {% endif %}
+
+            <!-- Button for Writing a Review -->
+            {% if request.user.is_authenticated %}
+                {% if not user_has_reviewed %}
+                <p class="text-muted mt-3">
+                    <a href="{% url 'add_review' product.id %}" class="btn btn-black rounded-0">Write a Review</a>
+                </p>
+                {% else %}
+                <p class="text-muted mt-3">You have already written a review for this product.</p>
+                {% endif %}
+            {% else %}
+            <p class="text-muted mt-3">
+                <a href="{% url 'account_login' %}?next={{ request.path }}" class="btn btn-black rounded-0">Login to Write a Review</a>
+            </p>
             {% endif %}
         </div>
     </div>

@@ -72,13 +72,18 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details and reviews """
-
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all()
+
+    # Determine if the logged-in user has already reviewed this product
+    user_has_reviewed = False
+    if request.user.is_authenticated:
+        user_has_reviewed = reviews.filter(user=request.user).exists()
 
     context = {
         'product': product,
         'reviews': reviews,
+        'user_has_reviewed': user_has_reviewed,
     }
 
     return render(request, 'products/product_detail.html', context)
