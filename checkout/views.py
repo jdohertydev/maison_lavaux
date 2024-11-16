@@ -9,6 +9,7 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
+from analytics.models import SalesData  # Import the SalesData model
 
 import stripe
 import json
@@ -41,13 +42,11 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        # Retrieve the shopping bag from session
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
-        # Collect and validate form data
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -61,29 +60,38 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            # Save the order and its line items
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag = json.dumps(bag)  # Save bag as JSON string
+            order.original_bag = json.dumps(bag)
             order.save()
             try:
                 for item_id, item_data in bag.items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        OrderLineItem.objects.create(
+                        line_item = OrderLineItem.objects.create(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
+                        # Update SalesData
+                        sales_data, created = SalesData.objects.get_or_create(product=product)
+                        sales_data.purchases += item_data
+                        sales_data.revenue_generated += product.price * item_data
+                        sales_data.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
-                            OrderLineItem.objects.create(
+                            line_item = OrderLineItem.objects.create(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            # Update SalesData
+                            sales_data, created = SalesData.objects.get_or_create(product=product)
+                            sales_data.purchases += quantity
+                            sales_data.revenue_generated += product.price * quantity
+                            sales_data.save()
             except Product.DoesNotExist:
                 messages.error(request, "One of the products in your bag wasn't found in our database. Please call us for assistance!")
                 order.delete()
@@ -95,7 +103,6 @@ def checkout(request):
             messages.error(request, 'There was an error with your form. Please double-check your information.')
 
     else:
-        # Render checkout page with Stripe integration
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
@@ -103,7 +110,7 @@ def checkout(request):
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
-        stripe_total = round(total * 100)  # Convert to cents
+        stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         try:
             intent = stripe.PaymentIntent.create(
