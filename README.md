@@ -500,3 +500,45 @@ This update improves the review system by ensuring that users can submit only on
     Flexibility for users to edit their existing reviews instead of submitting multiple entries.
 
 This enhancement improves application stability and ensures fair and clean review management for all users.
+
+README Update: Dynamic Tab Title Feature
+Dynamic Tab Titles for Improved User Engagement
+
+The dynamic tab title feature is designed to enhance user retention and engagement by changing the browser tab's title when a user navigates away. This subtle reminder can help draw users back to your site, which is particularly valuable for e-commerce platforms where attention and retention are critical to increasing conversions.
+How It Works
+
+    Visibility Detection: The feature leverages the visibilitychange event, which detects when a browser tab becomes hidden (inactive) or visible (active).
+    Title Change: When the tab is hidden, the page title changes to a predefined message (e.g., "Come back soon! 🛍️"). When the user returns to the tab, the original title is restored.
+
+Code Implementation
+
+The functionality is implemented in a separate JavaScript file for modularity and ease of maintenance.
+
+// Save the original title
+let originalTitle = document.title;
+
+// Listen for visibility change events
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        // Change the title when the tab is inactive
+        document.title = "Come back soon! 🛍️";
+    } else {
+        // Restore the original title when the tab is active again
+        document.title = originalTitle;
+    }
+});
+
+This script is stored in static/js/dynamic_title.js and included site-wide through the base.html template:
+
+{% block extra_js %}
+    <script src="{% static 'js/dynamic_title.js' %}"></script>
+{% endblock %}
+
+Why This Feature Is Useful
+
+    Improved Retention: Reminds users to return to your site, reducing the chances of them forgetting or abandoning their session.
+    Increased Conversions: Helps bring users back to their shopping cart or browsing session, potentially boosting sales.
+    Subtle and Non-Intrusive: Does not disrupt the user experience and only displays a message when the user leaves the tab.
+    Engaging Messaging: Allows creative and personalized messages, such as "Don’t forget your cart!" or "We miss you already!"
+
+By implementing this feature, your e-commerce site can stay top-of-mind for users and encourage them to re-engage, fostering better retention and conversion rates.
