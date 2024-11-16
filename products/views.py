@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Case, When, F, Q
 from django.db.models.functions import Lower
+from analytics.models import SalesData 
 
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
@@ -74,6 +75,11 @@ def product_detail(request, product_id):
     """ A view to show individual product details and reviews """
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all()
+
+    # Increment product views in SalesData
+    sales_data, created = SalesData.objects.get_or_create(product=product)
+    sales_data.views += 1
+    sales_data.save()
 
     # Determine if the logged-in user has already reviewed this product
     user_has_reviewed = False

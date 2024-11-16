@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
+from analytics.models import SalesData  # Import the model
 
 
 def view_bag(request):
@@ -16,6 +17,11 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     size = request.POST.get('product_size', None)
     bag = request.session.get('bag', {})
+
+    # Increment added_to_cart in SalesData
+    sales_data, created = SalesData.objects.get_or_create(product=product)
+    sales_data.added_to_cart += quantity
+    sales_data.save()
 
     # Validate stock availability
     if quantity > product.stock_quantity:
