@@ -32,7 +32,9 @@
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}
+    <script src="{% static 'js/dynamic_title.js' %}"></script>
+    {% endblock %}
 
     <title>Maison Lavaux {% block extra_title %}{% endblock %}</title>
 </head>
