@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h1>Analytics Dashboard</h1>
+
+<div>
+    <h2>Overview</h2>
+    <p><strong>Total Revenue:</strong> ${{ total_revenue|floatformat:2 }}</p>
+    <p><strong>Total Views:</strong> {{ total_views }}</p>
+</div>
+
+<div>
+    <h2>Top 5 Products by Purchases</h2>
+    <ul>
+        {% for product in top_products %}
+            <li>{{ product.product.name }} - {{ product.purchases }} purchases</li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
