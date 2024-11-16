@@ -580,3 +580,19 @@ Why This Improves the Code
         Maintains a consistent and professional design, aligning with modern web application standards.
 
 This update significantly improves the usability and reliability of deletion functionalities, ensuring that critical actions are always intentional and clear to the user.
+
+Product Review Section Summary
+
+We enhanced the product review section to improve its functionality and user experience. Key updates include:
+
+    Write a Review Button:
+        Added a conditional "Write a Review" button visible only to authenticated users who have not yet reviewed the product.
+        Users who have already submitted a review see a message indicating so, and unauthenticated users are prompted to log in.
+
+    Review Separation:
+        Introduced horizontal lines (<hr>) to visually separate each review, making the layout cleaner and more readable.
+
+    Delete Confirmation Modals:
+        Added modals for confirming review deletions, ensuring users cannot accidentally delete reviews without confirmation.
+
+These updates provide a more intuitive and polished interface, aligning with modern e-commerce standards.
