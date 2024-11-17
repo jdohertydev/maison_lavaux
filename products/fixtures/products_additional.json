@@ -1,0 +1,344 @@
+[
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730011",
+            "name": "Lavender Whisper",
+            "description": "A soothing floral fragrance with lavender, lilac, and a hint of mint.",
+            "category": 1,
+            "price": 57.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 16,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730012",
+            "name": "Tropical Sunset",
+            "description": "A vibrant fruity fragrance with notes of pineapple, passionfruit, and coconut.",
+            "category": 2,
+            "price": 60.0,
+            "discount_price": 54.0,
+            "rating": null,
+            "stock_quantity": 17,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730013",
+            "name": "Amber Nights",
+            "description": "A warm oriental fragrance with amber, cinnamon, and vanilla.",
+            "category": 3,
+            "price": 62.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 18,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730014",
+            "name": "Morning Dew",
+            "description": "A fresh aquatic fragrance with green notes and oceanic accents.",
+            "category": 9,
+            "price": 65.0,
+            "discount_price": 58.0,
+            "rating": null,
+            "stock_quantity": 19,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730015",
+            "name": "Zesty Lemon Zing",
+            "description": "A citrus burst with notes of lemon, bergamot, and grapefruit.",
+            "category": 8,
+            "price": 67.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 20,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730016",
+            "name": "Forest Retreat",
+            "description": "An earthy woody fragrance with cedarwood, pine, and musk.",
+            "category": 6,
+            "price": 70.0,
+            "discount_price": 62.0,
+            "rating": null,
+            "stock_quantity": 21,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730017",
+            "name": "Spiced Amber",
+            "description": "A spicy mix of amber, black pepper, and cardamom.",
+            "category": 7,
+            "price": 72.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 22,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730018",
+            "name": "Luxury Gold Gift Set",
+            "description": "An exclusive set with floral, citrus, and spicy fragrances.",
+            "category": 5,
+            "price": 75.0,
+            "discount_price": 66.0,
+            "rating": null,
+            "stock_quantity": 23,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730019",
+            "name": "Choco Dream",
+            "description": "A gourmand fragrance with cocoa, hazelnut, and sugar.",
+            "category": 10,
+            "price": 77.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 24,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5101730020",
+            "name": "Fresh Fields",
+            "description": "A refreshing blend of grass, lemon verbena, and mint.",
+            "category": 4,
+            "price": 80.0,
+            "discount_price": 70.0,
+            "rating": null,
+            "stock_quantity": 25,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730021",
+            "name": "Mystic Patchouli",
+            "description": "An exotic mix of patchouli, frankincense, and myrrh.",
+            "category": 3,
+            "price": 82.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 26,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730022",
+            "name": "Sea Breeze Gift Set",
+            "description": "An aquatic-themed gift set with oceanic and citrus notes.",
+            "category": 5,
+            "price": 85.0,
+            "discount_price": 74.0,
+            "rating": null,
+            "stock_quantity": 27,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730023",
+            "name": "Ocean Wave #23",
+            "description": "A marine-inspired scent with salt, algae, and lemon.",
+            "category": 9,
+            "price": 87.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 28,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730024",
+            "name": "Velvet Rose #24",
+            "description": "A luxurious rose fragrance with hints of peony and musk.",
+            "category": 1,
+            "price": 90.0,
+            "discount_price": 78.0,
+            "rating": null,
+            "stock_quantity": 29,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730025",
+            "name": "Tropical Bliss #25",
+            "description": "A lively fruity mix with mango, guava, and lychee.",
+            "category": 2,
+            "price": 92.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 30,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730026",
+            "name": "Oriental Spice #26",
+            "description": "A warm oriental blend of clove, cinnamon, and vanilla.",
+            "category": 3,
+            "price": 95.0,
+            "discount_price": 82.0,
+            "rating": null,
+            "stock_quantity": 31,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730027",
+            "name": "Aqua Bloom #27",
+            "description": "A fresh aquatic floral mix with water lily and lotus.",
+            "category": 9,
+            "price": 97.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 32,
+            "is_active": true,
+            "size": "50ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730028",
+            "name": "Citrus Fresh #28",
+            "description": "A citrusy fragrance with lime, bergamot, and orange peel.",
+            "category": 8,
+            "price": 100.0,
+            "discount_price": 86.0,
+            "rating": null,
+            "stock_quantity": 33,
+            "is_active": true,
+            "size": "75ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730029",
+            "name": "Woodland Escape #29",
+            "description": "A woody scent with oakmoss, sandalwood, and pine needles.",
+            "category": 6,
+            "price": 102.5,
+            "discount_price": null,
+            "rating": null,
+            "stock_quantity": 34,
+            "is_active": true,
+            "size": "100ml",
+            "created_at": "2024-01-01T00:00:00",
+            "updated_at": "2024-01-01T00:00:00"
+        }
+    }
+]
