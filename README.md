@@ -621,3 +621,25 @@ How the Issue Was Addressed
 Impact
 
 This change ensures the integrity and reliability of product data, improves system stability during integrations, and enhances the user experience for both admins and customers.
+
+Hero Section
+
+The homepage now features a visually appealing Hero Section designed to engage users immediately upon landing on the site. This section includes:
+
+    Full-Width Hero Image: A dynamic image covering the width of the viewport to create an immersive experience.
+    Overlay Design: A semi-transparent overlay ensures the text is legible while maintaining the image's visual impact.
+    Structure for Content: The hero section is structured to include a prominent heading, subheading, and a call-to-action button.
+
+Code Highlights:
+
+    HTML:
+        Hero section defined with div containers for image and overlay.
+        Placeholder for headings and a "Shop Now" button for user engagement.
+
+        Future Enhancements:
+
+    Dynamic Messaging: Add text transitions for marketing messages.
+    Interactive Button: Enhance the "Shop Now" button with hover effects or animations.
+    Responsive Design: Optimize the hero section for smaller screens and devices.
+
+This feature sets the stage for a visually engaging and user-friendly e-commerce experience.
