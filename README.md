@@ -596,3 +596,28 @@ We enhanced the product review section to improve its functionality and user exp
         Added modals for confirming review deletions, ensuring users cannot accidentally delete reviews without confirmation.
 
 These updates provide a more intuitive and polished interface, aligning with modern e-commerce standards.
+
+Critical Update: SKU Uniqueness Enforcement
+Description
+
+In this update, we added a unique constraint to the sku field in the Product model. This ensures that each product has a distinct SKU, a critical identifier used for inventory management, sales tracking, and integration with third-party systems.
+Reason for the Change
+
+Previously, the application allowed duplicate SKUs, which led to issues such as:
+
+    Inventory Management Conflicts: Multiple products with the same SKU made it difficult to track stock levels accurately.
+    System Integration Errors: Many external systems and APIs (e.g., payment processors, shipping systems) rely on SKU as a unique identifier. Duplicate SKUs caused data mismatches and operational failures.
+    User Confusion: Both admin users and customers faced difficulty distinguishing between products with the same SKU.
+
+How the Issue Was Addressed
+
+    Existing Data Cleanup:
+        Duplicate SKUs in the database were identified and resolved by appending unique identifiers to affected SKUs.
+    Database Schema Update:
+        A unique=True constraint was added to the sku field in the Product model to enforce SKU uniqueness at the database level.
+    Validation Logic:
+        Additional validation was introduced in the model to ensure programmatically created or updated products adhere to the uniqueness rule.
+
+Impact
+
+This change ensures the integrity and reliability of product data, improves system stability during integrations, and enhances the user experience for both admins and customers.
