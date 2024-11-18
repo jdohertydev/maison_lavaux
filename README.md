@@ -643,3 +643,20 @@ Code Highlights:
     Responsive Design: Optimize the hero section for smaller screens and devices.
 
 This feature sets the stage for a visually engaging and user-friendly e-commerce experience.
+
+README Update
+About Page Enhancements
+
+The About page was updated with scoped styles to prevent conflicts with global styles from the base CSS. By introducing a unique wrapper class (.about-page), all styles for the About page are isolated and apply exclusively to this page. This approach ensures:
+
+    Modular Design: Scoped styles for better maintainability.
+    Conflict Resolution: Avoids overriding global styles like .hero-section.
+    Improved Readability: Easier to locate and modify About page styles.
+
+Key updates include:
+
+    Scoped styles for the hero section, profile image, and other page components.
+    Adjusted HTML structure by adding a .about-page wrapper for consistent style application.
+    Ensured responsive and clean layout across different devices.
+
+This change aligns with modern CSS practices, improving scalability and maintainability of the project.
