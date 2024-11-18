@@ -1,0 +1,48 @@
+/* Namespace all styles under .about-page */
+.about-page .profile-image {
+    max-width: 300px;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.about-page .profile-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.about-page .caption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6c757d; /* Subtle gray text */
+    font-style: italic;
+    text-align: center;
+}
+
+.about-page .header-container {
+    margin-top: 120px;
+}
+
+/* Reset default browser styles for section */
+.about-page section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Add spacing specifically for sections if needed */
+.about-page .hero-section {
+    margin-bottom: 1rem; /* Space after hero section */
+    position: static; /* Override the global relative positioning */
+    height: auto; /* Allow content to dictate height */
+    overflow: visible; /* Remove hidden overflow */
+}
+
+.about-page .hero-journey {
+    margin-top: 3rem; /* Space before Our Story */
+    margin-bottom: 3rem; /* Optional space after Our Story */
+}
+
+.about-page .call-to-action {
+    margin-top: 3rem; /* Space before Call to Action */
+}

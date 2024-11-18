@@ -1,25 +1,81 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container-fluid bg-light py-5 header-container">
+    <div class="container text-center">
+        <h1 class="display-4 logo-font">About Us</h1>
+        <p class="lead text-muted">Discover the journey behind Maison Lavaux</p>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">About Us</h2>
-                <p>Welcome to our company! Here's what we're all about.</p>
+<div class="container my-5 about-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="row align-items-center">
+            <!-- Profile Image Section -->
+            <div class="col-12 col-lg-6 text-center">
+                <div class="profile-wrapper">
+                    <img src="{% static 'images/about/antoine-lambert-maison-lavaux.jpg' %}" 
+                         alt="Antoine Lambert" 
+                         class="profile-image">
+                    <p class="caption">Antoine Lambert - Founder of Maison Lavaux</p>
+                </div>
+            </div>
+            <!-- Text Section -->
+            <div class="col-12 col-lg-6">
+                <h2 class="mb-4">Meet Antoine Lambert</h2>
+                <p class="lead">
+                    Antoine Lambert, the visionary behind <strong>Maison Lavaux</strong>, has dedicated his life 
+                    to crafting exceptional scents that inspire and captivate. With a passion rooted in tradition and a 
+                    commitment to excellence, Antoine has transformed <strong>Maison Lavaux</strong> into a symbol of 
+                    sophistication and artistry in the world of perfumes.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- The Hero's Journey -->
+    <section class="hero-journey">
+        <div class="row">
+            <div class="col">
+                <h3 class="mb-3">Our Story</h3>
+                <p>
+                    Antoine Lambert grew up in the picturesque region of Lavaux, surrounded by lush vineyards and the
+                    intoxicating scents of blooming flowers. From a young age, he felt drawn to the world of fragrances,
+                    spending countless hours blending natural essences from his family garden.
+                </p>
+                <p>
+                    However, his journey was not without challenges. Leaving his small village, Antoine traveled to Paris to
+                    learn the craft of perfumery. There, he faced stiff competition and initial failures, but he remained
+                    undeterred. Through perseverance, he honed his craft and began creating scents that resonated deeply
+                    with emotions and memories.
+                </p>
+                <p>
+                    Maison Lavaux was born from this vision. Today, Antoine Lambert and his team continue to create perfumes
+                    that tell stories, bringing the essence of Lavaux to customers worldwide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="call-to-action text-center">
+        <div class="row">
+            <div class="col">
+                <h4>Experience the Essence of Maison Lavaux</h4>
+                <p>Explore our exclusive range of perfumes and let your senses embark on a journey.</p>
+                <a href="{% url 'products' %}" class="btn btn-black rounded-0 text-uppercase">Shop Now</a>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
