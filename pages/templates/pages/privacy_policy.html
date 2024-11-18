@@ -1,15 +1,27 @@
-<!-- pages/templates/pages/privacy_policy.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Privacy Policy</title>
-</head>
-<body>
-    <header>{% include 'partials/header.html' %}</header>
-    <main>
-        <h1>Privacy Policy</h1>
-        <p>We value your privacy. Here’s how we collect, use, and protect your data...</p>
-    </main>
-    <footer>{% include 'partials/footer.html' %}</footer>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Privacy Policy</h2>
+                <p>This is our privacy policy.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+{% endblock %}
