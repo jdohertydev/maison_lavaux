@@ -660,3 +660,27 @@ Key updates include:
     Ensured responsive and clean layout across different devices.
 
 This change aligns with modern CSS practices, improving scalability and maintainability of the project.
+
+Explanation of the Code:
+
+    Imports:
+        The necessary models (Product, SalesData) and Django functions like render, random.sample, and Count are imported.
+
+    Product Querying:
+        new_in_products: Fetches the 4 most recently added active products from the last 30 days.
+        for_him_products: Fetches the 4 most recent men's products (gender='M').
+        for_her_products: Fetches the 4 most recent women's products (gender='W').
+        most_popular_products: Uses Count to annotate products with their total views from the SalesData model and orders by views in descending order.
+        highest_rated_products: Fetches the 4 highest-rated active products by rating.
+        random_products: Selects 4 random products from the database.
+
+    Context:
+        The context dictionary passes all the product sections to the template (index.html) for rendering.
+
+    Rendering the Template:
+        The render() function returns the context to index.html, where it will be displayed.
+
+Final Notes:
+
+    The home view aggregates products for different sections based on various criteria like creation date, gender, views, ratings, and randomness.
+    The template (index.html) is responsible for displaying these products in a user-friendly way across various sections.
