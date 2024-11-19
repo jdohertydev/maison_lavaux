@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-c=bzdt4cb$o=xe2cmgjj31(h!a*e9j%e^m(%6m13ba)w@r*+s1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['ckz8780-maison-lavaux.herokuapp.com','8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -127,13 +128,17 @@ WSGI_APPLICATION = 'maison_lavaux.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
