@@ -32,7 +32,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # DEBUG = 'DEVELOPMENT' in os.environ.
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com','8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    '.herokuapp.com',  # Allows any subdomain on Heroku
+    '8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net',  # Specific Code Institute IDE URL
+    'localhost',  # Localhost for development
+    '127.0.0.1'  # Loopback IP for local use
+]
+
 
 
 # Application definition
