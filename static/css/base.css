@@ -250,6 +250,12 @@ a.category-badge>span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    
+}
+
+.btt-link:hover {
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 /* ------------------------------- bootstrap toasts */
