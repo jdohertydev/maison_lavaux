@@ -1,1 +1,1 @@
-web: gunicorn bmaison-lavaux.wsgi:application
+web: gunicorn maison-lavaux.wsgi:application
