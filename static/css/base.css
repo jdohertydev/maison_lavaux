@@ -275,6 +275,28 @@ a.category-badge>span.badge:hover {
     height: 2px;
 }
 
+.dynamic-message-container {
+    height: 50px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dynamic-message {
+    opacity: 0; /* Ensure it's initially hidden */
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    text-align: center;
+    font-size: 3rem; /* Adjust size */
+    color: white;
+    z-index: 1; /* Ensure it appears above the background */
+}
+
+.dynamic-message.active {
+    opacity: 1; /* Fully visible when active */
+    font-size: 3rem; /* Adjust size */
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
