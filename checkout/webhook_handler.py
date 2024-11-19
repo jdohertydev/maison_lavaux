@@ -136,45 +136,49 @@ class StripeWH_Handler:
 
     def _update_inventory(self, order, bag):
         """Update inventory based on the bag"""
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.info(f"Updating inventory for order {order.id}")
-
-        try:
-            bag_data = json.loads(bag)
-            logger.info(f"Bag contents: {bag_data}")
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse bag JSON: {bag}, Error: {e}")
-            raise ValueError("Invalid bag format")
-
-        for item_id, item_data in bag_data.items():
-            try:
-                product = Product.objects.select_for_update().get(id=item_id)
-                logger.info(f"Processing product {product.id}: Current stock {product.stock_quantity}")
-            except Product.DoesNotExist:
-                logger.error(f"Product with ID {item_id} does not exist")
-                raise
+        print(f"Updating inventory for order {order.id}")
+        for item_id, item_data in json.loads(bag).items():
+            product = Product.objects.select_for_update().get(id=item_id)
+            print(f"Processing product {product.id}: Current stock {product.stock_quantity}")
 
             if isinstance(item_data, int):
                 # Single quantity items
-                if product.stock_quantity is None or product.stock_quantity < item_data:
-                    logger.error(f"Insufficient stock for product {product.id}. "
-                                f"Available: {product.stock_quantity}, Requested: {item_data}")
-                    raise ValueError("Insufficient stock")
+                order_line_item, created = OrderLineItem.objects.get_or_create(
+                    order=order,
+                    product=product,
+                    defaults={'quantity': item_data}
+                )
+                if not created:
+                    # If it exists, ensure the quantity matches item_data
+                    print(f"Order line item already exists for product {product.id}. Setting quantity to {item_data}.")
+                    order_line_item.quantity = item_data
+                    order_line_item.save()
+                else:
+                    print(f"Order line item created for product {product.id} with quantity {item_data}.")
+                # Adjust stock for the product
                 product.stock_quantity -= item_data
                 product.save()
-                logger.info(f"Updated stock for product {product.id}: New stock {product.stock_quantity}")
+                print(f"Stock reduced for product {product.id}: {product.stock_quantity}")
             else:
                 # Handle items with sizes
                 for size, quantity in item_data['items_by_size'].items():
-                    if product.stock_quantity is None or product.stock_quantity < quantity:
-                        logger.error(f"Insufficient stock for product {product.id}, size {size}. "
-                                    f"Available: {product.stock_quantity}, Requested: {quantity}")
-                        raise ValueError("Insufficient stock")
+                    order_line_item, created = OrderLineItem.objects.get_or_create(
+                        order=order,
+                        product=product,
+                        product_size=size,
+                        defaults={'quantity': quantity}
+                    )
+                    if not created:
+                        # If it exists, ensure the quantity matches
+                        print(f"Order line item already exists for product {product.id}, size {size}. Setting quantity to {quantity}.")
+                        order_line_item.quantity = quantity
+                        order_line_item.save()
+                    else:
+                        print(f"Order line item created for product {product.id}, size {size} with quantity {quantity}.")
+                    # Adjust stock for the product
                     product.stock_quantity -= quantity
                     product.save()
-                    logger.info(f"Updated stock for product {product.id}, size {size}: New stock {product.stock_quantity}")
-
+                    print(f"Stock reduced for product {product.id}, size {size}: {product.stock_quantity}")
 
 
     def handle_payment_intent_payment_failed(self, event):
