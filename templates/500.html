@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
-<div class="container text-center">
-    <h1>500 - Something Went Up in Smoke</h1>
-    <p>Oh no! It seems our perfumery's workshop has encountered an unexpected issue. The blend isn't quite right!</p>
-    <p>Our team is working to fix it. In the meantime, feel free to <a href="{% url 'contact' %}">contact us</a> or browse our <a href="{% url 'products' %}">collection</a>.</p>
-    <a href="{% url 'home' %}" class="btn btn-black rounded-0 text-uppercase mt-4">Return to Maison Lavaux</a>
-</div>
+<hr>
+<h2 class="logo-font mb-4">500 - Something Went Up in Smoke</h2>
+<hr>
+<p>Oh no! It seems our perfumery's workshop has encountered an unexpected issue. The blend isn't quite right!</p>
+<p>Our team is working to fix it. In the meantime, feel free to <a href="{% url 'contact' %}">contact us</a> or browse our <a href="{% url 'products' %}">collection</a>.</p>
+
+<a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Return to Maison Lavaux</a>
 {% endblock %}

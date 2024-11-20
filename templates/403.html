@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
+
+
 {% block content %}
-<div class="container text-center">
-    <h1>403 - Access Denied</h1>
-    <p>It looks like this area is reserved for authorized noses only. Unfortunately, you don't have permission to explore this scent.</p>
-    <p>If you think this is a mistake, please <a href="{% url 'contact' %}">contact us</a>.</p>
-    <a href="{% url 'home' %}" class="btn btn-black rounded-0 text-uppercase mt-4">Return to Maison Lavaux</a>
-</div>
+<hr>
+<h2 class="logo-font mb-4">403 - Access Denied</h2>
+<hr>
+<p>It looks like this area is reserved for authorized noses only. Unfortunately, you don't have permission to explore this scent.</p>
+<p>If you think this is a mistake, please <a href="{% url 'contact' %}">contact us</a>.</p>
+
+<a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Return to Maison Lavaux</a>
 {% endblock %}
