@@ -72,7 +72,13 @@
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <i class="fas fa-user fa-lg"></i>
-                                <p class="my-0">My Account</p>
+                                <p class="my-0">
+                                    {% if request.user.is_authenticated %}
+                                    {{ request.user.username }}
+                                    {% else %}
+                                    My Account
+                                    {% endif %}
+                                </p>
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -88,6 +94,7 @@
                             {% endif %}
                         </div>
                     </li>
+
 
                     <!-- Shopping Bag -->
                     <li class="list-inline-item">
@@ -167,13 +174,17 @@
                 <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
                     <h5 class="text-decoration-underline"><strong>Follow Us</strong></h5>
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://facebook.com" target="_blank" class="text-white" rel="noopener noreferrer"><i class="fab fa-facebook fa-lg"></i></a></li>
-                        <li class="list-inline-item"><a href="https://twitter.com" target="_blank" class="text-white" rel="noopener noreferrer"><i class="fab fa-twitter fa-lg"></i></a></li>
-                        <li class="list-inline-item"><a href="https://instagram.com" target="_blank" class="text-white" rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i></a></li>
-                        <li class="list-inline-item"><a href="https://linkedin.com" target="_blank" class="text-white" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="https://facebook.com" target="_blank" class="text-white"
+                                rel="noopener noreferrer"><i class="fab fa-facebook fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com" target="_blank" class="text-white"
+                                rel="noopener noreferrer"><i class="fab fa-twitter fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="https://instagram.com" target="_blank" class="text-white"
+                                rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="https://linkedin.com" target="_blank" class="text-white"
+                                rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a></li>
                     </ul>
                 </div>
-                
+
 
                 <!-- Newsletter Section -->
                 <div class="col-12 col-md-4 text-center text-md-end">
