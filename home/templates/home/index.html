@@ -330,5 +330,10 @@
     </a>
 </div>
 
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/dynamic-messages.js' %}"></script>
+{% endblock %}
+
 {% endblock %}
 
