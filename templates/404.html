@@ -1,13 +1,42 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% block extra_css %}
+
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-<hr>
-<h2 class="logo-font mb-4">404 - Fragrance Not Found</h2>
-<hr>
-<p>Oh no! You've wandered into a cloud of mystery. This page is as elusive as the perfect scent!</p>
-<p>Why not explore our collection instead? Perhaps you'll discover something even better than what you were looking for.</p>
-<p>If you need assistance, feel free to <a href="{% url 'contact' %}">contact us</a>.</p>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">404 - Fragrance Not Found</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6 rounded-4 bg-white py-3 mb-3">
+                <p>Oh no! You've wandered into a cloud of mystery. This page is as elusive as the perfect scent!</p>
+                <p>Why not explore our collection instead? Perhaps you'll discover something even better than what you were looking for.</p>
+                <p>If you need assistance, feel free to <a href="{% url 'contact' %}">contact us</a>.</p>
+                <div class="text-end mt-3">
+                    <a class="btn btn-outline-black rounded-0 text-uppercase" href="{% url 'home' %}">Return to Maison Lavaux</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
-<a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Return to Maison Lavaux</a>
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static '404/js/404.js' %}"></script>
 {% endblock %}
