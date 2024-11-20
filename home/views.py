@@ -2,6 +2,7 @@ from django.shortcuts import render
 from products.models import Product
 import random
 from django.db.models import Count
+from django.db.models import Sum
 
 def home(request):
     """ A view to display homepage with various product sections """
@@ -15,10 +16,10 @@ def home(request):
     # For Her Section (products for women)
     for_her_products = Product.objects.filter(gender='W', is_active=True).order_by('-created_at')[:4]
 
-    # Most Popular Section (based on views or sales)
+    # Get top 4 products by revenue generated
     most_popular_products = Product.objects.annotate(
-        views_count=Count('sales_data__views')
-    ).order_by('-views_count')[:4]
+        total_revenue=Sum('sales_data__revenue_generated')  # Sum revenue for each product
+    ).order_by('-total_revenue')[:4]  # Order by highest revenue and limit to 4
 
     # Highest Rated Section (products with the highest ratings)
     highest_rated_products = Product.objects.filter(rating__isnull=False, is_active=True).order_by('-rating')[:4]

@@ -26,7 +26,7 @@ class RevenueFilter(admin.SimpleListFilter):
 class SalesDataAdmin(admin.ModelAdmin):
     list_display = (
         'product', 'views', 'purchases', 'added_to_cart',
-        'revenue_generated', 'highlight_status', 'updated_at'
+        'get_product_rating', 'revenue_generated', 'highlight_status', 'updated_at'
     )
     list_filter = ('updated_at', RevenueFilter)
     search_fields = ('product__name',)
@@ -41,6 +41,13 @@ class SalesDataAdmin(admin.ModelAdmin):
         return "Regular"
 
     highlight_status.short_description = "Status"
+
+    def get_product_rating(self, obj):
+        """Fetch the product rating from the Product model."""
+        return obj.product.rating
+
+    get_product_rating.short_description = "Rating"
+    get_product_rating.admin_order_field = 'product__rating'  # Enable sorting by product rating
 
 
 admin.site.register(SalesData, SalesDataAdmin)
