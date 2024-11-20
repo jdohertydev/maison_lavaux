@@ -10,13 +10,19 @@ from .forms import ContactForm
 import os
 
 
-def  contact_view(request):
+def contact_view(request):
     """
     Handles creation of contact submissions.
     Saves the submission to the database and sends an email to the admin.
     """
     # Retrieve admin email from environment variables
     admin_email = os.environ.get("EMAIL_ADMIN_ADDRESS")
+
+    # Meta description for the contact page
+    meta_description = (
+        "Get in touch with Maison Lavaux. Reach out for inquiries, support, or feedback. "
+        "We aim to respond within two working days."
+    )
 
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -59,5 +65,8 @@ def  contact_view(request):
 
     # Render the contact page
     template = "contact/contact.html"
-    context = {"form": form}
+    context = {
+        "form": form,
+        "meta_description": meta_description,  # Pass meta description to the template
+    }
     return render(request, template, context)

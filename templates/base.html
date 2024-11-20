@@ -4,11 +4,13 @@
 <html lang="en">
 
 <head>
-    {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% endblock %}
+        {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="{% block meta_description %}Maison Lavaux offers hand-crafted, boutique fragrances made in Paris. Discover our unique, original perfumes designed for every occasion.{% endblock %}">
+        {% endblock %}
+    
 
     {% block extra_meta %}{% endblock %}
 
@@ -123,7 +125,7 @@
 
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Enjoy Free Delivery on All Orders Over ${{ free_delivery_threshold }}"</h4>
+                <h4 class="logo-font my-1">Enjoy Free Delivery on All Orders Over ${{ free_delivery_threshold }}</h4>
             </div>
         </div>
     </header>

@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta_description %}
+Discover {{ product.name }} by Maison Lavaux. A luxurious {{ product.category.friendly_name }} handcrafted in Paris. {{ product.description|truncatewords:20 }}
+{% endblock %}
+
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">

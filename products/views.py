@@ -23,6 +23,7 @@ def all_products(request):
     categories = None
     sortkey = None
     direction = None
+    meta_description = "Browse Maison Lavaux's collection of handcrafted perfumes. Discover unique scents for men and women, including our bestsellers and new arrivals."
 
     # Handle sorting
     if request.GET:
@@ -48,6 +49,7 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+            meta_description = f"Explore our {', '.join([cat.friendly_name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
 
         # Handle search queries
         if 'q' in request.GET:
@@ -58,6 +60,7 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+            meta_description = f"Search results for '{query}'. Discover handcrafted perfumes by Maison Lavaux."
 
     # Context for the template
     current_sorting = f'{sortkey}_{direction}' if sortkey else 'None_None'
@@ -67,9 +70,11 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'meta_description': meta_description,
     }
 
     return render(request, 'products/products.html', context)
+
 
 def product_detail(request, product_id):
     """ A view to show individual product details and reviews """
@@ -86,10 +91,14 @@ def product_detail(request, product_id):
     if request.user.is_authenticated:
         user_has_reviewed = reviews.filter(user=request.user).exists()
 
+    # Meta description
+    meta_description = f"Discover {product.name} by Maison Lavaux. Handcrafted in Paris, this luxurious fragrance offers sophistication and elegance."
+
     context = {
         'product': product,
         'reviews': reviews,
         'user_has_reviewed': user_has_reviewed,
+        'meta_description': meta_description,
     }
 
     return render(request, 'products/product_detail.html', context)
