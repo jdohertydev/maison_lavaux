@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import SalesData
-
+from products.models import Product
+from django.db.models import F
 
 class RevenueFilter(admin.SimpleListFilter):
     title = 'Revenue Range'
@@ -31,6 +32,21 @@ class SalesDataAdmin(admin.ModelAdmin):
     list_filter = ('updated_at', RevenueFilter)
     search_fields = ('product__name',)
     ordering = ('-views',)
+
+    def get_queryset(self, request):
+        """
+        Override the queryset to ensure all products appear in the admin,
+        even if they don't have associated SalesData.
+        """
+        qs = super().get_queryset(request)
+        # Fetch all products
+        all_products = Product.objects.filter(is_active=True)
+        
+        # Ensure SalesData exists for all active products
+        for product in all_products:
+            SalesData.objects.get_or_create(product=product)
+
+        return qs
 
     def highlight_status(self, obj):
         """Highlight top-selling or trending products."""
