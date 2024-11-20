@@ -4,13 +4,14 @@
 <html lang="en">
 
 <head>
-        {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="{% block meta_description %}Maison Lavaux offers hand-crafted, boutique fragrances made in Paris. Discover our unique, original perfumes designed for every occasion.{% endblock %}">
-        {% endblock %}
-    
+    {% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="{% block meta_description %}Maison Lavaux offers hand-crafted, boutique fragrances made in Paris. Discover our unique, original perfumes designed for every occasion.{% endblock %}">
+    {% endblock %}
+
 
     {% block extra_meta %}{% endblock %}
 
@@ -44,7 +45,7 @@
     <title>Maison Lavaux {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="container-fluid fixed-top px-0">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
@@ -128,34 +129,34 @@
             </div>
         </div>
     </header>
-
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
+    <main class="flex-grow-1">
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
-        {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %}
 
-    {% block page_header %}{% endblock %}
-    {% block content %}{% endblock %}
+        {% block page_header %}{% endblock %}
+        {% block content %}{% endblock %}
 
-    {% block postloadjs %}
-    <script>
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
-
+        {% block postloadjs %}
+        <script>
+            $('.toast').toast('show');
+        </script>
+        {% endblock %}
+    </main>
     <!-- Footer -->
     <footer class="bg-black text-white py-4">
         <div class="container">
