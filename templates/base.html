@@ -105,7 +105,8 @@
                             <div class="text-center">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
                                 <p class="my-0">
-                                    {% if grand_total %} ${{grand_total|floatformat:2|intcomma }} {% else %} $0.00 {% endif %}
+                                    {% if grand_total %} ${{grand_total|floatformat:2|intcomma }} {% else %} $0.00
+                                    {% endif %}
                                 </p>
                             </div>
                         </a>
@@ -187,27 +188,32 @@
                     </ul>
                 </div>
 
-
                 <!-- Newsletter Section -->
                 <div class="col-12 col-md-4 text-center text-md-end">
                     <h5 class="text-decoration-underline"><strong>Newsletter</strong></h5>
-                    <form action="#" method="post" target="_blank" onsubmit="return false;">
+                    <form
+                        action="https://codeinstitute-ide.us7.list-manage.com/subscribe/post?u=508c37a5297f14e241599eab3&amp;id=e2529a5349&amp;f_id=00e4a7e0f0"
+                        method="post" target="_blank" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                        class="validate">
                         <div class="input-group d-flex flex-column align-items-center w-100">
                             <input class="form-control border border-black rounded-0 mb-2 w-auto" type="email"
-                                name="EMAIL" placeholder="Enter Email" required>
-                            <button class="btn rounded-0 text-uppercase btn-white w-auto" type="button"
-                                onclick="return false;">Subscribe</button>
+                                name="EMAIL" id="mce-EMAIL" placeholder="Enter Email">
+                            <button class="btn rounded-0 text-uppercase btn-white w-auto" type="submit" name="subscribe"
+                                id="mc-embedded-subscribe">Subscribe
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <p class="mb-0">&copy; 2024 Maison Lavaux. All rights reserved.</p>
-                </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <p class="mb-0">&copy; 2024 Maison Lavaux. All rights reserved.</p>
             </div>
         </div>
+        </div>
     </footer>
+    </div>
 </body>
 
 </html>
