@@ -89,11 +89,11 @@ Explore Maison Lavaux's handcrafted perfumes, luxury fragrances made in Paris. S
                                 <div class="col">
                                     {% if product.discount_price %}
                                     <p class="lead mb-0 font-weight-bold">
-                                        <span class="original-price">${{ product.price }}</span>
+                                        <span class="original-price">${{ product.price|intcomma }}</span>
                                         <span class="discounted-price">${{ product.discount_price }}</span>
                                     </p>
                                     {% else %}
-                                    <p class="lead mb-0 font-weight-bold">${{ product.price }}</p>
+                                    <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}</p>
                                     {% endif %}
                                     {% if product.category %}
                                     <p class="small mt-1 mb-0">
