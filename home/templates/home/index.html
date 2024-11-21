@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -39,9 +40,8 @@
                         <div class="col">
                             {% if product.discount_price %}
                             <p class="lead mb-0 font-weight-bold">
-                                <span class="original-price">${{ product.price|intcomma }}
-                                </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="original-price">${{ product.price|intcomma }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
@@ -95,7 +95,7 @@
                             <p class="lead mb-0 font-weight-bold">
                                 <span class="original-price">${{ product.price|intcomma }}
                                 </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
@@ -149,7 +149,7 @@
                             <p class="lead mb-0 font-weight-bold">
                                 <span class="original-price">${{ product.price|intcomma }}
                                 </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
@@ -203,7 +203,7 @@
                             <p class="lead mb-0 font-weight-bold">
                                 <span class="original-price">${{ product.price|intcomma }}
                                 </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
@@ -256,7 +256,7 @@
                             <p class="lead mb-0 font-weight-bold">
                                 <span class="original-price">${{ product.price|intcomma }}
                                 </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
@@ -309,7 +309,7 @@
                             <p class="lead mb-0 font-weight-bold">
                                 <span class="original-price">${{ product.price|intcomma }}
                                 </span>
-                                <span class="discounted-price">${{ product.discount_price }}</span>
+                                <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
                             </p>
                             {% else %}
                             <p class="lead mb-0 font-weight-bold">${{ product.price|intcomma }}
