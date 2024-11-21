@@ -41,7 +41,7 @@
             <ul class="list-unstyled">
                 <li><strong>Name:</strong> {{ product.name }}</li>
                 <li><strong>Category:</strong> {{ product.category.friendly_name }}</li>
-                <li><strong>Price:</strong> ${{ product.price|intcomma }}</li>
+                <li><strong>Price:</strong> ${{ product.price|floatformat:2|intcomma }}</li>
                 <li><strong>Rating:</strong> {{ product.rating|default:"No rating yet" }}</li>
             </ul>
         </div>

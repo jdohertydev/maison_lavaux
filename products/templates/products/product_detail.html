@@ -39,11 +39,11 @@ Discover {{ product.name }} by Maison Lavaux. A luxurious {{ product.category.fr
                 <p class="mb-0">{{ product.name }}</p>
                 {% if product.discount_price %}
                 <p class="lead mb-0 text-left font-weight-bold">
-                    <span class="original-price">${{ product.price|intcomma }}</span>
-                    <span class="discounted-price">${{ product.discount_price|intcomma }}</span>
+                    <span class="original-price">${{ product.price|floatformat:2|intcomma }}</span>
+                    <span class="discounted-price">${{ product.discount_price|floatformat:2|intcomma }}</span>
                 </p>
                 {% else %}
-                <p class="lead mb-0 text-left font-weight-bold">${{ product.price|intcomma }}</p>
+                <p class="lead mb-0 text-left font-weight-bold">${{ product.price|floatformat:2|intcomma }}</p>
                 {% endif %}
                 <p class="text-muted">{{ product.size }}</p>
                 {% if product.category %}

@@ -5,9 +5,9 @@ This is a confirmation of your order at Maison Lavaux. Your order information is
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date|naturaltime }}
 
-Order Total: ${{ order_total|intcomma }}
-Delivery: ${{ delivery_cost|intcomma }}
-Grand Total: ${{ grand_total|intcomma }}
+Order Total: ${{ order_total|floatformat:2|intcomma }}
+Delivery: ${{ delivery_cost|floatformat:2|intcomma }}
+Grand Total: ${{ grand_total|floatformat:2|intcomma }}
 
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
