@@ -44,13 +44,13 @@
     </div>
 </li>
 <li class="list-inline-item d-lg-none">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
+    <a class="text-black nav-link d-block d-lg-none"
         href="{% url 'view_bag' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
             <p class="my-0">
                 {% if grand_total %}
-                ${{grand_total|floatformat:2|intcomma }}
+                <strong>${{ grand_total|floatformat:2|intcomma }}</strong>
                 {% else %}
                 $0.00
                 {% endif %}
@@ -58,3 +58,4 @@
         </div>
     </a>
 </li>
+
