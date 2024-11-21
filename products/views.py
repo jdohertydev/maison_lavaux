@@ -9,10 +9,10 @@ from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """ A view to show all active products, including sorting and search queries """
 
-    # Annotate products with effective_price
-    products = Product.objects.all().annotate(
+    # Annotate products with effective_price and filter active products
+    products = Product.objects.filter(is_active=True).annotate(
         effective_price=Case(
             When(discount_price__isnull=False, then=F('discount_price')),
             default=F('price'),
@@ -74,6 +74,7 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
 
 
 def product_detail(request, product_id):
