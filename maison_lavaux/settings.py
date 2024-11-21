@@ -39,6 +39,11 @@ ALLOWED_HOSTS = [
     '127.0.0.1'  # Loopback IP for local use
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net',
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,6 +85,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Add this line for allauth
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'maison_lavaux.urls'
