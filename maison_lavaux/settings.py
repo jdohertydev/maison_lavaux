@@ -38,8 +38,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1'  # Loopback IP for local use
 ]
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -229,9 +227,19 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Stripe
 
-STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEVELOPMENT = os.environ.get('DEVELOPMENT') == "True"
 
-DEFAULT_FROM_EMAIL = 'maisonlavaux@example.com'
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('GMAIL_ADDRESS')
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+
