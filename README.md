@@ -684,3 +684,55 @@ Final Notes:
 
     The home view aggregates products for different sections based on various criteria like creation date, gender, views, ratings, and randomness.
     The template (index.html) is responsible for displaying these products in a user-friendly way across various sections.
+
+Bug: humanize Filters Not Available in Templates
+Issue Description
+
+While implementing the humanize filters (e.g., intcomma), we encountered an issue where these filters were not globally available in templates, even when {% load humanize %} was added to the base.html file. This caused errors in child templates that extended base.html but relied on intcomma or other humanize filters.
+Root Cause
+
+Django's {% load %} tag is template-local, meaning it only applies to the file where it's explicitly loaded. Filters from django.contrib.humanize were therefore not propagated to child templates, leading to errors such as:
+
+TemplateSyntaxError: Invalid filter: 'intcomma'
+
+Solution
+
+To resolve this issue, the django.contrib.humanize app was added to the builtins section in the TEMPLATES configuration in settings.py. This made the humanize filters globally available without requiring {% load humanize %} in individual templates.
+Code Implementation
+
+# settings.py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+                'django.contrib.humanize.templatetags.humanize',  # Added to ensure global availability of humanize filters
+            ]
+        },
+    },
+]
+
+Why This Solution Was Chosen
+
+    Global Availability: Filters like intcomma are frequently used across the project. Adding humanize to builtins eliminates the need for repetitive {% load humanize %} in every template.
+    Maintainability: This approach simplifies the templates and avoids potential errors in new templates that rely on humanize.
+    Minimal Overhead: The performance impact of adding humanize to builtins is negligible for most projects.
+
+Considerations
+
+While this solution is effective, it introduces implicit dependency on humanize being globally available. To mitigate this:
+
+    A clear comment was added to settings.py to document this change.
+    Developers are advised to check for potential naming conflicts with custom template filters.
