@@ -107,6 +107,7 @@ TEMPLATES = [
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
+                'django.contrib.humanize.templatetags.humanize',  # Added to make humanize filters globally available
             ]
         },
     },
