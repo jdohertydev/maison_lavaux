@@ -463,7 +463,30 @@ a.category-badge>span.badge:hover {
     }
 
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 116px);    
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .dynamic-message {
+        visibility: hidden;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
 
