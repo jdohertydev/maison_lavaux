@@ -736,3 +736,42 @@ While this solution is effective, it introduces implicit dependency on humanize 
 
     A clear comment was added to settings.py to document this change.
     Developers are advised to check for potential naming conflicts with custom template filters.
+
+Filtering Active Products
+Problem:
+
+Previously, the products view and template displayed all products in the database, including inactive ones. This was problematic as inactive products were not supposed to be visible to users.
+Solution:
+
+The all_products view was updated to filter products based on their is_active status. Only products where is_active=True are included in the query. This ensures that inactive products are excluded from the product listing and search results.
+Implementation Details:
+
+    View Changes:
+        The Product.objects.all() query was modified to Product.objects.filter(is_active=True) in the all_products view.
+        This ensures that only active products are annotated, sorted, and passed to the template.
+
+    Template Logic:
+        The template was not modified significantly, as it already relied on the products context variable passed from the view.
+        The {{ products|length }} tag now reflects the count of active products only.
+
+Benefits:
+
+    User Experience: Users no longer see inactive products in listings, searches, or filters.
+    Data Integrity: Aligns the frontend display with business logic, ensuring inactive products are not accessible.
+    Maintainability: The filtering logic is centralized in the view, simplifying future updates or changes.
+
+Example:
+
+Before:
+
+    Users would see all products, including inactive ones, in the product listing and search results.
+
+After:
+
+    Only active products (is_active=True) are displayed, ensuring that the product catalog remains up-to-date and accurate.
+
+Commit Reference:
+
+    Commit: "Filter products by active status in the all_products view to display only active products and update template logic to reflect the changes."
+
+This update enhances the integrity and reliability of the product display on the site.
