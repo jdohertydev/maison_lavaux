@@ -41,8 +41,8 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net',
+    'https://*.herokuapp.com',
 ]
-
 
 # Application definition
 
