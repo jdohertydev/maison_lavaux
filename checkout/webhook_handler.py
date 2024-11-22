@@ -8,7 +8,7 @@ from products.models import Product
 from profiles.models import UserProfile
 import json
 import logging
-
+import stripe
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -56,8 +56,14 @@ class StripeWH_Handler:
         print(f"Bag retrieved: {bag}")
 
         save_info = intent.metadata.save_info
+
+        # Get the Charge objects
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
+        billing_details = stripe_charge.billing_details  # new
         shipping_details = intent.shipping
-        grand_total = round(intent.amount / 100, 2)
+        grand_total = round(stripe_charge.amount / 100, 2)  # new
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
