@@ -30,7 +30,7 @@
                     {% csrf_token %}
                     
                     <div class="form-group">
-                        <label for="id_rating">Rating (0-5):</label>
+                        <label for="id_rating">Rating (1-5):</label>
                         {% for choice in form.rating.field.choices %}
                             <div class="form-check">
                                 <input type="radio" 
@@ -53,7 +53,7 @@
                         {{ form.comment.errors }}
                     </div>
                     
-                    <button class="btn btn-black rounded-0 text-uppercase float-right mt-4">Submit Review</button>
+                    <button class="btn btn-black rounded-0 text-uppercase float-right mt-4 mb-4">Submit Review</button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
