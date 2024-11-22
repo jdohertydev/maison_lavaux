@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     # Third-party apps
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     
     # My apps
     'home',
