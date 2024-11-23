@@ -17,6 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from maison_lavaux.sitemaps import StaticViewSitemap, ProductSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'products': ProductSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +36,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('information/', include('pages.urls')),  # Change this path to avoid conflict
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 # Custom error handlers
 handler400 = "maison_lavaux.views.custom_400_view"
