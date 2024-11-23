@@ -49,7 +49,8 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            meta_description = f"Explore our {', '.join([cat.friendly_name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
+            meta_description = f"Explore our {', '.join([cat.friendly_name or cat.name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
+
 
         # Handle search queries
         if 'q' in request.GET:
