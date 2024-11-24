@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.urls import reverse  # Import for URL resolution
 from django.contrib.auth.models import User  # Import User model
 
 class Category(models.Model):
@@ -57,8 +58,15 @@ class Product(models.Model):
             self.rating = None
         self.save()
 
+    def get_absolute_url(self):
+        """
+        Returns the URL to the product detail page.
+        """
+        return reverse('product_detail', args=[str(self.id)])  # Adjust 'product_detail' to match your URL name
+
     def __str__(self):
         return self.name
+
 
 class Review(models.Model):
     product = models.ForeignKey(
