@@ -783,3 +783,7 @@ This project includes a dynamically generated XML sitemap using Django's built-i
     Centralized sitemap logic in sitemaps.py.
     URL routing for the sitemap at /sitemap.xml.
     Updates to the Product model to support dynamic URL generation. This ensures that the sitemap remains up-to-date as content changes, improving search engine indexing and discoverability.
+
+    Robots.txt Implementation
+
+This project includes a robots.txt file to guide web crawlers on which parts of the website can and cannot be accessed. The robots.txt is dynamically served using Django's TemplateView to allow flexibility in managing crawler access. Key sections such as the admin panel, user profiles, and checkout pages are restricted to protect sensitive data, while public pages are open for indexing to improve SEO. Additionally, GPTBot is explicitly blocked to prevent the use of site content in AI model training. The file also includes a reference to the sitemap for efficient indexing by search engines.
