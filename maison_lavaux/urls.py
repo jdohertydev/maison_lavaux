@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from maison_lavaux.sitemaps import ProductSitemap  # Import your sitemap class
+from maison_lavaux.sitemaps import ProductSitemap
 
 # Define the sitemap dictionary
 sitemaps = {
@@ -35,8 +35,8 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('contact/', include('contact.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('information/', include('pages.urls')),  # Change this path to avoid conflict
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),  # Sitemap URL
+    path('', include('pages.urls')),  # Include pages at the root
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Custom error handlers
