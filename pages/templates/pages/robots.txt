@@ -1,16 +1,21 @@
-# Allow all search engines to access the main site
+# General rules for all crawlers
 User-agent: *
 Disallow: /admin/
 Disallow: /checkout/
 Disallow: /bag/
 Disallow: /profile/
-Disallow: /private-data/
+Disallow: /private/
 Disallow: /*.xls$
-Disallow: /*.pdf$
+Disallow: /*.doc$
+Allow: /static/
 
-# Block GPTBot
+# Specific rules for GPTBot
 User-agent: GPTBot
 Disallow: /
 
-# Sitemap
+# Specific rules for AdsBot-Google
+User-agent: AdsBot-Google
+Disallow: /ads-testing/
+
+# Sitemap reference
 Sitemap: https://maisonlavaux.com/sitemap.xml
