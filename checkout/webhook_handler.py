@@ -29,6 +29,9 @@ class StripeWH_Handler:
             {
                 'order': order,
                 'contact_email': settings.DEFAULT_FROM_EMAIL,
+                'order_total': order.order_total,
+                'delivery_cost': order.delivery_cost,
+                'grand_total': order.grand_total,
             }
         )
         send_mail(
