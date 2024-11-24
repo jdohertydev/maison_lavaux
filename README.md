@@ -775,3 +775,11 @@ Commit Reference:
     Commit: "Filter products by active status in the all_products view to display only active products and update template logic to reflect the changes."
 
 This update enhances the integrity and reliability of the product display on the site.
+
+Sitemap Functionality
+
+This project includes a dynamically generated XML sitemap using Django's built-in sitemap framework. The sitemap enhances SEO by providing search engines with structured information about the site's content, including product detail pages. The implementation includes:
+
+    Centralized sitemap logic in sitemaps.py.
+    URL routing for the sitemap at /sitemap.xml.
+    Updates to the Product model to support dynamic URL generation. This ensures that the sitemap remains up-to-date as content changes, improving search engine indexing and discoverability.
