@@ -1,13 +1,16 @@
 # Allow all search engines to access the main site
-User-Agent: *
+User-agent: *
 Disallow: /admin/
-Disallow: /bag/
 Disallow: /checkout/
+Disallow: /bag/
 Disallow: /profile/
+Disallow: /private-data/
+Disallow: /*.xls$
+Disallow: /*.pdf$
 
-# Block OpenAI's GPTBot
+# Block GPTBot
 User-agent: GPTBot
 Disallow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://maisonlavaux.com/sitemap.xml
