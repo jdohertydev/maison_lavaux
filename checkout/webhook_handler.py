@@ -28,7 +28,7 @@ class StripeWH_Handler:
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {
                 'order': order,
-                'contact_email': settings.DEFAULT_FROM_EMAIL,
+                'contact_email': settings.DEFAULT_FROM_EMAIL.split('<')[1].strip('>'),  # Extract just the email
                 'order_total': order.order_total,
                 'delivery_cost': order.delivery_cost,
                 'grand_total': order.grand_total,
