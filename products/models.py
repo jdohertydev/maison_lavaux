@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User  # Import User model
-from django.urls import reverse
 
 class Category(models.Model):
     class Meta:
@@ -38,13 +37,6 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the product is created
     updated_at = models.DateTimeField(auto_now=True)      # Timestamp for last modification
-    
-    def get_absolute_url(self):
-        """Return the URL for the product detail page."""
-        return reverse('product_detail', args=[str(self.id)])
-
-    def __str__(self):
-        return self.name
 
     def clean(self):
         """
