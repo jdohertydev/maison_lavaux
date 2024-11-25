@@ -41,8 +41,8 @@ body {
     animation: fadeIn 2s ease-in 0.5s forwards; /* Delays text fade-in slightly */
 }
 
-.custom-pt-50 {
-    padding-top: 50px;
+.custom-pt-150 {
+    padding-top: 150px;
 }
 
 
