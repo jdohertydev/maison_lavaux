@@ -3,6 +3,7 @@ from .widgets import CustomClearableFileInput
 from .models import Review, Product, Category
 from django.core.exceptions import ValidationError
 
+
 class ReviewForm(forms.ModelForm):
     """
     Form for adding and editing reviews.
@@ -27,15 +28,13 @@ class ReviewForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        # Capture user and product from view to validate uniqueness
+        """Initialize form with optional user and product for validation."""
         self.user = kwargs.pop('user', None)
         self.product = kwargs.pop('product', None)
         super().__init__(*args, **kwargs)
 
     def clean(self):
-        """
-        Custom validation to prevent duplicate reviews by the same user for the same product.
-        """
+        """Custom validation to prevent duplicate reviews by the same user for the same product."""
         cleaned_data = super().clean()
 
         if not self.instance.pk:  # Ensure this is a new review, not an edit
@@ -46,10 +45,6 @@ class ReviewForm(forms.ModelForm):
 
         return cleaned_data
 
-
-from django import forms
-from .models import Product, Category
-from .widgets import CustomClearableFileInput
 
 class ProductForm(forms.ModelForm):
     """
@@ -63,12 +58,12 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['name', 'category', 'price', 'discount_price', 'description', 'stock_quantity', 
+        fields = ['name', 'category', 'price', 'discount_price', 'description', 'stock_quantity',
                   'is_active', 'size', 'image']  # Explicitly list fields for better control
 
     def __init__(self, *args, **kwargs):
+        """Initialize form and dynamically fetch category choices."""
         super().__init__(*args, **kwargs)
-        # Dynamically fetch category choices
         categories = Category.objects.all()
         friendly_names = [(category.id, category.get_friendly_name()) for category in categories]
         self.fields['category'].choices = friendly_names
@@ -76,4 +71,3 @@ class ProductForm(forms.ModelForm):
         # Add consistent styling to all fields
         for field in self.fields.values():
             field.widget.attrs.setdefault('class', 'border-black rounded-0')
-
