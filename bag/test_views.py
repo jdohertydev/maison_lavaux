@@ -5,8 +5,15 @@ from analytics.models import SalesData
 
 
 class BagViewsTest(TestCase):
+    """
+    Tests for the views handling bag functionality, including adding,
+    adjusting, and removing products from the bag.
+    """
+
     def setUp(self):
-        """Set up test data for bag views."""
+        """
+        Set up test data for bag views and initialize client and product.
+        """
         self.client = Client()
 
         # Create a test product
@@ -24,13 +31,17 @@ class BagViewsTest(TestCase):
         self.remove_from_bag_url = reverse('remove_from_bag', args=[self.product.id])
 
     def test_view_bag(self):
-        """Test rendering the bag page."""
+        """
+        Test rendering the bag page.
+        """
         response = self.client.get(self.view_bag_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bag/bag.html')
 
     def test_add_to_bag(self):
-        """Test adding a product to the bag."""
+        """
+        Test adding a product to the bag and updating SalesData.
+        """
         response = self.client.post(self.add_to_bag_url, {
             'quantity': 2,
             'redirect_url': self.view_bag_url
@@ -45,7 +56,9 @@ class BagViewsTest(TestCase):
         self.assertEqual(sales_data.added_to_cart, 2)
 
     def test_adjust_bag(self):
-        """Test adjusting the quantity of a product in the bag."""
+        """
+        Test adjusting the quantity of a product in the bag.
+        """
         # Add product to the bag first
         self.client.post(self.add_to_bag_url, {'quantity': 2, 'redirect_url': self.view_bag_url})
         response = self.client.post(self.adjust_bag_url, {'quantity': 5})
@@ -54,10 +67,12 @@ class BagViewsTest(TestCase):
         self.assertEqual(bag[str(self.product.id)], 5)
 
     def test_adjust_bag_invalid_quantity(self):
-        """Test adjusting the quantity to an invalid value."""
+        """
+        Test adjusting the quantity to an invalid value (exceeds stock).
+        """
         # Add product to the bag first
         self.client.post(self.add_to_bag_url, {'quantity': 2, 'redirect_url': self.view_bag_url})
-        
+
         # Attempt to adjust quantity to an invalid value (exceeds stock_quantity)
         response = self.client.post(self.adjust_bag_url, {'quantity': 20})
         self.assertEqual(response.status_code, 302)  # Expect a redirect
