@@ -1,6 +1,11 @@
 from django.db import models
 
+
 class ContactMessage(models.Model):
+    """
+    Model to store contact messages submitted by users.
+    Includes fields for message details, reply, and resolution status.
+    """
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.CharField(max_length=200)
