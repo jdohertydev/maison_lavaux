@@ -1,12 +1,13 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.urls import reverse  # Import for URL resolution
-from django.contrib.auth.models import User  # Import User model
+from django.urls import reverse
+from django.contrib.auth.models import User
+
 
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
-    
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -14,6 +15,7 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """Return the friendly name of the category."""
         return self.friendly_name
 
 
@@ -27,30 +29,26 @@ class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='U')  # Gender field
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='U')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    discount_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)  # Discounted price, if any
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, editable=False)  # Now dynamically calculated
-    stock_quantity = models.IntegerField(default=0)  # Track stock quantity for inventory management
-    is_active = models.BooleanField(default=True)  # Indicates if the product is active
-    size = models.CharField(max_length=50, null=True, blank=True)  # Perfume measurement size    
+    discount_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, editable=False)
+    stock_quantity = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    size = models.CharField(max_length=50, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the product is created
-    updated_at = models.DateTimeField(auto_now=True)      # Timestamp for last modification
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def clean(self):
-        """
-        Ensure that discount_price is valid (less than price).
-        """
+        """Ensure that discount_price is less than price."""
         super().clean()
         if self.discount_price and self.discount_price >= self.price:
             raise ValidationError("Discount price must be less than the original price.")
 
     def update_rating(self):
-        """
-        Calculate and update the average rating based on associated reviews.
-        """
+        """Calculate and update the average rating based on associated reviews."""
         reviews = self.reviews.all()
         if reviews.exists():
             self.rating = round(sum(review.rating for review in reviews) / reviews.count(), 2)
@@ -59,10 +57,8 @@ class Product(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        """
-        Returns the URL to the product detail page.
-        """
-        return reverse('product_detail', args=[str(self.id)])  # Adjust 'product_detail' to match your URL name
+        """Return the URL to the product detail page."""
+        return reverse('product_detail', args=[str(self.id)])
 
     def __str__(self):
         return self.name
