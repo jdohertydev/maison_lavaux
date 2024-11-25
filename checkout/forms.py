@@ -3,17 +3,22 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """Form for processing order details."""
+
     class Meta:
+        """Meta class to define model and fields."""
         model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                  'street_address1', 'street_address2',
-                  'town_or_city', 'postcode', 'country',
-                  'county',)
+        fields = (
+            'full_name', 'email', 'phone_number',
+            'street_address1', 'street_address2',
+            'town_or_city', 'postcode', 'country',
+            'county',
+        )
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        Initialize the form with placeholders, custom classes,
+        and autofocus on the first field.
         """
         super().__init__(*args, **kwargs)
         placeholders = {
