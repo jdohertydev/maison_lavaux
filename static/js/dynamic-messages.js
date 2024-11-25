@@ -1,12 +1,20 @@
+/**
+ * Handles dynamic rotation of promotional messages on page load.
+ * The messages fade out and are replaced by the next one in the sequence.
+ */
 document.addEventListener('DOMContentLoaded', function () {
     const messages = [
-        "Discover Your Signature Scent",
-        "Find the Perfect Fragrance for Any Occasion",
-        "Unleash Your True Essence"
+        "Discover Your Signature Scent", // Message 1
+        "Find the Perfect Fragrance for Any Occasion", // Message 2
+        "Unleash Your True Essence" // Message 3
     ];
     const messageContainer = document.querySelector('.dynamic-message');
     let index = 0;
 
+    /**
+     * Displays the next message with a fade-out and fade-in effect.
+     * Updates the content and loops through the message array.
+     */
     function showNextMessage() {
         // Fade out the current message
         messageContainer.classList.remove('active');
@@ -15,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             index = (index + 1) % messages.length; // Loop through messages
             messageContainer.textContent = messages[index];
-            messageContainer.classList.add('active');
+            messageContainer.classList.add('active'); // Fade in the new message
         }, 1000); // Match the fade-out duration
     }
 
