@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Product, Category, Review
 
-
 class ProductAdmin(admin.ModelAdmin):
+    """Admin interface for managing Product objects."""
     list_display = (
         'sku',
         'name',
@@ -22,16 +22,15 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('sku',)
     readonly_fields = ('rating',)  # Make rating visible but read-only in the detail view
 
-
-
 class CategoryAdmin(admin.ModelAdmin):
+    """Admin interface for managing Category objects."""
     list_display = (
         'friendly_name',
         'name',
     )
 
-
 class ReviewAdmin(admin.ModelAdmin):
+    """Admin interface for managing Review objects."""
     list_display = (
         'product',
         'user',
@@ -43,7 +42,6 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ('product', 'rating')  # Filter by product and rating
     search_fields = ('product__name', 'user__username', 'comment')  # Search by product name, username, and comment
     ordering = ('-created_at',)  # Order by the newest reviews first
-
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
