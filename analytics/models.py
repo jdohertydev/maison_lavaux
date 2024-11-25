@@ -3,6 +3,10 @@ from products.models import Product
 from django.contrib.auth.models import User
 
 class SalesData(models.Model):
+    """
+    Represents sales analytics for a specific product.
+    Tracks views, purchases, cart additions, and revenue generated.
+    """
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='sales_data')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='sales')
     views = models.IntegerField(default=0)  # Track product views
@@ -16,4 +20,7 @@ class SalesData(models.Model):
         verbose_name_plural = "Sales data"  # Correct the plural name
 
     def __str__(self):
+        """
+        Returns a string representation of the sales data.
+        """
         return f"Analytics for {self.product.name}"
