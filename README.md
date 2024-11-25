@@ -1,3 +1,186 @@
+# [Your Project Name]
+
+
+
+---
+
+## Introduction
+
+---
+
+## User Experience
+
+### Initial Discussion
+
+### User Stories
+
+---
+
+## Design
+
+### Colour Scheme
+
+### Typography
+
+### Wireframes
+
+### Database Entity Relationship Diagram
+
+### Agile Development
+
+#### User Stories and Epics
+
+#### Project Backlog
+
+#### MoSCoW Prioritization
+
+#### Iterations
+
+#### Kanban Board
+
+---
+
+## Features
+
+### Navigation
+
+### Footer
+
+#### Newsletter
+
+### Home Page
+
+### Sign Up Page
+
+### Sign In Page
+
+### Log Out Page
+
+### Profile Page
+
+### Products Page
+
+### Product Details Page
+
+#### Product Review
+
+### Basket Page
+
+### Checkout Page
+
+### Checkout Success / 
+
+### Add / Edit Products Page
+
+### Delete Product Functionality
+
+### Profile Page
+
+#### Order History
+
+### Privacy Policy
+
+### About Us Page
+
+### Contact Page
+
+### Toasts Messaging
+
+### Error Pages
+
+### Admin Panel
+
+#### Analytics App
+
+### Password Reset
+
+### Email Verification
+
+### Order Confirmation Email
+
+### Back to Top Button
+
+### Basket Badge
+
+### Items on Sale
+
+### Form Validation
+
+### Tooltips
+
+### Button Disabling
+
+### Max Product Entry Protection
+
+### Future Implementations
+
+### Accessibility
+
+---
+
+## E-Commerce Business Model
+
+### Search Engine Optimization
+
+### Social Media Marketing
+
+### Newsletter Marketing
+
+### Future Strategies
+
+---
+
+## Technologies Used
+
+### Languages
+
+### Libraries, Modules, Classes Imported
+
+### Version Control
+
+### Programs
+
+### Tools
+
+---
+
+## Dependency Setup, Deployment & Local Deployment
+
+### Database Setup
+
+### AWS Setup
+
+### Payment System Setup
+
+### Email System Setup
+
+### Hosting Deployment
+
+### Local Deployment
+
+#### How to Fork
+
+#### How to Clone
+
+---
+
+## Testing
+
+---
+
+## Credits
+
+### Copy
+
+### Imagery
+
+### Code / Tutorials
+
+### Acknowledgements
+
+
+
+
 Running notes
 
 Customise admin to make it more user friendly
