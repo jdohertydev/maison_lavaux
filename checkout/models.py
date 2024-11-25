@@ -11,6 +11,9 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Model representing a customer's order, including delivery and payment details.
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
@@ -32,7 +35,7 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """
-        Generate a random, unique order number using UUID
+        Generate a random, unique order number using UUID.
         """
         return uuid.uuid4().hex.upper()
 
@@ -63,6 +66,9 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    Model representing an individual item within a customer's order.
+    """
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=2, null=True, blank=True)
