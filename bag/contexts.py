@@ -5,8 +5,8 @@ from products.models import Product
 
 def bag_contents(request):
     """
-    Calculate the contents of the shopping bag, including items, 
-    total cost, product count, delivery cost, and grand total.
+    Generates the shopping bag contents, including items, totals,
+    delivery costs, and grand total for the current session.
     """
     bag_items = []
     total = 0
@@ -15,15 +15,13 @@ def bag_contents(request):
     
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        # Check if the item includes size information
         if isinstance(item_data, dict):
             quantity = item_data['quantity']
-            size = item_data.get('size', None)  # Retrieve size if available
+            size = item_data.get('size', None)
         else:
             quantity = item_data
             size = None
 
-        # Determine the effective price (discounted price if available)
         price = product.discount_price if product.discount_price else product.price
         subtotal = quantity * price
         total += subtotal
@@ -32,22 +30,20 @@ def bag_contents(request):
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
-            'size': size,  # Include size if available
-            'effective_price': price,  # Include effective price
-            'subtotal': subtotal,     # Include subtotal for each item
+            'size': size,
+            'effective_price': price,
+            'subtotal': subtotal,
         })
 
-    # Calculate delivery cost
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
         free_delivery_delta = 0
-    
-    # Calculate the grand total
+
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
