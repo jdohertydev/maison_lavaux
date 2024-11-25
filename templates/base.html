@@ -96,21 +96,28 @@
                             {% endif %}
                         </div>
                     </li>
-
-
                     <!-- Shopping Bag -->
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_bag' %}">
+                        <a class="nav-link" href="{% url 'view_bag' %}" aria-label="View shopping bag">
                             <div class="text-center">
-                                <i class="fas fa-shopping-bag fa-lg"></i>
+                                <i class="fas fa-shopping-bag cart-icon position-relative" aria-hidden="true">
+                                    {% if product_count > 0 %}
+                                        <span class="badge cart-badge" aria-label="{{ product_count }} items in shopping bag">
+                                            {{ product_count }}
+                                        </span>
+                                    {% endif %}
+                                </i>
                                 <p class="my-0">
-                                    {% if grand_total %} ${{grand_total|floatformat:2|intcomma }} {% else %} $0.00
+                                    {% if grand_total %}
+                                        ${{ grand_total|floatformat:2|intcomma }}
+                                    {% else %}
+                                        $0.00
                                     {% endif %}
                                 </p>
                             </div>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>

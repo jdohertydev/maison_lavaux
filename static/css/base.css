@@ -299,6 +299,32 @@ a.category-badge>span.badge:hover {
     font-size: 3rem; /* Adjust size */
 }
 
+
+/* ------------------------------- Shopping Basket Icon */
+
+.cart-icon {
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #dc3545; /* Bootstrap's danger color */
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    text-align: center;
+    min-width: 18px;
+    height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
