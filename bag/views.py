@@ -3,15 +3,12 @@ from django.contrib import messages
 from products.models import Product
 from analytics.models import SalesData  # Import the model
 
-
 def view_bag(request):
-    """ A view that renders the bag contents page """
+    """Render the shopping bag contents page."""
     return render(request, 'bag/bag.html')
 
-
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
-
+    """Add a quantity of the specified product to the shopping bag."""
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity', 0))
     redirect_url = request.POST.get('redirect_url')
@@ -66,10 +63,8 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(redirect_url)
 
-
 def adjust_bag(request, item_id):
-    """ Adjust the quantity of the specified product to the specified amount """
-
+    """Adjust the quantity of the specified product to the specified amount."""
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity', 0))
     size = request.POST.get('product_size', None)
@@ -102,10 +97,8 @@ def adjust_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
-
 def remove_from_bag(request, item_id):
-    """ Remove the item from the shopping bag """
-
+    """Remove the item from the shopping bag."""
     try:
         product = get_object_or_404(Product, pk=item_id)
         size = request.POST.get('product_size', None)
