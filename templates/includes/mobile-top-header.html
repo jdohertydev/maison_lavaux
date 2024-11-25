@@ -44,18 +44,26 @@
     </div>
 </li>
 <li class="list-inline-item d-lg-none">
-    <a class="text-black nav-link d-block d-lg-none"
-        href="{% url 'view_bag' %}">
+    <a class="text-black nav-link d-block d-lg-none" href="{% url 'view_bag' %}" aria-label="View shopping bag">
         <div class="text-center">
-            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <div class="position-relative">
+                <i class="fas fa-shopping-bag fa-lg"></i>
+                {% if product_count > 0 %}
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+                          aria-live="polite" aria-atomic="true" aria-label="{{ product_count }} items in bag">
+                        {{ product_count }}
+                    </span>
+                {% endif %}
+            </div>
             <p class="my-0">
                 {% if grand_total %}
-                <strong>${{ grand_total|floatformat:2|intcomma }}</strong>
+                    <strong>${{ grand_total|floatformat:2|intcomma }}</strong>
                 {% else %}
-                $0.00
+                    $0.00
                 {% endif %}
             </p>
         </div>
     </a>
 </li>
+
 
