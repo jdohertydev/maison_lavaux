@@ -1,3 +1,6 @@
+/* ----------------------
+   Global Styles
+---------------------- */
 html {
     height: 100%;
 }
@@ -11,6 +14,9 @@ body {
     overflow-x: hidden;
 }
 
+/* ----------------------
+   Hero Section Styles
+---------------------- */
 .hero-section {
     position: relative;
     height: 500px;
@@ -41,6 +47,9 @@ body {
     animation: fadeIn 2s ease-in 0.5s forwards; /* Delays text fade-in slightly */
 }
 
+/* ----------------------
+   Utility Classes
+---------------------- */
 .custom-pt-150 {
     padding-top: 150px;
 }
@@ -49,13 +58,21 @@ body {
     padding-top: 50px;
 }
 
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.text-black {
+    color: #000 !important;
 }
 
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+/* ----------------------
+   Icon and Logo Styles
+---------------------- */
 /* from Bulma */
 .icon {
     align-items: center;
@@ -73,6 +90,9 @@ body {
     width: fit-content;
 }
 
+/* ----------------------
+   Button Styles
+---------------------- */
 .shop-now-button {
     background: black;
     color: white;
@@ -106,9 +126,7 @@ body {
 
 .btn-white:hover {
     background-color: #f1f1f1; /* Subtle hover effect */
-
 }
-
 
 .shop-now-button:hover,
 .shop-now-button:active,
@@ -120,16 +138,9 @@ body {
     color: white;
 }
 
-.text-black {
-    color: #000 !important;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-/* Invert top navigation styles */
-
+/* ----------------------
+   Navigation Styles
+---------------------- */
 #topnav {
     background-color: black !important;
     color: white !important;
@@ -148,13 +159,10 @@ body {
     color: black !important;
 }
 
-
 .dropdown-item:active {
     background-color: transparent !important; /* Remove the blue background */
     color: inherit !important; /* Maintain the current text color */
 }
-
-/* Button styles inside the navbar */
 
 #topnav .btn {
     background-color: white;
@@ -169,86 +177,48 @@ body {
 }
 
 /* Main Nav Styles */
-
-#main-nav, .free-shipping-notice {
+#main-nav,
+.free-shipping-notice {
     background-color: #e00034;
-
 }
-
-
 
 #main-nav .nav-link {
     color: white !important;
 }
 
-/* Ensures the footer background is black */
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
-}
-
-a.category-badge>span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
-}
-
-/* Styles for the product images in the product cards */
-
-/* Base styling for product images */
+/* ----------------------
+   Product Card Styles
+---------------------- */
 .product-card-img {
-    border-radius: 10px;
-    /* Adds rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow to lift the image off the background */
+    border-radius: 10px; /* Adds rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Smooth transition effect for hover animations */
 }
 
-/* Hover effect for product images */
 .product-card-img:hover {
-    transform: scale(1.05);
-    /* Slightly enlarges the image on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Increases shadow depth on hover to enhance the pop effect */
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow depth */
 }
 
 .card-img-top {
-    border-radius: 10px; /* Adds rounded corners for a softer look */  
+    border-radius: 10px; /* Adds rounded corners */
 }
 
-/* Styling for original and discounted prices in product cards */
-
-/* Original price with strikethrough and muted color */
+/* Pricing styles */
 .original-price {
-    text-decoration: line-through;
-    /* Adds a strikethrough */
-    color: #6c757d;
-    /* Muted color similar to Bootstrap's text-muted */
-    margin-right: 0.5rem;
-    /* Space between original and discounted price */
+    text-decoration: line-through; /* Strikethrough */
+    color: #6c757d; /* Muted color */
+    margin-right: 0.5rem; /* Space between prices */
 }
 
-/* Discounted price with a more prominent color */
 .discounted-price {
-    color: #dc3545;
-    /* Red color similar to Bootstrap's text-danger */
+    color: #dc3545; /* Bootstrap's text-danger */
     font-weight: bold;
 }
 
+/* ----------------------
+   Back-to-Top Button
+---------------------- */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -261,16 +231,16 @@ a.category-badge>span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
-    text-decoration: none; /* Remove underline */
-    
+    text-decoration: none;
 }
 
 .btt-link:hover {
-    text-decoration: none; /* Ensure no underline on hover */
+    text-decoration: none;
 }
 
-/* ------------------------------- bootstrap toasts */
-
+/* ----------------------
+   Bootstrap Toasts
+---------------------- */
 .message-container {
     position: fixed;
     top: 72px;
@@ -287,30 +257,30 @@ a.category-badge>span.badge:hover {
 }
 
 .dynamic-message-container {
-    height: 50px; /* Adjust as needed */
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .dynamic-message {
-    opacity: 0; /* Ensure it's initially hidden */
+    opacity: 0;
     transition: opacity 1s ease-in-out;
     position: absolute;
     text-align: center;
     font-size: 3rem; /* Adjust size */
     color: white;
-    z-index: 1; /* Ensure it appears above the background */
+    z-index: 1;
 }
 
 .dynamic-message.active {
-    opacity: 1; /* Fully visible when active */
-    font-size: 3rem; /* Adjust size */
+    opacity: 1;
+    font-size: 3rem;
 }
 
-
-/* ------------------------------- Shopping Basket Icon */
-
+/* ----------------------
+   Shopping Basket Icon
+---------------------- */
 .cart-icon {
     font-size: 1.5rem;
     position: relative;
@@ -326,29 +296,25 @@ a.category-badge>span.badge:hover {
     font-weight: bold;
     border-radius: 50%;
     padding: 2px 6px;
-    text-align: center;
-    min-width: 18px;
-    height: 18px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+/* ----------------------
+   Convenience Classes
+---------------------- */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
     right: 36px;
 }
 
-
-
-/* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -387,98 +353,15 @@ a.category-badge>span.badge:hover {
     overflow-y: auto;
 }
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
+/* ----------------------
+   Media Queries
+---------------------- */
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
 
-/* Allauth form formatting */
-
-.allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
-}
-
-.allauth-form-inner-content input {
-    border-color: #000;
-    border-radius: 0;
-}
-
-.allauth-form-inner-content label:not([for='id_remember']) {
-    display: none;
-}
-
-.allauth-form-inner-content input::placeholder {
-    color: #aab7c4;
-}
-
-.allauth-form-inner-content button,
-.allauth-form-inner-content input[type='submit'] {
-	/* btn */
-	display: inline-block;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0;
-
-    /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
-    background-color: #222;
-    border-color: #222;
-}
-
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
-}
-
-/* Product Form */
-
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
-}
-
-/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -493,14 +376,13 @@ a.category-badge>span.badge:hover {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
     }
 
     body {
-        height: calc(100vh - 116px);    
+        height: calc(100vh - 116px);
     }
 
     #delivery-banner h4 {
@@ -518,25 +400,32 @@ a.category-badge>span.badge:hover {
         font-size: .75rem;
     }
 
-    .increment-qty, .decrement-qty {
+    .increment-qty,
+    .decrement-qty {
         padding: .25rem .5rem !important;
     }
 }
 
-/* 
-  Hide the spinner arrows for number input fields.
-  This ensures a cleaner design by removing the up/down controls,
-  but still allows users to manually type in values. 
-  Applies to modern browsers (Chrome, Safari, Edge, Opera, and Firefox).
-*/
-input[type="number"]::-webkit-inner-spin-button, 
+/* ----------------------
+   Input Styling
+---------------------- */
+input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Remove spinner for WebKit-based browsers */
-    margin: 0; /* Remove any default margin */
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type="number"] {
-    -webkit-appearance: none; /* For WebKit-based browsers */
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: none; /* Standard property */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+/* ----------------------
+   Keyframes
+---------------------- */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
