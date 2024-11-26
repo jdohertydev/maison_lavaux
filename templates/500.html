@@ -1,11 +1,35 @@
 {% extends "base.html" %}
 
-{% block content %}
-<hr>
-<h2 class="logo-font mb-4">500 - Something Went Up in Smoke</h2>
-<hr>
-<p>Oh no! It seems our perfumery's workshop has encountered an unexpected issue. The blend isn't quite right!</p>
-<p>Our team is working to fix it. In the meantime, feel free to <a href="{% url 'contact' %}">contact us</a> or browse our <a href="{% url 'products' %}">collection</a>.</p>
+{% block extra_css %}
 
-<a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Return to Maison Lavaux</a>
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">500 - Something Went Up in Smoke</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 rounded-4 bg-white py-3 mb-3">
+                <p>Oh no! It seems our perfumery's workshop has encountered an unexpected issue. The blend isn't quite right!</p>
+                <p>Our team is working to fix it. In the meantime, feel free to <a href="{% url 'contact' %}">contact us</a> or browse our <a href="{% url 'products' %}">collection</a>.</p>
+                <div class="text-end mt-3">
+                    <a class="btn btn-outline-black rounded-0 text-uppercase" href="{% url 'home' %}">Return to Maison Lavaux</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
