@@ -1,6 +1,3 @@
-/* ----------------------
-   Global Styles
----------------------- */
 html {
     height: 100%;
 }
@@ -14,9 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ----------------------
-   Hero Section Styles
----------------------- */
 .hero-section {
     position: relative;
     height: 500px;
@@ -47,9 +41,6 @@ body {
     animation: fadeIn 2s ease-in 0.5s forwards; /* Delays text fade-in slightly */
 }
 
-/* ----------------------
-   Utility Classes
----------------------- */
 .custom-pt-150 {
     padding-top: 150px;
 }
@@ -58,21 +49,13 @@ body {
     padding-top: 50px;
 }
 
-.text-black {
-    color: #000 !important;
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
-.border-black {
-    border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
-/* ----------------------
-   Icon and Logo Styles
----------------------- */
 /* from Bulma */
 .icon {
     align-items: center;
@@ -90,9 +73,6 @@ body {
     width: fit-content;
 }
 
-/* ----------------------
-   Button Styles
----------------------- */
 .shop-now-button {
     background: black;
     color: white;
@@ -126,7 +106,9 @@ body {
 
 .btn-white:hover {
     background-color: #f1f1f1; /* Subtle hover effect */
+
 }
+
 
 .shop-now-button:hover,
 .shop-now-button:active,
@@ -138,9 +120,16 @@ body {
     color: white;
 }
 
-/* ----------------------
-   Navigation Styles
----------------------- */
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Invert top navigation styles */
+
 #topnav {
     background-color: black !important;
     color: white !important;
@@ -159,10 +148,13 @@ body {
     color: black !important;
 }
 
+
 .dropdown-item:active {
     background-color: transparent !important; /* Remove the blue background */
     color: inherit !important; /* Maintain the current text color */
 }
+
+/* Button styles inside the navbar */
 
 #topnav .btn {
     background-color: white;
@@ -177,45 +169,232 @@ body {
 }
 
 /* Main Nav Styles */
-#main-nav,
-.free-shipping-notice {
+
+#main-nav, .free-shipping-notice {
     background-color: #e00034;
+
 }
+
+
 
 #main-nav .nav-link {
     color: white !important;
 }
 
-/* ----------------------
-   Product Card Styles
----------------------- */
-.product-card-img {
-    border-radius: 10px; /* Adds rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Ensures the footer background is black */
+
+.border-black {
+    border: 1px solid black !important;
 }
 
+.bg-black {
+    background: #000 !important;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+/* Styles for the product images in the product cards */
+
+/* Base styling for product images */
+.product-card-img {
+    border-radius: 10px;
+    /* Adds rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow to lift the image off the background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition effect for hover animations */
+}
+
+/* Hover effect for product images */
 .product-card-img:hover {
-    transform: scale(1.05); /* Slightly enlarges the image on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow depth */
+    transform: scale(1.05);
+    /* Slightly enlarges the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Increases shadow depth on hover to enhance the pop effect */
 }
 
 .card-img-top {
-    border-radius: 10px; /* Adds rounded corners */
+    border-radius: 10px; /* Adds rounded corners for a softer look */  
 }
 
-/* Pricing styles */
+/* Styling for original and discounted prices in product cards */
+
+/* Original price with strikethrough and muted color */
 .original-price {
-    text-decoration: line-through; /* Strikethrough */
-    color: #6c757d; /* Muted color */
-    margin-right: 0.5rem; /* Space between prices */
+    text-decoration: line-through;
+    /* Adds a strikethrough */
+    color: #6c757d;
+    /* Muted color similar to Bootstrap's text-muted */
+    margin-right: 0.5rem;
+    /* Space between original and discounted price */
 }
 
+/* Discounted price with a more prominent color */
 .discounted-price {
-    color: #dc3545; /* Bootstrap's text-danger */
+    color: #dc3545;
+    /* Red color similar to Bootstrap's text-danger */
     font-weight: bold;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    
+}
+
+.btt-link:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.dynamic-message-container {
+    height: 50px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dynamic-message {
+    opacity: 0; /* Ensure it's initially hidden */
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    text-align: center;
+    font-size: 3rem; /* Adjust size */
+    color: white;
+    z-index: 1; /* Ensure it appears above the background */
+}
+
+.dynamic-message.active {
+    opacity: 1; /* Fully visible when active */
+    font-size: 3rem; /* Adjust size */
+}
+
+
+/* ------------------------------- Shopping Basket Icon */
+
+.cart-icon {
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #dc3545; /* Bootstrap's danger color */
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    text-align: center;
+    min-width: 18px;
+    height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
 
 /* Allauth form formatting */
 
@@ -271,152 +450,35 @@ body {
 	color: #17a2b8; /* text-info */
 }
 
-/* ----------------------
-   Back-to-Top Button
----------------------- */
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
+/* Product Form */
 
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.btt-link:hover {
-    text-decoration: none;
-}
-
-/* ----------------------
-   Bootstrap Toasts
----------------------- */
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-.dynamic-message-container {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dynamic-message {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    position: absolute;
-    text-align: center;
-    font-size: 3rem; /* Adjust size */
-    color: white;
-    z-index: 1;
-}
-
-.dynamic-message.active {
-    opacity: 1;
-    font-size: 3rem;
-}
-
-/* ----------------------
-   Shopping Basket Icon
----------------------- */
-.cart-icon {
-    font-size: 1.5rem;
+.btn-file {
     position: relative;
+    overflow: hidden;
 }
 
-.cart-badge {
+.btn-file input[type="file"] {
     position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: #dc3545; /* Bootstrap's danger color */
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 2px 6px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
-/* ----------------------
-   Convenience Classes
----------------------- */
-.arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
 }
 
-.arrow-primary {
-    border-bottom-color: #007bff !important;
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0;
 }
 
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
-
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/* ----------------------
-   Media Queries
----------------------- */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-}
-
+/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -431,13 +493,14 @@ body {
     }
 }
 
+/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
     }
 
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 116px);    
     }
 
     #delivery-banner h4 {
@@ -455,32 +518,25 @@ body {
         font-size: .75rem;
     }
 
-    .increment-qty,
-    .decrement-qty {
+    .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
     }
 }
 
-/* ----------------------
-   Input Styling
----------------------- */
-input[type="number"]::-webkit-inner-spin-button,
+/* 
+  Hide the spinner arrows for number input fields.
+  This ensures a cleaner design by removing the up/down controls,
+  but still allows users to manually type in values. 
+  Applies to modern browsers (Chrome, Safari, Edge, Opera, and Firefox).
+*/
+input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    -webkit-appearance: none; /* Remove spinner for WebKit-based browsers */
+    margin: 0; /* Remove any default margin */
 }
 
 input[type="number"] {
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-    appearance: none;
-}
-
-/* ----------------------
-   Keyframes
----------------------- */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+    -webkit-appearance: none; /* For WebKit-based browsers */
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: none; /* Standard property */
 }
