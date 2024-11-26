@@ -32,6 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
+
 ALLOWED_HOSTS = [
     '.herokuapp.com',  # Allows any subdomain on Heroku
     '8000-jdohertydev-maisonlavau-36c6hktzgpz.ws.codeinstitute-ide.net',  # Specific Code Institute IDE URL
