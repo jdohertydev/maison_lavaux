@@ -1,4 +1,6 @@
-/* Namespace all styles under .about-page */
+/* ----------------------
+   About Page Image Styles
+---------------------- */
 .about-page .profile-image {
     max-width: 300px;
     height: auto; /* Maintain aspect ratio */
@@ -20,10 +22,16 @@
     text-align: center;
 }
 
+/* ----------------------
+   Header Container Styles
+---------------------- */
 .about-page .header-container {
     margin-top: 120px;
 }
 
+/* ----------------------
+   Section Styles
+---------------------- */
 /* Reset default browser styles for section */
 .about-page section {
     margin: 0;
@@ -38,11 +46,17 @@
     overflow: visible; /* Remove hidden overflow */
 }
 
+/* ----------------------
+   Hero Journey Styles
+---------------------- */
 .about-page .hero-journey {
     margin-top: 3rem; /* Space before Our Story */
     margin-bottom: 3rem; /* Optional space after Our Story */
 }
 
+/* ----------------------
+   Call-to-Action Styles
+---------------------- */
 .about-page .call-to-action {
     margin-top: 3rem; /* Space before Call to Action */
 }
