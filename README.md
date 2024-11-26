@@ -970,3 +970,20 @@ This project includes a dynamically generated XML sitemap using Django's built-i
     Robots.txt Implementation
 
 This project includes a robots.txt file to guide web crawlers on which parts of the website can and cannot be accessed. The robots.txt is dynamically served using Django's TemplateView to allow flexibility in managing crawler access. Key sections such as the admin panel, user profiles, and checkout pages are restricted to protect sensitive data, while public pages are open for indexing to improve SEO. Additionally, GPTBot is explicitly blocked to prevent the use of site content in AI model training. The file also includes a reference to the sitemap for efficient indexing by search engines.
+
+Dynamic Footer Year
+
+The footer of the website dynamically displays the current year based on the user's local system clock. This ensures that the displayed year is always accurate and updates automatically.
+Implementation Details
+
+    The year is dynamically generated using JavaScript:
+
+    new Date().getFullYear();
+
+    A fallback mechanism is in place to display a hardcoded year (2024) if JavaScript is disabled on the user's browser.
+
+Benefits
+
+    Automation: No need for manual updates to the year.
+    User-Centric: Reflects the user's local system time for accuracy.
+    Accessibility: Ensures a visible year, even without JavaScript.
