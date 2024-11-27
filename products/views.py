@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Case, When, F, Q
 from django.db.models.functions import Lower
 from analytics.models import SalesData 
+
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
@@ -50,6 +51,7 @@ def all_products(request):
             categories = Category.objects.filter(name__in=categories)
             meta_description = f"Explore our {', '.join([cat.friendly_name or cat.name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
 
+
         # Handle search queries
         if 'q' in request.GET:
             query = request.GET['q']
@@ -74,6 +76,8 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+
+
 def product_detail(request, product_id):
     """ A view to show individual product details and reviews """
     product = get_object_or_404(Product, pk=product_id)
@@ -97,7 +101,6 @@ def product_detail(request, product_id):
         'reviews': reviews,
         'user_has_reviewed': user_has_reviewed,
         'meta_description': meta_description,
-        'on_review_page': True,  # Set the flag for the review page
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -132,7 +135,6 @@ def add_review(request, product_id):
     context = {
         'form': form,
         'product': product,
-        'on_review_page': True,  # Set the flag for the review page
     }
 
     return render(request, 'products/add_review.html', context)
@@ -155,7 +157,6 @@ def edit_review(request, product_id, review_id):
         'form': form,
         'product': product,
         'review': review,
-        'on_review_page': True,  # Set the flag for the review page
     }
     return render(request, 'products/edit_review.html', context)
 
@@ -169,13 +170,10 @@ def delete_review(request, product_id, review_id):
         messages.success(request, "Your review has been deleted.")
         return redirect('product_detail', product_id=product_id)
 
-    context = {
+    return render(request, 'products/confirm_delete_review.html', {
         'review': review,
         'product': review.product,
-        'on_review_page': True,  # Set the flag for the review page
-    }
-
-    return render(request, 'products/confirm_delete_review.html', context)
+    })
 
 @login_required
 def add_product(request):
