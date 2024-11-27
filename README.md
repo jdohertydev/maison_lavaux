@@ -94,10 +94,68 @@ Lato was also used for the website logo, presented in uppercase to create a bold
 
 To ensure accessibility and functionality across all devices and browsers, I included a fallback font stack. If Lato is unavailable, the design defaults to a generic sans-serif font, maintaining readability and visual appeal.
 
-
 ### Wireframes
 
+All the wireframes for the website were created using the Balsamic desktop application.
+
+#### Desktop
+
+<details>
+  <summary>Hello</summary>
+  
+  My name is John
+  
+</details>
+
+#### Mobile
+
 ### Database Entity Relationship Diagram
+
+## Entity Relationship Diagram (ERD)
+
+The Entity Relationship Diagram (ERD) below represents the models in the database and their relationships. The database consists of the following 11 models:
+
+1. auth_user
+2. analytics_salesdata
+3. products_product
+4. products_category
+5. profiles_userprofile
+6. products_review
+7. account_emailaddress
+8. account_emailconfirmation
+9. checkout_order
+10. checkout_orderlineitem
+11. contact_contactmessage
+
+### Relationships in the ERD
+
+1. The profiles_userprofile model has a one-to-one relationship with the auth_user model, as each user can have only one profile.
+
+2. The analytics_salesdata model has:
+   - A one-to-many (Foreign Key) relationship with the products_product model, as each product can have many analytics records.
+   - A one-to-many (Foreign Key) relationship with the auth_user model, as multiple analytics records can be associated with one user.
+
+3. The products_product model has a one-to-many (Foreign Key) relationship with the products_category model, as each product belongs to one category, but a category can have many products.
+
+4. The products_review model has:
+   - A one-to-many (Foreign Key) relationship with the auth_user model, as one user can post many reviews.
+   - A one-to-many (Foreign Key) relationship with the products_product model, as one product can have many reviews.
+
+5. The account_emailaddress model has a one-to-one relationship with the auth_user model, as each user can have one primary email address.
+
+6. The account_emailconfirmation model has a one-to-many (Foreign Key) relationship with the account_emailaddress model, as one email address can have multiple confirmations.
+
+7. The checkout_order model has a one-to-many (Foreign Key) relationship with the profiles_userprofile model, as one user profile can have many orders.
+
+8. The checkout_orderlineitem model has:
+   - A one-to-many (Foreign Key) relationship with the checkout_order model, as one order can have many line items.
+   - A one-to-many (Foreign Key) relationship with the products_product model, as many line items can represent one product.
+
+9. The contact_contactmessage model has a one-to-many (Foreign Key) relationship with the auth_user model, as one user can send many contact messages.
+
+Below is the Entity Relationship Diagram (ERD) for the Maison Lavaux project, which visualises the relationships between the various models in the database.
+
+INSERT erd_maison_lavaux.png
 
 ### Agile Development
 
