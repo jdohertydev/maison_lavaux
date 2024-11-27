@@ -4,6 +4,8 @@
 
 Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
 
+INSERT SCREENSHOT
+
 View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
 
 ## User Experience
@@ -12,15 +14,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
 
 ### Epics
 
-## What Are Epics?
-
-In website development, **epics** are high-level objectives that represent major areas of functionality or user needs. Each epic encompasses multiple user stories, providing structure and clarity in the development process. They ensure all work aligns with the overarching goals of the project and facilitate tracking progress across related features.
-
-## Epics
-
 In website development, epics are high-level objectives that represent major areas of functionality or user needs. Each epic encompasses multiple user stories, providing structure and clarity in the development process. They ensure all work aligns with the overarching goals of the project and facilitate tracking progress across related features. These are the epics I chose for my project:
-
-## Epics
 
 1. User Experience (UX) [#10](https://github.com/jdohertydev/maison_lavaux/issues/10)
 2. Product Browsing and Reviews [#11](https://github.com/jdohertydev/maison_lavaux/issues/11)
@@ -69,7 +63,28 @@ User stories are short, simple descriptions of a feature or functionality told f
 
 ## Design
 
+The colour scheme for the website was carefully selected to reflect the brand's sophisticated and elegant identity. Black and white were chosen as the primary colours, as they convey a timeless and refined aesthetic while also being the simplest and most effective for accessibility. To complement this monochromatic foundation, a rose red was introduced as an accent colour. This striking yet classy choice adds a touch of warmth and distinction, making it perfect for highlighting key elements such as calls to action and interactive features. The result is a clean, accessible, and visually appealing design that aligns seamlessly with the brand's ethos.
+
 ### Colour Scheme
+
+## Colour Palette
+
+The following colours were chosen to create a sleek, sophisticated, and accessible design for the website:
+
+| Colour        | Hex Code   | Usage                                      |
+|---------------|------------|--------------------------------------------|
+| **Black**     | `#000000`  | Backgrounds, buttons, overlays, text       |
+| **White**     | `#FFFFFF`  | Text, light backgrounds, buttons, forms    |
+| **Rose Red**  | `#E00034`  | Navigation bar, accents, attention-grabbing|
+| **Grey**      | `#555555`  | General text                              |
+| **Light Grey**| `#F1F1F1`  | Hover effects, subtle backgrounds          |
+| **Muted Grey**| `#6C757D`  | Muted text, secondary content              |
+
+To further enhance the design process, the palette was visualised using [Coolors](https://coolors.co/), allowing for a clear and cohesive representation of the chosen colours.
+
+INSERT maison-lavaux-color-palette.png
+
+The colour palette used for the website was tested using [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) and achieved a score of **0 contrast errors**, ensuring the design meets accessibility standards and provides excellent readability for users.
 
 ### Typography
 
