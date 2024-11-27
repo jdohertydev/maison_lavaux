@@ -8,48 +8,64 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
 
 ## User Experience
 
-### User stories
-
-### Owner/Admin and Developer Goals
-- As an admin, I can assign products to specific categories so that users can find them more easily during browsing.
-- As an admin, I can temporarily hide products from the storefront so that users don’t see items that are being updated or out of stock.
-- As an admin, I can view a summary of product inventory so that I can monitor stock levels easily.
-- As an admin, I can upload, update, or delete product images so that products are visually appealing and well-represented.
-- As an admin, I can edit existing product details (e.g., name, price, description, stock) so that the catalogue stays accurate and up-to-date.
-- As an admin, I can add new products to the catalogue so that users can see and purchase the latest items available.
-- As an admin, I can delete products from the catalogue so that unavailable items no longer appear on the site.
-- As an admin, I can sort products in the admin panel by various criteria (e.g., name, price, stock level) so that I can manage the catalogue more efficiently.
-- As an admin, I can compare the performance of multiple products side by side so that I can make informed inventory or marketing decisions.
-- As an admin, I can sort analytics data (e.g., revenue, views, purchases) so that I can prioritise metrics most relevant to my goals.
-- As an admin, I can view a list of the top-selling products so that I can focus on promoting high-performing items.
-- As an admin, I can filter sales and analytics data by specific time periods (e.g., weekly, monthly) so that I can assess trends and plan strategies effectively.
-- As an admin, I can analyse revenue trends over time so that I can evaluate overall business performance.
-- As an admin, I can track the number of purchases for each product so that I can determine which items are most popular.
-- As an admin, I can view the number of page views for each product so that I can identify which products attract the most interest.
-- As an admin, I can view all messages submitted by users in a structured format so that I can respond to inquiries efficiently.
-- As an admin, I can send responses to user messages directly from the admin panel so that I can address their concerns quickly.
-- As an admin, I can access a secure checkout process so that I feel confident that my payment details are safe.
-- As an admin, I can process payments using Stripe so that I can handle transactions securely and reliably.
-
-### First-Time Visitor Goals
-- As a user, I can fill out a contact form on the website so that I can send inquiries or feedback to the company.
-- As a user, I can see a detailed breakdown of my order total, including discounts and shipping, so that I understand the final price I am paying.
-- As a user, I can receive an email confirmation after completing my order so that I know my transaction was successful.
-- As a user, I can view a summary of the products in my cart so that I can confirm my order is correct before checkout.
-
-### Returning Visitor Goals
-- As a returning user, I can log in to save my payment details so that future purchases are faster and easier.
-- As a returning user, I can manage my saved payment methods so that I can update or delete them as needed.
-- As a returning user, I can apply discount codes or promotional offers to my order so that I can save money.
-- As a returning user, I can review my previous purchases so that I can reorder or track my past orders.
-- As a returning user, I can leave reviews for products I’ve purchased so that I can share feedback with other users.
-
-
 ### Initial Discussion
+
+### Epics
+
+## What Are Epics?
+
+In website development, **epics** are high-level objectives that represent major areas of functionality or user needs. Each epic encompasses multiple user stories, providing structure and clarity in the development process. They ensure all work aligns with the overarching goals of the project and facilitate tracking progress across related features.
+
+## Epics
+
+In website development, epics are high-level objectives that represent major areas of functionality or user needs. Each epic encompasses multiple user stories, providing structure and clarity in the development process. They ensure all work aligns with the overarching goals of the project and facilitate tracking progress across related features. These are the epics I chose for my project:
+
+## Epics
+
+1. User Experience (UX) [#10](https://github.com/jdohertydev/maison_lavaux/issues/10)
+2. Product Browsing and Reviews [#11](https://github.com/jdohertydev/maison_lavaux/issues/11)
+3. Checkout and Payment [#12](https://github.com/jdohertydev/maison_lavaux/issues/12)
+4. Messaging and Communication [#13](https://github.com/jdohertydev/maison_lavaux/issues/13)
+5. Admin Product Management [#14](https://github.com/jdohertydev/maison_lavaux/issues/14)
+6. Sales and Analytics [#15](https://github.com/jdohertydev/maison_lavaux/issues/15)
 
 ### User Stories
 
----
+User stories are short, simple descriptions of a feature or functionality told from the perspective of the end user. They help ensure the development process remains user-focused, aligning each task with specific user needs and goals. Below are the user stories I created for my project:
+
+### Owner/Admin & Developer Goals
+- As an admin, I can assign products to specific categories so that users can find them more easily during browsing. [#53](https://github.com/jdohertydev/maison_lavaux/issues/53)
+- As an admin, I can temporarily hide products from the storefront so that users don’t see items that are being updated or out of stock. [#54](https://github.com/jdohertydev/maison_lavaux/issues/54)
+- As an admin, I can view a summary of product inventory so that I can monitor stock levels easily. [#52](https://github.com/jdohertydev/maison_lavaux/issues/52)
+- As an admin, I can upload, update, or delete product images so that products are visually appealing and well-represented. [#51](https://github.com/jdohertydev/maison_lavaux/issues/51)
+- As an admin, I can edit existing product details (e.g., name, price, description, stock) so that the catalogue stays accurate and up-to-date. [#49](https://github.com/jdohertydev/maison_lavaux/issues/49)
+- As an admin, I can add new products to the catalogue so that users can see and purchase the latest items available. [#48](https://github.com/jdohertydev/maison_lavaux/issues/48)
+- As an admin, I can delete products from the catalogue so that unavailable items no longer appear on the site. [#50](https://github.com/jdohertydev/maison_lavaux/issues/50)
+- As an admin, I can sort products in the admin panel by various criteria (e.g., name, price, stock level) so that I can manage the catalogue more efficiently. [#55](https://github.com/jdohertydev/maison_lavaux/issues/55)
+- As an admin, I can compare the performance of multiple products side by side so that I can make informed inventory or marketing decisions. [#62](https://github.com/jdohertydev/maison_lavaux/issues/62)
+- As an admin, I can sort analytics data (e.g., revenue, views, purchases) so that I can prioritise metrics most relevant to my goals. [#61](https://github.com/jdohertydev/maison_lavaux/issues/61)
+- As an admin, I can view a list of the top-selling products so that I can focus on promoting high-performing items. [#60](https://github.com/jdohertydev/maison_lavaux/issues/60)
+- As an admin, I can filter sales and analytics data by specific time periods (e.g., weekly, monthly) so that I can assess trends and plan strategies effectively. [#59](https://github.com/jdohertydev/maison_lavaux/issues/59)
+- As an admin, I can analyse revenue trends over time so that I can evaluate overall business performance. [#58](https://github.com/jdohertydev/maison_lavaux/issues/58)
+- As an admin, I can track the number of purchases for each product so that I can determine which items are most popular. [#57](https://github.com/jdohertydev/maison_lavaux/issues/57)
+- As an admin, I can view the number of page views for each product so that I can identify which products attract the most interest. [#56](https://github.com/jdohertydev/maison_lavaux/issues/56)
+- As an admin, I can view all messages submitted by users in a structured format so that I can respond to inquiries efficiently. [#44](https://github.com/jdohertydev/maison_lavaux/issues/44)
+- As an admin, I can send responses to user messages directly from the admin panel so that I can address their concerns quickly. [#45](https://github.com/jdohertydev/maison_lavaux/issues/45)
+- As an admin, I can access a secure checkout process so that I feel confident that my payment details are safe. [#35](https://github.com/jdohertydev/maison_lavaux/issues/35)
+- As an admin, I can process payments using Stripe so that I can handle transactions securely and reliably. [#36](https://github.com/jdohertydev/maison_lavaux/issues/36)
+
+### First-Time Visitor Goals
+- As a user, I can fill out a contact form on the website so that I can send inquiries or feedback to the company. [#42](https://github.com/jdohertydev/maison_lavaux/issues/42)
+- As a user, I can see a detailed breakdown of my order total, including discounts and shipping, so that I understand the final price I am paying. [#39](https://github.com/jdohertydev/maison_lavaux/issues/39)
+- As a user, I can receive an email confirmation after completing my order so that I know my transaction was successful. [#38](https://github.com/jdohertydev/maison_lavaux/issues/38)
+- As a user, I can view a summary of the products in my cart so that I can confirm my order is correct before checkout. [#33](https://github.com/jdohertydev/maison_lavaux/issues/33)
+
+### Returning Visitor Goals
+- As a returning user, I can securely save my payment details so that future purchases are faster and easier. [#40](https://github.com/jdohertydev/maison_lavaux/issues/40)
+- As a returning user, I can manage my saved payment methods so that I can update or delete them as needed. [#40](https://github.com/jdohertydev/maison_lavaux/issues/40)
+- As a returning user, I can apply discount codes or promotional offers to my order so that I can save money. [#39](https://github.com/jdohertydev/maison_lavaux/issues/39)
+- As a returning user, I can review my previous purchases so that I can reorder or track my past orders. [#38](https://github.com/jdohertydev/maison_lavaux/issues/38)
+- As a returning user, I can leave reviews for products I’ve purchased so that I can share feedback with other users. [#34](https://github.com/jdohertydev/maison_lavaux/issues/34)
 
 ## Design
 
