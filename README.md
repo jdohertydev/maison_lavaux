@@ -1,12 +1,10 @@
-# [Your Project Name]
-
-
-
----
+# Maison Lavaux Perfumery
 
 ## Introduction
 
----
+Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
+
+View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
 
 ## User Experience
 
