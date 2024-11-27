@@ -90,6 +90,8 @@ The colour palette used for the website was tested using [WAVE Web Accessibility
 
 For the website's typography, I selected the **Lato** font. Lato was chosen because it is clean, modern, and versatile, while also offering a sense of sophistication that aligns well with the brand's classy and elegant identity. Its wide variety of weights makes it suitable for both headings and body text, ensuring consistency across the site.
 
+Lato was also used for the website logo, presented in uppercase to create a bold and striking impression that reinforces the brand's elegance and professionalism.
+
 To ensure accessibility and functionality across all devices and browsers, I included a fallback font stack. If Lato is unavailable, the design defaults to a generic sans-serif font, maintaining readability and visual appeal.
 
 
