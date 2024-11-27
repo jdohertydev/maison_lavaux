@@ -111,8 +111,6 @@ All the wireframes for the website were created using the Balsamic desktop appli
 
 ### Database Entity Relationship Diagram
 
-## Entity Relationship Diagram (ERD)
-
 The Entity Relationship Diagram (ERD) below represents the models in the database and their relationships. The database consists of the following 11 models:
 
 1. auth_user
@@ -159,11 +157,26 @@ INSERT erd_maison_lavaux.png
 
 ### Agile Development
 
+For the development of this project, I adopted **Agile development** methodologies to ensure a flexible and iterative approach. The process was structured around **epics**, **user stories**, **acceptance criteria**, and **tasks**, allowing for continuous feedback and improvement throughout the project. To prioritise features effectively, I employed **MoSCoW prioritisation**—which helped categorise requirements based on their importance. Additionally, **story points** were used to estimate the effort required for each task, allowing for better planning and tracking of progress in each sprint. This Agile approach ensured that the project remained adaptable and focused on delivering value to the users.
+
 #### User Stories and Epics
 
-#### Project Backlog
+During the project planning stage, I took the time to thoroughly consider and define the functional requirements for the website. I reflected deeply on the website's goals, its target audience, and the features that would best serve the users. Based on this reflection, I identified the core functionalities needed for the site.
+
+After finalising this list of functional requirements, I converted them into user stories, represented as issues on GitHub. Any requirement that was too large to be considered a single user story was labelled as an **Epic**, and the related user stories were grouped under that epic. This approach allowed me to break down larger tasks into smaller, manageable pieces.
+
+From the requirements, I created **7 epics** and additional user stories, totalling **XX user stories**. As the development progressed, some issues were identified as bugs, which were also tracked as user stories. For every epic that was created, all related user stories were referenced within that epic, ensuring clear tracking of tasks and progress.
 
 #### MoSCoW Prioritization
+
+Having created the user stories, I used **MoSCoW prioritisation** to ensure that the most important requirements were addressed first. MoSCoW is a useful technique for managing project scope and ensuring that critical tasks are prioritised, while also providing flexibility in the development process. Here's how I applied the MoSCoW method:
+
+- **Must-Have**: Critical requirements that are essential for project success.
+- **Should-Have**: Important requirements that significantly add value.
+- **Could-Have**: Desirable features that provide additional benefits.
+- **Won't-Have**: Features explicitly excluded from the project scope.
+
+This method is beneficial as it allows for clear communication about what will be delivered in each iteration. It ensures that essential features are prioritised, while also managing expectations by clearly defining what will not be included. By using MoSCoW prioritisation, I was able to focus on delivering the highest value to users and stakeholders first, while still maintaining the flexibility to address lower-priority features later in the project.
 
 #### Iterations
 
