@@ -67,9 +67,6 @@ User stories are short, simple descriptions of a feature or functionality told f
 - As a returning user, I can review my previous purchases so that I can reorder or track my past orders. [#38](https://github.com/jdohertydev/maison_lavaux/issues/38)
 - As a returning user, I can leave reviews for products I’ve purchased so that I can share feedback with other users. [#34](https://github.com/jdohertydev/maison_lavaux/issues/34)
 
-
-
-
 ## Design
 
 The colour scheme for the website was carefully selected to reflect the brand's sophisticated and elegant identity. Black and white were chosen as the primary colours, as they convey a timeless and refined aesthetic while also being the simplest and most effective for accessibility. To complement this monochromatic foundation, a rose red was introduced as an accent colour. This striking yet classy choice adds a touch of warmth and distinction, making it perfect for highlighting key elements such as calls to action and interactive features. The result is a clean, accessible, and visually appealing design that aligns seamlessly with the brand's ethos.
@@ -186,6 +183,10 @@ Having created the user stories, I used **MoSCoW prioritisation** to ensure that
 - **Won't-Have**: Features explicitly excluded from the project scope.
 
 This method is beneficial as it allows for clear communication about what will be delivered in each iteration. It ensures that essential features are prioritised, while also managing expectations by clearly defining what will not be included. By using MoSCoW prioritisation, I was able to focus on delivering the highest value to users and stakeholders first, while still maintaining the flexibility to address lower-priority features later in the project.
+
+#### Story Points
+
+In this project, story points were used to estimate the relative complexity of each user story, enabling efficient time management and iteration planning. Each story was assigned a point value of 1, 2, 3, 5, 8, 13, or 21 based on the Fibonacci sequence, which provides a non-linear scale to account for increasing uncertainty with more complex tasks. By analysing the tasks and acceptance criteria for each story, I determined its difficulty relative to others, ensuring a realistic assessment of workload. This method facilitated the prediction of solo velocity for each iteration, aiding in the planning of future development cycles and prioritisation of features.
 
 #### Iterations
 
