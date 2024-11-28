@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -51,7 +52,6 @@ def all_products(request):
             categories = Category.objects.filter(name__in=categories)
             meta_description = f"Explore our {', '.join([cat.friendly_name or cat.name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
 
-
         # Handle search queries
         if 'q' in request.GET:
             query = request.GET['q']
@@ -62,6 +62,16 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
             meta_description = f"Search results for '{query}'. Discover handcrafted perfumes by Maison Lavaux."
+
+    # Implement pagination
+    paginator = Paginator(products, 12)  # Show 12 products per page
+    page = request.GET.get('page', 1)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
     # Context for the template
     current_sorting = f'{sortkey}_{direction}' if sortkey else 'None_None'
