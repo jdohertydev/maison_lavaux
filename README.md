@@ -196,41 +196,92 @@ In this project, story points were used to estimate the relative complexity of e
 
 ## Features
 
-### Navigation
+### Base Template File
 
-### Footer
+For my project, the `base.html` template serves as the foundation for the overall structure and layout of the website. By centralising common elements such as the header, footer, and navigation in a single file, it ensures consistency across all pages and simplifies maintenance. This approach allows individual pages to focus on their unique content while inheriting the shared layout and functionality from the base template. From the `base.html` template, the following features are included on every page within the project:
 
-#### Newsletter
+#### Meta Tags
+- Essential meta tags, including character encoding, viewport settings for responsiveness, and a default meta description that can be customised on individual pages.
+
+#### CSS and JavaScript Includes
+- Core CSS includes such as Bootstrap, Google Fonts, and custom styles from `base.css`.
+- JavaScript libraries such as jQuery, Popper.js, Bootstrap JS, and Stripe for payment integration.
+- Additional, page-specific CSS and JavaScript can be added via block tags (`corecss`, `extra_css`, `corejs`, `extra_js`).
+
+#### Navigation Bar
+- A fixed-top navbar with search functionality, user account options (login, profile, logout), and a shopping cart icon displaying the number of items in the cart.
+- Dynamic greeting for logged-in users with their username or a "My Account" label for guests.
+
+#### Header and Footer
+- The header includes the website logo, main navigation, and a delivery banner for promotions.
+- The footer contains links to information pages, social media profiles, and a newsletter subscription form.
+
+#### Dynamic Content Blocks
+- Custom content areas such as `meta`, `page_header`, and `content` are made flexible through the use of `{% block %}` tags, allowing pages to easily modify or extend these areas.
+
+#### Toast Notifications
+- Displays dynamic notifications (success, error, warning, info) based on messages in the request context.
+
+#### Footer with Social Media and Newsletter Signup
+- The footer features social media links (Facebook, Twitter, Instagram, LinkedIn) and a form to subscribe to newsletters.
+
+#### Dynamic Year Display
+- The current year is dynamically displayed in the footer using JavaScript, ensuring the copyright information remains up-to-date.
+
+These features ensure a consistent user experience and allow for easy customisation of content across different pages, improving the maintainability and scalability of the project.
+
 
 ### Home Page
 
-### Sign Up Page
-
-### Sign In Page
-
-### Log Out Page
-
-### Profile Page
-
 ### Products Page
+
+The products page on this site displays a dynamic catalogue of items available for purchase, allowing users to browse through a range of products, filter them by category, and sort them based on various criteria such as price, rating, or name. 
+
+Each product card on the products page displays the following details:
+
+- Product Image: A clear, high-quality image representing the product.
+- Product Name: The name of the product, which links to its individual detail page.
+- Price: The regular price of the product, with any applicable discounts displayed alongside.
+- Discounted Price: If a product is on sale, the discounted price is displayed prominently.
+- Product Rating: The product's average rating, shown as stars (if available).
+- Category: The product’s category, with a link to view more products from the same category.
+
+This ensures that users have a comprehensive view of each product at a glance, making it easier to decide on their purchases.
+
+#### Seamless Product Display with Inactive Item Exclusion
+
+A key feature of this page is that products marked as inactive (`is_active = models.BooleanField(default=True)`) are automatically excluded from the display. This ensures that only available products are shown to the user, enhancing the shopping experience by preventing frustration  items. The page provides an intuitive and responsive layout with sorting options and real-time updates, ensuring a smooth and engaging shopping experience.
+
+
+#### Pagination for Product Pages
+
+A key feature missing from the walkthrough project *Boutique Ado* was pagination for the product pages, which I identified as an area for improvement. To enhance the user experience and improve site performance, I implemented pagination on the product pages. This feature divides the product listings into multiple pages, making it easier for users to browse large numbers of items without long load times. Each page displays a manageable number of products, and users can navigate through the available pages using the pagination controls. This functionality not only helps in presenting a more organised and responsive layout but also reduces server load by limiting the amount of data fetched at once. The pagination system is designed to be intuitive and user-friendly, providing clear navigation options for seamless browsing across various product categories.
 
 ### Product Details Page
 
-#### Product Review
+##### Product Review
 
 ### Basket Page
 
 ### Checkout Page
 
-### Checkout Success / 
+### Checkout Success 
 
-### Add / Edit Products Page
-
-### Delete Product Functionality
+#### Order Confirmation Email
 
 ### Profile Page
 
 #### Order History
+
+### Add / Edit Products Page
+
+#### Delete Product Functionality
+
+### Admin Panel
+
+#### Analytics App
+
+### Toasts Messaging
 
 ### Privacy Policy
 
@@ -238,19 +289,17 @@ In this project, story points were used to estimate the relative complexity of e
 
 ### Contact Page
 
-### Toasts Messaging
-
 ### Error Pages
 
-### Admin Panel
+### Sign Up Page
 
-#### Analytics App
+#### Email Verification
+
+### Sign In Page
+
+### Log Out Page
 
 ### Password Reset
-
-### Email Verification
-
-### Order Confirmation Email
 
 ### Back to Top Button
 
@@ -259,8 +308,6 @@ In this project, story points were used to estimate the relative complexity of e
 ### Items on Sale
 
 ### Form Validation
-
-### Tooltips
 
 ### Button Disabling
 
