@@ -68,6 +68,8 @@ User stories are short, simple descriptions of a feature or functionality told f
 - As a returning user, I can leave reviews for products I’ve purchased so that I can share feedback with other users. [#34](https://github.com/jdohertydev/maison_lavaux/issues/34)
 
 
+
+
 ## Design
 
 The colour scheme for the website was carefully selected to reflect the brand's sophisticated and elegant identity. Black and white were chosen as the primary colours, as they convey a timeless and refined aesthetic while also being the simplest and most effective for accessibility. To complement this monochromatic foundation, a rose red was introduced as an accent colour. This striking yet classy choice adds a touch of warmth and distinction, making it perfect for highlighting key elements such as calls to action and interactive features. The result is a clean, accessible, and visually appealing design that aligns seamlessly with the brand's ethos.
@@ -172,7 +174,7 @@ During the project planning stage, I took the time to thoroughly consider and de
 
 After finalising this list of functional requirements, I converted them into user stories, represented as issues on GitHub. Any requirement that was too large to be considered a single user story was labelled as an **Epic**, and the related user stories were grouped under that epic. This approach allowed me to break down larger tasks into smaller, manageable pieces.
 
-From the requirements, I created **7 epics** and additional user stories, totalling **47 user stories**. As the development progressed, some issues were identified as bugs, which were also tracked as user stories. For every epic that was created, all related user stories were referenced within that epic, ensuring clear tracking of tasks and progress.
+From the requirements, I created **6 epics** and additional user stories, totalling **45 user stories**. As the development progressed, some issues were identified as bugs, which were also tracked as user stories. For every epic that was created, all related user stories were referenced within that epic, ensuring clear tracking of tasks and progress.
 
 #### MoSCoW Prioritization
 
