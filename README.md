@@ -27,7 +27,7 @@ In website development, epics are high-level objectives that represent major are
 
 User stories are short, simple descriptions of a feature or functionality told from the perspective of the end user. They help ensure the development process remains user-focused, aligning each task with specific user needs and goals. Below are the user stories I created for my project:
 
-### Owner/Admin & Developer Goals
+### Owner/Admin and Developer Goals
 - As an admin, I can assign products to specific categories so that users can find them more easily during browsing. [#53](https://github.com/jdohertydev/maison_lavaux/issues/53)
 - As an admin, I can temporarily hide products from the storefront so that users don’t see items that are being updated or out of stock. [#54](https://github.com/jdohertydev/maison_lavaux/issues/54)
 - As an admin, I can view a summary of product inventory so that I can monitor stock levels easily. [#52](https://github.com/jdohertydev/maison_lavaux/issues/52)
@@ -53,6 +53,12 @@ User stories are short, simple descriptions of a feature or functionality told f
 - As a user, I can see a detailed breakdown of my order total, including discounts and shipping, so that I understand the final price I am paying. [#39](https://github.com/jdohertydev/maison_lavaux/issues/39)
 - As a user, I can receive an email confirmation after completing my order so that I know my transaction was successful. [#38](https://github.com/jdohertydev/maison_lavaux/issues/38)
 - As a user, I can view a summary of the products in my cart so that I can confirm my order is correct before checkout. [#33](https://github.com/jdohertydev/maison_lavaux/issues/33)
+- As a user, I can experience a clean and professional design so that I feel confident shopping on a high-quality website. [#16](https://github.com/jdohertydev/maison_lavaux/issues/16)
+- As a user, I can access a clear and well-organised navigation menu so that I can find the information or products I need without frustration. [#17](https://github.com/jdohertydev/maison_lavaux/issues/17)
+- As a user, I can access the website on my mobile device so that I can browse and shop seamlessly on the go. [#18](https://github.com/jdohertydev/maison_lavaux/issues/18)
+- As a user, I can see visual or textual feedback when interacting with elements (e.g., buttons or forms) so that I know my actions have been registered. [#19](https://github.com/jdohertydev/maison_lavaux/issues/19)
+- As a user with disabilities, I can use assistive technologies (e.g., screen readers) to navigate the site so that I can access the same features as any other user. [#20](https://github.com/jdohertydev/maison_lavaux/issues/20)
+- As a user, I can experience minimal load times on every page so that I don't lose interest or abandon the site. [#21](https://github.com/jdohertydev/maison_lavaux/issues/21)
 
 ### Returning Visitor Goals
 - As a returning user, I can securely save my payment details so that future purchases are faster and easier. [#40](https://github.com/jdohertydev/maison_lavaux/issues/40)
@@ -60,6 +66,7 @@ User stories are short, simple descriptions of a feature or functionality told f
 - As a returning user, I can apply discount codes or promotional offers to my order so that I can save money. [#39](https://github.com/jdohertydev/maison_lavaux/issues/39)
 - As a returning user, I can review my previous purchases so that I can reorder or track my past orders. [#38](https://github.com/jdohertydev/maison_lavaux/issues/38)
 - As a returning user, I can leave reviews for products I’ve purchased so that I can share feedback with other users. [#34](https://github.com/jdohertydev/maison_lavaux/issues/34)
+
 
 ## Design
 
@@ -165,7 +172,7 @@ During the project planning stage, I took the time to thoroughly consider and de
 
 After finalising this list of functional requirements, I converted them into user stories, represented as issues on GitHub. Any requirement that was too large to be considered a single user story was labelled as an **Epic**, and the related user stories were grouped under that epic. This approach allowed me to break down larger tasks into smaller, manageable pieces.
 
-From the requirements, I created **7 epics** and additional user stories, totalling **XX user stories**. As the development progressed, some issues were identified as bugs, which were also tracked as user stories. For every epic that was created, all related user stories were referenced within that epic, ensuring clear tracking of tasks and progress.
+From the requirements, I created **7 epics** and additional user stories, totalling **47 user stories**. As the development progressed, some issues were identified as bugs, which were also tracked as user stories. For every epic that was created, all related user stories were referenced within that epic, ensuring clear tracking of tasks and progress.
 
 #### MoSCoW Prioritization
 
