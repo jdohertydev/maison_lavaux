@@ -246,9 +246,9 @@ The homepage offers multiple product categories, each tailored to meet diverse c
 
   ```python
   # New In Section (last 30 days)
-  new_in_products = Product.objects.filter(
-      created_at__gte='2024-10-18', is_active=True
-  ).order_by('-created_at')[:4]  
+    new_in_products = Product.objects.filter(
+        created_at__gte=thirty_days_ago, is_active=True
+    ).order_by('-created_at')[:4]
   ```
 
 - **For Him and For Her**: Gender-specific product recommendations for a more personalized shopping experience.
