@@ -28,7 +28,7 @@ class StripeWH_Handler:
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {
                 'order': order,
-                'contact_email': settings.DEFAULT_FROM_EMAIL.split('<')[1].strip('>'),  # Extract just the email
+                'contact_email': settings.DEFAULT_FROM_EMAIL.split('<')[1].strip('>'),
                 'order_total': order.order_total,
                 'delivery_cost': order.delivery_cost,
                 'grand_total': order.grand_total,
@@ -56,9 +56,7 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         # Get the Charge objects
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
+        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
@@ -97,7 +95,7 @@ class StripeWH_Handler:
         except Order.DoesNotExist:
             order = None
 
-        # Create the order without inventory adjustment
+        # Create the order and adjust inventory
         try:
             with transaction.atomic():
                 order = Order.objects.create(
@@ -115,23 +113,25 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                     grand_total=grand_total,
                 )
-                # Add order line items without reducing inventory
+                # Add order line items and adjust stock
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        OrderLineItem.objects.create(
+                        line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
+                        line_item.save()  # Stock adjustment happens here
                     else:
                         for size, quantity in item_data['items_by_size'].items():
-                            OrderLineItem.objects.create(
+                            line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            line_item.save()  # Stock adjustment happens here
         except Exception as e:
             if order:
                 order.delete()

@@ -77,10 +77,23 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the lineitem total
-        and update the order total.
+        Override the original save method to:
+        - Set the line item total
+        - Update the order total
+        - Deduct product stock
         """
+        # Calculate line item total
         self.lineitem_total = self.product.price * self.quantity
+
+        # Ensure sufficient stock is available
+        if self.product.stock < self.quantity:
+            raise ValueError(f"Insufficient stock for {self.product.name}. Only {self.product.stock} left.")
+
+        # Deduct stock
+        self.product.stock -= self.quantity
+        self.product.save()
+
+        # Save the line item
         super().save(*args, **kwargs)
 
     def __str__(self):

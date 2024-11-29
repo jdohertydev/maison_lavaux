@@ -69,11 +69,12 @@ def checkout(request):
                 for item_id, item_data in bag.items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        line_item = OrderLineItem.objects.create(
+                        line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
+                        line_item.save()
                         # Update SalesData
                         sales_data, created = SalesData.objects.get_or_create(product=product)
                         sales_data.purchases += item_data
@@ -81,12 +82,13 @@ def checkout(request):
                         sales_data.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
-                            line_item = OrderLineItem.objects.create(
+                            line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            line_item.save()
                             # Update SalesData
                             sales_data, created = SalesData.objects.get_or_create(product=product)
                             sales_data.purchases += quantity
@@ -186,7 +188,7 @@ def checkout_success(request, order_number):
 
     # Success message for the user
     messages.success(
-        request, 
+        request,
         f'Order successfully processed! Your order number is {order_number}. '
         f'A confirmation email will be sent to {order.email}.'
     )
