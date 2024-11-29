@@ -197,7 +197,6 @@ In this project, story points were used to estimate the relative complexity of e
 ## Features
 
 ### Base Template File
-
 For my project, the `base.html` template serves as the foundation for the overall structure and layout of the website. By centralising common elements such as the header, footer, and navigation in a single file, it ensures consistency across all pages and simplifies maintenance. This approach allows individual pages to focus on their unique content while inheriting the shared layout and functionality from the base template. From the `base.html` template, the following features are included on every page within the project:
 
 #### Meta Tags
@@ -230,8 +229,91 @@ For my project, the `base.html` template serves as the foundation for the overal
 
 These features ensure a consistent user experience and allow for easy customisation of content across different pages, improving the maintainability and scalability of the project.
 
-
 ### Home Page
+
+The homepage of Maison Lavaux is thoughtfully designed to provide an engaging and seamless user experience while showcasing our luxurious perfume collection. Below are the standout features:
+
+#### **Dynamic Hero Section**
+- A captivating hero banner featuring a high-resolution image, a dynamic overlay message, and a compelling call-to-action button directing users to browse the product catalog.
+- The overlay includes slogan that changes every 5 seconds using JS (*"Discover Your Signature Scent", "Find the Perfect Fragrance for Any Occasion", "Unleash Your True Essence"*) to inspire visitors and enhance brand identity.
+
+
+#### **Curated Product Sections**
+
+The homepage offers multiple product categories, each tailored to meet diverse customer preferences:
+
+- **New In**: Showcases the latest products added in the past 30 days, keeping the catalog fresh and exciting.
+
+  ```python
+  # New In Section (last 30 days)
+  new_in_products = Product.objects.filter(
+      created_at__gte='2024-10-18', is_active=True
+  ).order_by('-created_at')[:4]  
+  ```
+
+- **For Him and For Her**: Gender-specific product recommendations for a more personalized shopping experience.
+
+  ```python
+  # For Him Section (products for men)
+  for_him_products = Product.objects.filter(
+      gender='M', is_active=True
+  ).order_by('-created_at')[:4]
+
+  # For Her Section (products for women)
+  for_her_products = Product.objects.filter(
+      gender='W', is_active=True
+  ).order_by('-created_at')[:4]
+  ```
+
+- **Most Popular**: Highlights the best-selling products based on revenue generated, leveraging data-driven insights.
+
+  ```python
+  # Most Popular Section (top 4 products by revenue)
+  most_popular_products = Product.objects.annotate(
+      total_revenue=Sum('sales_data__revenue_generated')
+  ).order_by('-total_revenue')[:4]
+  ```
+
+- **Highest Rated**: Features top-rated products as reviewed by customers, ensuring quality recommendations.
+
+  ```python
+  # Highest Rated Section (top 4 highest rated products)
+  highest_rated_products = Product.objects.filter(
+      rating__isnull=False, is_active=True
+  ).order_by('-rating')[:4]
+  ```
+
+- **Pot Luck**: A surprise selection of four random active products, encouraging discovery and delight.
+
+  ```python
+  # Pot Luck Section (random 4 active products)
+  all_active_products = Product.objects.filter(is_active=True)
+  random_products = random.sample(
+      list(all_active_products), 4
+  ) if all_active_products else []
+  ```
+
+#### **Interactive Product Cards**
+- Each product card is designed with user engagement in mind, displaying:
+  - High-quality product images with fallback placeholders.
+  - Product names, categories, dynamic pricing (including original and discounted prices), and star ratings.
+  - Interactive tags and links for easy navigation to related categories.
+
+#### **Responsive and Accessible Design**
+- Fully responsive layout ensuring a smooth browsing experience across desktop, tablet, and mobile devices.
+- Alt text for images and semantic HTML elements to enhance accessibility for screen readers.
+
+#### **Back-to-Top Button**
+- A persistent "Back to Top" button allows users to navigate long pages effortlessly, improving overall usability.
+
+#### **Search Engine Optimization (SEO)**
+- Includes a descriptive meta tag: 
+  > *"Welcome to Maison Lavaux, your destination for handcrafted perfumes made in Paris. Explore our exclusive collection for men and women, featuring new arrivals, top-rated scents, and unique fragrances for every occasion."*
+  - This improves search visibility and effectively communicates the brand’s unique selling points.
+
+By integrating these features, the homepage sets the tone for an exceptional online shopping experience while reinforcing the Maison Lavaux brand identity.
+
+
 
 ### Products Page
 
@@ -280,8 +362,6 @@ A key feature missing from the walkthrough project *Boutique Ado* was pagination
 ### Admin Panel
 
 #### Analytics App
-
-### Toasts Messaging
 
 ### Toast Messaging
 
