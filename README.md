@@ -308,8 +308,8 @@ The homepage offers multiple product categories, each tailored to meet diverse c
 
 #### **Search Engine Optimization (SEO)**
 - Includes a descriptive meta tag: 
-  > *"Welcome to Maison Lavaux, your destination for handcrafted perfumes made in Paris. Explore our exclusive collection for men and women, featuring new arrivals, top-rated scents, and unique fragrances for every occasion."*
-  - This improves search visibility and effectively communicates the brand’s unique selling points.
+   *"Welcome to Maison Lavaux, your destination for handcrafted perfumes made in Paris. Explore our exclusive collection for men and women, featuring new arrivals, top-rated scents, and unique fragrances for every occasion."*
+- This improves search visibility and effectively communicates the brand’s unique selling points.
 
 By integrating these features, the homepage sets the tone for an exceptional online shopping experience while reinforcing the Maison Lavaux brand identity.
 
