@@ -86,11 +86,11 @@ class OrderLineItem(models.Model):
         self.lineitem_total = self.product.price * self.quantity
 
         # Ensure sufficient stock is available
-        if self.product.stock < self.quantity:
-            raise ValueError(f"Insufficient stock for {self.product.name}. Only {self.product.stock} left.")
+        if self.product.stock_quantity < self.quantity:
+            raise ValueError(f"Insufficient stock for {self.product.name}. Only {self.product.stock_quantity} left.")
 
         # Deduct stock
-        self.product.stock -= self.quantity
+        self.product.stock_quantity -= self.quantity
         self.product.save()
 
         # Save the line item
