@@ -1280,3 +1280,87 @@ Benefits
 Pagination Benefits in E-Commerce
 
 Implementing pagination on the products page is essential for enhancing user experience and ensuring optimal performance. Pagination prevents overwhelming users with an extensive list of products by displaying a manageable number of items per page. This approach improves load times, especially for users with slower internet connections, as it reduces the amount of data that needs to be retrieved and rendered at once. Additionally, by organising products across multiple pages, navigation becomes more intuitive and user-friendly, allowing customers to browse and locate their desired items efficiently. Pagination also plays a critical role in improving server performance, as it reduces the strain on database queries and enables faster responses. Overall, incorporating pagination ensures a seamless and enjoyable shopping experience for customers while maintaining the scalability of the platform.
+
+Implementation of Stock Control
+Overview
+
+The stock control feature ensures that product inventory is accurately managed in real time during the checkout process. When a customer places an order, the system automatically deducts the purchased quantity from the product’s available stock, preventing overselling. If the stock is insufficient, the order cannot proceed.
+
+This feature integrates seamlessly into the checkout and payment workflows, ensuring robust and reliable inventory management.
+Key Features
+
+    Real-Time Stock Deduction:
+        Automatically deducts stock when an order is created.
+        Ensures accurate inventory updates after successful payments.
+
+    Stock Validation:
+        Prevents orders from being placed if requested quantities exceed available stock.
+        Raises appropriate error messages for insufficient stock.
+
+    Error Handling:
+        Ensures database consistency with transaction rollbacks in case of errors.
+        Logs issues for easier debugging and monitoring.
+
+    Admin Control:
+        Allows administrators to view and update stock levels through the Django Admin panel.
+
+How It Was Implemented
+
+    Updating the Product Model:
+        Added a stock_quantity field to track the available inventory for each product.
+        Example:
+
+    stock_quantity = models.IntegerField(default=0)
+
+Stock Deduction in OrderLineItem:
+
+    The save method of the OrderLineItem model was overridden to:
+        Validate available stock before deducting.
+        Deduct the purchased quantity from stock_quantity.
+        Example:
+
+        if self.product.stock_quantity < self.quantity:
+            raise ValueError(f"Insufficient stock for {self.product.name}. Only {self.product.stock_quantity} left.")
+        self.product.stock_quantity -= self.quantity
+        self.product.save()
+
+Integration into Checkout Process:
+
+    Updated the checkout view to ensure stock adjustments are triggered through the line_item.save() method.
+    Ensured consistency by routing all stock adjustments via the OrderLineItem.save() method.
+
+Stripe Webhook Integration:
+
+    In the webhook_handler.py, stock adjustments are performed for successful payments by creating OrderLineItem objects and calling save():
+
+        line_item.save()  # Stock adjustment happens here
+
+    Admin and Testing Enhancements:
+        Included stock_quantity in the Django Admin for easy management.
+        Added test cases to validate:
+            Sufficient stock availability.
+            Proper stock deduction after order creation.
+            Errors for insufficient stock scenarios.
+
+Testing
+
+    Checkout Process:
+        Tested the complete order workflow to ensure stock is deducted appropriately.
+        Simulated edge cases such as ordering more than the available stock.
+
+    Stripe Webhook:
+        Used the Stripe CLI to trigger payment_intent.succeeded events and validated the stock adjustment logic.
+
+    Error Handling:
+        Verified that errors (e.g., insufficient stock) are logged and orders are rolled back.
+
+Future Enhancements
+
+    Order Cancellation:
+        Replenish stock if an order is canceled.
+
+    Low Stock Notifications:
+        Add alerts for administrators when stock levels fall below a certain threshold.
+
+    Concurrent Order Handling:
+        Implement locks or other mechanisms to handle simultaneous orders for the same product.
