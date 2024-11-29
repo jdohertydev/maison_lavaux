@@ -1,20 +1,30 @@
 from django.shortcuts import render
 from products.models import Product
-import random
-from django.db.models import Count
+from django.utils.timezone import now, timedelta
 from django.db.models import Sum
+import random
+
 
 def home(request):
     """ A view to display homepage with various product sections """
 
+    # Calculate the date 30 days ago
+    thirty_days_ago = now() - timedelta(days=30)
+
     # New In Section (last 30 days)
-    new_in_products = Product.objects.filter(created_at__gte='2024-10-18', is_active=True).order_by('-created_at')[:4]
+    new_in_products = Product.objects.filter(
+        created_at__gte=thirty_days_ago, is_active=True
+    ).order_by('-created_at')[:4]
 
     # For Him Section (products for men)
-    for_him_products = Product.objects.filter(gender='M', is_active=True).order_by('-created_at')[:4]
+    for_him_products = Product.objects.filter(
+        gender='M', is_active=True
+    ).order_by('-created_at')[:4]
 
     # For Her Section (products for women)
-    for_her_products = Product.objects.filter(gender='W', is_active=True).order_by('-created_at')[:4]
+    for_her_products = Product.objects.filter(
+        gender='W', is_active=True
+    ).order_by('-created_at')[:4]
 
     # Get top 4 products by revenue generated
     most_popular_products = Product.objects.annotate(
@@ -22,11 +32,15 @@ def home(request):
     ).order_by('-total_revenue')[:4]  # Order by highest revenue and limit to 4
 
     # Highest Rated Section (products with the highest ratings)
-    highest_rated_products = Product.objects.filter(rating__isnull=False, is_active=True).order_by('-rating')[:4]
+    highest_rated_products = Product.objects.filter(
+        rating__isnull=False, is_active=True
+    ).order_by('-rating')[:4]
 
     # Pot Luck (Random selection of 4 products)
     all_active_products = Product.objects.filter(is_active=True)
-    random_products = random.sample(list(all_active_products), 4) if all_active_products else []
+    random_products = random.sample(
+        list(all_active_products), 4
+    ) if all_active_products else []
 
     # Meta description for SEO
     meta_description = (
