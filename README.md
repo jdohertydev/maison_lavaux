@@ -869,6 +869,27 @@ This small but impactful detail highlights the focus on delivering a polished an
 
 ### Form Validation
 
+Form validation in the project ensures that user inputs are accurate, complete, and secure. This is implemented across various features to enhance functionality and user experience. Key aspects of form validation include:
+
+- Profile Forms:
+  - Delivery and personal information forms in the Profile app use `forms.ModelForm` for automatic validation of required fields, data types, and email formats.
+  - Additional validation logic is implemented to ensure completeness of user details.
+
+- Checkout Forms:
+  - During checkout, forms validate user-provided order details, including address and contact information. This ensures accurate data is submitted before order processing.
+  - Validation checks for required fields such as email and ensures postal codes follow proper formatting.
+
+- Contact Forms:
+  - The Contact page form uses `forms.Form` to validate fields such as name, email, and message content.
+  - Clear error messages are displayed to guide users in correcting invalid inputs.
+
+- Product Management Forms:
+  - Forms for adding and editing products include custom validation logic to ensure that the discount price is less than the original price.
+
+- Django's Built-in Features:
+  - Utilizes Django's `forms` library to enforce field requirements, validate email addresses, and provide error feedback for invalid inputs.
+  - Includes client-side validation where possible for a smoother user experience.
+
 ### Button Disabling
 
 ### Max Product Entry Protection
