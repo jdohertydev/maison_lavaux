@@ -950,7 +950,6 @@ Accessibility is a core consideration throughout the project, ensuring the websi
 - **Custom Error Pages**: Custom 400, 403, 404, and 500 error pages provide clear instructions and maintain accessibility standards, ensuring users can recover from errors with ease.
 
 By implementing these practices, the project demonstrates a commitment to creating an inclusive and enjoyable user experience for all.
-ble to a wide range of users, including those with disabilities, and align with modern accessibility standards to deliver an inclusive user experience.
 
 ## E-Commerce Business Model
 
