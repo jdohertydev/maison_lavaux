@@ -681,10 +681,45 @@ The profile app provides users with a personalized area to manage their default 
 
 The profile app enhances the overall user experience by providing a centralized, efficient, and accessible way to manage personal information and review past transactions. 
 
-### Add / Edit Products Page
+### Add / Edit / Products Page
 
+This project includes product management functionality that enables authorized users to efficiently add, edit, and delete products directly through the frontend interface.
+
+#### Add Product Functionality
+
+The application includes a dedicated form and view for adding products:
+
+- GET Request: The `add_product` view renders the `add_product.html` template with an empty `ProductForm` for entering product details.
+- POST Request: When the form is submitted, the data is validated. If valid, the new product is saved to the database, and the user is redirected to the product detail page. If invalid, error messages guide the user to correct the issues.
+
+The `add_product.html` template includes CSRF protection and uses Django's templating language for consistent rendering and security.
+
+#### Edit Product Functionality
+
+Editing existing products is handled by a similar process:
+
+- GET Request: The `edit_product` view retrieves the product by its ID and pre-populates the `ProductForm` with the current data. The form is displayed in the `edit_product.html` template for user modifications.
+- POST Request: On submission, the data is validated. If valid, the updates are saved, and the user is redirected to the product detail page. If invalid, error messages are displayed to assist the user.
+
+The `edit_product.html` template is designed to mirror the add product page while displaying existing data for convenience.
 
 #### Delete Product Functionality
+
+The application provides a secure method for deleting products through the `delete_product` view:
+
+- Access Control: Only superusers can perform deletions, ensuring this action is limited to authorized personnel.
+- Process: The specified product is retrieved by its ID, deleted from the database, and the user is redirected to the product list with a success message.
+
+This deletion feature is linked from the product detail and list pages for easy access.
+
+#### Access Control
+
+All product management views include safeguards to ensure only authorized users have access:
+
+- The `@login_required` decorator restricts access to authenticated users.
+- Additional checks confirm that only superusers can add, edit, or delete products.
+
+These measures ensure secure and reliable product management, protecting the integrity of the catalog.
 
 ### Admin Panel
 
