@@ -607,9 +607,82 @@ The Boutique Ado project lacked the use of the `humanize` library, which resulte
 
 ### Profile Page
 
-#### Order History
+The profile app provides users with a personalized area to manage their default delivery information, view their order history, and update personal details like name and email. This app ensures a streamlined and user-friendly experience for managing account information and past transactions.
+
+#### Backend Features
+
+1. User Profile Model
+   - Stores default delivery details such as:
+     - Phone number
+     - Address lines
+     - Town or city
+     - County
+     - Postcode
+     - Country
+   - Links each profile to a User instance using a one-to-one relationship.
+   - Automatically creates or updates the profile when a user is created using Django signals.
+
+2. Order History Retrieval
+   - Associates user profiles with their past orders, enabling users to view a detailed order history.
+   - Provides detailed information about each order, including order number, date, items, and total cost.
+
+3. Forms for User and Profile Updates
+   - UserProfileForm for updating default delivery information with:
+     - Custom placeholders and classes for consistency.
+     - Focus on user-friendly design with a clean interface.
+   - UserUpdateForm for updating personal details such as first name, last name, and email.
+
+4. View Functions
+   - profile: Displays the user's profile page, allowing updates to delivery information and personal details.
+   - order_history: Provides detailed information about past orders, with a message confirming that the order has already been processed.
+
+#### Frontend Features
+
+1. Profile Page
+   - Displays the user's personal details and default delivery information in a responsive, user-friendly layout.
+   - Includes separate sections for:
+     - Personal Information
+     - Default Delivery Information
+   - Features a single form for updating all information, submitted via a POST request.
+
+2. Order History Table
+   - Displays a list of the user's past orders in a table format with columns for:
+     - Order number (clickable link for more details)
+     - Order date (displayed using natural language)
+     - Order items (including product name, size, and quantity)
+     - Grand total
+   - Responsive design ensures readability on all device sizes.
+
+3. Order History Details
+   - Provides a detailed breakdown of individual orders, including:
+     - List of items ordered
+     - Delivery address
+     - Total costs, including delivery charges
+     - Timestamp of the order date
+   - Reuses the checkout success page template for consistency.
+
+4. Form Design
+   - All forms use the Crispy Forms library for a consistent and responsive design.
+   - Custom placeholders and autofocus improve usability and guide users during input.
+
+5. Error and Success Messaging
+   - Displays clear feedback when forms are submitted:
+     - Success messages confirm updates were saved successfully.
+     - Error messages highlight validation issues or missing required fields.
+
+#### Key Features
+
+- Automatic profile creation ensures every user has a profile upon registration.
+- Centralized profile management combines personal details and delivery information in one place.
+- Detailed order history provides users with a complete overview of their transactions.
+- Reusable design leverages modular templates for consistent styling across the app.
+- Responsive and accessible design ensures usability on mobile, tablet, and desktop devices.
+- Improved user experience through user-friendly form design and intuitive navigation.
+
+The profile app enhances the overall user experience by providing a centralized, efficient, and accessible way to manage personal information and review past transactions. 
 
 ### Add / Edit Products Page
+
 
 #### Delete Product Functionality
 
