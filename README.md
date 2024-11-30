@@ -436,7 +436,65 @@ The product review functionality is an integral part of the application, enablin
 
 The Boutique Ado project did not include a review system, which limited customer engagement and product transparency. Without reviews or dynamic ratings, users were unable to provide feedback or view others' opinions. The addition of the product review feature in this project addresses these shortcomings, creating a more interactive and user-friendly shopping experience.
 
-### Basket Page
+### Shopping Bag (Basket) Features
+
+#### Backend Features
+
+1. Add to Bag Functionality
+   - Users can add products to their shopping bag, with options to select quantity and size (if applicable).
+   - Stock availability is validated to ensure users cannot add more than the available quantity.
+
+2. Adjust Bag Functionality
+   - Allows users to update the quantity of items in the bag.
+   - Validates stock availability during adjustments to prevent exceeding the available stock.
+   - Dynamically updates the bag contents and session data.
+
+3. Remove from Bag Functionality
+   - Provides the ability to remove items from the shopping bag.
+   - Handles both size-specific items and general products.
+   - Returns appropriate responses (`200` or `500`) for success or failure.
+
+4. Session-Based Bag Storage
+   - Stores the shopping bag in the user's session, ensuring persistence across pages.
+   - Handles size-specific quantities within the session data structure.
+
+5. Error Handling
+   - Displays error messages if users attempt to add or adjust quantities exceeding the available stock.
+   - Uses the `messages` framework for clear feedback on user actions (e.g., updates, removals, or errors).
+
+#### Frontend Features
+
+1. Responsive Design
+   - Fully responsive layout optimized for both mobile and desktop users.
+   - Mobile view displays individual product details and totals, while the desktop view uses a table format for better readability.
+
+2. Product Details
+   - Displays product images, names, sizes (if applicable), prices, quantities, and subtotals in an organized manner.
+   - Subtotals and total costs are dynamically calculated and displayed.
+
+3. Interactive Quantity Adjustment
+   - Users can increment or decrement product quantities directly in the bag.
+   - Real-time validation and updates ensure accurate totals.
+
+4. Dynamic Updates with JavaScript
+   - Includes AJAX-powered functionality for removing items, avoiding a full page reload.
+   - Ensures a smooth user experience when updating or removing items.
+
+5. Empty Bag Handling
+   - If the shopping bag is empty, a message is displayed to the user.
+   - Includes a "Keep Shopping" button to redirect users back to the product catalog.
+
+6. Checkout Integration
+   - Clearly displays bag totals and provides checkout buttons for easy navigation to the checkout process.
+
+7. Reusable Templates
+   - Modular templates for product details, totals, and checkout buttons allow for consistent styling and easier maintenance.
+
+8. User Feedback
+   - Success and error messages inform users of updates, stock limitations, and removals, improving the overall user experience.
+
+9. Back to Top Button
+   - A floating "Back to Top" button improves navigation, especially for mobile users with long bag content.
 
 ### Checkout Page
 
