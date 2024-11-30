@@ -496,11 +496,114 @@ The Boutique Ado project did not include a review system, which limited customer
 9. Back to Top Button
    - A floating "Back to Top" button improves navigation, especially for mobile users with long bag content.
 
-### Checkout Page
+### Checkout Page / Checkout Success 
 
-### Checkout Success 
+#### Backend Features
+
+1. Checkout form validation
+   - Validates all form fields, including full name, email, address, and payment details.
+   - Ensures data is correctly formatted and required fields are filled.
+
+2. Session-based bag integration
+   - Retrieves bag contents from the session to process orders seamlessly.
+   - Validates that the bag is not empty before proceeding with the checkout.
+
+3. Stripe payment integration
+   - Uses Stripe's PaymentIntent to securely process payments.
+   - Creates a PaymentIntent during checkout and uses client and server-side validation to ensure successful transactions.
+   - Handles payment errors with clear feedback for the user.
+
+4. Order and line item management
+   - Creates an order model to store all relevant customer, product, and payment details.
+   - Automatically generates unique order numbers using UUID.
+   - Saves each item in the bag as an OrderLineItem linked to the parent order.
+
+5. Stock management
+   - Deducts product stock when an order is successfully processed.
+   - Prevents orders from being placed if product stock is insufficient.
+
+6. Stripe webhook handling
+   - Listens for payment success or failure events from Stripe.
+   - Processes orders via webhook events to ensure reliability, even if the user disconnects after payment.
+
+7. User profile integration
+   - Authenticated users can save delivery information to their profile for faster future checkouts.
+   - Updates user profile information if "Save Info" is selected during checkout.
+
+8. Error handling
+   - Displays clear error messages for issues such as:
+     - Invalid payment details.
+     - Missing required fields.
+     - Product availability issues.
+   - Uses Django's messages framework for real-time user feedback.
+
+#### Frontend Features
+
+1. Responsive design
+   - Checkout page is fully responsive, ensuring usability across all devices.
+
+2. Order summary display
+   - Provides a detailed summary of the user's bag contents, including:
+     - Product name, size, and quantity.
+     - Subtotals, delivery cost, and grand total.
+
+3. Dynamic payment form
+   - Implements Stripe's Card Element for secure and user-friendly card input.
+   - Displays real-time validation errors within the payment form.
+
+4. Loading overlay
+   - A loading animation appears while processing payments, enhancing the user experience.
+
+5. Confirmation page
+   - Displays a detailed confirmation page after successful checkout, including:
+     - Order number and date.
+     - Billing and delivery details.
+     - List of ordered items with quantities and subtotals.
+   - Provides clear navigation options to return to the product catalog or the user's profile.
+
+6. Save information option
+   - Allows logged-in users to save delivery details to their profile for future use.
+   - Offers non-authenticated users the option to sign up or log in to enable this feature.
+
+7. Reusable templates
+   - Modular templates for the form, order summary, and confirmation page ensure consistency and easy maintenance.
+
+8. Interactive adjustments
+   - Users can navigate back to the bag page to adjust quantities or remove items before finalizing the order.
 
 #### Order Confirmation Email
+
+- The checkout system includes an automatic confirmation email feature that provides customers with detailed information about their order.
+- Upon successful payment, the system generates and sends a personalized email to the customer using the email address provided during checkout.
+- The email includes key order details such as:
+  - Order number
+  - Order date
+  - Total cost
+  - Delivery address
+  - Contact information
+- The email reassures the customer that their order has been successfully processed.
+- It offers clear instructions for reaching out with any questions or concerns.
+- By delivering a professional and personalized confirmation email, the feature:
+  - Enhances customer satisfaction
+  - Builds trust in the brand
+  - Provides an immediate record of the transaction
+
+#### Using Django Humanize for Displaying Amounts
+
+The checkout system leverages Django's `humanize` library to improve the presentation of monetary values throughout the application. Features such as the order total, delivery cost, and grand total are formatted using `humanize` filters like `floatformat` and `intcomma`. These filters ensure that amounts are displayed with consistent formatting, making them more readable and user-friendly.
+
+##### Benefits
+
+1. Improved readability
+   - The `intcomma` filter automatically adds commas to large numbers (e.g., `10000.00` becomes `10,000.00`), improving clarity, especially for international customers.
+
+2. Precision and consistency
+   - The `floatformat` filter ensures that all amounts are consistently displayed with two decimal places (e.g., `15` is formatted as `15.00`), creating a polished and professional appearance.
+
+3. Enhanced user experience
+   - Clear and consistent formatting reduces confusion and provides a smoother checkout experience by presenting financial information in an accessible format.
+
+The Boutique Ado project lacked the use of the `humanize` library, which resulted in inconsistent or raw numeric formatting for monetary values. This inconsistency could lead to a less professional appearance and potential confusion for users. By incorporating `humanize`, this project represents a clear improvement, ensuring that all amounts are displayed in a polished and user-friendly format that aligns with customer expectations for e-commerce platforms.
 
 ### Profile Page
 
