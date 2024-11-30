@@ -938,10 +938,27 @@ To enhance the platform's functionality and user experience, the following featu
 These planned implementations aim to create a more robust, engaging, and efficient platform for both customers and administrators.
 
 
+### Accessibility
 
 ### Accessibility
 
----
+This project demonstrates good accessibility practices, which are essential for creating an inclusive and user-friendly website. The following features have been implemented:
+
+- **Semantic HTML**: Semantic elements such as `<header>`, `<nav>`, `<main>`, and `<footer>` ensure a logical structure that is easy for assistive technologies to navigate.
+
+- **Responsive Design**: Meta tags like `<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">` ensure the layout dynamically adjusts to various screen sizes, providing an optimal experience on both mobile and desktop devices.
+
+- **Keyboard Navigation**: By adhering to semantic HTML and using Bootstrap for design, the site supports keyboard navigation, allowing users to tab through links, buttons, and form elements efficiently.
+
+- **Contrast and Readability**: The CSS design ensures sufficient contrast between text and background to cater to users with visual impairments, improving overall readability.
+
+- **Alt Text for Images**: Images include meaningful `alt` attributes, ensuring screen readers can describe visual content for users who cannot see it.
+
+- **Custom Error Pages**: Custom error pages (400, 403, 404, and 500) provide clear and concise descriptions of issues, aiding users who encounter problems on the site.
+
+- **Form Accessibility**: Forms are designed with clear labels, placeholders, and logical tab orders. Input fields include attributes like `type="email"` and `type="tel"` for improved validation and usability.
+
+These features ensure the website is accessible to a wide range of users, including those with disabilities, and align with modern accessibility standards to deliver an inclusive user experience.
 
 ## E-Commerce Business Model
 
