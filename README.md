@@ -825,17 +825,36 @@ To enhance the user experience, custom error pages were implemented for common H
 - User-friendly messaging provides clear explanations of errors and offers guidance to help users navigate back to the site or resolve issues.
 - Playful and engaging language reduces frustration and creates a more enjoyable interaction during error scenarios.
 
-### Sign Up Page
+#### Email Verification
 
 #### Email Verification
 
-### Sign In Page
+The project implements an email verification system for new user registrations, requiring users to confirm their email addresses before fully activating their accounts. The configuration ensures that email verification is mandatory, and users must enter their email twice during signup to reduce errors.
 
-### Log Out Page
+#### Benefits
 
-### Password Reset
+- Enhanced security: Verifying email addresses helps prevent fraudulent account creation and ensures that users can be contacted through valid, accessible email addresses.
+- Improved communication: By confirming valid emails, the system ensures users can receive important updates, order confirmations, and promotional materials, enhancing customer engagement.
+- Trust and credibility: Mandatory email verification adds professionalism and trustworthiness to the site, reassuring customers that their data is handled securely.
+- Reduced spam and abuse: This feature mitigates the risk of spam accounts, safeguarding the site from malicious activity that could harm its reputation.
+- Error reduction: Requiring users to enter their email twice minimizes typographical errors, ensuring that communications reach the correct recipients.
 
 ### Back to Top Button
+
+A "Back to Top" button is available on the Home and Products pages to enhance user navigation and overall experience. This feature allows users to quickly return to the top of the page, improving accessibility and usability, especially on pages with extensive content. It demonstrates attention to detail and a commitment to creating a seamless, user-friendly interaction, contributing to a more intuitive and enjoyable browsing experience.
+
+#### Implementation Details
+
+- Smooth scrolling effect: The button uses a JavaScript implementation to create a seamless scrolling experience. When clicked, the page scrolls smoothly to the top rather than jumping abruptly, providing a more polished interaction.
+- Event listener: A JavaScript script initializes the functionality by adding an event listener to the "Back to Top" button (`.btt-link`). This ensures that clicking the button triggers the smooth scroll behavior.
+- DOM content loaded check: The script waits for the DOM content to be fully loaded before adding the event listener, ensuring the button is available and ready for interaction.
+- User-friendly design: The button is unobtrusive and appears only when relevant, allowing users to focus on browsing without distractions.
+
+#### Benefits for User Experience
+
+- Efficient navigation: Users can return to the top of the page without manually scrolling, saving time and reducing frustration.
+- Accessibility: Improves the site's accessibility, particularly for users browsing on mobile devices or with assistive technologies.
+- Professional aesthetic: The smooth scrolling effect adds a modern touch to the site, aligning with contemporary web design standards.
 
 ### Basket Badge
 
