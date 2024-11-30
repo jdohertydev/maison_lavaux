@@ -328,6 +328,20 @@ Each product card on the products page displays the following details:
 
 This ensures that users have a comprehensive view of each product at a glance, making it easier to decide on their purchases.
 
+#### Dynamic Price Calculation
+
+The dynamic price calculation feature ensures that users always see the most relevant pricing on the site. By prioritizing discounted prices when available, this functionality provides clarity and transparency, improving the overall shopping experience. It integrates seamlessly with sorting and filtering systems, enabling accurate and user-friendly price displays. 
+
+- Ensures the most relevant price is displayed by prioritizing `discount_price` over the regular `price`.
+- Utilizes Django's `annotate` method to create an `effective_price` field dynamically.
+- Checks if a `discount_price` exists:
+- If available, `effective_price` uses the `discount_price`.
+- Otherwise, it defaults to the regular `price`.
+- Fully integrated into product querysets, enabling:
+- Dynamic sorting by `effective_price` (ascending or descending).
+- Filtering and display of accurate prices across the site.
+- Simplifies backend operations while ensuring consistent and accurate pricing for users.
+
 #### Seamless Product Display with Inactive Item Exclusion
 
 A key feature of this page is that products marked as inactive (`is_active = models.BooleanField(default=True)`) are automatically excluded from the display. This ensures that only available products are shown to the user, enhancing the shopping experience by preventing frustration  items. The page provides an intuitive and responsive layout with sorting options and real-time updates, ensuring a smooth and engaging shopping experience.
@@ -890,9 +904,6 @@ Form validation in the project ensures that user inputs are accurate, complete, 
   - Utilizes Django's `forms` library to enforce field requirements, validate email addresses, and provide error feedback for invalid inputs.
   - Includes client-side validation where possible for a smoother user experience.
 
-### Button Disabling
-
-### Max Product Entry Protection
 
 ### Future Implementations
 
