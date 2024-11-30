@@ -781,9 +781,40 @@ Each toast message is contextually relevant, ensuring that users understand the 
 
 ### Privacy Policy
 
+The Privacy Policy page provides users with clear information about how their personal data is collected, used, and protected in compliance with GDPR. It outlines data usage purposes, user rights, and contact information for privacy inquiries, ensuring transparency and trust. This static page demonstrates the project's commitment to legal compliance and ethical data practices.
+
 ### About Us Page
 
+The About Us page shares the story of Maison Lavaux and its founder, Antoine Lambert. It highlights his journey from Lavaux's vineyards to becoming a master perfumer in Paris, overcoming challenges and creating a brand known for its craftsmanship and sophistication.
+
+#### Key Features
+
+- Provides a brief biography of Antoine Lambert and his passion for perfumery.
+- Tells the story of the brand's origins and dedication to creating meaningful scents.
+- Includes visually engaging elements such as a profile image of Antoine and a call-to-action button linking to the product catalog.
+
+#### Purpose
+
+The About Us page connects customers with the brand's story, emphasizing its commitment to quality and artistry. It builds trust and inspires customers to explore the Maison Lavaux collection.
+
 ### Contact Page
+
+The Contact Page allows users to reach out to Maison Lavaux for inquiries, support, or feedback, integrating seamlessly with the Contact app. This app includes both frontend and backend functionalities to manage user messages efficiently. By enabling clear communication, the Contact Page enhances customer support and ensures messages are tracked and addressed promptly, contributing to a seamless user experience.
+
+
+#### Key Features
+
+- User-friendly form that allows users to submit their name, email, subject, and message.
+- Pre-filled fields for registered users to simplify the process.
+- Database integration to store submitted messages for tracking and follow-up.
+- Admin notification via email for each new message to ensure timely responses.
+- Acknowledgment for users with a confirmation message and estimated response time.
+
+#### Admin Features
+
+- Admin panel management for viewing, replying to, and resolving contact messages.
+- Filters for resolved and replied statuses to streamline message handling.
+- Search functionality to locate messages by name, email, subject, or content.
 
 ### Error Pages
 
