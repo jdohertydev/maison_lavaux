@@ -858,7 +858,14 @@ A "Back to Top" button is available on the Home and Products pages to enhance us
 
 ### Basket Badge
 
-### Items on Sale
+To enhance the user experience, the basket icon includes a dynamic badge that shows the number of items in the basket. This feature provides several key benefits:
+
+- Visual clarity: Users receive a clear and immediate indication of how many items they have added to their basket.
+- Improved usability: Eliminates the need to navigate away from the current page to check the basket contents.
+- E-commerce best practices: Aligns with standard practices in online shopping platforms, ensuring familiarity for users.
+- Enhanced shopping experience: Helps users keep track of their selections, making the overall experience more intuitive and user-friendly.
+
+This small but impactful detail highlights the focus on delivering a polished and professional interface tailored to user needs.
 
 ### Form Validation
 
