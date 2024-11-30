@@ -313,8 +313,6 @@ The homepage offers multiple product categories, each tailored to meet diverse c
 
 By integrating these features, the homepage sets the tone for an exceptional online shopping experience while reinforcing the Maison Lavaux brand identity.
 
-
-
 ### Products Page
 
 The products page on this site displays a dynamic catalogue of items available for purchase, allowing users to browse through a range of products, filter them by category, and sort them based on various criteria such as price, rating, or name. 
@@ -340,6 +338,55 @@ A key feature of this page is that products marked as inactive (`is_active = mod
 A key feature missing from the walkthrough project *Boutique Ado* was pagination for the product pages, which I identified as an area for improvement. To enhance the user experience and improve site performance, I implemented pagination on the product pages. This feature divides the product listings into multiple pages, making it easier for users to browse large numbers of items without long load times. Each page displays a manageable number of products, and users can navigate through the available pages using the pagination controls. This functionality not only helps in presenting a more organised and responsive layout but also reduces server load by limiting the amount of data fetched at once. The pagination system is designed to be intuitive and user-friendly, providing clear navigation options for seamless browsing across various product categories.
 
 ### Product Details Page
+
+#### Dynamic Product Information
+- Displays detailed product information, including:
+  - Name
+  - Price (supports both original and discounted prices)
+  - Category
+  - Description
+  - Size
+  - Stock status
+- Automatically adjusts for discounted products by showing both the original and discounted prices.
+
+#### Image Handling
+- Displays the product image if available.
+- Provides a fallback "no image available" placeholder for missing images.
+- Allows users to view the full-size image by clicking on it.
+- Uses `alt` attributes to provide descriptive text for images, improving accessibility for screen readers and enhancing the user experience for visually impaired users.
+
+#### Stock Management
+- Provides dynamic stock status updates:
+  - In Stock message for ample availability.
+  - Hurry! warning is triggered when the stock quantity is greater than 0 but less than or equal to 5.
+  - Out of Stock alert is triggered when the stock quantity is 0, with the "Add to Bag" button disabled for unavailable items.
+
+#### Add to Bag Functionality
+- Users can select the desired quantity using:
+  - Increment and decrement buttons.
+  - Direct input (supports quantities between 1 and 99).
+- Ensures a smooth shopping experience by redirecting users back to the product page after adding to the bag.
+
+#### Category Navigation
+- Includes a link to related products by category, making it easy for users to explore similar items.
+
+#### Superuser Capabilities
+- Superusers have access to additional controls, such as:
+  - Edit button to update product details.
+  - Delete button with a modal confirmation to prevent accidental actions. This feature addresses a limitation in the Boutique Ado project, which lacked a confirmation step for deletions.
+
+#### Mobile-Responsive Design
+- Fully responsive layout optimized for various screen sizes, ensuring a seamless experience on mobile, tablet, and desktop devices.
+
+#### JavaScript Integration
+- Uses custom JavaScript for interactive features, such as:
+  - Quantity adjustment buttons for selecting product quantities.
+
+#### Meta Tags for SEO
+- Includes dynamic meta descriptions for each product, enhancing search engine optimization and discoverability.
+
+#### Accessible Navigation
+- Features a "Keep Shopping" button that redirects users back to the main product catalog, allowing for easy navigation.
 
 ##### Product Review
 
