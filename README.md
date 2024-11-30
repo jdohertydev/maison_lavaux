@@ -388,7 +388,53 @@ A key feature missing from the walkthrough project *Boutique Ado* was pagination
 #### Accessible Navigation
 - Features a "Keep Shopping" button that redirects users back to the main product catalog, allowing for easy navigation.
 
-##### Product Review
+#### Product Review
+
+The product review functionality is an integral part of the application, enabling users to provide feedback on products, rate their quality, and share their experiences with other potential buyers. Below is an explanation of how the feature works and why it is a significant improvement over the Boutique Ado project.
+
+##### How the Product Review Feature Works
+
+1. Dynamic Rating Update
+   - The product's average rating dynamically updates whenever a new review is added or edited. This ensures that the displayed rating always reflects the latest user feedback.
+
+2. Adding a Review
+   - Authenticated users can submit a review for a product by filling in a form that includes a star rating and a comment.
+   - The system checks if the user has already reviewed the product. If a review exists, they are notified that only one review per user is allowed.
+
+3. Editing a Review
+   - Users can edit their existing reviews. The form pre-fills with the user's current review details, allowing for easy updates, and any changes are saved back to the database.
+
+4. Deleting a Review
+   - Users can delete their reviews if they no longer wish to share their feedback. The review is permanently removed from the database upon confirmation.
+
+5. Authentication Requirement
+   - Only logged-in users can add, edit, or delete reviews. Unauthenticated users are prompted to log in, with their current page preserved as the redirect URL for a seamless experience.
+
+6. Visibility on Product Pages
+   - All reviews for a product are displayed on its detail page, showing:
+     - Star rating
+     - Review text
+     - Date of posting
+     - Reviewer's username
+
+7. Review Management by Superusers
+   - While reviews are primarily user-driven, superusers retain full administrative control over product-related data, ensuring data integrity and quality.
+
+##### Why This Feature is Useful
+
+1. Encourages Customer Engagement
+   - The review feature provides a platform for users to share their opinions, fostering a sense of community and encouraging trust among customers.
+
+2. Improves Product Transparency
+   - With dynamic ratings and visible reviews, customers can make informed purchasing decisions based on real feedback from others.
+
+3. Prevents Spam or Redundant Reviews
+   - By restricting one review per user per product, the system avoids clutter and ensures that feedback remains meaningful and relevant.
+
+4. Facilitates Easy Review Management
+   - The ability to edit and delete reviews gives users full control over their feedback, reducing frustration and enhancing user satisfaction.
+
+The Boutique Ado project did not include a review system, which limited customer engagement and product transparency. Without reviews or dynamic ratings, users were unable to provide feedback or view others' opinions. The addition of the product review feature in this project addresses these shortcomings, creating a more interactive and user-friendly shopping experience.
 
 ### Basket Page
 
