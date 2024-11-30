@@ -801,7 +801,6 @@ The About Us page connects customers with the brand's story, emphasizing its com
 
 The Contact Page allows users to reach out to Maison Lavaux for inquiries, support, or feedback, integrating seamlessly with the Contact app. This app includes both frontend and backend functionalities to manage user messages efficiently. By enabling clear communication, the Contact Page enhances customer support and ensures messages are tracked and addressed promptly, contributing to a seamless user experience.
 
-
 #### Key Features
 
 - User-friendly form that allows users to submit their name, email, subject, and message.
@@ -816,7 +815,15 @@ The Contact Page allows users to reach out to Maison Lavaux for inquiries, suppo
 - Filters for resolved and replied statuses to streamline message handling.
 - Search functionality to locate messages by name, email, subject, or content.
 
-### Error Pages
+### Custom Error Pages
+
+To enhance the user experience, custom error pages were implemented for common HTTP error statuses: 400 (Bad Request), 403 (Forbidden), 404 (Not Found), and 500 (Internal Server Error). These pages go beyond the standard error messages, incorporating a sense of playfulness to make the experience less frustrating for users. The goal of these custom error pages is to transform potentially negative interactions into opportunities for engagement, ensuring users feel valued even when something goes wrong. This approach contributes to a more positive perception of the brand and a seamless user experience.
+
+#### Key Features
+
+- Custom designs maintain the branding of Maison Lavaux, ensuring a consistent visual identity across the site.
+- User-friendly messaging provides clear explanations of errors and offers guidance to help users navigate back to the site or resolve issues.
+- Playful and engaging language reduces frustration and creates a more enjoyable interaction during error scenarios.
 
 ### Sign Up Page
 
