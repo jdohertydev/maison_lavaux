@@ -1042,13 +1042,56 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 
 ### Languages
 
-### Libraries, Modules, Classes Imported
+- Python - Used to implement server-side logic and interact with the database.
+- HTML5 - Used to structure and create pages (templates) for the website, defining its content.
+- CSS - Used to style the website's HTML content.
+- JavaScript - Used to add dynamic behavior to the website.
+
+### Frameworks
+
+- Django - Used to implement the Model-View-Template (MVT) architectural pattern and handle backend functionality.
+- Bootstrap5 - Used for front-end development, focusing on responsive design and layout.
+
+### Databases Used
+
+- ElephantSQL - PostgreSQL database service provider for deployment.
+- PostgreSQL - Used as a local database during development.
+
+### Libraries, Modules, and Packages
+
+- Stripe - Used for payment processing, offering a developer-friendly API and excellent testing tools.
+- django-crispy-forms - Used for rendering Django forms with Bootstrap styles.
+- dj-database-url - Used for parsing database connection URLs.
+- gunicorn - Used as a WSGI server for running the Django application in production.
+- psycopg2 - Used as a PostgreSQL adapter for Django.
+- Pillow - Used for handling image file uploads and processing.
+- Django Storages - Used to simplify static and media file storage management in conjunction with AWS S3.
+- Boto3 - Used to interact with AWS services (S3 storage).
 
 ### Version Control
 
-### Programs
+- Git - Used for version control via the terminal.
+- GitHub - Used as the remote repository to store and manage the project.
 
-### Tools
+### Programs and Tools
+
+- GitPod - Integrated Development Environment (IDE) used for writing and managing code.
+- Balsamiq - Used to create wireframes for the project.
+- dbdiagram - Used to create the Entity Relationship Diagram (ERD).
+- Coolors - Used to visualize and generate the color palette.
+- Google Fonts - Used to research and import fonts for the website.
+- Font Awesome - Used to include icons for enhanced user experience.
+- TinyPNG - Used to compress images for faster loading times.
+- W3C CSS Validator - Used to validate the CSS code.
+- W3C HTML Validator - Used to validate the HTML code.
+- CI Python Linter - Used to validate Python code.
+- Google Lighthouse - Used to test the website’s performance, accessibility, and SEO.
+- ChatGPT - Used to generate design images and to create the privacy policy for the website. 
+
+### Hosting and Deployment
+
+- Heroku - Used for deploying the project online and managing the production environment.
+- AWS S3 - Used for hosting static and media files.
 
 ---
 
