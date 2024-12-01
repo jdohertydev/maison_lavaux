@@ -1097,17 +1097,68 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 
 ## Dependency Setup, Deployment and Local Deployment
 
+### Create and Connect a Database
 
+To ensure the deployed project on Heroku has access to a persistent database, a remote PostgreSQL database was created. Below are the steps taken to set up the database and connect it to the project.
 
-### Database Setup
+---
 
-# Amazon Web Services (AWS) Setup for Static Files and Images
+#### Why Is a Remote Database Needed?
+
+The local database used during development is only accessible within the IDE. A remote database is required to support the deployed Heroku application, enabling it to store and retrieve data seamlessly.
+
+---
+
+#### Steps to Create a PostgreSQL Database
+
+1. **Access the PostgreSQL Service**:
+   - Navigate to the [PostgreSQL from Code Institute](https://codeinstitute.net/) service page.
+
+2. **Enter Your Email**:
+   - Enter your Code Institute student email address in the provided input field.
+
+3. **Submit the Request**:
+   - Click the **Submit** button to initiate the database creation process.
+
+4. **Wait for Confirmation**:
+   - A loading screen will appear with animated cogs indicating progress.
+   - Once completed, you’ll be directed to a success page.
+
+5. **Check Your Email**:
+   - Review the email sent to your student inbox. It contains the database connection details needed for integration.
+
+---
+
+#### Connecting the Database to the Project
+
+1. **Update Heroku**:
+   - Log in to [Heroku](https://heroku.com/) and open your app’s dashboard.
+   - Add the database credentials from the email to your app’s **Config Vars**.
+
+2. **Apply Migrations Locally**:
+   - Temporarily connect your IDE workspace to the new database by adding the credentials to your **settings.py** file.
+   - Run the following commands to apply migrations:
+     ```bash
+     python manage.py makemigrations
+     python manage.py migrate
+     ```
+
+3. **Revert Local Configuration**:
+   - After completing the migrations, revert your local database settings in **settings.py** to use the development database.
+
+---
+
+#### Final Integration
+
+The PostgreSQL database is now connected to your Heroku app.
+
+### Amazon Web Services (AWS) Setup for Static Files and Images
 
 AWS was used to store images and static files for this project. Follow these steps to configure **S3** and **IAM** for seamless integration.
 
 ---
 
-## S3 Configuration
+#### S3 Configuration
 
 1. **Create an S3 Bucket**:
    - Sign in to [AWS](https://aws.amazon.com/).
@@ -1157,7 +1208,7 @@ AWS was used to store images and static files for this project. Follow these ste
 
 ---
 
-## IAM Configuration
+#### IAM Configuration
 
 1. **Create a User Group**:
    - Search for **IAM** in AWS and open the dashboard.
@@ -1195,7 +1246,7 @@ AWS was used to store images and static files for this project. Follow these ste
 
 ---
 
-## Adding Users
+#### Adding Users
 
 1. **Create a New User**:
    - In the IAM dashboard, go to **Users** and click **Add users**.
@@ -1211,7 +1262,7 @@ AWS was used to store images and static files for this project. Follow these ste
 
 ---
 
-## Project Configuration
+#### Project Configuration
 
 1. Add the following AWS credentials to your environment variables (e.g., in Heroku):
    - `AWS_ACCESS_KEY_ID`
@@ -1224,7 +1275,6 @@ AWS was used to store images and static files for this project. Follow these ste
 ---
 
 By following these steps, your AWS S3 bucket and IAM settings will be configured to manage and serve static files and images efficiently.
-
 
 ### Payment System Setup
 
