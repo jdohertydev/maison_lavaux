@@ -1387,9 +1387,6 @@ Follow these steps to test the email system directly from the Django shell:
 - **Production Testing**:
   - Once you replace Ethereal with a production email provider (e.g., Gmail, SendGrid), re-run these tests to confirm the new configuration is functional.
 
-
-### Heroku  Deployment
-
 ### Deployment to Heroku
 
 Before deploying the application to Heroku, the following steps must be completed to ensure proper configuration:
@@ -1460,14 +1457,58 @@ Before deploying the application to Heroku, the following steps must be complete
 
 By following these steps, your application will be successfully deployed to Heroku and accessible online.
 
-
-
-
 ### Local Deployment
 
-#### How to Fork
+### How to Fork the Repository
 
-#### How to Clone
+To fork this repository:
+
+1. Log in to or sign up at [GitHub](https://github.com/).
+2. Navigate to the repository for this website.
+3. Click the **Fork** button in the upper-right corner of the repository page.
+
+---
+
+### How to Clone the Repository
+
+To clone this repository:
+
+1. Log in to or sign up at [GitHub](https://github.com/).
+2. Navigate to the repository for this website.
+3. Click the green **Code** button in the upper-right corner of the repository page.
+4. Copy the repository URL using the **Copy** button.
+5. Open your terminal or IDE terminal and navigate to the directory where you want to clone the repository.
+6. Type the following command in the terminal:
+   ```bash
+   git clone <repository_url>
+   ```
+7. Replace `<repository_url>` with the URL you copied.
+8. Navigate to the project directory and install the required dependencies:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+9. Add an `env.py` file containing the required environment variables. The variables should include:
+
+   - `DATABASE_URL`: The URL for your PostgreSQL database.
+   - `EMAIL_HOST_USER`: Your email address for the SMTP server.
+   - `EMAIL_HOST_PASS`: Your email password for the SMTP server.
+   - `SECRET_KEY`: Your Django secret key.
+   - `STRIPE_PUBLIC_KEY`: Your Stripe public key.
+   - `STRIPE_SECRET_KEY`: Your Stripe secret key.
+   - `STRIPE_WH_SECRET`: Your Stripe webhook secret.
+
+   Example of an `env.py` file:
+   ```python
+   import os
+
+   os.environ["DATABASE_URL"] = "your_database_url"
+   os.environ["EMAIL_HOST_USER"] = "your_email"
+   os.environ["EMAIL_HOST_PASS"] = "your_email_password"
+   os.environ["SECRET_KEY"] = "your_secret_key"
+   os.environ["STRIPE_PUBLIC_KEY"] = "your_stripe_public_key"
+   os.environ["STRIPE_SECRET_KEY"] = "your_stripe_secret_key"
+   os.environ["STRIPE_WH_SECRET"] = "your_stripe_webhook_secret"
+   ```
 
 ---
 
