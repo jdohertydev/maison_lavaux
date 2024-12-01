@@ -1345,14 +1345,15 @@ Follow these steps to test the email system directly from the Django shell:
 1. **Run the Django Shell**:
    - Open your terminal and start the Django shell by running:
 
-bash
+````bash
      python manage.py shell
+````
      
 
 2. **Send a Test Email**:
    - Use the following commands in the Django shell to send a test email:
 
-python
+````python
      from django.core.mail import send_mail
      
      send_mail(
@@ -1362,7 +1363,7 @@ python
          ['recipient@example.com'],  # To email
          fail_silently=False,
      )
-     
+````
 
 3. **Verify the Output**:
    - If the email is sent successfully:
@@ -1387,7 +1388,80 @@ python
   - Once you replace Ethereal with a production email provider (e.g., Gmail, SendGrid), re-run these tests to confirm the new configuration is functional.
 
 
-### Hosting Deployment
+### Heroku  Deployment
+
+### Deployment to Heroku
+
+Before deploying the application to Heroku, the following steps must be completed to ensure proper configuration:
+
+---
+
+#### Pre-Deployment Checklist
+
+1. **Create a `Procfile`**:
+   - The `Procfile` is used to configure the Gunicorn server and must be located in the root directory of the project.
+   - Add the following line to the `Procfile`:
+     ```plaintext
+     web: gunicorn main.wsgi
+     ```
+
+2. **Generate a `requirements.txt` File**:
+   - The `requirements.txt` file contains a list of dependencies required to run the project.
+   - Generate it using the following terminal command:
+     ```bash
+     pip3 freeze > requirements.txt
+     ```
+
+---
+
+#### Steps to Deploy the Application on Heroku
+
+1. **Create a Heroku Account**:
+   - Visit [Heroku](https://www.heroku.com/) to create an account or log in to an existing one.
+
+2. **Create a New App**:
+   - From the Heroku dashboard, click **Create New App**.
+   - Enter a unique name for your app and select your region.
+   - Click **Create App** to proceed.
+
+3. **Configure Environment Variables**:
+   - On the app homepage, go to the **Settings** tab.
+   - Scroll down to the **Config Vars** section and click **Reveal Config Vars**.
+   - Add the following environment variables:
+     - `PORT`: Set the value to `8000`.
+     - Add all other variables from your local `.env` file (e.g., `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`, etc.).
+
+4. **Connect to GitHub**:
+   - Go to the **Deploy** tab on the app homepage.
+   - Under **Deployment Method**, select **GitHub**.
+   - Click **Connect to GitHub** and authorize Heroku if prompted.
+   - Use the search bar to find your GitHub repository.
+   - Click **Connect** to link the Heroku app to your repository.
+
+5. **Deploy the Application**:
+   - At the bottom of the **Deploy** section, choose a deployment method:
+     - **Automatic Deployment**: Automatically deploys new changes pushed to the main branch.
+     - **Manual Deployment**: Click **Deploy Branch** to deploy the app manually.
+   - Wait for the deployment process to complete.
+
+6. **Launch the Application**:
+   - Once the deployment is successful, click **Open App** to launch the live application.
+
+---
+
+#### Notes
+
+- **Debugging**:
+  - Ensure the `DEBUG` setting in your `settings.py` file is set to `False` in production.
+  - Test all configurations locally before deploying.
+  
+- **Additional Configurations**:
+  - If using a PostgreSQL database or AWS services, verify all environment variables and connections.
+
+By following these steps, your application will be successfully deployed to Heroku and accessible online.
+
+
+
 
 ### Local Deployment
 
