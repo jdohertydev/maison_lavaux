@@ -1042,60 +1042,64 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 
 ### Languages
 
-- Python - Used to implement server-side logic and interact with the database.
-- HTML5 - Used to structure and create pages (templates) for the website, defining its content.
-- CSS - Used to style the website's HTML content.
-- JavaScript - Used to add dynamic behavior to the website.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to style the website's HTML content.
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) - Used to structure and create pages (templates) for the website, defining its content.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used to add dynamic behavior to the website.
+- [Python](https://www.python.org/) - Used to implement server-side logic and interact with the database.
 
 ### Frameworks
 
-- Django - Used to implement the Model-View-Template (MVT) architectural pattern and handle backend functionality.
-- Bootstrap5 - Used for front-end development, focusing on responsive design and layout.
+- [Bootstrap5](https://getbootstrap.com/) - Used for front-end development, focusing on responsive design and layout.
+- [Django](https://www.djangoproject.com/) - Used to implement the Model-View-Template (MVT) architectural pattern and handle backend functionality.
 
 ### Databases Used
 
-- ElephantSQL - PostgreSQL database service provider for deployment.
-- PostgreSQL - Used as a local database during development.
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database service provider for deployment.
+- [PostgreSQL](https://www.postgresql.org/) - Used as a local database during development.
 
 ### Libraries, Modules, and Packages
 
-- Stripe - Used for payment processing, offering a developer-friendly API and excellent testing tools.
-- django-crispy-forms - Used for rendering Django forms with Bootstrap styles.
-- dj-database-url - Used for parsing database connection URLs.
-- gunicorn - Used as a WSGI server for running the Django application in production.
-- psycopg2 - Used as a PostgreSQL adapter for Django.
-- Pillow - Used for handling image file uploads and processing.
-- Django Storages - Used to simplify static and media file storage management in conjunction with AWS S3.
-- Boto3 - Used to interact with AWS services (S3 storage).
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - Used to interact with AWS services (S3 storage).
+- [Django Storages](https://django-storages.readthedocs.io/) - Used to simplify static and media file storage management in conjunction with AWS S3.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/) - Used for rendering Django forms with Bootstrap styles.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - Used for parsing database connection URLs.
+- [gunicorn](https://gunicorn.org/) - Used as a WSGI server for running the Django application in production.
+- [Pillow](https://pillow.readthedocs.io/) - Used for handling image file uploads and processing.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Used as a PostgreSQL adapter for Django.
+- [Stripe](https://stripe.com/) - Used for payment processing, offering a developer-friendly API and excellent testing tools.
 
 ### Version Control
 
-- Git - Used for version control via the terminal.
-- GitHub - Used as the remote repository to store and manage the project.
+- [Git](https://git-scm.com/) - Used for version control via the terminal.
+- [GitHub](https://github.com/) - Used as the remote repository to store and manage the project.
 
 ### Programs and Tools
 
-- GitPod - Integrated Development Environment (IDE) used for writing and managing code.
-- Balsamiq - Used to create wireframes for the project.
-- dbdiagram - Used to create the Entity Relationship Diagram (ERD).
-- Coolors - Used to visualize and generate the color palette.
-- Google Fonts - Used to research and import fonts for the website.
-- Font Awesome - Used to include icons for enhanced user experience.
-- TinyPNG - Used to compress images for faster loading times.
-- W3C CSS Validator - Used to validate the CSS code.
-- W3C HTML Validator - Used to validate the HTML code.
-- CI Python Linter - Used to validate Python code.
-- Google Lighthouse - Used to test the website’s performance, accessibility, and SEO.
-- ChatGPT - Used to generate design images and to create the privacy policy for the website. 
+- [Balsamiq](https://balsamiq.com/) - Used to create wireframes for the project.
+- [ChatGPT](https://openai.com/chatgpt) - Used to generate design images and to create the privacy policy for the website.
+- [Coolors](https://coolors.co/) - Used to visualize and generate the color palette.
+- [dbdiagram](https://dbdiagram.io/) - Used to create the Entity Relationship Diagram (ERD).
+- [Font Awesome](https://fontawesome.com/) - Used to include icons for enhanced user experience.
+- [GitPod](https://www.gitpod.io/) - Integrated Development Environment (IDE) used for writing and managing code.
+- [Google Fonts](https://fonts.google.com/) - Used to research and import fonts for the website.
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) - Used to test the website’s performance, accessibility, and SEO.
+- [TinyPNG](https://tinypng.com/) - Used to compress images for faster loading times.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - Used to validate the CSS code.
+- [W3C HTML Validator](https://validator.w3.org/) - Used to validate the HTML code.
+- [CI Python Linter](https://github.com/code-institute-org/python-essentials/blob/master/linter/readme.md) - Used to validate Python code.
 
 ### Hosting and Deployment
 
-- Heroku - Used for deploying the project online and managing the production environment.
-- AWS S3 - Used for hosting static and media files.
+- [AWS S3](https://aws.amazon.com/s3/) - Used for hosting static and media files.
+- [Heroku](https://www.heroku.com/) - Used for deploying the project online and managing the production environment.
+
+
 
 ---
 
-## Dependency Setup, Deployment & Local Deployment
+## Dependency Setup, Deployment and  Local Deployment
+
+
 
 ### Database Setup
 
