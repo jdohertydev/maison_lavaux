@@ -959,7 +959,7 @@ This application incorporates several key strategies to ensure a sustainable and
 
 Effective SEO techniques have been integrated to improve the visibility and reach of the website. Key features include:
 
-- Meta tags: Meta descriptions and keywords are dynamically added within Django templates to enhance search engine rankings for specific product pages.
+- Meta tags: Meta descriptions and keywords are dynamically added within Django templates to improve search engine rankings, using carefully researched long and short-form keywords identified through brainstorming, Google tools, and keyword analysis.
 - Sitemap: A sitemap file is provided, allowing search engines to efficiently crawl and index the site's structure.
 - Robots.txt: A robots.txt file has been included to guide search engines on which parts of the site to crawl and index, optimizing the crawl budget.
 
@@ -1093,17 +1093,138 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 - [AWS S3](https://aws.amazon.com/s3/) - Used for hosting static and media files.
 - [Heroku](https://www.heroku.com/) - Used for deploying the project online and managing the production environment.
 
-
-
 ---
 
-## Dependency Setup, Deployment and  Local Deployment
+## Dependency Setup, Deployment and Local Deployment
 
 
 
 ### Database Setup
 
-### AWS Setup
+# Amazon Web Services (AWS) Setup for Static Files and Images
+
+AWS was used to store images and static files for this project. Follow these steps to configure **S3** and **IAM** for seamless integration.
+
+---
+
+## S3 Configuration
+
+1. **Create an S3 Bucket**:
+   - Sign in to [AWS](https://aws.amazon.com/).
+   - Search for **S3** and click **Create bucket**.
+   - Enter a **Bucket name**.
+   - Select **ACLs enabled**.
+   - Deselect **Block all public access**.
+   - Click **Create bucket**.
+
+2. **Enable Static Website Hosting**:
+   - Open your bucket and go to the **Properties** tab.
+   - Scroll to **Static website hosting** and click **Edit**.
+   - Turn on **Static web hosting**.
+   - Choose **Host a website**.
+   - Specify `index.html` and `error.html` for the fields.
+   - Save changes.
+
+3. **Set Up Permissions**:
+   - Go to the **Permissions** tab.
+   - Scroll to **CORS configuration** and add the following:
+     ```json
+     [
+         {
+             "AllowedHeaders": ["Authorization"],
+             "AllowedMethods": ["GET"],
+             "AllowedOrigins": ["*"],
+             "ExposeHeaders": []
+         }
+     ]
+     ```
+   - Copy the **ARN** from the **Properties** tab.
+   - In the **Bucket policy** section, click **Edit** and use the following:
+     - Open **Policy Generator** and configure:
+       - **Type**: S3 Bucket Policy
+       - **Effect**: Allow
+       - **Principal**: `*`
+       - **Service**: Amazon S3
+       - **ARN**: Paste the previously copied ARN.
+     - Click **Add Statement** and **Generate Policy**.
+     - Copy the generated policy, paste it into the **Bucket Policy Editor**, and append `/*` to the ARN.
+     - Save changes.
+
+4. **Update Access Control List (ACL)**:
+   - In the **Permissions** tab, go to **Access control list (ACL)** and click **Edit**.
+   - Enable **List** access for **Everyone (public access)**.
+   - Accept the warning and save.
+
+---
+
+## IAM Configuration
+
+1. **Create a User Group**:
+   - Search for **IAM** in AWS and open the dashboard.
+   - Go to **User Groups** and click **Create group**.
+   - Enter a **Group name** and click **Create group**.
+
+2. **Create and Attach a Permissions Policy**:
+   - Open the **User Group** you just created.
+   - Navigate to the **Permissions** tab and select **Create inline policy**.
+   - Use the following steps to configure:
+     - Select **Import managed policy**.
+     - Search for **AmazonS3FullAccess** and click **Import**.
+     - Switch to the **JSON** tab and paste this policy:
+       ```json
+       {
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Effect": "Allow",
+                   "Action": ["s3:*", "s3-object-lambda:*"],
+                   "Resource": [
+                       "arn:aws:s3:::bucket-name",
+                       "arn:aws:s3:::bucket-name/*"
+                   ]
+               }
+           ]
+       }
+       ```
+       Replace `bucket-name` with your bucket’s actual name.
+     - Click **Review Policy**, give it a **Name** and **Description**, and click **Create policy**.
+
+3. **Attach Policy to the User Group**:
+   - Go to the **User Group**’s **Permissions** tab.
+   - Select **Attach policy**, search for the policy you just created, and click **Attach policy**.
+
+---
+
+## Adding Users
+
+1. **Create a New User**:
+   - In the IAM dashboard, go to **Users** and click **Add users**.
+   - Enter a **User name**.
+   - Select **Programmatic Access** and click **Next**.
+
+2. **Assign the User to a Group**:
+   - Add the user to the group you created earlier.
+   - Click **Next** and then **Create user**.
+
+3. **Save Access Keys**:
+   - Note down the **Access Key ID** and **Secret Access Key** or download the provided CSV file (this information will not be shown again).
+
+---
+
+## Project Configuration
+
+1. Add the following AWS credentials to your environment variables (e.g., in Heroku):
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+
+2. Update your project’s settings file with the appropriate AWS configurations:
+   - Configure static and media file storage to use the S3 bucket.
+   - Test the integration to ensure all static files and images are properly served.
+
+---
+
+By following these steps, your AWS S3 bucket and IAM settings will be configured to manage and serve static files and images efficiently.
+
 
 ### Payment System Setup
 
