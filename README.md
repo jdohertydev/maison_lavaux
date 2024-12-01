@@ -1278,7 +1278,114 @@ By following these steps, your AWS S3 bucket and IAM settings will be configured
 
 ### Payment System Setup
 
-### Email System Setup
+### Stripe Setup for Payment Processing
+
+Stripe is integrated as the payment system for this website, offering a secure and seamless checkout experience. Follow the steps below to configure Stripe for your project:
+
+---
+
+#### Steps to Configure Stripe
+
+1. **Log in to Stripe**:
+   - Visit the [Stripe website](https://stripe.com/) and log in to your account.
+
+2. **Access API Keys**:
+   - Navigate to the **Developers** section in the Stripe dashboard.
+   - Go to the **API Keys** tab.
+   - Copy the **Public Key** and **Secret Key**.
+
+3. **Set Up Webhooks**:
+   - Go to the **Webhooks** tab under the **Developers** section.
+   - Click **Add Endpoint**.
+   - Enter the webhook endpoint URL using the address of your deployed website (e.g., `https://yourdomain.com/stripe/webhook/`).
+   - Select **All Events** to ensure the webhook captures all relevant Stripe events.
+   - Click **Add Endpoint** to save.
+
+4. **Environment Configuration**:
+   - Add the following keys to your hosting environment variables (e.g., Heroku):
+     - `STRIPE_PUBLIC_KEY`
+     - `STRIPE_SECRET_KEY`
+     - `STRIPE_WEBHOOK_SECRET` (found in the webhook details on Stripe).
+
+5. **Test the Integration**:
+   - Use Stripe’s **Test Mode** to verify that the payment process and webhook functionality are working as expected before switching to live mode.
+
+---
+
+By completing these steps, Stripe will be fully integrated with your project, allowing secure payment processing and seamless communication between your website and the Stripe platform.
+
+#### Email Server Configuration
+
+1. **Update the Django Settings**:
+   Add the following configuration to your settings.py file:
+   
+
+```python
+   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+   EMAIL_HOST = "smtp.ethereal.email"
+   EMAIL_PORT = 587
+   EMAIL_USE_TLS = True
+   EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+   EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+   DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+```
+
+#### Environment Variables
+
+Add the following variables to your environment configuration (e.g., `.env` file or hosting platform):
+
+- `EMAIL_HOST_USER`: Your Ethereal email address.
+- `EMAIL_HOST_PASSWORD`: Your Ethereal email password.
+- `DEFAULT_FROM_EMAIL`: The default "From" email address for outgoing messages (e.g., `noreply@yourdomain.com`).
+
+#### Testing the Email System in the Bash Terminal
+
+Follow these steps to test the email system directly from the Django shell:
+
+1. **Run the Django Shell**:
+   - Open your terminal and start the Django shell by running:
+
+bash
+     python manage.py shell
+     
+
+2. **Send a Test Email**:
+   - Use the following commands in the Django shell to send a test email:
+
+python
+     from django.core.mail import send_mail
+     
+     send_mail(
+         'Test Email',  # Subject
+         'This is a test email from the Django application.',  # Message body
+         'noreply@yourdomain.com',  # From email (must match DEFAULT_FROM_EMAIL)
+         ['recipient@example.com'],  # To email
+         fail_silently=False,
+     )
+     
+
+3. **Verify the Output**:
+   - If the email is sent successfully:
+     - The command will complete without any errors.
+     - Check your Ethereal inbox to verify the email was received.
+   - If there are errors:
+     - Review the error message in the terminal.
+     - Ensure your email server configuration and credentials are correct in both `settings.py` and your environment variables.
+
+---
+
+#### Notes for Testing
+
+- **Ethereal Email Testing**:
+  - Emails sent via Ethereal are only visible within the Ethereal testing environment.
+  - Log in to your Ethereal account to check the email content and headers.
+
+- **Testing in Development**:
+  - It is recommended to test in **development mode** before deploying to ensure the configuration is working properly.
+
+- **Production Testing**:
+  - Once you replace Ethereal with a production email provider (e.g., Gmail, SendGrid), re-run these tests to confirm the new configuration is functional.
+
 
 ### Hosting Deployment
 
