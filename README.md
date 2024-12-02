@@ -1717,6 +1717,25 @@ To validate the HTML code, all static files had to be deployed and checked manua
   </tbody>
 </table>
 
+#### CSS Validation
+
+To validate the CSS used in the project, I deployed the project on Heroku. Then, I selected the 'View Source' option by right-clicking on the webpage, located 'style.css', and opened it in a separate window. Finally, I ran this code through [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/) for validation. The results were as follows:
+
+<table>
+  <thead>
+    <tr>
+      <th>Directory</th>
+      <th>File</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>/checkout/static/checkout/css</td><td>checkout.css</td><td>PASS</td></tr>
+    <tr><td>/profiles/static/profiles/css</td><td>profile.css</td><td>PASS</td></tr>
+    <tr><td>/static/css</td><td>about.css</td><td>PASS</td></tr>
+    <tr><td>/static/css</td><td>base.css</td><td>PASS</td></tr>
+  </tbody>
+</table>
 
 
 #### Codebase Cleanup
