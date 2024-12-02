@@ -1527,11 +1527,38 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 
 INSERT Screenhot
 
-Delete unused files
+### Codebase Cleanup
 
+As part of maintaining a clean and organized codebase, the following files were removed:
 
+- `analytics/tests.py`
+- `analytics/views.py`
+- `bag/admin.py`
+- `bag/models.py`
+- `bag/tests.py`
+- `checkout/tests.py`
+- `contact/tests.py`
+- `home/admin.py`
+- `home/models.py`
+- `home/tests.py`
+- `pages/admin.py`
+- `pages/models.py`
+- `pages/tests.py`
+- `products/tests.py`
+- `profiles/admin.py`
+- `profiles/tests.py`
 
+#### Reason for Deletion
 
+It is a good practice to regularly review the project's codebase and remove files that are not contributing to its current functionality. This not only maintains code quality but also ensures that future developers can easily understand and contribute without confusion. Keeping the project clean is key to scalability and maintainability. The rationale behind the removal includes:
+
+1. **Unused Files**: The deleted files were either not used in the project or became redundant as functionality changed during development. Keeping unused files adds unnecessary clutter and makes the codebase harder to maintain and navigate.
+
+2. **Improved Readability**: Removing redundant files significantly improves the readability of the project structure, allowing developers to quickly identify essential components without encountering irrelevant or confusing files.
+
+3. **Reduced Technical Debt**: Actively managing and cleaning the codebase helps reduce technical debt, which ultimately contributes to better project health, maintainability, and long-term sustainability.
+
+4. **Enhanced Collaboration**: A clean project with no unused or redundant files makes it easier for other developers to understand the purpose of each file. This is particularly beneficial when multiple developers are working on the project, as it ensures a shared understanding and reduces the likelihood of duplicated efforts or confusion.
 
 ---
 
