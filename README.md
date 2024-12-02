@@ -1511,7 +1511,27 @@ To clone this repository:
 
 ---
 
-## Testing
+## Validation, Testing and Bugs
+
+### Validation
+
+To ensure Python files (.py extensions) are PEP8 valid, the following protocol was followed:
+
+1. Installing Black (`$ pip install black`)
+2. Update requirements (`$ pip freeze >> requirements.txt`)
+3. Run Black (`$ black .`)
+4. Run Black to format Python files with a specific line length of 79 characters (`$ black --line-length 79 .`)
+5. Manual check all .py files with CI Python Linter. I created `list_py_files.py` to extract the file names of all .py files in the project and tested it only on the files I worked on.
+
+#### CI Python Linter Screenshot
+
+INSERT Screenhot
+
+Delete unused files
+
+
+
+
 
 ---
 
