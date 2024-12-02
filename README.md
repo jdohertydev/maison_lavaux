@@ -199,6 +199,12 @@ In this project, story points were used to estimate the relative complexity of e
 ### Base Template File
 For my project, the `base.html` template serves as the foundation for the overall structure and layout of the website. By centralising common elements such as the header, footer, and navigation in a single file, it ensures consistency across all pages and simplifies maintenance. This approach allows individual pages to focus on their unique content while inheriting the shared layout and functionality from the base template. From the `base.html` template, the following features are included on every page within the project:
 
+#### Favicon Implementation
+
+A favicon has been added to Maison Lavaux to enhance the branding and user experience. Favicons are small icons that appear in browser tabs, bookmarks, and history, helping users to easily recognize and return to a website. Including a favicon improves the website's professionalism and strengthens brand recognition, ensuring Maison Lavaux stands out visually among other tabs and saved pages.
+
+The favicon uses the 'Quintessential' font to form initials and a white font and background color #E00034 to maintain consistency with the colors used on the main site.
+
 #### Meta Tags
 - Essential meta tags, including character encoding, viewport settings for responsiveness, and a default meta description that can be customised on individual pages.
 
@@ -1862,12 +1868,6 @@ Total: 109 Tests, All Passed
 ---
 
 ## Credits
-
-### Copy
-
-### Imagery
-
-### Code / Tutorials
 
 ### Acknowledgements
 
