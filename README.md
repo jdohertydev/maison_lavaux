@@ -1823,6 +1823,22 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 
 
+| App        | Test File                | Number of Tests | Result |
+|------------|--------------------------|-----------------|--------|
+| **Analytics** | `test_admin.py`         | 3               | PASS   |
+|            | `test_models.py`         | 4               | PASS   |
+| **Bag**    | `test_context.py`        | 3               | PASS   |
+|            | `test_views.py`          | 4               | PASS   |
+| **Products** | `test_forms.py`          | 7               | PASS   |
+|            | `test_models.py`         | 8               | PASS   |
+|            | `test_urls.py`           | 8               | PASS   |
+|            | `test_views.py`          | 4               | PASS   |
+|            | `test_widgets.py`        | 2               | PASS   |
+| **Profiles** | `test_forms.py`          | 6               | PASS   |
+|            | `test_models.py`         | 5               | PASS   |
+|            | `test_views.py`          | 5               | PASS   |
+
+Total: 59 Tests, All Passed 
 ---
 
 ## Credits
