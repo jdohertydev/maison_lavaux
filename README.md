@@ -1821,24 +1821,44 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 ### Automated Testing
 
+Below is a summary of the test files and their respective apps, created with assistance from ChatGPT:
 
 
-| App        | Test File                | Number of Tests | Result |
-|------------|--------------------------|-----------------|--------|
-| **Analytics** | `test_admin.py`         | 3               | PASS   |
-|            | `test_models.py`         | 4               | PASS   |
-| **Bag**    | `test_context.py`        | 3               | PASS   |
-|            | `test_views.py`          | 4               | PASS   |
-| **Products** | `test_forms.py`          | 7               | PASS   |
-|            | `test_models.py`         | 8               | PASS   |
-|            | `test_urls.py`           | 8               | PASS   |
-|            | `test_views.py`          | 4               | PASS   |
-|            | `test_widgets.py`        | 2               | PASS   |
-| **Profiles** | `test_forms.py`          | 6               | PASS   |
-|            | `test_models.py`         | 5               | PASS   |
-|            | `test_views.py`          | 5               | PASS   |
+| App            | Test File                | Number of Tests | Result |
+|----------------|--------------------------|-----------------|--------|
+| Analytics      | `test_admin.py`          | 3               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+| Bag            | `test_context.py`        | 3               | PASS   |
+|                | `test_views.py`          | 4               | PASS   |
+| Products       | `test_forms.py`          | 7               | PASS   |
+|                | `test_models.py`         | 8               | PASS   |
+|                | `test_urls.py`           | 8               | PASS   |
+|                | `test_views.py`          | 4               | PASS   |
+|                | `test_widgets.py`        | 2               | PASS   |
+| Profiles       | `test_forms.py`          | 6               | PASS   |
+|                | `test_models.py`         | 5               | PASS   |
+|                | `test_views.py`          | 5               | PASS   |
+| Checkout       | `test_admin.py`          | 0               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+|                | `test_signals.py`        | 2               | PASS   |
+|                | `test_views.py`          | 8               | PASS   |
+| Contact        | `test_admin.py`          | 0               | PASS   |
+|                | `test_forms.py`          | 5               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+|                | `test_views.py`          | 8               | PASS   |
+| Home           | `test_views.py`          | 8               | PASS   |
+| Maison Lavaux  | `test_sitemaps.py`       | 5               | PASS   |
 
-Total: 59 Tests, All Passed 
+
+Total: 109 Tests, All Passed 
+
+### Viewport Testing
+
+### Compatibility Testing
+
+### Bugs
+
+
 ---
 
 ## Credits
