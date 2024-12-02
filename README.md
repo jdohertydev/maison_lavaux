@@ -1527,6 +1527,125 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 
 INSERT Screenhot
 
+### Manual Testing for PEP8 Compliance
+
+These files have been manually tested using CI Python Linter ([https://pep8ci.herokuapp.com/](https://pep8ci.herokuapp.com/)) to ensure compliance with PEP8 standards:
+
+<table>
+  <thead>
+    <tr>
+      <th>Directory</th>
+      <th>File</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/workspace/maison_lavaux/analytics</td>
+      <td>admin.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/analytics</td>
+      <td>models.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/bag</td>
+      <td>contexts.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/bag</td>
+      <td>urls.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/bag</td>
+      <td>views.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>admin.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>forms.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>models.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>signals.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>urls.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>views.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>webhook_handler.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/checkout</td>
+      <td>webhooks.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/contact</td>
+      <td>admin.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/contact</td>
+      <td>forms.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/contact</td>
+      <td>models.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/contact</td>
+      <td>urls.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/maison_lavaux</td>
+      <td>settings.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/maison_lavaux</td>
+      <td>urls.py</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>/workspace/maison_lavaux/maison_lavaux</td>
+      <td>views.py</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
 ### Codebase Cleanup
 
 As part of maintaining a clean and organized codebase, the following files were removed:
