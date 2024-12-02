@@ -1819,6 +1819,8 @@ While the results are commendable, these benchmarks indicate room for improvemen
 | Epic 4: [Name of Epic] | As a [user type], I can [goal] so that [reason/benefit]. | - [Criteria 1]<br>- [Criteria 2]<br>- [Criteria 3] | PASS |
 | Epic 5: [Name of Epic] | As a [user type], I can [goal] so that [reason/benefit]. | - [Criteria 1]<br>- [Criteria 2]<br>- [Criteria 3] | PASS |
 
+### Automated Testing
+
 
 
 ---
