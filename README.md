@@ -1737,6 +1737,28 @@ To validate the CSS used in the project, I deployed the project on Heroku. Then,
   </tbody>
 </table>
 
+#### JS Validation
+
+These files have been manually validated using JS Hint:
+
+<table>
+  <thead>
+    <tr>
+      <th>Directory</th>
+      <th>File</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>/checkout/static/checkout/js</td><td>stripe_elements.js</td><td>PASS</td></tr>
+    <tr><td>/contact/static/contact/js</td><td>contact.js</td><td>PASS</td></tr>
+    <tr><td>/profiles/static/profiles/js</td><td>countryfield.js</td><td>PASS</td></tr>
+    <tr><td>/static/js</td><td>dynamic-messages.js</td><td>PASS</td></tr>
+    <tr><td>/static/js</td><td>dynamic_title.js</td><td>PASS</td></tr>
+    <tr><td>/static/js</td><td>smooth-scroll.js</td><td>PASS</td></tr>
+  </tbody>
+</table>
+
 
 #### Codebase Cleanup
 
