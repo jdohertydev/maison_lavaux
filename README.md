@@ -1760,7 +1760,7 @@ These files have been manually validated using JS Hint:
 </table>
 
 
-#### Codebase Cleanup
+#### Codebase Cleanup NEEDS REHOMING BEFORE SUBMISSION
 
 As part of maintaining a clean and organized codebase, the following files were removed:
 
@@ -1792,6 +1792,21 @@ It is a good practice to regularly review the project's codebase and remove file
 3. **Reduced Technical Debt**: Actively managing and cleaning the codebase helps reduce technical debt, which ultimately contributes to better project health, maintainability, and long-term sustainability.
 
 4. **Enhanced Collaboration**: A clean project with no unused or redundant files makes it easier for other developers to understand the purpose of each file. This is particularly beneficial when multiple developers are working on the project, as it ensures a shared understanding and reduces the likelihood of duplicated efforts or confusion.
+
+### Lighthouse Audit Results
+
+The site performed well in a Lighthouse audit, achieving:
+
+- **Performance Score**: 73
+- **Accessibility Score**: 87
+
+For comparison, Amazon.co.uk scored:
+
+- **Performance Score**: 83
+- **Accessibility Score**: 93
+
+While the results are commendable, these benchmarks indicate room for improvement. Enhancing these metrics could be considered as part of a future feature update to further optimize the user experience.
+
 
 ---
 
