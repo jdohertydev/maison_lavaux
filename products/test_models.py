@@ -8,8 +8,7 @@ class CategoryModelTest(TestCase):
     def setUp(self):
         """Set up a category for testing."""
         self.category = Category.objects.create(
-            name="Fragrances",
-            friendly_name="Luxury Fragrances"
+            name="Fragrances", friendly_name="Luxury Fragrances"
         )
 
     def test_category_str(self):
@@ -18,7 +17,9 @@ class CategoryModelTest(TestCase):
 
     def test_get_friendly_name(self):
         """Test retrieving the friendly name of the category."""
-        self.assertEqual(self.category.get_friendly_name(), "Luxury Fragrances")
+        self.assertEqual(
+            self.category.get_friendly_name(), "Luxury Fragrances"
+        )
 
 
 class ProductModelTest(TestCase):
@@ -34,7 +35,7 @@ class ProductModelTest(TestCase):
             price=100.00,
             discount_price=90.00,
             stock_quantity=50,
-            size="50ml"
+            size="50ml",
         )
 
     def test_product_str(self):
@@ -65,25 +66,25 @@ class ProductModelTest(TestCase):
 class ReviewModelTest(TestCase):
     def setUp(self):
         """Set up a review for testing."""
-        self.user = User.objects.create_user(username="user1", password="password")
+        self.user = User.objects.create_user(
+            username="user1", password="password"
+        )
         self.category = Category.objects.create(name="Fragrances")
         self.product = Product.objects.create(
-            category=self.category,
-            name="Luxury Perfume",
-            price=100.00
+            category=self.category, name="Luxury Perfume", price=100.00
         )
         self.review = Review.objects.create(
             product=self.product,
             user=self.user,
             rating=5,
-            comment="Amazing scent!"
+            comment="Amazing scent!",
         )
 
     def test_review_str(self):
         """Test the string representation of the review."""
         self.assertEqual(
             str(self.review),
-            f"Review by {self.user.username} for {self.product.name} (5/5)"
+            f"Review by {self.user.username} for {self.product.name} (5/5)",
         )
 
     def test_unique_review_per_user_product(self):
@@ -93,5 +94,5 @@ class ReviewModelTest(TestCase):
                 product=self.product,
                 user=self.user,
                 rating=4,
-                comment="Great value!"
+                comment="Great value!",
             )

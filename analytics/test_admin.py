@@ -13,20 +13,27 @@ class TestRevenueFilter(TestCase):
     def setUp(self):
         """Set up test data for RevenueFilter."""
         self.product = Product.objects.create(
-            name='Luxury Perfume',
+            name="Luxury Perfume",
             price=100.00,
-            description='A premium fragrance.',
+            description="A premium fragrance.",
             stock_quantity=10,
         )
-        SalesData.objects.create(product=self.product, revenue_generated=300.00)
-        SalesData.objects.create(product=self.product, revenue_generated=1000.00)
-        SalesData.objects.create(product=self.product, revenue_generated=3000.00)
+        SalesData.objects.create(
+            product=self.product, revenue_generated=300.00
+        )
+        SalesData.objects.create(
+            product=self.product, revenue_generated=1000.00
+        )
+        SalesData.objects.create(
+            product=self.product, revenue_generated=3000.00
+        )
 
     def test_revenue_filter_low(self):
         """Test the 'low' revenue range filter (< $500)."""
+
         class MockFilter(RevenueFilter):
             def value(self):
-                return 'low'
+                return "low"
 
         mock_filter = MockFilter(None, {}, None, None)
         queryset = mock_filter.queryset(None, SalesData.objects.all())
@@ -35,9 +42,10 @@ class TestRevenueFilter(TestCase):
 
     def test_revenue_filter_medium(self):
         """Test the 'medium' revenue range filter ($500-$2000)."""
+
         class MockFilter(RevenueFilter):
             def value(self):
-                return 'medium'
+                return "medium"
 
         mock_filter = MockFilter(None, {}, None, None)
         queryset = mock_filter.queryset(None, SalesData.objects.all())
@@ -46,9 +54,10 @@ class TestRevenueFilter(TestCase):
 
     def test_revenue_filter_high(self):
         """Test the 'high' revenue range filter (> $2000)."""
+
         class MockFilter(RevenueFilter):
             def value(self):
-                return 'high'
+                return "high"
 
         mock_filter = MockFilter(None, {}, None, None)
         queryset = mock_filter.queryset(None, SalesData.objects.all())

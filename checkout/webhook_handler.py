@@ -21,25 +21,22 @@ class StripeWH_Handler:
         """Send the user a confirmation email"""
         cust_email = order.email
         subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order}
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order},
         ).strip()
         body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
+            "checkout/confirmation_emails/confirmation_email_body.txt",
             {
-                'order': order,
-                'contact_email': settings.DEFAULT_FROM_EMAIL.split('<')[1].strip('>'),
-                'order_total': order.order_total,
-                'delivery_cost': order.delivery_cost,
-                'grand_total': order.grand_total,
-            }
+                "order": order,
+                "contact_email": settings.DEFAULT_FROM_EMAIL.split("<")[
+                    1
+                ].strip(">"),
+                "order_total": order.order_total,
+                "delivery_cost": order.delivery_cost,
+                "grand_total": order.grand_total,
+            },
         )
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
@@ -69,16 +66,24 @@ class StripeWH_Handler:
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
-        if username != 'AnonymousUser':
+        if username != "AnonymousUser":
             try:
                 profile = UserProfile.objects.get(user__username=username)
                 if save_info:
                     profile.default_phone_number = shipping_details.phone
                     profile.default_country = shipping_details.address.country
-                    profile.default_postcode = shipping_details.address.postal_code
-                    profile.default_town_or_city = shipping_details.address.city
-                    profile.default_street_address1 = shipping_details.address.line1
-                    profile.default_street_address2 = shipping_details.address.line2
+                    profile.default_postcode = (
+                        shipping_details.address.postal_code
+                    )
+                    profile.default_town_or_city = (
+                        shipping_details.address.city
+                    )
+                    profile.default_street_address1 = (
+                        shipping_details.address.line1
+                    )
+                    profile.default_street_address2 = (
+                        shipping_details.address.line2
+                    )
                     profile.default_county = shipping_details.address.state
                     profile.save()
             except UserProfile.DoesNotExist:
@@ -124,7 +129,9 @@ class StripeWH_Handler:
                         )
                         line_item.save()  # Stock adjustment happens here
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data[
+                            "items_by_size"
+                        ].items():
                             line_item = OrderLineItem(
                                 order=order,
                                 product=product,

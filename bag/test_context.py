@@ -29,8 +29,8 @@ class BagContentsTests(TestCase):
         request = self.factory.get("/")
         request.session = {"bag": {}}
         context = bag_contents(request)
-        self.assertEqual(context['product_count'], 0)
-        self.assertEqual(context['grand_total'], 0)
+        self.assertEqual(context["product_count"], 0)
+        self.assertEqual(context["grand_total"], 0)
 
     def test_bag_contents_with_items(self):
         """
@@ -39,9 +39,9 @@ class BagContentsTests(TestCase):
         request = self.factory.get("/")
         request.session = {"bag": {str(self.product.id): 2}}
         context = bag_contents(request)
-        self.assertEqual(context['product_count'], 2)
-        self.assertEqual(context['total'], 20.00)
-        self.assertGreater(context['delivery'], 0)
+        self.assertEqual(context["product_count"], 2)
+        self.assertEqual(context["total"], 20.00)
+        self.assertGreater(context["delivery"], 0)
 
     def test_bag_contents_free_delivery(self):
         """
@@ -50,4 +50,4 @@ class BagContentsTests(TestCase):
         request = self.factory.get("/")
         request.session = {"bag": {str(self.product.id): 5}}
         context = bag_contents(request)
-        self.assertEqual(context['delivery'], 0)
+        self.assertEqual(context["delivery"], 0)

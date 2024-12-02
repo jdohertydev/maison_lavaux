@@ -4,7 +4,8 @@ from products.models import Product
 
 class ProductSitemap(Sitemap):
     """Sitemap for products in the catalog."""
-    changefreq = 'weekly'
+
+    changefreq = "weekly"
     priority = 0.8
 
     def items(self):
@@ -18,4 +19,4 @@ class ProductSitemap(Sitemap):
         Returns:
             The 'updated' field of the product if available, otherwise None.
         """
-        return obj.updated if hasattr(obj, 'updated') else None
+        return obj.updated if hasattr(obj, "updated") else None

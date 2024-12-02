@@ -10,23 +10,52 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('products', '0005_remove_product_image_url'),
+        ("products", "0005_remove_product_image_url"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SalesData',
+            name="SalesData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('views', models.IntegerField(default=0)),
-                ('purchases', models.IntegerField(default=0)),
-                ('added_to_cart', models.IntegerField(default=0)),
-                ('revenue_generated', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sales_data', to='products.product')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='sales', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("views", models.IntegerField(default=0)),
+                ("purchases", models.IntegerField(default=0)),
+                ("added_to_cart", models.IntegerField(default=0)),
+                (
+                    "revenue_generated",
+                    models.DecimalField(
+                        decimal_places=2, default=0, max_digits=10
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sales_data",
+                        to="products.product",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="sales",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

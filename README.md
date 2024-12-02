@@ -1485,8 +1485,7 @@ To clone this repository:
 7. Replace `<repository_url>` with the URL you copied.
 8. Navigate to the project directory and install the required dependencies:
    ```bash
-   pip3 install -r requirements.txt
-   ```
+   pip3 install -r requirements.txt   
 9. Add an `env.py` file containing the required environment variables. The variables should include:
 
    - `DATABASE_URL`: The URL for your PostgreSQL database.

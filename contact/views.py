@@ -46,7 +46,7 @@ def contact_view(request):
             # Provide user feedback and redirect
             messages.success(
                 request,
-                "Your message has been sent successfully. We will contact you within 2 working days."
+                "Your message has been sent successfully. We will contact you within 2 working days.",
             )
             return redirect(reverse("home"))
     else:

@@ -13,12 +13,14 @@ class SalesDataModelTest(TestCase):
 
     def setUp(self):
         """Set up test data for the SalesData model."""
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.user = User.objects.create_user(
+            username="testuser", password="testpassword"
+        )
         self.product = Product.objects.create(
-            name='Luxury Perfume',
+            name="Luxury Perfume",
             price=100.00,
-            description='A premium fragrance.',
-            stock_quantity=10
+            description="A premium fragrance.",
+            stock_quantity=10,
         )
         self.sales_data = SalesData.objects.create(
             product=self.product,
@@ -26,7 +28,7 @@ class SalesDataModelTest(TestCase):
             views=25,
             purchases=10,
             added_to_cart=15,
-            revenue_generated=1000.00
+            revenue_generated=1000.00,
         )
 
     def test_sales_data_creation(self):
@@ -68,4 +70,6 @@ class SalesDataModelTest(TestCase):
         Test the string representation of the SalesData model.
         Confirms that the __str__ method outputs the expected format.
         """
-        self.assertEqual(str(self.sales_data), f"Analytics for {self.product.name}")
+        self.assertEqual(
+            str(self.sales_data), f"Analytics for {self.product.name}"
+        )
