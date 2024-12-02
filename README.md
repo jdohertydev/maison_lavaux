@@ -1527,7 +1527,7 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 
 INSERT Screenhot
 
-### Manual Testing for PEP8 Compliance
+#### Manual Testing for PEP8 Compliance
 
 These files have been manually tested using CI Python Linter ([https://pep8ci.herokuapp.com/](https://pep8ci.herokuapp.com/)) to ensure compliance with PEP8 standards:
 
@@ -1643,10 +1643,83 @@ These files have been manually tested using CI Python Linter ([https://pep8ci.he
   </tbody>
 </table>
 
+#### HTML Validation
+
+To validate the HTML code, all static files had to be deployed and checked manually (logged out and logged in where appropriate) using the [Markup Validation Service](https://validator.w3.org/). I created list_html_files.py to extract the file names of all .html files in the project and tested it only on the files I worked on.
+
+<table>
+  <thead>
+    <tr>
+      <th>Directory</th>
+      <th>File</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>/bag/templates/bag</td><td>bag-total.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>bag.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>checkout-buttons.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>product-image.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>product-info.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>quantity-form.html</td><td>PASS</td></tr>
+    <tr><td>/checkout/templates/checkout</td><td>checkout.html</td><td>PASS</td></tr>
+    <tr><td>/checkout/templates/checkout</td><td>checkout_success.html</td><td>PASS</td></tr>
+    <tr><td>/contact/templates/contact</td><td>contact.html</td><td>PASS</td></tr>
+    <tr><td>/home/templates/home</td><td>index.html</td><td>PASS</td></tr>
+    <tr><td>/pages/templates/pages</td><td>about.html</td><td>PASS</td></tr>
+    <tr><td>/pages/templates/pages</td><td>privacy_policy.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>add_product.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>add_review.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>confirm_delete_review.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>edit_product.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>edit_review.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>product_detail.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products</td><td>products.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products/custom_widget_templates</td><td>custom_clearable_file_input.html</td><td>PASS</td></tr>
+    <tr><td>/products/templates/products/includes</td><td>quantity_input_script.html</td><td>PASS</td></tr>
+    <tr><td>/profiles/templates/profiles</td><td>profile.html</td><td>PASS</td></tr>
+    <tr><td>/templates</td><td>400.html</td><td>PASS</td></tr>
+    <tr><td>/templates</td><td>403.html</td><td>PASS</td></tr>
+    <tr><td>/templates</td><td>404.html</td><td>PASS</td></tr>
+    <tr><td>/templates</td><td>500.html</td><td>PASS</td></tr>
+    <tr><td>/templates</td><td>base.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth</td><td>base.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>account_inactive.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>base.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>email.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>email_confirm.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>login.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>logout.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_change.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_reset.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_reset_done.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_reset_from_key.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_reset_from_key_done.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>password_set.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>signup.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>signup_closed.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account</td><td>verification_sent.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/account/snippets</td><td>already_logged_in.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>authentication_error.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>base.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>connections.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>login.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>login_cancelled.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount</td><td>signup.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount/snippets</td><td>login_extra.html</td><td>PASS</td></tr>
+    <tr><td>/templates/allauth/socialaccount/snippets</td><td>provider_list.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes</td><td>main-nav.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes</td><td>mobile-top-header.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes/toasts</td><td>toast_error.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes/toasts</td><td>toast_info.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes/toasts</td><td>toast_success.html</td><td>PASS</td></tr>
+    <tr><td>/templates/includes/toasts</td><td>toast_warning.html</td><td>PASS</td></tr>
+  </tbody>
+</table>
 
 
 
-### Codebase Cleanup
+#### Codebase Cleanup
 
 As part of maintaining a clean and organized codebase, the following files were removed:
 
