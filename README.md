@@ -1,5 +1,177 @@
 # Maison Lavaux Perfumery
 
+- [Maison Lavaux Perfumery](#maison-lavaux-perfumery)
+  - [Introduction](#introduction)
+  - [User Experience](#user-experience)
+    - [Initial Discussion](#initial-discussion)
+    - [Epics](#epics)
+    - [User Stories](#user-stories)
+    - [Owner/Admin and Developer Goals](#owneradmin-and-developer-goals)
+    - [First-Time Visitor Goals](#first-time-visitor-goals)
+    - [Returning Visitor Goals](#returning-visitor-goals)
+  - [Design](#design)
+    - [Colour Scheme](#colour-scheme)
+  - [Colour Palette](#colour-palette)
+    - [Typography](#typography)
+    - [Wireframes](#wireframes)
+      - [Desktop](#desktop)
+      - [Mobile](#mobile)
+    - [Database Entity Relationship Diagram](#database-entity-relationship-diagram)
+    - [Relationships in the ERD](#relationships-in-the-erd)
+    - [Agile Development](#agile-development)
+      - [User Stories and Epics](#user-stories-and-epics)
+      - [MoSCoW Prioritization](#moscow-prioritization)
+      - [Story Points](#story-points)
+      - [Iterations](#iterations)
+      - [Kanban Board](#kanban-board)
+  - [Features](#features)
+    - [Base Template File](#base-template-file)
+      - [Favicon Implementation](#favicon-implementation)
+      - [Meta Tags](#meta-tags)
+      - [CSS and JavaScript Includes](#css-and-javascript-includes)
+      - [Navigation Bar](#navigation-bar)
+      - [Header and Footer](#header-and-footer)
+      - [Dynamic Content Blocks](#dynamic-content-blocks)
+      - [Toast Notifications](#toast-notifications)
+      - [Footer with Social Media and Newsletter Signup](#footer-with-social-media-and-newsletter-signup)
+      - [Dynamic Year Display](#dynamic-year-display)
+    - [Home Page](#home-page)
+      - [Dynamic Hero Section](#dynamic-hero-section)
+      - [Curated Product Sections](#curated-product-sections)
+      - [Interactive Product Cards](#interactive-product-cards)
+      - [Responsive and Accessible Design](#responsive-and-accessible-design)
+      - [Back-to-Top Button](#back-to-top-button)
+      - [Search Engine Optimization (SEO)](#search-engine-optimization-seo)
+    - [Products Page](#products-page)
+      - [Dynamic Price Calculation](#dynamic-price-calculation)
+      - [Seamless Product Display with Inactive Item Exclusion](#seamless-product-display-with-inactive-item-exclusion)
+      - [Pagination for Product Pages](#pagination-for-product-pages)
+    - [Product Details Page](#product-details-page)
+      - [Dynamic Product Information](#dynamic-product-information)
+      - [Image Handling](#image-handling)
+      - [Stock Management](#stock-management)
+      - [Add to Bag Functionality](#add-to-bag-functionality)
+      - [Category Navigation](#category-navigation)
+      - [Superuser Capabilities](#superuser-capabilities)
+      - [Mobile-Responsive Design](#mobile-responsive-design)
+      - [JavaScript Integration](#javascript-integration)
+      - [Meta Tags for SEO](#meta-tags-for-seo)
+      - [Accessible Navigation](#accessible-navigation)
+      - [Product Review](#product-review)
+        - [How the Product Review Feature Works](#how-the-product-review-feature-works)
+        - [Why This Feature is Useful](#why-this-feature-is-useful)
+    - [Shopping Bag (Basket) Features](#shopping-bag-basket-features)
+      - [Backend Features](#backend-features)
+      - [Frontend Features](#frontend-features)
+    - [Checkout Page / Checkout Success](#checkout-page--checkout-success)
+      - [Backend Features](#backend-features-1)
+      - [Frontend Features](#frontend-features-1)
+      - [Order Confirmation Email](#order-confirmation-email)
+      - [Using Django Humanize for Displaying Amounts](#using-django-humanize-for-displaying-amounts)
+        - [Benefits](#benefits)
+    - [Profile Page](#profile-page)
+      - [Backend Features](#backend-features-2)
+      - [Frontend Features](#frontend-features-2)
+      - [Key Features](#key-features)
+    - [Add / Edit / Products Page](#add--edit--products-page)
+      - [Add Product Functionality](#add-product-functionality)
+      - [Edit Product Functionality](#edit-product-functionality)
+      - [Delete Product Functionality](#delete-product-functionality)
+      - [Access Control](#access-control)
+    - [Admin Panel](#admin-panel)
+      - [Purpose and Benefits](#purpose-and-benefits)
+    - [Analytics App](#analytics-app)
+      - [Key Features](#key-features-1)
+      - [Why This is Useful](#why-this-is-useful)
+      - [Improvements Over Basic Applications](#improvements-over-basic-applications)
+    - [Toast Messaging](#toast-messaging)
+    - [Privacy Policy](#privacy-policy)
+    - [About Us Page](#about-us-page)
+      - [Key Features](#key-features-2)
+      - [Purpose](#purpose)
+    - [Contact Page](#contact-page)
+      - [Key Features](#key-features-3)
+      - [Admin Features](#admin-features)
+    - [Custom Error Pages](#custom-error-pages)
+      - [Key Features](#key-features-4)
+      - [Email Verification](#email-verification)
+      - [Benefits](#benefits-1)
+    - [Back to Top Button](#back-to-top-button-1)
+      - [Implementation Details](#implementation-details)
+      - [Benefits for User Experience](#benefits-for-user-experience)
+    - [Basket Badge](#basket-badge)
+    - [Form Validation](#form-validation)
+    - [Future Implementations](#future-implementations)
+    - [Accessibility and Good Practice](#accessibility-and-good-practice)
+  - [E-Commerce Business Model](#e-commerce-business-model)
+    - [Search Engine Optimization (SEO)](#search-engine-optimization-seo-1)
+    - [Social Media Marketing](#social-media-marketing)
+    - [Newsletter Marketing](#newsletter-marketing)
+  - [Future Strategies to Support the E-Commerce Business Model](#future-strategies-to-support-the-e-commerce-business-model)
+    - [Advanced SEO Techniques](#advanced-seo-techniques)
+    - [Expanded Social Media Marketing](#expanded-social-media-marketing)
+    - [Email Marketing Enhancements](#email-marketing-enhancements)
+    - [Customer Loyalty Programs](#customer-loyalty-programs)
+    - [Mobile App Development](#mobile-app-development)
+    - [Data-Driven Decision Making](#data-driven-decision-making)
+    - [Diversified Product Offerings](#diversified-product-offerings)
+    - [International Expansion](#international-expansion)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks](#frameworks)
+    - [Databases Used](#databases-used)
+    - [Libraries, Modules, and Packages](#libraries-modules-and-packages)
+    - [Version Control](#version-control)
+    - [Programs and Tools](#programs-and-tools)
+    - [Hosting and Deployment](#hosting-and-deployment)
+  - [Dependency Setup, Deployment and Local Deployment](#dependency-setup-deployment-and-local-deployment)
+    - [Create and Connect a Database](#create-and-connect-a-database)
+      - [Why Is a Remote Database Needed?](#why-is-a-remote-database-needed)
+      - [Steps to Create a PostgreSQL Database](#steps-to-create-a-postgresql-database)
+      - [Connecting the Database to the Project](#connecting-the-database-to-the-project)
+      - [Final Integration](#final-integration)
+    - [Amazon Web Services (AWS) Setup for Static Files and Images](#amazon-web-services-aws-setup-for-static-files-and-images)
+      - [S3 Configuration](#s3-configuration)
+      - [IAM Configuration](#iam-configuration)
+      - [Adding Users](#adding-users)
+      - [Project Configuration](#project-configuration)
+    - [Payment System Setup](#payment-system-setup)
+    - [Stripe Setup for Payment Processing](#stripe-setup-for-payment-processing)
+      - [Steps to Configure Stripe](#steps-to-configure-stripe)
+      - [Email Server Configuration](#email-server-configuration)
+      - [Environment Variables](#environment-variables)
+      - [Testing the Email System in the Bash Terminal](#testing-the-email-system-in-the-bash-terminal)
+      - [Notes for Testing](#notes-for-testing)
+    - [Deployment to Heroku](#deployment-to-heroku)
+      - [Pre-Deployment Checklist](#pre-deployment-checklist)
+      - [Steps to Deploy the Application on Heroku](#steps-to-deploy-the-application-on-heroku)
+      - [Notes](#notes)
+    - [Local Deployment](#local-deployment)
+    - [How to Fork the Repository](#how-to-fork-the-repository)
+    - [How to Clone the Repository](#how-to-clone-the-repository)
+      - [Testing Procedure](#testing-procedure)
+        - [Prerequisites](#prerequisites)
+        - [Steps to Test the Project](#steps-to-test-the-project)
+        - [Troubleshooting](#troubleshooting)
+  - [Validation, Testing and Bugs](#validation-testing-and-bugs)
+    - [Validation](#validation)
+      - [CI Python Linter Screenshot](#ci-python-linter-screenshot)
+      - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
+      - [HTML Validation](#html-validation)
+      - [CSS Validation](#css-validation)
+      - [JS Validation](#js-validation)
+      - [Codebase Cleanup NEEDS REHOMING BEFORE SUBMISSION](#codebase-cleanup-needs-rehoming-before-submission)
+      - [Reason for Deletion](#reason-for-deletion)
+    - [Lighthouse Audit Results](#lighthouse-audit-results)
+  - [Testing](#testing)
+    - [User Stories Testing](#user-stories-testing)
+    - [Automated Testing](#automated-testing)
+    - [Viewport Testing](#viewport-testing)
+    - [Compatibility Testing](#compatibility-testing)
+    - [Bugs](#bugs)
+  - [Acknowledgements](#acknowledgements)
+
+
 ## Introduction
 
 Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
@@ -102,18 +274,17 @@ To ensure accessibility and functionality across all devices and browsers, I inc
 
 ### Wireframes
 
-All the wireframes for the website were created using the Balsamic desktop application.
+All wireframes for the website were designed using the **Balsamiq Desktop Application**. These wireframes served as the foundation for planning the website's layout and user experience across different devices. 
+
+Below, you can find examples of how a typical page is structured on both desktop and mobile devices.
 
 #### Desktop
 
-<details>
-  <summary>Hello</summary>
-  
-  My name is John
-  
-</details>
+Inser Image
 
 #### Mobile
+
+Insert Image
 
 ### Database Entity Relationship Diagram
 
@@ -192,6 +363,20 @@ In this project, story points were used to estimate the relative complexity of e
 
 #### Kanban Board
 
+To manage and track the progress of user stories during the project, I created a Kanban Board board. The board was divided into four columns: **Epics**, **To Do**, **In Progress**, and **Done**.
+
+- **Epics**: This column contained overarching goals that grouped related user stories together.
+- **To Do**: At the start of each iteration, user stories to be completed were moved here.
+- **In Progress**: As work began on a user story, it was moved to this column.
+- **Done**: Completed user stories were moved to this column to indicate they were finished.
+
+This setup provided a clear and simple way to track the status of tasks throughout the project, ensuring that progress was organised and transparent.
+
+INSERT IMAGE
+
+You can view the [Maison Lavaux Kanban Board](https://github.com/users/jdohertydev/projects/6/) for a detailed overview of the project's progress and task management.
+
+
 ---
 
 ## Features
@@ -240,12 +425,12 @@ These features ensure a consistent user experience and allow for easy customisat
 
 The homepage of Maison Lavaux is thoughtfully designed to provide an engaging and seamless user experience while showcasing our luxurious perfume collection. Below are the standout features:
 
-#### **Dynamic Hero Section**
+#### Dynamic Hero Section
 - A captivating hero banner featuring a high-resolution image, a dynamic overlay message, and a compelling call-to-action button directing users to browse the product catalog.
 - The overlay includes slogan that changes every 5 seconds using JS (*"Discover Your Signature Scent", "Find the Perfect Fragrance for Any Occasion", "Unleash Your True Essence"*) to inspire visitors and enhance brand identity.
 
 
-#### **Curated Product Sections**
+#### Curated Product Sections
 
 The homepage offers multiple product categories, each tailored to meet diverse customer preferences:
 
@@ -300,20 +485,21 @@ The homepage offers multiple product categories, each tailored to meet diverse c
   ) if all_active_products else []
   ```
 
-#### **Interactive Product Cards**
+#### Interactive Product Cards
 - Each product card is designed with user engagement in mind, displaying:
   - High-quality product images with fallback placeholders.
   - Product names, categories, dynamic pricing (including original and discounted prices), and star ratings.
   - Interactive tags and links for easy navigation to related categories.
 
-#### **Responsive and Accessible Design**
+#### Responsive and Accessible Design
 - Fully responsive layout ensuring a smooth browsing experience across desktop, tablet, and mobile devices.
 - Alt text for images and semantic HTML elements to enhance accessibility for screen readers.
 
-#### **Back-to-Top Button**
-- A persistent "Back to Top" button allows users to navigate long pages effortlessly, improving overall usability.
+#### Back-to-Top Button
+- A persistent "Back to Top" button allows users to navigate long pages effortlessly, improving overall usability. See [Back to Top Button](#back-to-top-button-1).
 
-#### **Search Engine Optimization (SEO)**
+
+#### Search Engine Optimization (SEO)
 - Includes a descriptive meta tag: 
    *"Welcome to Maison Lavaux, your destination for handcrafted perfumes made in Paris. Explore our exclusive collection for men and women, featuring new arrivals, top-rated scents, and unique fragrances for every occasion."*
 - This improves search visibility and effectively communicates the brand’s unique selling points.
@@ -845,8 +1031,6 @@ To enhance the user experience, custom error pages were implemented for common H
 - Custom designs maintain the branding of Maison Lavaux, ensuring a consistent visual identity across the site.
 - User-friendly messaging provides clear explanations of errors and offers guidance to help users navigate back to the site or resolve issues.
 - Playful and engaging language reduces frustration and creates a more enjoyable interaction during error scenarios.
-
-#### Email Verification
 
 #### Email Verification
 
