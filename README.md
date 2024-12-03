@@ -220,6 +220,7 @@ The favicon uses the 'Quintessential' font to form initials and a white font and
 #### Header and Footer
 - The header includes the website logo, main navigation, and a delivery banner for promotions.
 - The footer contains links to information pages, social media profiles, and a newsletter subscription form.
+  - TALK ABOUT nofollow
 
 #### Dynamic Content Blocks
 - Custom content areas such as `meta`, `page_header`, and `content` are made flexible through the use of `{% block %}` tags, allowing pages to easily modify or extend these areas.
@@ -1060,7 +1061,7 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 
 ### Databases Used
 
-- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database service provider for deployment.
+- [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/) - PostgreSQL database service provider for deployment.
 - [PostgreSQL](https://www.postgresql.org/) - Used as a local database during development.
 
 ### Libraries, Modules, and Packages
@@ -1514,6 +1515,80 @@ To clone this repository:
    os.environ["STRIPE_SECRET_KEY"] = "your_stripe_secret_key"
    os.environ["STRIPE_WH_SECRET"] = "your_stripe_webhook_secret"
    ```
+#### Testing Procedure
+
+The following testing steps are designed to help users who clone this repository verify that the application is set up correctly and functions as expected.
+
+##### Prerequisites
+Ensure the following before testing:
+1. Python and pip are installed.
+2. PostgreSQL is set up and running.
+3. Required dependencies are installed via:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+4. Environment variables are configured in the `env.py` file.
+
+##### Steps to Test the Project
+
+1. **Run Database Migrations**
+   Ensure the database is properly configured and migrate the database schema:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+2. **Create a Superuser**
+   Create a superuser to access the Django admin panel:
+   ```bash
+   python manage.py createsuperuser
+   ```
+   Follow the prompts to set up a username, email, and password.
+
+3. **Collect Static Files**
+   Ensure static files are collected for deployment:
+   ```bash
+   python manage.py collectstatic
+   ```
+
+4. **Run the Development Server**
+   Start the server to verify the application is running:
+   ```bash
+   python manage.py runserver
+   ```
+   Visit `http://127.0.0.1:8000/` in your web browser.
+
+5. **Test the Application**
+   - **Homepage:** Verify that the homepage loads without errors.
+   - **Registration and Login:** Create a test user, log in, and log out.
+   - **Admin Panel:** Log in as the superuser and ensure you can access the admin panel.
+   - **Checkout Flow:** Test the checkout process using Stripe test credentials.
+   - **Product Reviews:** Add, edit, and delete a product review as a logged-in user.
+
+6. **Stripe Webhook Configuration**
+   To test Stripe webhook events:
+   - Start the webhook listener using Stripe CLI:
+     ```bash
+     stripe listen --forward-to http://127.0.0.1:8000/checkout/webhook/
+     ```
+   - Simulate events using the Stripe CLI:
+     ```bash
+     stripe trigger payment_intent.succeeded
+     ```
+
+7. **Browser Compatibility**
+   Test the application in different browsers (e.g., Chrome, Firefox, Edge) to ensure it works across platforms.
+
+8. **Responsive Design**
+   Resize the browser window or test on different devices to confirm the site’s responsiveness.
+
+##### Troubleshooting
+- If migrations fail, check the `DATABASE_URL` environment variable.
+- If static files do not load, ensure `collectstatic` has been run.
+- For Stripe errors, double-check your `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`, and `STRIPE_WH_SECRET`.
+
+By following these steps, you can verify that the project is correctly installed and running locally as intended.
+
 
 ---
 
