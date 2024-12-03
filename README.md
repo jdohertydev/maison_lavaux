@@ -4,7 +4,8 @@
 
 Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
 
-INSERT SCREENSHOT
+![Am I Responsive Display](readme-images/am-i-responsive.png)
+
 
 View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
 
@@ -38,10 +39,9 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
       - [Meta Tags](#meta-tags)
       - [CSS and JavaScript Includes](#css-and-javascript-includes)
       - [Navigation Bar](#navigation-bar)
-      - [Header and Footer](#header-and-footer)
+      - [Footer with Social Media and Newsletter Signup](#footer-with-social-media-and-newsletter-signup)
       - [Dynamic Content Blocks](#dynamic-content-blocks)
       - [Toast Notifications](#toast-notifications)
-      - [Footer with Social Media and Newsletter Signup](#footer-with-social-media-and-newsletter-signup)
       - [Dynamic Year Display](#dynamic-year-display)
     - [Home Page](#home-page)
       - [Dynamic Hero Section](#dynamic-hero-section)
@@ -263,7 +263,7 @@ The following colours were chosen to create a sleek, sophisticated, and accessib
 
 To further enhance the design process, the palette was visualised using [Coolors](https://coolors.co/), allowing for a clear and cohesive representation of the chosen colours.
 
-INSERT maison-lavaux-color-palette.png
+![Maison Lavaux Color Palette](readme-images/maison-lavaux-color-palette.png)
 
 The colour palette used for the website was tested using [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) and achieved a score of **0 contrast errors**, ensuring the design meets accessibility standards and provides excellent readability for users.
 
@@ -272,6 +272,8 @@ The colour palette used for the website was tested using [WAVE Web Accessibility
 For the website's typography, I selected the **Lato** font. Lato was chosen because it is clean, modern, and versatile, while also offering a sense of sophistication that aligns well with the brand's classy and elegant identity. Its wide variety of weights makes it suitable for both headings and body text, ensuring consistency across the site.
 
 Lato was also used for the website logo, presented in uppercase to create a bold and striking impression that reinforces the brand's elegance and professionalism.
+
+![Lato Font](readme-images/lato-font.png)
 
 To ensure accessibility and functionality across all devices and browsers, I included a fallback font stack. If Lato is unavailable, the design defaults to a generic sans-serif font, maintaining readability and visual appeal.
 
@@ -283,11 +285,11 @@ Below, you can find examples of how a typical page is structured on both desktop
 
 #### Desktop
 
-Inser Image
+![Wireframe Desktop](readme-images/wireframe-desktop.png)
 
 #### Mobile
 
-Insert Image
+![Wireframe Mobile](readme-images/wireframe-mobile.png)
 
 ### Database Entity Relationship Diagram
 
@@ -333,7 +335,7 @@ The Entity Relationship Diagram (ERD) below represents the models in the databas
 
 Below is the Entity Relationship Diagram (ERD) for the Maison Lavaux project, which visualises the relationships between the various models in the database.
 
-INSERT erd_maison_lavaux.png
+![ERD Maison Lavaux](readme-images/erd_maison_lavaux.png)
 
 ### Agile Development
 
@@ -383,12 +385,9 @@ To manage and track the progress of user stories during the project, I created a
 
 This setup provided a clear and simple way to track the status of tasks throughout the project, ensuring that progress was organised and transparent.
 
-INSERT IMAGE
+![Github Kanboard](readme-images/github-kanboard.png)
 
 You can view the [Maison Lavaux Kanban Board](https://github.com/users/jdohertydev/projects/6/) for a detailed overview of the project's progress and task management.
-
-
----
 
 ## Features
 
@@ -401,6 +400,9 @@ A favicon has been added to Maison Lavaux to enhance the branding and user exper
 
 The favicon uses the 'Quintessential' font to form initials and a white font and background color #E00034 to maintain consistency with the colors used on the main site. It was created by using [Favicon Generator](https://favicon.io/favicon-generator/).
 
+![Favicon](readme-images/ml-favicon.png)
+
+
 #### Meta Tags
 - Essential meta tags, including character encoding, viewport settings for responsiveness, and a default meta description that can be customised on individual pages.
 
@@ -412,20 +414,23 @@ The favicon uses the 'Quintessential' font to form initials and a white font and
 #### Navigation Bar
 - A fixed-top navbar with search functionality, user account options (login, profile, logout), and a shopping cart icon displaying the number of items in the cart.
 - Dynamic greeting for logged-in users with their username or a "My Account" label for guests.
+  ![Nav Bar](readme-images/nav-bar.png)
+  
 
-#### Header and Footer
+#### Footer with Social Media and Newsletter Signup
 - The header includes the website logo, main navigation, and a delivery banner for promotions.
 - The footer contains links to information pages, social media profiles, and a newsletter subscription form.
-  - TALK ABOUT nofollow
+  ![Footer](readme-images/footer.png)
+  - External links include the rel="noopener noreferrer" attribute for the following reasons:
+    - Security: Prevents security risks like tabnabbing by disabling access to the window.opener object.
+    - Performance: Improves browser performance by not retaining references to the original tab.
+    - Privacy: Stops the browser from sending the referring URL to the destination website.
 
 #### Dynamic Content Blocks
 - Custom content areas such as `meta`, `page_header`, and `content` are made flexible through the use of `{% block %}` tags, allowing pages to easily modify or extend these areas.
 
 #### Toast Notifications
 - Displays dynamic notifications (success, error, warning, info) based on messages in the request context.
-
-#### Footer with Social Media and Newsletter Signup
-- The footer features social media links (Facebook, Twitter, Instagram, LinkedIn) and a form to subscribe to newsletters.
 
 #### Dynamic Year Display
 - The current year is dynamically displayed in the footer using JavaScript, ensuring the copyright information remains up-to-date.
