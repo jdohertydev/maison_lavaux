@@ -1953,9 +1953,22 @@ Total: 109 Tests, All Passed
 ### Bugs
 
 
+
+
+
+
 ---
 
-## Credits
+## Acknowledgements
 
-### Acknowledgements
+- **[The Perfume Shop](https://www.theperfumeshop.com/):**  
+  Inspired by their design and colour schemes, which influenced the visual style of this project.
 
+- **[Django 5 By Example: Build powerful and reliable Python web applications from scratch](https://www.amazon.es/gp/product/1805125451/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1):**  
+  Recommended by my tutor, this book was invaluable, particularly for configuring email functionality.
+
+- **ChatGPT:**  
+  Served as a teacher and mentor, providing guidance throughout the project.
+
+- **The Code Institute Mentors:**  
+  Their support helped me overcome challenging moments and complete this project successfully.
