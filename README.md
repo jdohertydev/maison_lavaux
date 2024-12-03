@@ -1952,10 +1952,7 @@ Total: 109 Tests, All Passed
 
 ### Bugs
 
-
-
-
-
+While not a bug in the traditional sense, I spent a considerable amount of time trying to get the stock quantity to update correctly after a customer made a purchase. Initially, my attempts were unsuccessful, and I had to temporarily remove this feature. However, with perseverance and a fresh approach, I was eventually able to implement the functionality successfully. After thorough testing, I can confirm that the stock quantity now updates exactly as intended.
 
 ---
 
@@ -1970,5 +1967,9 @@ Total: 109 Tests, All Passed
 - **ChatGPT:**  
   Served as a teacher and mentor, providing guidance throughout the project.
 
+- **Spence (Code Institute Mentor):**  
+  Recommended using Django Humanize to add subtle touches of user-friendly functionality and ensured the project adhered to accepted industry standards.
+
 - **The Code Institute Mentors:**  
   Their support helped me overcome challenging moments and complete this project successfully.
+
