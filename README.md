@@ -2165,3 +2165,7 @@ While not a bug in the traditional sense, I spent a considerable amount of time 
 - **The Code Institute Mentors:**  
   Their support helped me overcome challenging moments and complete this project successfully.
 
+- **Gary Dolan and his [ci-p5-pokemon-tcg-ireland project](https://github.com/GaryDolan/ci-p5-pokemon-tcg-ireland):**  
+  This project provided inspiration for structuring my README and encouraged me to implement the [Basket Badge](#basket-badge) feature.
+
+
