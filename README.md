@@ -443,6 +443,7 @@ The homepage of Maison Lavaux is thoughtfully designed to provide an engaging an
 
 #### Dynamic Hero Section
 - A captivating hero banner featuring a high-resolution image, a dynamic overlay message, and a compelling call-to-action button directing users to browse the product catalog.
+  ![Dynamic Hero Image](readme-images/dynamic-hero.png)
 - The overlay includes slogan that changes every 5 seconds using JS (*"Discover Your Signature Scent", "Find the Perfect Fragrance for Any Occasion", "Unleash Your True Essence"*) to inspire visitors and enhance brand identity.
 
 
@@ -505,6 +506,7 @@ The homepage offers multiple product categories, each tailored to meet diverse c
 - Each product card is designed with user engagement in mind, displaying:
   - High-quality product images with fallback placeholders.
   - Product names, categories, dynamic pricing (including original and discounted prices), and star ratings.
+  ![Interactive Product Card](readme-images/interactive-product-cards.png)
   - Interactive tags and links for easy navigation to related categories.
 
 #### Responsive and Accessible Design
@@ -526,6 +528,8 @@ By integrating these features, the homepage sets the tone for an exceptional onl
 
 The products page on this site displays a dynamic catalogue of items available for purchase, allowing users to browse through a range of products, filter them by category, and sort them based on various criteria such as price, rating, or name. 
 
+![Product Filter](readme-images/product-filter.png)
+
 Each product card on the products page displays the following details:
 
 - Product Image: A clear, high-quality image representing the product.
@@ -541,6 +545,8 @@ This ensures that users have a comprehensive view of each product at a glance, m
 
 The dynamic price calculation feature ensures that users always see the most relevant pricing on the site. By prioritizing discounted prices when available, this functionality provides clarity and transparency, improving the overall shopping experience. It integrates seamlessly with sorting and filtering systems, enabling accurate and user-friendly price displays. 
 
+![Dynamic Price](readme-images/dynamic-price.png)
+
 - Ensures the most relevant price is displayed by prioritizing `discount_price` over the regular `price`.
 - Utilizes Django's `annotate` method to create an `effective_price` field dynamically.
 - Checks if a `discount_price` exists:
@@ -555,10 +561,14 @@ The dynamic price calculation feature ensures that users always see the most rel
 
 A key feature of this page is that products marked as inactive (`is_active = models.BooleanField(default=True)`) are automatically excluded from the display. This ensures that only available products are shown to the user, enhancing the shopping experience by preventing frustration  items. The page provides an intuitive and responsive layout with sorting options and real-time updates, ensuring a smooth and engaging shopping experience.
 
-
 #### Pagination for Product Pages
 
-A key feature missing from the walkthrough project *Boutique Ado* was pagination for the product pages, which I identified as an area for improvement. To enhance the user experience and improve site performance, I implemented pagination on the product pages. This feature divides the product listings into multiple pages, making it easier for users to browse large numbers of items without long load times. Each page displays a manageable number of products, and users can navigate through the available pages using the pagination controls. This functionality not only helps in presenting a more organised and responsive layout but also reduces server load by limiting the amount of data fetched at once. The pagination system is designed to be intuitive and user-friendly, providing clear navigation options for seamless browsing across various product categories.
+A key feature missing from the walkthrough project *Boutique Ado* was pagination for the product pages, which I identified as an area for improvement. To enhance the user experience and improve site performance, I implemented pagination on the product pages. This feature divides the product listings into multiple pages, making it easier for users to browse large numbers of items without long load times. Each page displays a manageable number of products, and users can navigate through the available pages using the pagination controls. 
+
+![Pagination 1](readme-images/pagination-1.png)
+![Pagination 2](readme-images/pagination-2.png)
+
+This functionality not only helps in presenting a more organised and responsive layout but also reduces server load by limiting the amount of data fetched at once. The pagination system is designed to be intuitive and user-friendly, providing clear navigation options for seamless browsing across various product categories.
 
 ### Product Details Page
 
@@ -571,6 +581,8 @@ A key feature missing from the walkthrough project *Boutique Ado* was pagination
   - Size
   - Stock status
 - Automatically adjusts for discounted products by showing both the original and discounted prices.
+
+![Dynamic Product Information](readme-images/product-detail.png)
 
 #### Image Handling
 - Displays the product image if available.
@@ -615,6 +627,8 @@ A key feature missing from the walkthrough project *Boutique Ado* was pagination
 
 The product review functionality is an integral part of the application, enabling users to provide feedback on products, rate their quality, and share their experiences with other potential buyers. Below is an explanation of how the feature works and why it is a significant improvement over the Boutique Ado project.
 
+  ![Published Review](readme-images/review-on-product-details-page.png)
+
 ##### How the Product Review Feature Works
 
 1. Dynamic Rating Update
@@ -623,6 +637,7 @@ The product review functionality is an integral part of the application, enablin
 2. Adding a Review
    - Authenticated users can submit a review for a product by filling in a form that includes a star rating and a comment.
    - The system checks if the user has already reviewed the product. If a review exists, they are notified that only one review per user is allowed.
+  ![Adding a Review](readme-images/adding-a-review.png)
 
 3. Editing a Review
    - Users can edit their existing reviews. The form pre-fills with the user's current review details, allowing for easy updates, and any changes are saved back to the database.
@@ -1064,6 +1079,8 @@ The project implements an email verification system for new user registrations, 
 
 A "Back to Top" button is available on the Home and Products pages to enhance user navigation and overall experience. This feature allows users to quickly return to the top of the page, improving accessibility and usability, especially on pages with extensive content. It demonstrates attention to detail and a commitment to creating a seamless, user-friendly interaction, contributing to a more intuitive and enjoyable browsing experience.
 
+![Back To Top Button](readme-images/back-to-top-button.png)
+
 #### Implementation Details
 
 - Smooth scrolling effect: The button uses a JavaScript implementation to create a seamless scrolling experience. When clicked, the page scrolls smoothly to the top rather than jumping abruptly, providing a more polished interaction.
@@ -1076,6 +1093,9 @@ A "Back to Top" button is available on the Home and Products pages to enhance us
 - Efficient navigation: Users can return to the top of the page without manually scrolling, saving time and reducing frustration.
 - Accessibility: Improves the site's accessibility, particularly for users browsing on mobile devices or with assistive technologies.
 - Professional aesthetic: The smooth scrolling effect adds a modern touch to the site, aligning with contemporary web design standards.
+
+
+
 
 ### Basket Badge
 
