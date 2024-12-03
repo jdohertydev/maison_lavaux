@@ -22,7 +22,7 @@
       - [User Stories and Epics](#user-stories-and-epics)
       - [MoSCoW Prioritization](#moscow-prioritization)
       - [Story Points](#story-points)
-      - [Iterations](#iterations)
+      - [Iterations and Milestones](#iterations-and-milestones)
       - [Kanban Board](#kanban-board)
   - [Features](#features)
     - [Base Template File](#base-template-file)
@@ -359,16 +359,24 @@ This method is beneficial as it allows for clear communication about what will b
 
 In this project, story points were used to estimate the relative complexity of each user story, enabling efficient time management and iteration planning. Each story was assigned a point value of 1, 2, 3, 5, 8, 13, or 21 based on the Fibonacci sequence, which provides a non-linear scale to account for increasing uncertainty with more complex tasks. By analysing the tasks and acceptance criteria for each story, I determined its difficulty relative to others, ensuring a realistic assessment of workload. This method facilitated the prediction of solo velocity for each iteration, aiding in the planning of future development cycles and prioritisation of features.
 
-#### Iterations
+#### Iterations and Milestones
+
+To organise and manage progress, I divided the project into 7 weekly iterations, each represented by a milestone in GitHub. 
+
+- Story Point Allocation: User stories were prioritised and assigned story points to estimate effort. The total story points were divided evenly across the 7 iterations.
+- Adding to Iterations: At the start of each iteration, user stories were added until their total story points matched the planned weekly workload.
+- Adjustments: Incomplete tasks at the end of an iteration were moved back to the backlog for refinement and included in the next iteration.
+
+This approach ensured steady progress throughout the project while allowing flexibility to adjust as needed.
 
 #### Kanban Board
 
 To manage and track the progress of user stories during the project, I created a Kanban Board board. The board was divided into four columns: **Epics**, **To Do**, **In Progress**, and **Done**.
 
-- **Epics**: This column contained overarching goals that grouped related user stories together.
-- **To Do**: At the start of each iteration, user stories to be completed were moved here.
-- **In Progress**: As work began on a user story, it was moved to this column.
-- **Done**: Completed user stories were moved to this column to indicate they were finished.
+- Epics: This column contained overarching goals that grouped related user stories together.
+- To Do: At the start of each iteration, user stories to be completed were moved here.
+- In Progress: As work began on a user story, it was moved to this column.
+- Done: Completed user stories were moved to this column to indicate they were finished.
 
 This setup provided a clear and simple way to track the status of tasks throughout the project, ensuring that progress was organised and transparent.
 
