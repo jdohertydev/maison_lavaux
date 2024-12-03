@@ -1,5 +1,13 @@
 # Maison Lavaux Perfumery
 
+## Introduction
+
+Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
+
+INSERT SCREENSHOT
+
+View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
+
 - [Maison Lavaux Perfumery](#maison-lavaux-perfumery)
   - [Introduction](#introduction)
   - [User Experience](#user-experience)
@@ -167,18 +175,13 @@
     - [User Stories Testing](#user-stories-testing)
     - [Automated Testing](#automated-testing)
     - [Viewport Testing](#viewport-testing)
+      - [Screenshot - Desktop](#screenshot---desktop)
+      - [Screenshot - Tablet](#screenshot---tablet)
+      - [Screenshot - Mobile](#screenshot---mobile)
     - [Compatibility Testing](#compatibility-testing)
+      - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
     - [Bugs](#bugs)
   - [Acknowledgements](#acknowledgements)
-
-
-## Introduction
-
-Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado skeleton, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
-
-INSERT SCREENSHOT
-
-View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
 
 ## User Experience
 
@@ -2140,7 +2143,21 @@ Total: 109 Tests, All Passed
 
 ### Viewport Testing
 
+Viewport Testing involved physically testing the project's responsiveness across various devices with different viewports. The test included mobile phones with small and large viewports, as well as tablets. Additionally, testing was conducted on PCs with resolutions of 1366px * 768px (HD) and 1920px * 1080px (Full HD).
+
+#### Screenshot - Desktop
+#### Screenshot - Tablet
+#### Screenshot - Mobile
+
+After testing, it was confirmed that the content looked great and functioned properly on all tested devices. As a result, the viewport testing was a success, meeting all the expected criteria without any problems.
+
 ### Compatibility Testing
+
+The website was tested on all major browsers, including Google Chrome, Mozilla Firefox, Microsoft Edge, Opera, and Safari. The expected outcome was that the project would function correctly in all these browsers.
+
+#### Comparing Chrome and Edge
+
+The result showed that there were no functionality issues, all navigation links worked, and the form responded appropriately to empty fields.
 
 ### Bugs
 
@@ -2167,5 +2184,3 @@ While not a bug in the traditional sense, I spent a considerable amount of time 
 
 - **Gary Dolan and his [ci-p5-pokemon-tcg-ireland project](https://github.com/GaryDolan/ci-p5-pokemon-tcg-ireland):**  
   This project provided inspiration for structuring my README and encouraged me to implement the [Basket Badge](#basket-badge) feature.
-
-
