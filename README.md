@@ -676,6 +676,8 @@ The Boutique Ado project did not include a review system, which limited customer
 
 ### Shopping Bag (Basket) Features
 
+![Shopping Bag](readme-images/shopping-bag.png)
+
 #### Backend Features
 
 1. Add to Bag Functionality
@@ -736,6 +738,8 @@ The Boutique Ado project did not include a review system, which limited customer
 
 ### Checkout Page / Checkout Success 
 
+![Checkout Success](readme-images/checkout-success.png)
+
 #### Backend Features
 
 1. Checkout form validation
@@ -763,6 +767,7 @@ The Boutique Ado project did not include a review system, which limited customer
 6. Stripe webhook handling
    - Listens for payment success or failure events from Stripe.
    - Processes orders via webhook events to ensure reliability, even if the user disconnects after payment.
+  ![Stripe Webhook](readme-images/stripe-webhoook.png)
 
 7. User profile integration
    - Authenticated users can save delivery information to their profile for faster future checkouts.
@@ -797,16 +802,17 @@ The Boutique Ado project did not include a review system, which limited customer
      - Order number and date.
      - Billing and delivery details.
      - List of ordered items with quantities and subtotals.
-   - Provides clear navigation options to return to the product catalog or the user's profile.
+   - Provides clear navigation options to return to the product catalog.
+    ![Order Confirmation](readme-images/order-confirmation.png)
 
-6. Save information option
+1. Save information option
    - Allows logged-in users to save delivery details to their profile for future use.
    - Offers non-authenticated users the option to sign up or log in to enable this feature.
 
-7. Reusable templates
+2. Reusable templates
    - Modular templates for the form, order summary, and confirmation page ensure consistency and easy maintenance.
 
-8. Interactive adjustments
+3. Interactive adjustments
    - Users can navigate back to the bag page to adjust quantities or remove items before finalizing the order.
 
 #### Order Confirmation Email
@@ -825,6 +831,8 @@ The Boutique Ado project did not include a review system, which limited customer
   - Enhances customer satisfaction
   - Builds trust in the brand
   - Provides an immediate record of the transaction
+
+
 
 #### Using Django Humanize for Displaying Amounts
 
