@@ -819,6 +819,9 @@ The Boutique Ado project did not include a review system, which limited customer
 
 - The checkout system includes an automatic confirmation email feature that provides customers with detailed information about their order.
 - Upon successful payment, the system generates and sends a personalized email to the customer using the email address provided during checkout.
+
+![Automatical Email Confirmation](readme-images/email-confirmation.png)
+
 - The email includes key order details such as:
   - Order number
   - Order date
@@ -832,11 +835,11 @@ The Boutique Ado project did not include a review system, which limited customer
   - Builds trust in the brand
   - Provides an immediate record of the transaction
 
-
-
 #### Using Django Humanize for Displaying Amounts
 
 The checkout system leverages Django's `humanize` library to improve the presentation of monetary values throughout the application. Features such as the order total, delivery cost, and grand total are formatted using `humanize` filters like `floatformat` and `intcomma`. These filters ensure that amounts are displayed with consistent formatting, making them more readable and user-friendly.
+
+![Django Humanize](readme-images/django-humanize.png)
 
 ##### Benefits
 
@@ -854,6 +857,8 @@ The Boutique Ado project lacked the use of the `humanize` library, which resulte
 ### Profile Page
 
 The profile app provides users with a personalized area to manage their default delivery information, view their order history, and update personal details like name and email. This app ensures a streamlined and user-friendly experience for managing account information and past transactions.
+
+![My Profile](readme-images/my-profile.png)
 
 #### Backend Features
 
@@ -931,6 +936,8 @@ The profile app enhances the overall user experience by providing a centralized,
 
 This project includes product management functionality that enables authorized users to efficiently add, edit, and delete products directly through the frontend interface.
 
+![Add Product](readme-images/add-product.png)
+
 #### Add Product Functionality
 
 The application includes a dedicated form and view for adding products:
@@ -948,6 +955,8 @@ Editing existing products is handled by a similar process:
 - POST Request: On submission, the data is validated. If valid, the updates are saved, and the user is redirected to the product detail page. If invalid, error messages are displayed to assist the user.
 
 The `edit_product.html` template is designed to mirror the add product page while displaying existing data for convenience.
+
+![Edit Product](readme-images/edit-product.png)
 
 #### Delete Product Functionality
 
@@ -979,6 +988,8 @@ The Django admin panel provides a centralized interface for managing all aspects
 - Products: Add, edit, and manage categories, products, and reviews.
 - Sites: Configure and manage site-related settings.
 
+![Admin Panel](readme-images/admin-panel.png)
+
 #### Purpose and Benefits
 
 The admin panel is an essential tool for streamlining application management. It allows administrators to handle backend operations such as user management, order processing, and content updates without requiring direct interaction with the database. This approach reduces errors, increases efficiency, and provides a user-friendly environment for maintaining the application.
@@ -986,6 +997,8 @@ The admin panel is an essential tool for streamlining application management. It
 ### Analytics App
 
 The Analytics app is a flagship feature of this project and provides powerful tools for tracking and analyzing product performance. It integrates seamlessly with the rest of the application and is designed to give administrators valuable insights into customer behavior and product trends.
+
+![Analytics App](readme-images/analytics-app.png)
 
 #### Key Features
 
@@ -1023,6 +1036,8 @@ Toast messages have been implemented throughout the project to provide feedback 
 
 The toast notifications are included in the project through the `includes/toasts` folder, using the `toast_error.html`, `toast_success.html`, `toast_warning.html`, and `toast_info.html` templates. These messages are displayed in a user-friendly format, improving the overall user experience by offering instant feedback without interrupting their flow on the page.
 
+![Toast Message](readme-images/toast-message.png)
+
 Each toast message is contextually relevant, ensuring that users understand the result of their actions, such as whether an operation was successful or if there was an error that needs addressing. The notifications are designed to be responsive, providing a consistent experience across all devices.
 
 ### Privacy Policy
@@ -1047,19 +1062,26 @@ The About Us page connects customers with the brand's story, emphasizing its com
 
 The Contact Page allows users to reach out to Maison Lavaux for inquiries, support, or feedback, integrating seamlessly with the Contact app. This app includes both frontend and backend functionalities to manage user messages efficiently. By enabling clear communication, the Contact Page enhances customer support and ensures messages are tracked and addressed promptly, contributing to a seamless user experience.
 
+![Contact Us](readme-images/contact-us.png)
+
 #### Key Features
 
 - User-friendly form that allows users to submit their name, email, subject, and message.
 - Pre-filled fields for registered users to simplify the process.
 - Database integration to store submitted messages for tracking and follow-up.
 - Admin notification via email for each new message to ensure timely responses.
+
+  ![Contact Message Email Notification](readme-images/contact-message-email-confirmation.png)
+
 - Acknowledgment for users with a confirmation message and estimated response time.
 
 #### Admin Features
 
-- Admin panel management for viewing, replying to, and resolving contact messages.
+- Admin panel management for viewing and resolving contact messages.
 - Filters for resolved and replied statuses to streamline message handling.
 - Search functionality to locate messages by name, email, subject, or content.
+
+![Contact Admin Panel](readme-images/contact-admin-panel.png)
 
 ### Custom Error Pages
 
