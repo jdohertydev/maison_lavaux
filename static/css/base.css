@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Hero Section */
 
 .hero-section {
     position: relative;
@@ -42,6 +43,8 @@ body {
     animation: fadeIn 2s ease-in 0.5s forwards; /* Delays text fade-in slightly */
 }
 
+/* Custom Paddings */
+
 .custom-pt-150 {
     padding-top: 150px;
 }
@@ -50,6 +53,7 @@ body {
     padding-top: 50px;
 }
 
+/* Fade-in animation for elements */
 
 @keyframes fadeIn {
     to {
@@ -58,6 +62,7 @@ body {
 }
 
 /* from Bulma */
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -66,6 +71,8 @@ body {
     width: 1.5rem;
 }
 
+/* Logo Styles */
+
 .logo-font {
     text-transform: uppercase;
 }
@@ -73,6 +80,8 @@ body {
 .main-logo-link {
     width: fit-content;
 }
+
+/* Buttons and Links */
 
 .shop-now-button {
     background: black;
@@ -109,7 +118,6 @@ body {
     background-color: #f1f1f1; /* Subtle hover effect */
 
 }
-
 
 .shop-now-button:hover,
 .shop-now-button:active,
@@ -176,8 +184,6 @@ body {
 
 }
 
-
-
 #main-nav .nav-link {
     color: white !important;
 }
@@ -210,16 +216,15 @@ a.category-badge>span.badge:hover {
 /* Styles for the product images in the product cards */
 
 /* Base styling for product images */
+
 .product-card-img {
     border-radius: 10px;
-    /* Adds rounded corners for a softer look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow to lift the image off the background */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Smooth transition effect for hover animations */
 }
 
 /* Hover effect for product images */
+
 .product-card-img:hover {
     transform: scale(1.05);
     /* Slightly enlarges the image on hover */
@@ -234,6 +239,7 @@ a.category-badge>span.badge:hover {
 /* Styling for original and discounted prices in product cards */
 
 /* Original price with strikethrough and muted color */
+
 .original-price {
     text-decoration: line-through;
     /* Adds a strikethrough */
@@ -244,6 +250,7 @@ a.category-badge>span.badge:hover {
 }
 
 /* Discounted price with a more prominent color */
+
 .discounted-price {
     color: #dc3545;
     /* Red color similar to Bootstrap's text-danger */
@@ -271,7 +278,7 @@ a.category-badge>span.badge:hover {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
-/* ------------------------------- bootstrap toasts */
+/* bootstrap toasts */
 
 .message-container {
     position: fixed;
@@ -289,7 +296,7 @@ a.category-badge>span.badge:hover {
 }
 
 .dynamic-message-container {
-    height: 50px; /* Adjust as needed */
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,7 +318,7 @@ a.category-badge>span.badge:hover {
 }
 
 
-/* ------------------------------- Shopping Basket Icon */
+/* Shopping Basket Icon */
 
 .cart-icon {
     font-size: 1.5rem;
@@ -337,6 +344,7 @@ a.category-badge>span.badge:hover {
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -348,9 +356,8 @@ a.category-badge>span.badge:hover {
     right: 36px;
 }
 
-
-
 /* Convenience classes - colors copied from Bootstrap */
+
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -387,15 +394,6 @@ a.category-badge>span.badge:hover {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
 }
 
 /* Allauth form formatting */
@@ -480,6 +478,15 @@ a.category-badge>span.badge:hover {
     border-radius: 0;
 }
 
+/* Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -496,6 +503,7 @@ a.category-badge>span.badge:hover {
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
+
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
