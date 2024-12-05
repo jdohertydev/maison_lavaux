@@ -94,7 +94,10 @@ class StripeWH_Handler:
             order = Order.objects.get(stripe_pid=pid)
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Order already exists',
+                content=(
+                    f'Webhook received: {event["type"]} | '
+                    f'SUCCESS: Order already exists'
+                ),
                 status=200,
             )
         except Order.DoesNotExist:
@@ -150,7 +153,11 @@ class StripeWH_Handler:
 
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Order created',
+            content=(
+                f'Webhook received: {event["type"]} | '
+                f'SUCCESS: Order created'
+            ),
+
             status=200,
         )
 

@@ -37,7 +37,11 @@ class ReviewForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
     def clean(self):
-        """Custom validation to prevent duplicate reviews by the same user for the same product."""
+        """
+        Custom validation to prevent duplicate reviews by the same user
+        for the same product.
+        """
+
         cleaned_data = super().clean()
 
         if not self.instance.pk:  # Ensure this is a new review, not an edit

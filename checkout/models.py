@@ -12,7 +12,8 @@ from profiles.models import UserProfile
 
 class Order(models.Model):
     """
-    Model representing a customer's order, including delivery and payment details.
+    Model representing a customer's order, including delivery
+    and payment details.
     """
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -120,7 +121,8 @@ class OrderLineItem(models.Model):
         # Ensure sufficient stock is available
         if self.product.stock_quantity < self.quantity:
             raise ValueError(
-                f"Insufficient stock for {self.product.name}. Only {self.product.stock_quantity} left."
+                f"Insufficient stock for {self.product.name}. Only "
+                f"{self.product.stock_quantity} left."
             )
 
         # Deduct stock

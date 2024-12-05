@@ -17,8 +17,8 @@ def contact_view(request):
 
     # Meta description for the contact page
     meta_description = (
-        "Get in touch with Maison Lavaux. Reach out for inquiries, support, or feedback. "
-        "We aim to respond within two working days."
+        "Get in touch with Maison Lavaux. Reach out for inquiries, support, "
+        "or feedback. We aim to respond within two working days."
     )
 
     if request.method == "POST":
@@ -36,8 +36,7 @@ def contact_view(request):
             send_mail(
                 "New Contact Form Submission",
                 f"You have received a new message from {name} ({email}):\n\n"
-                f"Subject: {subject}\n\n"
-                f"{message}",
+                f"Subject: {subject}\n\n{message}",
                 settings.DEFAULT_FROM_EMAIL,
                 [admin_email],
                 fail_silently=False,
@@ -46,7 +45,8 @@ def contact_view(request):
             # Provide user feedback and redirect
             messages.success(
                 request,
-                "Your message has been sent successfully. We will contact you within 2 working days.",
+                "Your message has been sent successfully. We will contact you "
+                "within 2 working days.",
             )
             return redirect(reverse("home"))
     else:
@@ -64,6 +64,6 @@ def contact_view(request):
     template = "contact/contact.html"
     context = {
         "form": form,
-        "meta_description": meta_description,  # Pass meta description to the template
+        "meta_description": meta_description,  # Pass meta description
     }
     return render(request, template, context)

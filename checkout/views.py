@@ -45,7 +45,8 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot be processed right now. Please try again later.",
+            "Sorry, your payment cannot be processed right now. "
+            "Please try again later.",
         )
         return HttpResponse(content=e, status=400)
 
@@ -61,7 +62,8 @@ def checkout(request):
         bag = request.session.get("bag", {})
         if not bag:
             messages.error(
-                request, "There's nothing in your bag at the moment"
+                request,
+                "There's nothing in your bag at the moment",
             )
             return redirect(reverse("products"))
 
@@ -127,7 +129,8 @@ def checkout(request):
             except Product.DoesNotExist:
                 messages.error(
                     request,
-                    "One of the products in your bag wasn't found in our database. Please call us for assistance!",
+                    "One of the products in your bag wasn't found in our "
+                    "database. Please call us for assistance!",
                 )
                 order.delete()
                 return redirect(reverse("view_bag"))
@@ -139,14 +142,16 @@ def checkout(request):
         else:
             messages.error(
                 request,
-                "There was an error with your form. Please double-check your information.",
+                "There was an error with your form. Please double-check "
+                "your information.",
             )
 
     else:
         bag = request.session.get("bag", {})
         if not bag:
             messages.error(
-                request, "There's nothing in your bag at the moment"
+                request,
+                "There's nothing in your bag at the moment",
             )
             return redirect(reverse("products"))
 
@@ -187,7 +192,8 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(
             request,
-            "Stripe public key is missing. Did you forget to set it in your environment?",
+            "Stripe public key is missing. Did you forget to set it in your "
+            "environment?",
         )
 
     template = "checkout/checkout.html"

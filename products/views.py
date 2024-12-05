@@ -11,7 +11,10 @@ from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
-    """A view to show all active products, including sorting and search queries"""
+    """
+    A view to show all active products, including sorting and
+    search queries.
+    """
 
     # Annotate products with effective_price and filter active products
     products = Product.objects.filter(is_active=True).annotate(
@@ -25,7 +28,11 @@ def all_products(request):
     categories = None
     sortkey = None
     direction = None
-    meta_description = "Browse Maison Lavaux's collection of handcrafted perfumes. Discover unique scents for men and women, including our bestsellers and new arrivals."
+    meta_description = (
+        "Browse Maison Lavaux's collection of handcrafted perfumes. Discover "
+        "unique scents for men and women, including our bestsellers and new "
+        "arrivals."
+    )
 
     # Handle sorting
     if request.GET:
@@ -51,22 +58,33 @@ def all_products(request):
             categories = request.GET["category"].split(",")
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            meta_description = f"Explore our {', '.join([cat.friendly_name or cat.name for cat in categories])} collection. Handcrafted luxury fragrances from Paris."
+            meta_description = (
+                "Explore our "
+                + ", ".join(
+                    cat.friendly_name or cat.name for cat in categories
+                )
+                + " collection. Handcrafted luxury fragrances from Paris."
+            )
 
         # Handle search queries
         if "q" in request.GET:
             query = request.GET["q"]
             if not query.strip():
                 messages.error(
-                    request, "You didn't enter any search criteria!"
+                    request,
+                    "You didn't enter any search criteria!"
                 )
+
                 return redirect(reverse("products"))
 
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query
             )
             products = products.filter(queries)
-            meta_description = f"Search results for '{query}'. Discover handcrafted perfumes by Maison Lavaux."
+            meta_description = (
+                f"Search results for '{query}'. Discover handcrafted perfumes "
+                f"by Maison Lavaux."
+            )
 
     # Implement pagination
     paginator = Paginator(products, 12)  # Show 12 products per page
@@ -108,7 +126,11 @@ def product_detail(request, product_id):
         user_has_reviewed = reviews.filter(user=request.user).exists()
 
     # Meta description
-    meta_description = f"Discover {product.name} by Maison Lavaux. Handcrafted in Paris, this luxurious fragrance offers sophistication and elegance."
+    meta_description = (
+        f"Discover {product.name} by Maison Lavaux. "
+        f"Handcrafted in Paris, this luxurious fragrance "
+        f"offers sophistication and elegance."
+    )
 
     context = {
         "product": product,

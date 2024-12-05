@@ -28,12 +28,8 @@ def home(request):
 
     # Get top 4 products by revenue generated
     most_popular_products = Product.objects.annotate(
-        total_revenue=Sum(
-            "sales_data__revenue_generated"
-        )  # Sum revenue for each product
-    ).order_by("-total_revenue")[
-        :4
-    ]  # Order by highest revenue and limit to 4
+        total_revenue=Sum("sales_data__revenue_generated")
+    ).order_by("-total_revenue")[:4]
 
     # Highest Rated Section (products with the highest ratings)
     highest_rated_products = Product.objects.filter(
@@ -50,9 +46,10 @@ def home(request):
 
     # Meta description for SEO
     meta_description = (
-        "Welcome to Maison Lavaux, your destination for handcrafted perfumes made in Paris. "
-        "Explore our exclusive collection for men and women, featuring new arrivals, top-rated scents, "
-        "and unique fragrances for every occasion."
+        "Welcome to Maison Lavaux, your destination for handcrafted perfumes "
+        "made in Paris. Explore our exclusive collection for men and women, "
+        "featuring new arrivals, top-rated scents, and unique fragrances for "
+        "every occasion."
     )
 
     # Pass all products and meta description to the context
