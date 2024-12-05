@@ -163,7 +163,6 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
         - [Troubleshooting](#troubleshooting)
   - [Validation, Testing and Bugs](#validation-testing-and-bugs)
     - [Validation](#validation)
-      - [CI Python Linter Screenshot](#ci-python-linter-screenshot)
       - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
       - [HTML Validation](#html-validation)
       - [CSS Validation](#css-validation)
@@ -1861,13 +1860,13 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 4. Run Black to format Python files with a specific line length of 79 characters (`$ black --line-length 79 .`)
 5. Manual check all .py files with CI Python Linter. I created `list_py_files.py` to extract the file names of all .py files in the project and tested it only on the files I worked on.
 
-#### CI Python Linter Screenshot
-
-INSERT Screenhot
+![CI Python Linter Screenshot](readme-images/python-linter-screenshot.png)
 
 #### Manual Testing for PEP8 Compliance
 
 These files have been manually tested using CI Python Linter ([https://pep8ci.herokuapp.com/](https://pep8ci.herokuapp.com/)) to ensure compliance with PEP8 standards:
+
+
 
 <table>
   <thead>
@@ -1994,12 +1993,7 @@ To validate the HTML code, all static files had to be deployed and checked manua
     </tr>
   </thead>
   <tbody>
-    <tr><td>/bag/templates/bag</td><td>bag-total.html</td><td>PASS</td></tr>
     <tr><td>/bag/templates/bag</td><td>bag.html</td><td>PASS</td></tr>
-    <tr><td>/bag/templates/bag</td><td>checkout-buttons.html</td><td>PASS</td></tr>
-    <tr><td>/bag/templates/bag</td><td>product-image.html</td><td>PASS</td></tr>
-    <tr><td>/bag/templates/bag</td><td>product-info.html</td><td>PASS</td></tr>
-    <tr><td>/bag/templates/bag</td><td>quantity-form.html</td><td>PASS</td></tr>
     <tr><td>/checkout/templates/checkout</td><td>checkout.html</td><td>PASS</td></tr>
     <tr><td>/checkout/templates/checkout</td><td>checkout_success.html</td><td>PASS</td></tr>
     <tr><td>/contact/templates/contact</td><td>contact.html</td><td>PASS</td></tr>
@@ -2021,33 +2015,6 @@ To validate the HTML code, all static files had to be deployed and checked manua
     <tr><td>/templates</td><td>404.html</td><td>PASS</td></tr>
     <tr><td>/templates</td><td>500.html</td><td>PASS</td></tr>
     <tr><td>/templates</td><td>base.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth</td><td>base.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>account_inactive.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>base.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>email.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>email_confirm.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>login.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>logout.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_change.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_reset.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_reset_done.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_reset_from_key.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_reset_from_key_done.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>password_set.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>signup.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>signup_closed.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account</td><td>verification_sent.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/account/snippets</td><td>already_logged_in.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>authentication_error.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>base.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>connections.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>login.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>login_cancelled.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount</td><td>signup.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount/snippets</td><td>login_extra.html</td><td>PASS</td></tr>
-    <tr><td>/templates/allauth/socialaccount/snippets</td><td>provider_list.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes</td><td>main-nav.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes</td><td>mobile-top-header.html</td><td>PASS</td></tr>
     <tr><td>/templates/includes/toasts</td><td>toast_error.html</td><td>PASS</td></tr>
     <tr><td>/templates/includes/toasts</td><td>toast_info.html</td><td>PASS</td></tr>
     <tr><td>/templates/includes/toasts</td><td>toast_success.html</td><td>PASS</td></tr>
