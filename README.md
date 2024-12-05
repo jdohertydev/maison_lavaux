@@ -2070,12 +2070,29 @@ The results were as follows:
     </tr>
   </thead>
   <tbody>
-    <tr><td>/checkout/static/checkout/css</td><td>checkout.css</td><td>PASS</td></tr>
-    <tr><td>/profiles/static/profiles/css</td><td>profile.css</td><td>PASS</td></tr>
-    <tr><td>/static/css</td><td>about.css</td><td>PASS</td></tr>
-    <tr><td>/static/css</td><td>base.css</td><td>PASS</td></tr>
+    <tr>
+      <td>/checkout/static/checkout/css</td>
+      <td>checkout.css</td>
+      <td><a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmaison-lavaux.s3.amazonaws.com%2Fstatic%2Fcheckout%2Fcss%2Fcheckout.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/profiles/static/profiles/css</td>
+      <td>profile.css</td>
+      <td><a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmaison-lavaux.s3.amazonaws.com%2Fstatic%2Fprofiles%2Fcss%2Fprofile.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/static/css</td>
+      <td>about.css</td>
+      <td><a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmaison-lavaux.s3.amazonaws.com%2Fstatic%2Fcss%2Fabout.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/static/css</td>
+      <td>base.css</td>
+      <td><a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmaison-lavaux.s3.amazonaws.com%2Fstatic%2Fcss%2Fbase.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">PASS</a></td>
+    </tr>
   </tbody>
 </table>
+
 
 #### JS Validation
 
