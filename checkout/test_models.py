@@ -9,7 +9,9 @@ from profiles.models import UserProfile
 class OrderModelTests(TestCase):
     def setUp(self):
         # Create a test user (signal creates UserProfile automatically)
-        self.user = User.objects.create_user(username="testuser", password="password")
+        self.user = User.objects.create_user(
+            username="testuser", password="password"
+        )
 
         # Fetch the automatically created UserProfile
         self.user_profile = UserProfile.objects.get(user=self.user)
@@ -42,7 +44,9 @@ class OrderModelTests(TestCase):
         """Test that the order number is generated correctly."""
         order_number = self.order._generate_order_number()
         self.assertTrue(order_number, "Order number should not be empty.")
-        self.assertTrue(order_number.isupper(), "Order number should be uppercase.")
+        self.assertTrue(
+            order_number.isupper(), "Order number should be uppercase."
+        )
 
     def test_save_method(self):
         """Test that the save method generates an order number."""
@@ -55,7 +59,9 @@ class OrderModelTests(TestCase):
             town_or_city="Another City",
             street_address1="456 Another St",
         )
-        self.assertTrue(order.order_number, "Order number should be generated upon save.")
+        self.assertTrue(
+            order.order_number, "Order number should be generated upon save."
+        )
 
     def test_update_total(self):
         """Test that the total and grand total are updated correctly."""
@@ -67,7 +73,9 @@ class OrderModelTests(TestCase):
         )
         self.order.update_total()
         self.assertEqual(self.order.order_total, Decimal("30.00"))
-        self.assertEqual(self.order.delivery_cost, Decimal("3.00"))  # Assuming delivery cost logic
+        self.assertEqual(
+            self.order.delivery_cost, Decimal("3.00")
+        )  # Assuming delivery cost logic
         self.assertEqual(self.order.grand_total, Decimal("33.00"))
 
     def test_order_str(self):
@@ -78,7 +86,9 @@ class OrderModelTests(TestCase):
 class OrderLineItemModelTests(TestCase):
     def setUp(self):
         # Create a test user (signal creates UserProfile automatically)
-        self.user = User.objects.create_user(username="testuser", password="password")
+        self.user = User.objects.create_user(
+            username="testuser", password="password"
+        )
 
         # Fetch the automatically created UserProfile
         self.user_profile = UserProfile.objects.get(user=self.user)
@@ -119,5 +129,7 @@ class OrderLineItemModelTests(TestCase):
             product=self.product,
             quantity=1,
         )
-        expected_str = f"SKU {self.product.sku} on order {self.order.order_number}"
+        expected_str = (
+            f"SKU {self.product.sku} on order {self.order.order_number}"
+        )
         self.assertEqual(str(line_item), expected_str)

@@ -9,6 +9,7 @@ from products.models import Product
 
 class MockRequest:
     """Mock request object for admin tests."""
+
     pass
 
 
@@ -54,12 +55,20 @@ class OrderAdminTests(TestCase):
 
         # Call the total_items method and verify its output
         result = self.order_admin.total_items(self.order)
-        self.assertEqual(result, 3, "total_items method does not return the correct total quantity.")
+        self.assertEqual(
+            result,
+            3,
+            "total_items method does not return the correct total quantity.",
+        )
 
     def test_formatted_grand_total_method(self):
         """Test the formatted_grand_total method for OrderAdmin."""
         result = self.order_admin.formatted_grand_total(self.order)
-        self.assertEqual(result, "$55.00", "formatted_grand_total does not format the grand total correctly.")
+        self.assertEqual(
+            result,
+            "$55.00",
+            "formatted_grand_total does not format the grand total correctly.",
+        )
 
 
 class OrderLineItemAdminInlineTests(TestCase):
@@ -69,7 +78,12 @@ class OrderLineItemAdminInlineTests(TestCase):
 
     def test_readonly_fields(self):
         """Ensure readonly fields for inline admin are properly set."""
-        expected_readonly_fields = ("product", "product_size", "quantity", "lineitem_total")
+        expected_readonly_fields = (
+            "product",
+            "product_size",
+            "quantity",
+            "lineitem_total",
+        )
         self.assertEqual(
             self.inline.readonly_fields,
             expected_readonly_fields,

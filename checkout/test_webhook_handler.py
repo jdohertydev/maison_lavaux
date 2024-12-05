@@ -51,14 +51,18 @@ class StripeWH_HandlerTests(TestCase):
 
     @patch("checkout.webhook_handler.send_mail")
     @patch("stripe.Charge.retrieve")
-    def test_handle_payment_intent_succeeded(self, mock_charge_retrieve, mock_send_mail):
+    def test_handle_payment_intent_succeeded(
+        self, mock_charge_retrieve, mock_send_mail
+    ):
         """Test handling payment_intent.succeeded event."""
         mock_charge_retrieve.return_value = MagicMock(
             amount=2000,
             billing_details=MagicMock(email="testuser@example.com"),
         )
 
-        response = self.handler.handle_payment_intent_succeeded(self.event_data)
+        response = self.handler.handle_payment_intent_succeeded(
+            self.event_data
+        )
 
         # Assertions
         self.assertEqual(response.status_code, 200)
@@ -70,7 +74,9 @@ class StripeWH_HandlerTests(TestCase):
         self.assertEqual(order.grand_total, Decimal("20.00"))
 
         # Check if order line items were created
-        line_item = OrderLineItem.objects.get(order=order, product=self.product)
+        line_item = OrderLineItem.objects.get(
+            order=order, product=self.product
+        )
         self.assertEqual(line_item.quantity, 2)
 
         # Check if confirmation email was sent
@@ -86,8 +92,12 @@ class StripeWH_HandlerTests(TestCase):
     @patch("checkout.webhook_handler.logging.error")
     def test_handle_payment_intent_succeeded_error(self, mock_logging_error):
         """Test error handling during order creation."""
-        self.event_data["data"]["object"]["metadata"]["bag"] = '{"999": 2}'  # Invalid product ID
-        response = self.handler.handle_payment_intent_succeeded(self.event_data)
+        self.event_data["data"]["object"]["metadata"][
+            "bag"
+        ] = '{"999": 2}'  # Invalid product ID
+        response = self.handler.handle_payment_intent_succeeded(
+            self.event_data
+        )
 
         # Assertions
         self.assertEqual(response.status_code, 500)

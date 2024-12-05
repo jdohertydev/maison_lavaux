@@ -21,13 +21,21 @@ class OrderFormTests(TestCase):
     def test_order_form_valid(self):
         """Test the form is valid with correct data."""
         form = OrderForm(data=self.valid_data)
-        self.assertTrue(form.is_valid(), "OrderForm should be valid with correct data.")
+        self.assertTrue(
+            form.is_valid(), "OrderForm should be valid with correct data."
+        )
 
     def test_order_form_invalid(self):
         """Test the form is invalid with incorrect data."""
         form = OrderForm(data=self.invalid_data)
-        self.assertFalse(form.is_valid(), "OrderForm should be invalid with incorrect data.")
-        self.assertIn("email", form.errors, "Invalid email should trigger an error on the email field.")
+        self.assertFalse(
+            form.is_valid(), "OrderForm should be invalid with incorrect data."
+        )
+        self.assertIn(
+            "email",
+            form.errors,
+            "Invalid email should trigger an error on the email field.",
+        )
 
     def test_order_form_placeholders(self):
         """Test the placeholders are correctly set."""
@@ -43,7 +51,9 @@ class OrderFormTests(TestCase):
             "county": "County, State or Locality",
         }
         for field, placeholder in expected_placeholders.items():
-            if field in form.fields and field != "country":  # Exclude country field
+            if (
+                field in form.fields and field != "country"
+            ):  # Exclude country field
                 self.assertEqual(
                     form.fields[field].widget.attrs["placeholder"],
                     placeholder,

@@ -20,7 +20,9 @@ class UserProfileModelTests(TestCase):
         when a User is created.
         """
         user_profile = UserProfile.objects.get(user=self.user)
-        self.assertIsNotNone(user_profile, "UserProfile should be created for a new User.")
+        self.assertIsNotNone(
+            user_profile, "UserProfile should be created for a new User."
+        )
         self.assertEqual(user_profile.user.username, "testuser")
 
     def test_user_profile_update(self):
@@ -41,15 +43,24 @@ class UserProfileModelTests(TestCase):
         Test the __str__ method of UserProfile returns the username.
         """
         user_profile = UserProfile.objects.get(user=self.user)
-        self.assertEqual(str(user_profile), "testuser", "The __str__ method should return the username.")
+        self.assertEqual(
+            str(user_profile),
+            "testuser",
+            "The __str__ method should return the username.",
+        )
 
     def test_signal_creates_user_profile(self):
         """
         Test the post_save signal creates a UserProfile.
         """
-        new_user = User.objects.create_user(username="newuser", password="newpassword")
+        new_user = User.objects.create_user(
+            username="newuser", password="newpassword"
+        )
         user_profile = UserProfile.objects.get(user=new_user)
-        self.assertIsNotNone(user_profile, "UserProfile should be created by the post_save signal.")
+        self.assertIsNotNone(
+            user_profile,
+            "UserProfile should be created by the post_save signal.",
+        )
 
     def test_signal_updates_user_profile(self):
         """
@@ -61,4 +72,8 @@ class UserProfileModelTests(TestCase):
 
         # Verify the profile still exists and is linked to the updated user
         user_profile = UserProfile.objects.get(user=self.user)
-        self.assertEqual(user_profile.user.first_name, "Jane", "The post_save signal should update the profile.")
+        self.assertEqual(
+            user_profile.user.first_name,
+            "Jane",
+            "The post_save signal should update the profile.",
+        )

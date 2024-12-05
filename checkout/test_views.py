@@ -17,7 +17,9 @@ class CheckoutViewTests(TestCase):
             stock_quantity=10,
             sku="TESTSKU",
         )
-        self.user = UserProfile.objects.create(user=None)  # Replace with real user creation if needed
+        self.user = UserProfile.objects.create(
+            user=None
+        )  # Replace with real user creation if needed
 
     @patch("stripe.PaymentIntent.create")
     def test_checkout_get_authenticated(self, mock_payment_intent):
@@ -40,7 +42,9 @@ class CheckoutViewTests(TestCase):
         self.assertEqual(response.status_code, 302)  # Redirect
         self.assertRedirects(response, reverse("products"))
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), "There's nothing in your bag at the moment")
+        self.assertEqual(
+            str(messages[0]), "There's nothing in your bag at the moment"
+        )
 
     @patch("stripe.PaymentIntent.create")
     def test_checkout_post_valid_data(self, mock_payment_intent):
@@ -62,7 +66,12 @@ class CheckoutViewTests(TestCase):
             "county": "Test County",
         }
         response = self.client.post(reverse("checkout"), form_data)
-        self.assertRedirects(response, reverse("checkout_success", args=[Order.objects.first().order_number]))
+        self.assertRedirects(
+            response,
+            reverse(
+                "checkout_success", args=[Order.objects.first().order_number]
+            ),
+        )
 
     def test_checkout_post_invalid_data(self):
         """Test POST request to checkout with invalid data."""
@@ -85,7 +94,10 @@ class CheckoutViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout.html")
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), "There was an error with your form. Please double-check your information.")
+        self.assertEqual(
+            str(messages[0]),
+            "There was an error with your form. Please double-check your information.",
+        )
 
     @patch("stripe.PaymentIntent.modify")
     def test_cache_checkout_data(self, mock_payment_intent_modify):
@@ -116,8 +128,13 @@ class CheckoutViewTests(TestCase):
             stripe_pid="testpid123",
         )
 
-        response = self.client.get(reverse("checkout_success", args=[order.order_number]))
+        response = self.client.get(
+            reverse("checkout_success", args=[order.order_number])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout_success.html")
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), f"Order successfully processed! Your order number is {order.order_number}.")
+        self.assertEqual(
+            str(messages[0]),
+            f"Order successfully processed! Your order number is {order.order_number}.",
+        )

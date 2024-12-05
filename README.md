@@ -508,6 +508,12 @@ The homepage offers multiple product categories, each tailored to meet diverse c
   - Product names, categories, dynamic pricing (including original and discounted prices), and star ratings.
   ![Interactive Product Card](readme-images/interactive-product-cards.png)
   - Interactive tags and links for easy navigation to related categories.
+  - CSS styling:
+    - Rounded Corners: The `border-radius: 10px` softens the edges of the product card image, creating a more polished and visually appealing look.  
+    - Hover Animation: On hover, the `transform: scale(1.05)` slightly enlarges the image, drawing attention to it and making the product stand out.  
+    - Dynamic Shadows: The `box-shadow` effect deepens on hover, giving the image a "pop" effect as if it's lifting off the background, enhancing the user's interactive experience.  
+    - Smooth Transition: The `transition: transform 0.3s ease, box-shadow 0.3s ease` ensures the hover effects are fluid and natural, making the interaction feel seamless and engaging.  
+
 
 #### Responsive and Accessible Design
 - Fully responsive layout ensuring a smooth browsing experience across desktop, tablet, and mobile devices.
@@ -1087,6 +1093,8 @@ The Contact Page allows users to reach out to Maison Lavaux for inquiries, suppo
 
 To enhance the user experience, custom error pages were implemented for common HTTP error statuses: 400 (Bad Request), 403 (Forbidden), 404 (Not Found), and 500 (Internal Server Error). These pages go beyond the standard error messages, incorporating a sense of playfulness to make the experience less frustrating for users. The goal of these custom error pages is to transform potentially negative interactions into opportunities for engagement, ensuring users feel valued even when something goes wrong. This approach contributes to a more positive perception of the brand and a seamless user experience.
 
+![Custom 404 Error](readme-images/custom-error-404.png)
+
 #### Key Features
 
 - Custom designs maintain the branding of Maison Lavaux, ensuring a consistent visual identity across the site.
@@ -1095,7 +1103,12 @@ To enhance the user experience, custom error pages were implemented for common H
 
 #### Email Verification
 
-The project implements an email verification system for new user registrations, requiring users to confirm their email addresses before fully activating their accounts. The configuration ensures that email verification is mandatory, and users must enter their email twice during signup to reduce errors.
+The project implements an email verification system for new user registrations, requiring users to confirm their email addresses before fully activating their accounts. The configuration ensures that email verification is mandatory, enforced by setting `ACCOUNT_EMAIL_VERIFICATION = "mandatory"` in the project's settings. Additionally, users must enter their email address twice during signup to minimize errors and improve reliability.
+
+
+![Verify Your Email](readme-images/verify-your-email.png)
+
+![Verify Your Email Message](readme-images/verify-your-email-message.png)
 
 #### Benefits
 
@@ -1124,12 +1137,14 @@ A "Back to Top" button is available on the Home and Products pages to enhance us
 - Accessibility: Improves the site's accessibility, particularly for users browsing on mobile devices or with assistive technologies.
 - Professional aesthetic: The smooth scrolling effect adds a modern touch to the site, aligning with contemporary web design standards.
 
-
-
-
 ### Basket Badge
 
-To enhance the user experience, the basket icon includes a dynamic badge that shows the number of items in the basket. This feature provides several key benefits:
+To enhance the user experience, the basket icon includes a dynamic badge that shows the number of items in the basket. 
+
+![Basket Badge](readme-images/basket-badge.png)
+
+
+This feature provides several key benefits:
 
 - Visual clarity: Users receive a clear and immediate indication of how many items they have added to their basket.
 - Improved usability: Eliminates the need to navigate away from the current page to check the basket contents.
@@ -1165,32 +1180,16 @@ Form validation in the project ensures that user inputs are accurate, complete, 
 
 To enhance the platform's functionality and user experience, the following features are planned for future development:
 
-- **Order Fulfillment Notifications**  
-  Automatically notify customers via email or SMS when their orders are fulfilled, improving communication and customer satisfaction.
+- Order Fulfillment Notifications: Automatically notify customers via email or SMS when their orders are fulfilled, improving communication and customer satisfaction.  
+- Return and Refund Management: Introduce a streamlined process for handling product returns and issuing refunds, including admin tools for tracking return requests and automating refund workflows.  
+- Advanced Stock Management: Implement features to handle low stock alerts, automated stock replenishment notifications, and better tracking of inventory levels for concurrent orders.  
+- Wishlist Functionality: Allow users to save items to a wishlist for future purchase, encouraging customer retention and repeat visits.  
+- Order Tracking System: Provide customers with real-time tracking of their orders, including shipment progress and expected delivery dates.  
+- Multi-Currency Support: Enable users to view product prices and complete purchases in their preferred currency, broadening the site's global appeal.  
+- Loyalty Program Integration: Develop a points-based system to reward repeat customers, incentivizing continued engagement with the platform.  
+- Enhanced Review System: Allow users to upload images with their reviews, offering more detailed feedback and enriching the shopping experience for future buyers.  
+- Dynamic Pricing for Promotions: Automate temporary price reductions for flash sales or holiday promotions, with a countdown timer displayed on product pages.  
 
-- **Return and Refund Management**  
-  Introduce a streamlined process for handling product returns and issuing refunds, including admin tools for tracking return requests and automating refund workflows.
-
-- **Advanced Stock Management**  
-  Implement features to handle low stock alerts, automated stock replenishment notifications, and better tracking of inventory levels for concurrent orders.
-
-- **Wishlist Functionality**  
-  Allow users to save items to a wishlist for future purchase, encouraging customer retention and repeat visits.
-
-- **Order Tracking System**  
-  Provide customers with real-time tracking of their orders, including shipment progress and expected delivery dates.
-
-- **Multi-Currency Support**  
-  Enable users to view product prices and complete purchases in their preferred currency, broadening the site's global appeal.
-
-- **Loyalty Program Integration**  
-  Develop a points-based system to reward repeat customers, incentivizing continued engagement with the platform.
-
-- **Enhanced Review System**  
-  Allow users to upload images with their reviews, offering more detailed feedback and enriching the shopping experience for future buyers.
-
-- **Dynamic Pricing for Promotions**  
-  Automate temporary price reductions for flash sales or holiday promotions, with a countdown timer displayed on product pages.
 
 These planned implementations aim to create a more robust, engaging, and efficient platform for both customers and administrators.
 
@@ -1198,13 +1197,13 @@ These planned implementations aim to create a more robust, engaging, and efficie
 
 Accessibility is a core consideration throughout the project, ensuring the website is inclusive and user-friendly for all audiences, including those with disabilities. This focus on accessibility also enhances usability and aligns with best practices in modern web development.
 
-- **Semantic Structure**: The site uses semantic HTML elements such as `<header>`, `<nav>`, `<main>`, and `<footer>` to create a logical structure. This improves navigation for assistive technologies like screen readers.
-- **Accessible Forms**: All forms are designed with clearly labeled fields, accessible input types (e.g., `email` and `tel`), and visual indicators for required fields. These features ensure that users can easily interact with forms, regardless of ability.
-- **Contrast and Readability**: Text and background color combinations are chosen to meet accessibility contrast standards, making content readable for visually impaired users.
-- **Responsive Design**: The website is fully responsive, ensuring that it functions seamlessly across devices, from desktops to mobile phones. This adaptability enhances accessibility for users relying on various technologies.
-- **Alt Text for Images**: All images include meaningful `alt` attributes to describe their content. This ensures users with visual impairments can understand the context and purpose of visual elements.
-- **Keyboard Navigation**: Features such as the "Back to Top" button are fully keyboard accessible, allowing users to navigate efficiently without relying on a mouse.
-- **Custom Error Pages**: Custom 400, 403, 404, and 500 error pages provide clear instructions and maintain accessibility standards, ensuring users can recover from errors with ease.
+- Semantic Structure: The site uses semantic HTML elements such as `<header>`, `<nav>`, `<main>`, and `<footer>` to create a logical structure. This improves navigation for assistive technologies like screen readers.
+- Accessible Forms: All forms are designed with clearly labeled fields, accessible input types (e.g., `email` and `tel`), and visual indicators for required fields. These features ensure that users can easily interact with forms, regardless of ability.
+- Contrast and Readability: Text and background color combinations are chosen to meet accessibility contrast standards, making content readable for visually impaired users.
+- Responsive Design: The website is fully responsive, ensuring that it functions seamlessly across devices, from desktops to mobile phones. This adaptability enhances accessibility for users relying on various technologies.
+- Alt Text for Images: All images include meaningful `alt` attributes to describe their content. This ensures users with visual impairments can understand the context and purpose of visual elements.
+- Keyboard Navigation: Features such as the "Back to Top" button are fully keyboard accessible, allowing users to navigate efficiently without relying on a mouse.
+- Custom Error Pages: Custom 400, 403, 404, and 500 error pages provide clear instructions and maintain accessibility standards, ensuring users can recover from errors with ease.
 
 By implementing these practices, the project demonstrates a commitment to creating an inclusive and enjoyable user experience for all.
 
@@ -1230,12 +1229,20 @@ Other optimizations include:
 
 To support the website, a Facebook Business Page has been created. This serves as an additional platform for brand visibility and user engagement.
 
+![Facebook Fan Page](readme-images/facebook-screenshot.png)
+
 - Why businesses use Facebook pages: Social media platforms, especially Facebook, allow businesses to connect directly with their audience, foster community, and share updates about products or promotions.
 - Value to the company: A Facebook page increases the company’s reach, drives traffic to the website, and creates a space for user-generated content, such as reviews and testimonials, which can further boost credibility.
 
 ### Newsletter Marketing
 
-The website features a newsletter signup option in the footer, enabling users to subscribe by sharing their email addresses. This approach offers several advantages:
+The website features a newsletter signup option in the footer, enabling users to subscribe by sharing their email addresses. 
+
+![Subscribe Footer](readme-images/subscribe-footer.png)
+
+![Mailchimp Screenshot](readme-images/mailchimp-screenshot.png)
+
+This approach offers several advantages:
 
 - User retention: Regular newsletters keep the brand in the minds of customers, encouraging repeat visits and purchases.
 - Targeted marketing: Collecting user data allows for more personalized and segmented marketing campaigns, increasing conversion rates.

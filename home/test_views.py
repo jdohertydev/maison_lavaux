@@ -19,13 +19,19 @@ class HomeViewTests(TestCase):
                 name=f"Product {i}",
                 gender=random.choice(["M", "W"]),
                 is_active=True,
-                created_at=now() if i < 4 else self.thirty_days_ago - timedelta(days=1),
+                created_at=(
+                    now()
+                    if i < 4
+                    else self.thirty_days_ago - timedelta(days=1)
+                ),
                 rating=random.randint(1, 5) if i < 4 else None,
             )
 
         # Add sales data for revenue
         for product in Product.objects.all():
-            product.sales_data.create(revenue_generated=random.randint(100, 1000))
+            product.sales_data.create(
+                revenue_generated=random.randint(100, 1000)
+            )
 
     def test_homepage_renders_correctly(self):
         """Test that the homepage renders correctly."""

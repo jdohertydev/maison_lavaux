@@ -15,7 +15,10 @@ class UserProfileFormTests(TestCase):
             "default_county": "Test County",
         }
         form = UserProfileForm(data=form_data)
-        self.assertTrue(form.is_valid(), "UserProfileForm should be valid with all fields filled.")
+        self.assertTrue(
+            form.is_valid(),
+            "UserProfileForm should be valid with all fields filled.",
+        )
 
     def test_valid_user_profile_form_with_optional_fields_missing(self):
         form_data = {
@@ -25,7 +28,10 @@ class UserProfileFormTests(TestCase):
             "default_street_address1": "123 Test St",
         }
         form = UserProfileForm(data=form_data)
-        self.assertTrue(form.is_valid(), "UserProfileForm should be valid even when optional fields are missing.")
+        self.assertTrue(
+            form.is_valid(),
+            "UserProfileForm should be valid even when optional fields are missing.",
+        )
 
     def test_user_profile_form_placeholders(self):
         form = UserProfileForm()
@@ -48,7 +54,11 @@ class UserProfileFormTests(TestCase):
 class UserUpdateFormTests(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
-            username="testuser", password="password", first_name="John", last_name="Doe", email="john@example.com"
+            username="testuser",
+            password="password",
+            first_name="John",
+            last_name="Doe",
+            email="john@example.com",
         )
 
     def test_valid_user_update_form(self):
@@ -58,7 +68,10 @@ class UserUpdateFormTests(TestCase):
             "email": "jane@example.com",
         }
         form = UserUpdateForm(data=form_data, instance=self.user)
-        self.assertTrue(form.is_valid(), "UserUpdateForm should be valid with correct data.")
+        self.assertTrue(
+            form.is_valid(),
+            "UserUpdateForm should be valid with correct data.",
+        )
 
     def test_invalid_user_update_form_invalid_email(self):
         form_data = {
@@ -67,7 +80,10 @@ class UserUpdateFormTests(TestCase):
             "email": "invalid-email",
         }
         form = UserUpdateForm(data=form_data, instance=self.user)
-        self.assertFalse(form.is_valid(), "UserUpdateForm should be invalid with an incorrect email address.")
+        self.assertFalse(
+            form.is_valid(),
+            "UserUpdateForm should be invalid with an incorrect email address.",
+        )
         self.assertIn("email", form.errors)
 
     def test_user_update_form_placeholders(self):

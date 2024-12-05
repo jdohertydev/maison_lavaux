@@ -80,7 +80,9 @@ class ProfileViewTests(TestCase):
     def test_order_history_view(self):
         """Test the order history view."""
         self.client.login(username="testuser", password="testpassword")
-        response = self.client.get(reverse("order_history", args=["123456789"]))
+        response = self.client.get(
+            reverse("order_history", args=["123456789"])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout_success.html")
         self.assertIn("order", response.context)

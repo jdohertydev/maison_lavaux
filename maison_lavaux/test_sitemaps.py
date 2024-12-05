@@ -28,8 +28,12 @@ class ProductSitemapTests(TestCase):
 
     def test_sitemap_lastmod(self):
         """Test that the lastmod method returns the correct updated time."""
-        self.assertEqual(self.sitemap.lastmod(self.product1), self.product1.updated)
-        self.assertEqual(self.sitemap.lastmod(self.product2), self.product2.updated)
+        self.assertEqual(
+            self.sitemap.lastmod(self.product1), self.product1.updated
+        )
+        self.assertEqual(
+            self.sitemap.lastmod(self.product2), self.product2.updated
+        )
 
     def test_sitemap_priority(self):
         """Test that the priority is set correctly."""
@@ -41,5 +45,7 @@ class ProductSitemapTests(TestCase):
 
     def test_sitemap_lastmod_none(self):
         """Test that lastmod returns None if 'updated' field is absent."""
-        product = Product.objects.create(name="Product 3")  # No 'updated' field
+        product = Product.objects.create(
+            name="Product 3"
+        )  # No 'updated' field
         self.assertIsNone(self.sitemap.lastmod(product))

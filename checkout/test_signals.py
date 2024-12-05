@@ -40,7 +40,9 @@ class OrderLineItemSignalsTests(TestCase):
             lineitem_total=self.product.price * 2,
         )
         self.order.refresh_from_db()
-        expected_grand_total = Decimal("22.00")  # 2 items * 10.00 + 2.00 delivery cost
+        expected_grand_total = Decimal(
+            "22.00"
+        )  # 2 items * 10.00 + 2.00 delivery cost
         self.assertEqual(
             self.order.grand_total,
             expected_grand_total,

@@ -13,7 +13,10 @@ class ContactFormTests(TestCase):
             "message": "This is a test message.",
         }
         form = ContactForm(data=form_data)
-        self.assertTrue(form.is_valid(), "The ContactForm should be valid with correct data.")
+        self.assertTrue(
+            form.is_valid(),
+            "The ContactForm should be valid with correct data.",
+        )
 
     def test_invalid_contact_form_missing_fields(self):
         """Test that the ContactForm is invalid when required fields are missing."""
@@ -24,10 +27,19 @@ class ContactFormTests(TestCase):
             "message": "",
         }
         form = ContactForm(data=form_data)
-        self.assertFalse(form.is_valid(), "The ContactForm should be invalid when required fields are missing.")
-        self.assertIn("name", form.errors, "The 'name' field should be required.")
-        self.assertIn("subject", form.errors, "The 'subject' field should be required.")
-        self.assertIn("message", form.errors, "The 'message' field should be required.")
+        self.assertFalse(
+            form.is_valid(),
+            "The ContactForm should be invalid when required fields are missing.",
+        )
+        self.assertIn(
+            "name", form.errors, "The 'name' field should be required."
+        )
+        self.assertIn(
+            "subject", form.errors, "The 'subject' field should be required."
+        )
+        self.assertIn(
+            "message", form.errors, "The 'message' field should be required."
+        )
 
     def test_invalid_email_format(self):
         """Test that the ContactForm is invalid with an incorrect email format."""
@@ -38,14 +50,29 @@ class ContactFormTests(TestCase):
             "message": "This is a test message.",
         }
         form = ContactForm(data=form_data)
-        self.assertFalse(form.is_valid(), "The ContactForm should be invalid with an incorrect email format.")
-        self.assertIn("email", form.errors, "The 'email' field should contain an error for invalid format.")
+        self.assertFalse(
+            form.is_valid(),
+            "The ContactForm should be invalid with an incorrect email format.",
+        )
+        self.assertIn(
+            "email",
+            form.errors,
+            "The 'email' field should contain an error for invalid format.",
+        )
 
     def test_excluded_fields(self):
         """Test that 'replied' and 'resolved' fields are excluded from the form."""
         form = ContactForm()
-        self.assertNotIn("replied", form.fields, "The 'replied' field should be excluded from the form.")
-        self.assertNotIn("resolved", form.fields, "The 'resolved' field should be excluded from the form.")
+        self.assertNotIn(
+            "replied",
+            form.fields,
+            "The 'replied' field should be excluded from the form.",
+        )
+        self.assertNotIn(
+            "resolved",
+            form.fields,
+            "The 'resolved' field should be excluded from the form.",
+        )
 
     def test_message_widget(self):
         """Test that the 'message' field uses the correct widget."""
