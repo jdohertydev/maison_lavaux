@@ -1,14 +1,12 @@
-/* ----------------------
-   Order History Styles
----------------------- */
+/*  Order History Styles */
+
 .order-history {
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;
 }
 
-/* ----------------------
-   Profile Update Form Styles
----------------------- */
+/* Profile Update Form Styles */
+
 #profile-update-form .form-control {
     color: #000;
 }
@@ -17,9 +15,8 @@
     color: #aab7c4;
 }
 
-/* ----------------------
-   Default Country Dropdown Styles
----------------------- */
+/* Default Country Dropdown Styles */
+
 #id_default_country,
 #id_default_country option:not(:first-child) {
     color: #000;

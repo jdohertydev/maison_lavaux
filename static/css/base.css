@@ -157,7 +157,6 @@ body {
     color: black !important;
 }
 
-
 .dropdown-item:active {
     background-color: transparent !important; /* Remove the blue background */
     color: inherit !important; /* Maintain the current text color */
@@ -316,7 +315,6 @@ a.category-badge>span.badge:hover {
     opacity: 1; /* Fully visible when active */
     font-size: 3rem; /* Adjust size */
 }
-
 
 /* Shopping Basket Icon */
 

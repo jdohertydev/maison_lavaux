@@ -1,6 +1,5 @@
-/* ----------------------
-   Stripe Element Styles
----------------------- */
+/* Stripe Element Styles */
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -28,26 +27,23 @@
     color: #aab7c4;
 }
 
-/* ----------------------
-   Fieldset Label Styles
----------------------- */
+/* Fieldset Label Styles */
+
 .fieldset-label {
     position: relative;
     right: .5rem;
 }
 
-/* ----------------------
-   Payment Form Styles
----------------------- */
+/* Payment Form Styles */
+
 #payment-form .form-control,
 #card-element {
     color: #000;
     border: 1px solid #000;
 }
 
-/* ----------------------
-   Select Dropdown Styles
----------------------- */
+/* Select Dropdown Styles */
+
 select,
 select option {
     color: #000000;
@@ -58,9 +54,8 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
-/* ----------------------
-   Loading Overlay Styles
----------------------- */
+/* Loading Overlay Styles */
+
 #loading-overlay {
 	display: none;
 	position: fixed;

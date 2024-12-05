@@ -1,6 +1,5 @@
-/* ----------------------
-   About Page Image Styles
----------------------- */
+/* About Page Image Styles */
+
 .about-page .profile-image {
     max-width: 300px;
     height: auto; /* Maintain aspect ratio */
@@ -22,23 +21,23 @@
     text-align: center;
 }
 
-/* ----------------------
-   Header Container Styles
----------------------- */
+/*  Header Container Styles */
+
 .about-page .header-container {
     margin-top: 120px;
 }
 
-/* ----------------------
-   Section Styles
----------------------- */
+/* Section Styles */
+
 /* Reset default browser styles for section */
+
 .about-page section {
     margin: 0;
     padding: 0;
 }
 
 /* Add spacing specifically for sections if needed */
+
 .about-page .hero-section {
     margin-bottom: 1rem; /* Space after hero section */
     position: static; /* Override the global relative positioning */
@@ -46,17 +45,15 @@
     overflow: visible; /* Remove hidden overflow */
 }
 
-/* ----------------------
-   Hero Journey Styles
----------------------- */
+/* Hero Journey Styles */
+
 .about-page .hero-journey {
     margin-top: 3rem; /* Space before Our Story */
     margin-bottom: 3rem; /* Optional space after Our Story */
 }
 
-/* ----------------------
-   Call-to-Action Styles
----------------------- */
+/* Call-to-Action Styles */
+
 .about-page .call-to-action {
     margin-top: 3rem; /* Space before Call to Action */
 }
