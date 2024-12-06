@@ -1993,7 +1993,7 @@ To validate the HTML code, all static files had to be deployed and checked manua
     </tr>
   </thead>
   <tbody>
-    <tr><td>/bag/templates/bag</td><td>bag.html</td><td>PASS</td></tr>
+    <tr><td>/bag/templates/bag</td><td>bag.html</td><td>PASS.</td></tr>
     <tr><td>/checkout/templates/checkout</td><td>checkout.html</td><td>PASS</td></tr>
     <tr><td>/checkout/templates/checkout</td><td>checkout_success.html</td><td>PASS</td></tr>
     <tr><td>/contact/templates/contact</td><td>contact.html</td><td>PASS</td></tr>
