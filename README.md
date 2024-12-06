@@ -2211,6 +2211,31 @@ The result showed that there were no functionality issues, all navigation links 
 
 CHECK Bug Report: HTML Validation Error with `for` Attribute in Form Label
 
+Issue with Duplicate IDs in Quantity Controls
+
+Description:
+During the development of the shopping bag functionality, a bug was identified where the quantity increment (+) and decrement (-) buttons did not function properly in the desktop view. This was due to duplicate IDs being assigned to the buttons, with one set for the mobile view and another for the desktop view. Since the buttons were hidden or shown based on screen size using CSS, only the first button with the duplicate ID was recognized by JavaScript, causing functionality issues in the other view.
+
+Fix:
+To resolve this issue:
+
+    Replaced id-based selectors with data-item_id and data-size attributes for uniquely identifying elements.
+    Updated the JavaScript code to dynamically handle elements based on their data-item_id and data-size attributes.
+    Added logic to prevent duplicate handling of increment/decrement buttons and to ensure proper enabling/disabling of buttons based on the quantity range (1–99).
+    Tested the fix across both mobile and desktop views to ensure consistent behavior.
+
+Impact:
+
+    The issue is now resolved, and the functionality works seamlessly across all screen sizes.
+    This fix avoids any potential conflicts or errors caused by duplicate IDs in the HTML.
+
+Reference:
+This solution follows best practices for dynamic element handling in JavaScript and resolves a known issue with screen-size-specific rendering. The updated code ensures a robust and scalable approach for managing quantity controls.
+
+Commit:
+The fix was implemented in commit:
+Fix quantity increment/decrement functionality and prevent duplicate ID issues
+
 Description  
 A validation error occurred in the form used to save delivery information. The `<label>` element in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input. This violated HTML validation rules, causing issues with accessibility and standards compliance.
 
