@@ -2209,6 +2209,59 @@ The result showed that there were no functionality issues, all navigation links 
 
 ### Bugs
 
+CHECK Bug Report: HTML Validation Error with `for` Attribute in Form Label
+
+Description  
+A validation error occurred in the form used to save delivery information. The `<label>` element in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input. This violated HTML validation rules, causing issues with accessibility and standards compliance.
+
+---
+
+Steps to Reproduce  
+1. Navigate to the page containing the form while logged out (unauthenticated state).
+2. Inspect the HTML structure of the `<label>` and observe that the `for` attribute references `id-save-info`, which does not exist in the DOM.
+3. Run the page through an HTML validation tool (e.g., W3C Validator: https://validator.w3.org/) to confirm the error.
+
+---
+
+Root Cause  
+The `else` block for unauthenticated users included a `<label>` with a `for` attribute pointing to `id-save-info`. However, no input element with this ID was rendered in that block.
+
+---
+
+Resolution  
+The code was updated as follows:
+- Removed the `for="id-save-info"` attribute from the `<label>` in the unauthenticated user block.
+- Adjusted the label to serve as a container for the "Create an account" and "login" links instead.
+
+Updated Code Snippet:
+<div class="form-check form-check-inline float-right mr-0">
+    {% if user.is_authenticated %}
+        <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+    {% else %}
+        <label class="form-check-label">
+            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+        </label>
+    {% endif %}
+</div>
+
+---
+
+Testing and Validation  
+1. Verified the fix using the W3C Validator (https://validator.w3.org/) to confirm compliance.
+2. Tested functionality for both authenticated and unauthenticated users:
+   - Authenticated: Checkbox is visible and functional.
+   - Unauthenticated: Login and signup links are displayed correctly without errors.
+3. Ensured cross-browser compatibility and consistent user experience.
+
+---
+
+Impact  
+This fix improved HTML validation, ensured better accessibility, and maintained a seamless user experience.
+
+
+
 While not a bug in the traditional sense, I spent a considerable amount of time trying to get the stock quantity to update correctly after a customer made a purchase. Initially, my attempts were unsuccessful, and I had to temporarily remove this feature. However, with perseverance and a fresh approach, I was eventually able to implement the functionality successfully. After thorough testing, I can confirm that the stock quantity now updates exactly as intended.
 
 ---
