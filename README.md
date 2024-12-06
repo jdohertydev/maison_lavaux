@@ -2007,8 +2007,6 @@ To validate the HTML code, all static files had to be deployed and checked manua
     <tr><td>/products/templates/products</td><td>edit_review.html</td><td>PASS</td></tr>
     <tr><td>/products/templates/products</td><td>product_detail.html</td><td>PASS</td></tr>
     <tr><td>/products/templates/products</td><td>products.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products/custom_widget_templates</td><td>custom_clearable_file_input.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products/includes</td><td>quantity_input_script.html</td><td>PASS</td></tr>
     <tr><td>/profiles/templates/profiles</td><td>profile.html</td><td>PASS</td></tr>
     <tr><td>/templates</td><td>400.html</td><td>PASS</td></tr>
     <tr><td>/templates</td><td>403.html</td><td>PASS</td></tr>
