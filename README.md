@@ -1993,32 +1993,124 @@ To validate the HTML code, all static files had to be deployed and checked manua
     </tr>
   </thead>
   <tbody>
-    <tr><td>/bag/templates/bag</td><td>bag.html</td><td>PASS</td></tr>
-    <tr><td>/checkout/templates/checkout</td><td>checkout.html</td><td>PASS</td></tr>
-    <tr><td>/checkout/templates/checkout</td><td>checkout_success.html</td><td>PASS</td></tr>
-    <tr><td>/contact/templates/contact</td><td>contact.html</td><td>PASS</td></tr>
-    <tr><td>/home/templates/home</td><td>index.html</td><td>PASS</td></tr>
-    <tr><td>/pages/templates/pages</td><td>about.html</td><td>PASS</td></tr>
-    <tr><td>/pages/templates/pages</td><td>privacy_policy.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>add_product.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>add_review.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>confirm_delete_review.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>edit_product.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>edit_review.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>product_detail.html</td><td>PASS</td></tr>
-    <tr><td>/products/templates/products</td><td>products.html</td><td>PASS</td></tr>
-    <tr><td>/profiles/templates/profiles</td><td>profile.html</td><td>PASS</td></tr>
-    <tr><td>/templates</td><td>400.html</td><td>PASS</td></tr>
-    <tr><td>/templates</td><td>403.html</td><td>PASS</td></tr>
-    <tr><td>/templates</td><td>404.html</td><td>PASS</td></tr>
-    <tr><td>/templates</td><td>500.html</td><td>PASS</td></tr>
-    <tr><td>/templates</td><td>base.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes/toasts</td><td>toast_error.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes/toasts</td><td>toast_info.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes/toasts</td><td>toast_success.html</td><td>PASS</td></tr>
-    <tr><td>/templates/includes/toasts</td><td>toast_warning.html</td><td>PASS</td></tr>
+    <tr>
+      <td>/bag/templates/bag</td>
+      <td>bag.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/bag" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/checkout/templates/checkout</td>
+      <td>checkout.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/checkout" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/checkout/templates/checkout</td>
+      <td>checkout_success.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
+    <tr>
+      <td>/contact/templates/contact</td>
+      <td>contact.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/contact" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/home/templates/home</td>
+      <td>index.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/pages/templates/pages</td>
+      <td>about.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/about" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/pages/templates/pages</td>
+      <td>privacy_policy.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/privacy-policy" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>add_product.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>add_review.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>confirm_delete_review.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>edit_product.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>edit_review.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>product_detail.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
+    <tr>
+      <td>/products/templates/products</td>
+      <td>products.html</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/products" target="_blank" rel="noopener noreferrer">PASS</a></td>
+    </tr>
+    <tr>
+      <td>/profiles/templates/profiles</td>
+      <td>profile.html</td>
+      <td>PASS (Requires user login)</td>
+    </tr>
+    <tr>
+      <td>/templates</td>
+      <td>400.html</td>
+      <td>PASS (Error page)</td>
+    </tr>
+    <tr>
+      <td>/templates</td>
+      <td>403.html</td>
+      <td>PASS (Error page)</td>
+    </tr>
+    <tr>
+      <td>/templates</td>
+      <td>404.html</td>
+      <td>PASS (Error page)</td>
+    </tr>
+    <tr>
+      <td>/templates</td>
+      <td>500.html</td>
+      <td>PASS (Error page)</td>
+    </tr>
+    <tr>
+      <td>/templates/includes/toasts</td>
+      <td>toast_error.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
+    <tr>
+      <td>/templates/includes/toasts</td>
+      <td>toast_info.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
+    <tr>
+      <td>/templates/includes/toasts</td>
+      <td>toast_success.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
+    <tr>
+      <td>/templates/includes/toasts</td>
+      <td>toast_warning.html</td>
+      <td>PASS (Requires dynamic display)</td>
+    </tr>
   </tbody>
 </table>
+
 
 #### CSS Validation
 
