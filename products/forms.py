@@ -90,6 +90,8 @@ class ProductForm(forms.ModelForm):
         ]
         self.fields["category"].choices = friendly_names
 
-        # Add consistent styling to all fields
-        for field in self.fields.values():
+        # Add consistent styling and ensure no duplicate IDs
+        for name, field in self.fields.items():
             field.widget.attrs.setdefault("class", "border-black rounded-0")
+            # Do NOT explicitly set 'id' here unless necessary
+
