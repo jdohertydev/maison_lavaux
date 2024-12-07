@@ -1,15 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const nameField = document.querySelector("#id_name");
-    const emailField = document.querySelector("#id_email");
+document.addEventListener("DOMContentLoaded", () => {
+    const fields = [
+        { selector: "#id_name", style: "#e9ecef" },
+        { selector: "#id_email", style: "#e9ecef" }
+    ];
 
-    // Check if the fields are pre-filled (for logged-in users)
-    if (nameField && nameField.value.trim() !== "") {
-        nameField.setAttribute("readonly", "readonly");
-        nameField.style.backgroundColor = "#e9ecef"; // Optional: Grey out for better UX
-    }
-
-    if (emailField && emailField.value.trim() !== "") {
-        emailField.setAttribute("readonly", "readonly");
-        emailField.style.backgroundColor = "#e9ecef"; // Optional: Grey out for better UX
-    }
+    fields.forEach(({ selector, style }) => {
+        const field = document.querySelector(selector);
+        if (field && field.value.trim() !== "") {
+            field.setAttribute("readonly", "readonly");
+            field.style.backgroundColor = style;
+        }
+    });
 });

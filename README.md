@@ -2153,7 +2153,7 @@ The results were as follows:
 
 #### JS Validation
 
-These files have been manually validated using JS Hint:
+These files have been manually validated using [JS Hint](https://jshint.com/):
 
 <table>
   <thead>
