@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* jshint browser: true */
+
 /**
  * Initializes a "Back to Top" button functionality.
  * 
