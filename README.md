@@ -2056,7 +2056,7 @@ To validate the HTML code, all static files had to be deployed and checked manua
     <tr>
       <td>/products/templates/products</td>
       <td>product_detail.html</td>
-      <td>PASS (Requires dynamic display)</td>
+      <td><a href="https://validator.w3.org/nu/?doc=https://maison-lavaux-ebcf574677ab.herokuapp.com/products/1/" target="_blank" rel="noopener noreferrer">PASS</a></td>
     </tr>
     <tr>
       <td>/products/templates/products</td>
