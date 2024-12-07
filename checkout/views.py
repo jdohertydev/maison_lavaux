@@ -226,16 +226,22 @@ def checkout_success(request, order_number):
                     "default_phone_number": order.phone_number,
                     "default_country": order.country,
                     "default_postcode": order.postcode,
-                    "town_or_city": order.town_or_city,
-                    "street_address1": order.street_address1,
-                    "street_address2": order.street_address2,
-                    "county": order.county,
+                    "default_town_or_city": order.town_or_city,
+                    "default_street_address1": order.street_address1,
+                    "default_street_address2": order.street_address2,
+                    "default_county": order.county,
                 }
                 user_profile_form = UserProfileForm(
                     profile_data, instance=profile
                 )
                 if user_profile_form.is_valid():
                     user_profile_form.save()
+                else:
+                    messages.error(
+                        request,
+                        "There was an issue saving your delivery information. "
+                        "Please update your profile manually.",
+                    )
         except UserProfile.DoesNotExist:
             messages.error(
                 request,
@@ -258,3 +264,4 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
