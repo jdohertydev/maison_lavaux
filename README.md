@@ -421,11 +421,13 @@ The favicon uses the 'Quintessential' font to form initials and a white font and
 #### Footer with Social Media and Newsletter Signup
 - The header includes the website logo, main navigation, and a delivery banner for promotions.
 - The footer contains links to information pages, social media profiles, and a newsletter subscription form.
+
   ![Footer](readme-images/footer.png)
-  - External links include the rel="noopener noreferrer" attribute for the following reasons:
-    - Security: Prevents security risks like tabnabbing by disabling access to the window.opener object.
-    - Performance: Improves browser performance by not retaining references to the original tab.
-    - Privacy: Stops the browser from sending the referring URL to the destination website.
+
+- External links include the rel="noopener noreferrer" attribute for the following reasons:
+  - Security: Prevents security risks like tabnabbing by disabling access to the window.opener object.
+  - Performance: Improves browser performance by not retaining references to the original tab.
+  - Privacy: Stops the browser from sending the referring URL to the destination website.
 
 #### Dynamic Content Blocks
 - Custom content areas such as `meta`, `page_header`, and `content` are made flexible through the use of `{% block %}` tags, allowing pages to easily modify or extend these areas.
@@ -774,7 +776,8 @@ The Boutique Ado project did not include a review system, which limited customer
 6. Stripe webhook handling
    - Listens for payment success or failure events from Stripe.
    - Processes orders via webhook events to ensure reliability, even if the user disconnects after payment.
-  ![Stripe Webhook](readme-images/stripe-webhoook.png)
+
+    ![Stripe Webhook](readme-images/stripe-webhoook.png)
 
 7. User profile integration
    - Authenticated users can save delivery information to their profile for faster future checkouts.
@@ -810,6 +813,7 @@ The Boutique Ado project did not include a review system, which limited customer
      - Billing and delivery details.
      - List of ordered items with quantities and subtotals.
    - Provides clear navigation options to return to the product catalog.
+  
     ![Order Confirmation](readme-images/order-confirmation.png)
 
 1. Save information option
@@ -1300,8 +1304,6 @@ To further enhance the e-commerce business model and drive growth, the following
 - Cross-border Shipping: Offering competitive international shipping options to expand the customer base.
 
 By adopting these strategies, the e-commerce business can maintain competitiveness, foster customer loyalty, and scale effectively for long-term success.
-
----
 
 ## Technologies Used
 
@@ -2303,7 +2305,7 @@ The website was tested on all major browsers, including Google Chrome, Mozilla F
 
 The result showed that there were no functionality issues, all navigation links worked, and the form responded appropriately to empty fields.
 
-![CI Comparing Chrome and Edge](readme-images/chrome-vs-edge.pngg)
+![CI Comparing Chrome and Edge](readme-images/chrome-vs-edge.png)
 
 ### Bugs
 
@@ -2339,10 +2341,6 @@ The following changes were implemented to fix the issue:
 
 **Reference**  
 This solution adheres to best practices for dynamic element handling in JavaScript and ensures robust management of quantity controls.
-
-**Commit**  
-Fix implemented in commit:  
-`Fix quantity increment/decrement functionality and prevent duplicate ID issues`
 
 #### Bug 2: HTML Validation Error - `for` Attribute in Form Label
 
