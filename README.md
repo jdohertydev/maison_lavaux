@@ -167,8 +167,8 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
       - [HTML Validation](#html-validation)
       - [CSS Validation](#css-validation)
       - [JS Validation](#js-validation)
-      - [Codebase Cleanup NEEDS REHOMING BEFORE SUBMISSION](#codebase-cleanup-needs-rehoming-before-submission)
-      - [Reason for Deletion](#reason-for-deletion)
+      - [Codebase Cleanup](#codebase-cleanup)
+        - [Reason for Deletion](#reason-for-deletion)
     - [Lighthouse Audit Results](#lighthouse-audit-results)
   - [Testing](#testing)
     - [User Stories Testing](#user-stories-testing)
@@ -180,6 +180,8 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [Compatibility Testing](#compatibility-testing)
       - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
     - [Bugs](#bugs)
+      - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
+      - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
   - [Acknowledgements](#acknowledgements)
 
 ## User Experience
@@ -2173,8 +2175,7 @@ These files have been manually validated using [JS Hint](https://jshint.com/):
   </tbody>
 </table>
 
-
-#### Codebase Cleanup NEEDS REHOMING BEFORE SUBMISSION
+#### Codebase Cleanup
 
 As part of maintaining a clean and organized codebase, the following files were removed:
 
@@ -2195,7 +2196,7 @@ As part of maintaining a clean and organized codebase, the following files were 
 - `profiles/admin.py`
 - `profiles/tests.py`
 
-#### Reason for Deletion
+##### Reason for Deletion
 
 It is a good practice to regularly review the project's codebase and remove files that are not contributing to its current functionality. This not only maintains code quality but also ensures that future developers can easily understand and contribute without confusion. Keeping the project clean is key to scalability and maintainability. The rationale behind the removal includes:
 
@@ -2225,8 +2226,6 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 ### User Stories Testing
 
-
-
 | Epic | User Story | Acceptance Criteria | Result |
 |------|------------|---------------------|--------|
 | Epic 1: User Experience (UX) | As a user, I can experience minimal load times on every page so that I don't lose interest or abandon the site. | - The website has a clean, consistent, and professional design across all pages.<br>- Responsive design ensures the site is fully functional and visually appealing on desktop, tablet, and mobile devices.<br>- Main navigation and footer are intuitive and accessible on all pages.<br>- Interactive elements (buttons, links, forms) provide clear feedback and are easy to use.<br>- Toast notifications display relevant messages for user actions, such as success, errors, or warnings.<br>- Pages load quickly, with minimal delay even for image-heavy content. | PASS |
@@ -2244,7 +2243,6 @@ While the results are commendable, these benchmarks indicate room for improvemen
 | Epic 5: Admin Product Management | As an admin, I can delete products from the catalogue so that discontinued items are no longer displayed. | - Admins can delete products directly from the admin panel.<br>- Deleted products are immediately removed from the storefront and search results.<br>- A confirmation prompt is displayed before deleting a product to prevent accidental removal.<br>- Deleted products are archived in the database for record-keeping. | PASS |
 | Epic 6: Sales and Analytics | As an admin, I can compare the performance of multiple products side by side so that I can make informed inventory or marketing decisions. | - Admins can view a dashboard comparing product performance metrics such as sales volume, revenue generated, and customer ratings.<br>- The comparison includes key metrics like total units sold, total revenue, average customer rating, and total page views.<br>- The dashboard allows filtering by product categories and specific date ranges.<br>- Data is displayed in a table format with optional graphical visualisations (e.g., bar charts, line graphs).<br>- Admins can export the comparison data as a CSV file for further analysis. | PASS |
 | Epic 6: Sales and Analytics | As an admin, I can sort analytics data (e.g., revenue, views, purchases) so that I can prioritise metrics most relevant to my goals. | - Admins can sort analytics data by metrics such as revenue, page views, and purchases.<br>- Sorting is available in ascending and descending order.<br>- Sortable metrics include total revenue, total views, and purchase counts.<br>- The sorting functionality updates the displayed data immediately.<br>- The sorted view persists until reset or changed by the user. | PASS |
-
 
 ### Automated Testing
 
@@ -2284,8 +2282,16 @@ Total: 109 Tests, All Passed
 Viewport Testing involved physically testing the project's responsiveness across various devices with different viewports. The test included mobile phones with small and large viewports, as well as tablets. Additionally, testing was conducted on PCs with resolutions of 1366px * 768px (HD) and 1920px * 1080px (Full HD).
 
 #### Screenshot - Desktop
+
+![Screenshot - Desktop](readme-images/screenshot-desktop.png)
+
 #### Screenshot - Tablet
+
+![Screenshot - Tablet](readme-images/screenshot-tablet.png)
+
 #### Screenshot - Mobile
+
+![Screenshot - Mobile](readme-images/screenshot-mobile.png)
 
 After testing, it was confirmed that the content looked great and functioned properly on all tested devices. As a result, the viewport testing was a success, meeting all the expected criteria without any problems.
 
@@ -2297,58 +2303,68 @@ The website was tested on all major browsers, including Google Chrome, Mozilla F
 
 The result showed that there were no functionality issues, all navigation links worked, and the form responded appropriately to empty fields.
 
+![CI Comparing Chrome and Edge](readme-images/chrome-vs-edge.pngg)
+
 ### Bugs
 
-CHECK Bug Report: HTML Validation Error with `for` Attribute in Form Label
+#### Bug 1: Quantity Controls - Duplicate IDs
 
-Issue with Duplicate IDs in Quantity Controls
+**Description**  
+During the development of the shopping bag functionality, a bug was identified where the quantity increment (+) and decrement (-) buttons did not function properly in the desktop view. This was caused by duplicate IDs assigned to the buttons, with one set for the mobile view and another for the desktop view. Since CSS controlled the visibility of these buttons based on screen size, JavaScript only recognized the first button with the duplicate ID, resulting in functionality issues on other views.
 
-Description:
-During the development of the shopping bag functionality, a bug was identified where the quantity increment (+) and decrement (-) buttons did not function properly in the desktop view. This was due to duplicate IDs being assigned to the buttons, with one set for the mobile view and another for the desktop view. Since the buttons were hidden or shown based on screen size using CSS, only the first button with the duplicate ID was recognized by JavaScript, causing functionality issues in the other view.
+**Steps to Reproduce**  
+1. Add a product to the shopping bag.  
+2. Switch between mobile and desktop views.  
+3. Attempt to use the quantity increment (+) or decrement (-) buttons in both views.  
+4. Observe that only one set of buttons works, depending on the screen size.
 
-Fix:
-To resolve this issue:
+**Root Cause**  
+Duplicate IDs for the quantity buttons were causing conflicts in JavaScript, which relies on unique element identifiers for event handling.
 
-    Replaced id-based selectors with data-item_id and data-size attributes for uniquely identifying elements.
-    Updated the JavaScript code to dynamically handle elements based on their data-item_id and data-size attributes.
-    Added logic to prevent duplicate handling of increment/decrement buttons and to ensure proper enabling/disabling of buttons based on the quantity range (1–99).
-    Tested the fix across both mobile and desktop views to ensure consistent behavior.
 
-Impact:
+**Resolution**  
+The following changes were implemented to fix the issue:  
+- **Replaced** ID-based selectors with `data-item_id` and `data-size` attributes to uniquely identify elements.  
+- **Updated** JavaScript to dynamically locate and handle elements using `data-item_id` and `data-size`.  
+- **Enhanced** the logic to:  
+  - Prevent duplicate handling of increment/decrement buttons.  
+  - Enable/disable buttons based on the quantity range (1–99).  
+- **Tested** functionality across mobile and desktop views to ensure consistent behavior.
 
-    The issue is now resolved, and the functionality works seamlessly across all screen sizes.
-    This fix avoids any potential conflicts or errors caused by duplicate IDs in the HTML.
 
-Reference:
-This solution follows best practices for dynamic element handling in JavaScript and resolves a known issue with screen-size-specific rendering. The updated code ensures a robust and scalable approach for managing quantity controls.
+**Impact**  
+- The functionality now works seamlessly across all screen sizes.  
+- Prevented potential conflicts or errors caused by duplicate IDs in the HTML.  
 
-Commit:
-The fix was implemented in commit:
-Fix quantity increment/decrement functionality and prevent duplicate ID issues
 
-Description  
-A validation error occurred in the form used to save delivery information. The `<label>` element in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input. This violated HTML validation rules, causing issues with accessibility and standards compliance.
+**Reference**  
+This solution adheres to best practices for dynamic element handling in JavaScript and ensures robust management of quantity controls.
 
----
+**Commit**  
+Fix implemented in commit:  
+`Fix quantity increment/decrement functionality and prevent duplicate ID issues`
 
-Steps to Reproduce  
-1. Navigate to the page containing the form while logged out (unauthenticated state).
-2. Inspect the HTML structure of the `<label>` and observe that the `for` attribute references `id-save-info`, which does not exist in the DOM.
-3. Run the page through an HTML validation tool (e.g., W3C Validator: https://validator.w3.org/) to confirm the error.
+#### Bug 2: HTML Validation Error - `for` Attribute in Form Label
 
----
+**Description**  
+A validation error occurred in the form used to save delivery information. The `<label>` in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input field. This violated HTML validation rules, causing accessibility and standards compliance issues.
 
-Root Cause  
-The `else` block for unauthenticated users included a `<label>` with a `for` attribute pointing to `id-save-info`. However, no input element with this ID was rendered in that block.
+**Steps to Reproduce**  
+1. Navigate to the checkout page in an **unauthenticated state**.  
+2. Inspect the HTML structure of the `<label>` element.  
+3. Observe that the `for` attribute references `id-save-info`, which does not exist in the DOM.  
+4. Use the [W3C Validator](https://validator.w3.org/) to confirm the validation error.
 
----
+**Root Cause**  
+The `else` block for unauthenticated users included a `<label>` with a `for` attribute referencing `id-save-info`. However, the input element with this ID was not rendered in the DOM for unauthenticated users.
 
-Resolution  
-The code was updated as follows:
-- Removed the `for="id-save-info"` attribute from the `<label>` in the unauthenticated user block.
-- Adjusted the label to serve as a container for the "Create an account" and "login" links instead.
+**Resolution**  
+The following updates were made:  
+1. Removed the `for="id-save-info"` attribute from the `<label>` in the unauthenticated user block.  
+2. Adjusted the `<label>` to act as a container for "Create an account" and "Login" links instead.  
 
-Updated Code Snippet:
+**Updated Code Snippet**
+```html
 <div class="form-check form-check-inline float-right mr-0">
     {% if user.is_authenticated %}
         <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -2360,26 +2376,17 @@ Updated Code Snippet:
         </label>
     {% endif %}
 </div>
+```
 
----
-
-Testing and Validation  
-1. Verified the fix using the W3C Validator (https://validator.w3.org/) to confirm compliance.
-2. Tested functionality for both authenticated and unauthenticated users:
-   - Authenticated: Checkbox is visible and functional.
-   - Unauthenticated: Login and signup links are displayed correctly without errors.
+**Testing and Validation**  
+1. Verified the fix using the [W3C Validator](https://validator.w3.org/) to ensure compliance.  
+2. Tested the functionality for both authenticated and unauthenticated users:  
+   - **Authenticated Users**: Checkbox is visible and fully functional.  
+   - **Unauthenticated Users**: Login and signup links are displayed correctly without errors.  
 3. Ensured cross-browser compatibility and consistent user experience.
 
----
-
-Impact  
+**Impact**  
 This fix improved HTML validation, ensured better accessibility, and maintained a seamless user experience.
-
-
-
-While not a bug in the traditional sense, I spent a considerable amount of time trying to get the stock quantity to update correctly after a customer made a purchase. Initially, my attempts were unsuccessful, and I had to temporarily remove this feature. However, with perseverance and a fresh approach, I was eventually able to implement the functionality successfully. After thorough testing, I can confirm that the stock quantity now updates exactly as intended.
-
----
 
 ## Acknowledgements
 
