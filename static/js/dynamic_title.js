@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* jshint browser: true */
+
 // Store the original page title to restore later
 let originalTitle = document.title;
 
