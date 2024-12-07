@@ -6,7 +6,6 @@ Maison Lavaux is a fully functional e-commerce platform specialising in boutique
 
 ![Am I Responsive Display](readme-images/am-i-responsive.png)
 
-
 View the live version of the website at [Maison Lavaux](https://maison-lavaux-ebcf574677ab.herokuapp.com/).
 
 - [Maison Lavaux Perfumery](#maison-lavaux-perfumery)
@@ -20,7 +19,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [Returning Visitor Goals](#returning-visitor-goals)
   - [Design](#design)
     - [Colour Scheme](#colour-scheme)
-  - [Colour Palette](#colour-palette)
+        - [Colour Palette](#colour-palette)
     - [Typography](#typography)
     - [Wireframes](#wireframes)
       - [Desktop](#desktop)
@@ -249,7 +248,7 @@ The colour scheme for the website was carefully selected to reflect the brand's 
 
 ### Colour Scheme
 
-## Colour Palette
+##### Colour Palette
 
 The following colours were chosen to create a sleek, sophisticated, and accessible design for the website:
 
@@ -403,7 +402,6 @@ The favicon uses the 'Quintessential' font to form initials and a white font and
 
 ![Favicon](readme-images/ml-favicon.png)
 
-
 #### Meta Tags
 - Essential meta tags, including character encoding, viewport settings for responsiveness, and a default meta description that can be customised on individual pages.
 
@@ -417,7 +415,6 @@ The favicon uses the 'Quintessential' font to form initials and a white font and
 - Dynamic greeting for logged-in users with their username or a "My Account" label for guests.
   ![Nav Bar](readme-images/nav-bar.png)
   
-
 #### Footer with Social Media and Newsletter Signup
 - The header includes the website logo, main navigation, and a delivery banner for promotions.
 - The footer contains links to information pages, social media profiles, and a newsletter subscription form.
@@ -449,7 +446,6 @@ The homepage of Maison Lavaux is thoughtfully designed to provide an engaging an
   ![Dynamic Hero Image](readme-images/dynamic-hero.png)
 - The overlay includes slogan that changes every 5 seconds using JS (*"Discover Your Signature Scent", "Find the Perfect Fragrance for Any Occasion", "Unleash Your True Essence"*) to inspire visitors and enhance brand identity.
 
-
 #### Curated Product Sections
 
 The homepage offers multiple product categories, each tailored to meet diverse customer preferences:
@@ -462,7 +458,6 @@ The homepage offers multiple product categories, each tailored to meet diverse c
         created_at__gte=thirty_days_ago, is_active=True
     ).order_by('-created_at')[:4]
   ```
-
 - **For Him and For Her**: Gender-specific product recommendations for a more personalized shopping experience.
 
   ```python
@@ -476,7 +471,6 @@ The homepage offers multiple product categories, each tailored to meet diverse c
       gender='W', is_active=True
   ).order_by('-created_at')[:4]
   ```
-
 - **Most Popular**: Highlights the best-selling products based on revenue generated, leveraging data-driven insights.
 
   ```python
@@ -485,7 +479,6 @@ The homepage offers multiple product categories, each tailored to meet diverse c
       total_revenue=Sum('sales_data__revenue_generated')
   ).order_by('-total_revenue')[:4]
   ```
-
 - **Highest Rated**: Features top-rated products as reviewed by customers, ensuring quality recommendations.
 
   ```python
@@ -494,7 +487,6 @@ The homepage offers multiple product categories, each tailored to meet diverse c
       rating__isnull=False, is_active=True
   ).order_by('-rating')[:4]
   ```
-
 - **Pot Luck**: A surprise selection of four random active products, encouraging discovery and delight.
 
   ```python
@@ -506,6 +498,7 @@ The homepage offers multiple product categories, each tailored to meet diverse c
   ```
 
 #### Interactive Product Cards
+
 - Each product card is designed with user engagement in mind, displaying:
   - High-quality product images with fallback placeholders.
   - Product names, categories, dynamic pricing (including original and discounted prices), and star ratings.
@@ -517,14 +510,12 @@ The homepage offers multiple product categories, each tailored to meet diverse c
     - Dynamic Shadows: The `box-shadow` effect deepens on hover, giving the image a "pop" effect as if it's lifting off the background, enhancing the user's interactive experience.  
     - Smooth Transition: The `transition: transform 0.3s ease, box-shadow 0.3s ease` ensures the hover effects are fluid and natural, making the interaction feel seamless and engaging.  
 
-
 #### Responsive and Accessible Design
 - Fully responsive layout ensuring a smooth browsing experience across desktop, tablet, and mobile devices.
 - Alt text for images and semantic HTML elements to enhance accessibility for screen readers.
 
 #### Back-to-Top Button
 - A persistent "Back to Top" button allows users to navigate long pages effortlessly, improving overall usability. See [Back to Top Button](#back-to-top-button-1).
-
 
 #### Search Engine Optimization (SEO)
 - Includes a descriptive meta tag: 
@@ -1148,7 +1139,6 @@ To enhance the user experience, the basket icon includes a dynamic badge that sh
 
 ![Basket Badge](readme-images/basket-badge.png)
 
-
 This feature provides several key benefits:
 
 - Visual clarity: Users receive a clear and immediate indication of how many items they have added to their basket.
@@ -1194,7 +1184,6 @@ To enhance the platform's functionality and user experience, the following featu
 - Loyalty Program Integration: Develop a points-based system to reward repeat customers, incentivizing continued engagement with the platform.  
 - Enhanced Review System: Allow users to upload images with their reviews, offering more detailed feedback and enriching the shopping experience for future buyers.  
 - Dynamic Pricing for Promotions: Automate temporary price reductions for flash sales or holiday promotions, with a countdown timer displayed on product pages.  
-
 
 These planned implementations aim to create a more robust, engaging, and efficient platform for both customers and administrators.
 
@@ -1254,7 +1243,6 @@ This approach offers several advantages:
 - Announcements and promotions: Newsletters provide a direct channel for communicating new product launches, sales events, and exclusive discounts to loyal customers.
 
 By combining these strategies, the e-commerce application creates a strong foundation for attracting, engaging, and retaining customers while maintaining scalability for future growth.
-
 
 ## Future Strategies to Support the E-Commerce Business Model
 
@@ -1360,18 +1348,15 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 - [AWS S3](https://aws.amazon.com/s3/) - Used for hosting static and media files.
 - [Heroku](https://www.heroku.com/) - Used for deploying the project online and managing the production environment.
 
-
 ## Dependency Setup, Deployment and Local Deployment
 
 ### Create and Connect a Database
 
 To ensure the deployed project on Heroku has access to a persistent database, a remote PostgreSQL database was created. Below are the steps taken to set up the database and connect it to the project.
 
-
 #### Why Is a Remote Database Needed?
 
 The local database used during development is only accessible within the IDE. A remote database is required to support the deployed Heroku application, enabling it to store and retrieve data seamlessly.
-
 
 #### Steps to Create a PostgreSQL Database
 
@@ -1391,7 +1376,6 @@ The local database used during development is only accessible within the IDE. A 
 5. **Check Your Email**:
    - Review the email sent to your student inbox. It contains the database connection details needed for integration.
 
-
 #### Connecting the Database to the Project
 
 1. **Update Heroku**:
@@ -1405,10 +1389,8 @@ The local database used during development is only accessible within the IDE. A 
      python manage.py makemigrations
      python manage.py migrate
      ```
-
 3. **Revert Local Configuration**:
    - After completing the migrations, revert your local database settings in **settings.py** to use the development database.
-
 
 #### Final Integration
 
@@ -1417,7 +1399,6 @@ The PostgreSQL database is now connected to your Heroku app.
 ### Amazon Web Services (AWS) Setup for Static Files and Images
 
 AWS was used to store images and static files for this project. Follow these steps to configure **S3** and **IAM** for seamless integration.
-
 
 #### S3 Configuration
 
@@ -1467,7 +1448,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Enable **List** access for **Everyone (public access)**.
    - Accept the warning and save.
 
-
 #### IAM Configuration
 
 1. **Create a User Group**:
@@ -1504,7 +1484,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Go to the **User Group**’s **Permissions** tab.
    - Select **Attach policy**, search for the policy you just created, and click **Attach policy**.
 
-
 #### Adding Users
 
 1. **Create a New User**:
@@ -1519,7 +1498,6 @@ AWS was used to store images and static files for this project. Follow these ste
 3. **Save Access Keys**:
    - Note down the **Access Key ID** and **Secret Access Key** or download the provided CSV file (this information will not be shown again).
 
-
 #### Project Configuration
 
 1. Add the following AWS credentials to your environment variables (e.g., in Heroku):
@@ -1530,7 +1508,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Configure static and media file storage to use the S3 bucket.
    - Test the integration to ensure all static files and images are properly served.
 
-
 By following these steps, your AWS S3 bucket and IAM settings will be configured to manage and serve static files and images efficiently.
 
 ### Payment System Setup
@@ -1538,7 +1515,6 @@ By following these steps, your AWS S3 bucket and IAM settings will be configured
 ### Stripe Setup for Payment Processing
 
 Stripe is integrated as the payment system for this website, offering a secure and seamless checkout experience. Follow the steps below to configure Stripe for your project:
-
 
 #### Steps to Configure Stripe
 
@@ -1566,14 +1542,12 @@ Stripe is integrated as the payment system for this website, offering a secure a
 5. **Test the Integration**:
    - Use Stripe’s **Test Mode** to verify that the payment process and webhook functionality are working as expected before switching to live mode.
 
-
 By completing these steps, Stripe will be fully integrated with your project, allowing secure payment processing and seamless communication between your website and the Stripe platform.
 
 #### Email Server Configuration
 
 1. **Update the Django Settings**:
-   Add the following configuration to your settings.py file:
-   
+   Add the following configuration to your settings.py file:   
 
 ```python
    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -1584,7 +1558,6 @@ By completing these steps, Stripe will be fully integrated with your project, al
    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 ```
-
 #### Environment Variables
 
 Add the following variables to your environment configuration (e.g., `.env` file or hosting platform):
@@ -1604,7 +1577,6 @@ Follow these steps to test the email system directly from the Django shell:
      python manage.py shell
 ````
      
-
 2. **Send a Test Email**:
    - Use the following commands in the Django shell to send a test email:
 
@@ -1619,7 +1591,6 @@ Follow these steps to test the email system directly from the Django shell:
          fail_silently=False,
      )
 ````
-
 3. **Verify the Output**:
    - If the email is sent successfully:
      - The command will complete without any errors.
@@ -1627,7 +1598,6 @@ Follow these steps to test the email system directly from the Django shell:
    - If there are errors:
      - Review the error message in the terminal.
      - Ensure your email server configuration and credentials are correct in both `settings.py` and your environment variables.
-
 
 #### Notes for Testing
 
@@ -1645,7 +1615,6 @@ Follow these steps to test the email system directly from the Django shell:
 
 Before deploying the application to Heroku, the following steps must be completed to ensure proper configuration:
 
-
 #### Pre-Deployment Checklist
 
 1. **Create a `Procfile`**:
@@ -1661,7 +1630,6 @@ Before deploying the application to Heroku, the following steps must be complete
      ```bash
      pip3 freeze > requirements.txt
      ```
-
 
 #### Steps to Deploy the Application on Heroku
 
@@ -1696,7 +1664,6 @@ Before deploying the application to Heroku, the following steps must be complete
 6. **Launch the Application**:
    - Once the deployment is successful, click **Open App** to launch the live application.
 
-
 #### Notes
 
 - **Debugging**:
@@ -1717,7 +1684,6 @@ To fork this repository:
 1. Log in to or sign up at [GitHub](https://github.com/).
 2. Navigate to the repository for this website.
 3. Click the **Fork** button in the upper-right corner of the repository page.
-
 
 ### How to Clone the Repository
 
@@ -1832,8 +1798,6 @@ Ensure the following before testing:
 
 By following these steps, you can verify that the project is correctly installed and running locally as intended.
 
-
-
 ## Validation, Testing and Bugs
 
 ### Validation
@@ -1851,8 +1815,6 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 #### Manual Testing for PEP8 Compliance
 
 These files have been manually tested using CI Python Linter ([https://pep8ci.herokuapp.com/](https://pep8ci.herokuapp.com/)) to ensure compliance with PEP8 standards:
-
-
 
 <table>
   <thead>
@@ -2097,7 +2059,6 @@ To validate the HTML code, all static files had to be deployed and checked manua
   </tbody>
 </table>
 
-
 #### CSS Validation
 
 To validate the CSS used in the project, I deployed the project on Heroku. Then, I selected the 'View Source' option by right-clicking on the webpage, located 'style.css', and opened it in a separate window. Finally, I ran this code through [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/) for validation. 
@@ -2135,7 +2096,6 @@ The results were as follows:
     </tr>
   </tbody>
 </table>
-
 
 #### JS Validation
 
@@ -2314,7 +2274,6 @@ The following changes were implemented to fix the issue:
   - Prevent duplicate handling of increment/decrement buttons.  
   - Enable/disable buttons based on the quantity range (1–99).  
 - **Tested** functionality across mobile and desktop views to ensure consistent behavior.
-
 
 **Impact**  
 - The functionality now works seamlessly across all screen sizes.  
