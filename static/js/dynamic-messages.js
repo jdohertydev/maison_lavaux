@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* jshint browser: true */
+
 /**
  * Handles dynamic rotation of promotional messages on page load.
  * The messages fade out and are replaced by the next one in the sequence.
