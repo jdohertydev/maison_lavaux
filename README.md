@@ -1360,7 +1360,6 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 - [AWS S3](https://aws.amazon.com/s3/) - Used for hosting static and media files.
 - [Heroku](https://www.heroku.com/) - Used for deploying the project online and managing the production environment.
 
----
 
 ## Dependency Setup, Deployment and Local Deployment
 
@@ -1368,13 +1367,11 @@ By adopting these strategies, the e-commerce business can maintain competitivene
 
 To ensure the deployed project on Heroku has access to a persistent database, a remote PostgreSQL database was created. Below are the steps taken to set up the database and connect it to the project.
 
----
 
 #### Why Is a Remote Database Needed?
 
 The local database used during development is only accessible within the IDE. A remote database is required to support the deployed Heroku application, enabling it to store and retrieve data seamlessly.
 
----
 
 #### Steps to Create a PostgreSQL Database
 
@@ -1394,7 +1391,6 @@ The local database used during development is only accessible within the IDE. A 
 5. **Check Your Email**:
    - Review the email sent to your student inbox. It contains the database connection details needed for integration.
 
----
 
 #### Connecting the Database to the Project
 
@@ -1413,7 +1409,6 @@ The local database used during development is only accessible within the IDE. A 
 3. **Revert Local Configuration**:
    - After completing the migrations, revert your local database settings in **settings.py** to use the development database.
 
----
 
 #### Final Integration
 
@@ -1423,7 +1418,6 @@ The PostgreSQL database is now connected to your Heroku app.
 
 AWS was used to store images and static files for this project. Follow these steps to configure **S3** and **IAM** for seamless integration.
 
----
 
 #### S3 Configuration
 
@@ -1473,7 +1467,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Enable **List** access for **Everyone (public access)**.
    - Accept the warning and save.
 
----
 
 #### IAM Configuration
 
@@ -1511,7 +1504,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Go to the **User Group**’s **Permissions** tab.
    - Select **Attach policy**, search for the policy you just created, and click **Attach policy**.
 
----
 
 #### Adding Users
 
@@ -1527,7 +1519,6 @@ AWS was used to store images and static files for this project. Follow these ste
 3. **Save Access Keys**:
    - Note down the **Access Key ID** and **Secret Access Key** or download the provided CSV file (this information will not be shown again).
 
----
 
 #### Project Configuration
 
@@ -1539,7 +1530,6 @@ AWS was used to store images and static files for this project. Follow these ste
    - Configure static and media file storage to use the S3 bucket.
    - Test the integration to ensure all static files and images are properly served.
 
----
 
 By following these steps, your AWS S3 bucket and IAM settings will be configured to manage and serve static files and images efficiently.
 
@@ -1549,7 +1539,6 @@ By following these steps, your AWS S3 bucket and IAM settings will be configured
 
 Stripe is integrated as the payment system for this website, offering a secure and seamless checkout experience. Follow the steps below to configure Stripe for your project:
 
----
 
 #### Steps to Configure Stripe
 
@@ -1577,7 +1566,6 @@ Stripe is integrated as the payment system for this website, offering a secure a
 5. **Test the Integration**:
    - Use Stripe’s **Test Mode** to verify that the payment process and webhook functionality are working as expected before switching to live mode.
 
----
 
 By completing these steps, Stripe will be fully integrated with your project, allowing secure payment processing and seamless communication between your website and the Stripe platform.
 
@@ -1640,7 +1628,6 @@ Follow these steps to test the email system directly from the Django shell:
      - Review the error message in the terminal.
      - Ensure your email server configuration and credentials are correct in both `settings.py` and your environment variables.
 
----
 
 #### Notes for Testing
 
@@ -1658,7 +1645,6 @@ Follow these steps to test the email system directly from the Django shell:
 
 Before deploying the application to Heroku, the following steps must be completed to ensure proper configuration:
 
----
 
 #### Pre-Deployment Checklist
 
@@ -1676,7 +1662,6 @@ Before deploying the application to Heroku, the following steps must be complete
      pip3 freeze > requirements.txt
      ```
 
----
 
 #### Steps to Deploy the Application on Heroku
 
@@ -1711,7 +1696,6 @@ Before deploying the application to Heroku, the following steps must be complete
 6. **Launch the Application**:
    - Once the deployment is successful, click **Open App** to launch the live application.
 
----
 
 #### Notes
 
@@ -1734,7 +1718,6 @@ To fork this repository:
 2. Navigate to the repository for this website.
 3. Click the **Fork** button in the upper-right corner of the repository page.
 
----
 
 ### How to Clone the Repository
 
@@ -1850,7 +1833,6 @@ Ensure the following before testing:
 By following these steps, you can verify that the project is correctly installed and running locally as intended.
 
 
----
 
 ## Validation, Testing and Bugs
 
@@ -2388,20 +2370,20 @@ This fix improved HTML validation, ensured better accessibility, and maintained 
 
 ## Acknowledgements
 
-- **[The Perfume Shop](https://www.theperfumeshop.com/):**  
+- [The Perfume Shop](https://www.theperfumeshop.com/):  
   Inspired by their design and colour schemes, which influenced the visual style of this project.
 
-- **[Django 5 By Example: Build powerful and reliable Python web applications from scratch](https://www.amazon.es/gp/product/1805125451/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1):**  
+- [Django 5 By Example: Build powerful and reliable Python web applications from scratch](https://www.amazon.es/gp/product/1805125451/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1): 
   Recommended by my tutor, this book was invaluable, particularly for configuring email functionality.
 
-- **ChatGPT:**  
+- ChatGPT:
   Served as a teacher and mentor, providing guidance throughout the project.
 
-- **Spence (Code Institute Mentor):**  
+- Spence (Code Institute Mentor):  
   Recommended using Django Humanize to add subtle touches of user-friendly functionality and ensured the project adhered to accepted industry standards.
 
-- **The Code Institute Mentors:**  
+- The Code Institute Mentors:  
   Their support helped me overcome challenging moments and complete this project successfully.
 
-- **Gary Dolan and his [ci-p5-pokemon-tcg-ireland project](https://github.com/GaryDolan/ci-p5-pokemon-tcg-ireland):**  
+- Gary Dolan and his [ci-p5-pokemon-tcg-ireland project](https://github.com/GaryDolan/ci-p5-pokemon-tcg-ireland):  
   This project provided inspiration for structuring my README and encouraged me to implement the [Basket Badge](#basket-badge) feature.
