@@ -8,13 +8,8 @@ import random
 def home(request):
     """A view to display homepage with various product sections"""
 
-    # Calculate the date 30 days ago
-    thirty_days_ago = now() - timedelta(days=30)
-
-    # New In Section (last 30 days)
-    new_in_products = Product.objects.filter(
-        created_at__gte=thirty_days_ago, is_active=True
-    ).order_by("-created_at")[:4]
+    # Always get the 4 most recently added active products
+    new_in_products = Product.objects.filter(is_active=True).order_by("-created_at")[:4]
 
     # For Him Section (products for men)
     for_him_products = Product.objects.filter(

@@ -469,13 +469,10 @@ The homepage of Maison Lavaux is thoughtfully designed to provide an engaging an
 
 The homepage offers multiple product categories, each tailored to meet diverse customer preferences:
 
-- **New In**: Showcases the latest products added in the past 30 days, keeping the catalog fresh and exciting.
+- **New In**: Showcases the latest 4 products, keeping the catalog fresh and exciting.
 
   ```python
-  # New In Section (last 30 days)
-    new_in_products = Product.objects.filter(
-        created_at__gte=thirty_days_ago, is_active=True
-    ).order_by('-created_at')[:4]
+  new_in_products = Product.objects.filter(is_active=True).order_by("-created_at")[:4]
   ```
 - **For Him and For Her**: Gender-specific product recommendations for a more personalized shopping experience.
 
