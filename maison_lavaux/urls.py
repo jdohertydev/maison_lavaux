@@ -19,7 +19,6 @@ urlpatterns = [
     path("checkout/", include("checkout.urls")),
     path("profile/", include("profiles.urls")),
     path("contact/", include("contact.urls")),
-    path("summernote/", include("django_summernote.urls")),
     path("", include("pages.urls")),  # Include pages at the root
     path(
         "sitemap.xml",
