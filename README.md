@@ -184,12 +184,11 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [User Stories Testing](#user-stories-testing)
     - [Automated Testing](#automated-testing)
     - [Manual Testing](#manual-testing)
-    - [Manual Testing](#manual-testing-1)
-      - [**1. Create Operations**](#1-create-operations)
-      - [**2. Read Operations**](#2-read-operations)
-      - [**3. Update Operations**](#3-update-operations)
-      - [**4. Delete Operations**](#4-delete-operations)
-      - [**5. Edge Cases for Stock Validation**](#5-edge-cases-for-stock-validation)
+      - [1. Create Operations](#1-create-operations)
+      - [2. Read Operations](#2-read-operations)
+      - [3. Update Operations](#3-update-operations)
+      - [4. Delete Operations](#4-delete-operations)
+      - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
     - [Viewport Testing](#viewport-testing)
       - [Screenshot - Desktop](#screenshot---desktop)
       - [Screenshot - Tablet](#screenshot---tablet)
@@ -2243,75 +2242,69 @@ Below is a summary of the test files and their respective apps, created with ass
 | Home           | `test_views.py`          | 8               | PASS   |
 | Maison Lavaux  | `test_sitemaps.py`       | 5               | PASS   |
 
-
-Total: 109 Tests, All Passed 
-
-### Manual Testing
-
 ### Manual Testing
 
 Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) operations function as expected and handle edge cases gracefully. Below is a detailed summary of the test scenarios performed:
 
-#### **1. Create Operations**
-**Test Scenarios:**
-- **Valid Inputs:** Ensured new records (e.g., products, reviews, orders) were successfully created with valid data.
-  - **Example:** Adding a new product with all required fields (name, price, category, stock).
-  - **Result:** Record created successfully and visible in the frontend.
+#### 1. Create Operations
+Test Scenarios:
+- Valid Inputs: Ensured new records (e.g., products, reviews, orders) were successfully created with valid data.
+  - Example: Adding a new product with all required fields (name, price, category, stock).
+  - Result: Record created successfully and visible in the frontend.
 
-- **Invalid Inputs:** Tested creation with missing or invalid data.
-  - **Example:** Attempted to create a product without a price or category.
-  - **Expected Result:** Validation error displayed, record not saved.
-  - **Actual Result:** Form prevented submission and displayed an error message: `Price is required.`
+- Invalid Inputs: Tested creation with missing or invalid data.
+  - Example: Attempted to create a product without a price or category.
+  - Expected Result: Validation error displayed, record not saved.
+  - Actual Result: Form prevented submission and displayed an error message: `Price is required.`
 
-#### **2. Read Operations**
-**Test Scenarios:**
-- **Valid Data Retrieval:** Verified that all pages correctly display data from the database.
-  - **Example:** Viewing the product details page.
-  - **Result:** Product information (e.g., name, description, price, stock status) displayed as expected.
+#### 2. Read Operations
+Test Scenarios:
+- Valid Data Retrieval: Verified that all pages correctly display data from the database.
+  - Example: Viewing the product details page.
+  - Result: Product information (e.g., name, description, price, stock status) displayed as expected.
 
-- **Edge Cases:**
+- Edge Cases:
   - Accessed a non-existent product via direct URL (e.g., `/products/999`).
-  - **Expected Result:** Custom 404 error page displayed.
-  - **Actual Result:** "Page not found" error page displayed.
+  - Expected Result: Custom 404 error page displayed.
+  - Actual Result: "Page not found" error page displayed.
 
-#### **3. Update Operations**
-**Test Scenarios:**
-- **Valid Update:** Edited existing records using valid inputs.
-  - **Example:** Changed a product’s price and stock quantity as an admin.
-  - **Result:** Updates reflected immediately in the product list and details page.
+#### 3. Update Operations
+Test Scenarios:
+- Valid Update: Edited existing records using valid inputs.
+  - Example: Changed a product’s price and stock quantity as an admin.
+  - Result: Updates reflected immediately in the product list and details page.
 
-- **Invalid Update:** Attempted to update records with invalid inputs.
-  - **Example:** Setting a negative price for a product.
-  - **Expected Result:** Validation error displayed, update rejected.
-  - **Actual Result:** Error message: `Price must be a positive number.`
+- Invalid Update: Attempted to update records with invalid inputs.
+  - Example: Setting a negative price for a product.
+  - Expected Result: Validation error displayed, update rejected.
+  - Actual Result: Error message: `Price must be a positive number.`
 
-- **Concurrency Testing:** Tested simultaneous updates by different users.
-  - **Example:** Two users updating the same product stock.
-  - **Result:** Last update overwrote previous changes, handled without errors.
+- Concurrency Testing: Tested simultaneous updates by different users.
+  - Example: Two users updating the same product stock.
+  - Result: Last update overwrote previous changes, handled without errors.
 
-#### **4. Delete Operations**
-**Test Scenarios:**
-- **Valid Deletion:** Successfully deleted records.
-  - **Example:** Removed a product from the catalog.
-  - **Result:** Product no longer appeared in the frontend or admin panel.
+#### 4. Delete Operations
+Test Scenarios:
+- Valid Deletion: Successfully deleted records.
+  - Example: Removed a product from the catalog.
+  - Result: Product no longer appeared in the frontend or admin panel.
 
-- **Restricted Deletion:** Attempted to delete restricted or related records.
-  - **Example:** Tried deleting a product that is part of an active order.
-  - **Expected Result:** Error displayed, record not deleted.
-  - **Actual Result:** Error: `Cannot delete product linked to existing orders.`
+- Restricted Deletion: Attempted to delete restricted or related records.
+  - Example: Tried deleting a product that is part of an active order.
+  - Expected Result: Error displayed, record not deleted.
+  - Actual Result: Error: `Cannot delete product linked to existing orders.`
 
-
-#### **5. Edge Cases for Stock Validation**
-**Test Scenarios:**
-- **Zero Stock:**
+#### 5. Edge Cases for Stock Validation
+Test Scenarios:
+- Zero Stock:
   - Attempted to add a product with zero stock to the shopping cart.
-  - **Expected Result:** Error message displayed: `This product is out of stock.`
-  - **Actual Result:** Add-to-cart button disabled, error message displayed.
+  - Expected Result: Error message displayed: `This product is out of stock.`
+  - Actual Result: Add-to-cart button disabled, error message displayed.
 
-- **Low Stock:**
+- Low Stock:
   - Added more items to the cart than available in stock.
-  - **Expected Result:** Error message: `Only 2 items available.`
-  - **Actual Result:** Validation error displayed, cart updated with available quantity.
+  - Expected Result: Error message: `Only 2 items available.`
+  - Actual Result: Validation error displayed, cart updated with available quantity.
 
 ### Viewport Testing
 
