@@ -403,7 +403,9 @@ To manage and track the progress of user stories during the project, I created a
 
 This setup provided a clear and simple way to track the status of tasks throughout the project, ensuring that progress was organised and transparent.
 
-![Github Kanboard](readme-images/github-kanboard.png)
+**Github Kanboard During Development**
+
+![Github Kanboard During Development](readme-images/github-kanboard.png)
 
 You can view the [Maison Lavaux Kanban Board](https://github.com/users/jdohertydev/projects/6/) for a detailed overview of the project's progress and task management.
 
