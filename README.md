@@ -2131,6 +2131,10 @@ These files have been manually validated using [JS Hint](https://jshint.com/):
   </tbody>
 </table>
 
+**Screenshot of JSHint Validator for dynamic_title.js**
+
+![Screenshot of JSHint Validator for dynamic_title.js](readme-images/jshint-validator.png)
+
 #### Codebase Cleanup
 
 As part of maintaining a clean and organized codebase, the following files were removed:
