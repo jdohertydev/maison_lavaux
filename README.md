@@ -2,7 +2,17 @@
 
 ## Introduction
 
-Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes. Inspired by the fictitious luxury brand from the hit series Emily in Paris, Maison Lavaux offers a seamless shopping experience for customers seeking exclusive and sophisticated fragrances. Based on the Boutique Ado walkthrough, the platform has been extensively modified and enhanced to deliver a unique and refined shopping experience. With a user-friendly interface, secure online payments, and a stylish design, Maison Lavaux is your go-to destination for luxury perfumes.
+Maison Lavaux is a fully functional e-commerce platform specialising in boutique perfumes, inspired by the fictitious luxury brand from the hit series Emily in Paris. The site is designed to provide customers with an elegant and seamless shopping experience, offering exclusive and sophisticated fragrances.
+
+## Purpose
+
+The purpose of Maison Lavaux is to cater to perfume enthusiasts who value unique, boutique-style products and a premium shopping experience. The platform is designed for:
+
+- Customers seeking handcrafted, luxurious perfumes tailored for both men and women.
+- Busy users who require an intuitive and efficient shopping experience, including mobile-friendly navigation and streamlined checkouts.
+- Returning shoppers who appreciate personalised recommendations, order history tracking, and secure account features.
+
+By addressing these specific needs, Maison Lavaux aims to bridge the gap between boutique perfume brands and their online clientele.
 
 ![Am I Responsive Display](readme-images/am-i-responsive.png)
 
@@ -10,6 +20,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
 
 - [Maison Lavaux Perfumery](#maison-lavaux-perfumery)
   - [Introduction](#introduction)
+  - [Purpose](#purpose)
   - [User Experience](#user-experience)
     - [Initial Discussion](#initial-discussion)
     - [Epics](#epics)
@@ -95,7 +106,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [Privacy Policy](#privacy-policy)
     - [About Us Page](#about-us-page)
       - [Key Features](#key-features-2)
-      - [Purpose](#purpose)
+      - [Purpose](#purpose-1)
     - [Contact Page](#contact-page)
       - [Key Features](#key-features-3)
       - [Admin Features](#admin-features)
@@ -1102,8 +1113,6 @@ To enhance the user experience, custom error pages were implemented for common H
 The project implements an email verification system for new user registrations, requiring users to confirm their email addresses before fully activating their accounts. The configuration ensures that email verification is mandatory, enforced by setting `ACCOUNT_EMAIL_VERIFICATION = "mandatory"` in the project's settings. Additionally, users must enter their email address twice during signup to minimize errors and improve reliability.
 
 As this feature is currently being tested using [Ethereal Email](https://ethereal.email/), users will not receive an actual email to their personal accounts for verification. Instead, test emails can be viewed directly within the Ethereal Email interface. This approach ensures secure testing without sending live emails during the development phase.
-
-
 
 ![Verify Your Email](readme-images/verify-your-email.png)
 
