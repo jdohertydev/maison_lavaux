@@ -2458,7 +2458,7 @@ Special thanks to the project mentor, Gareth McGirr, for identifying the discrep
 
 - Spence and Gareth, (Code Institute Mentors):  
   Spence - for recommended using Django Humanize to add subtle touches of user-friendly functionality and ensured the project adhered to accepted industry standards.
-  Gareth - for getting me to the finish line.
+  Gareth - for getting me to the finishing line.
 
 - The Code Institute Tutors:  
   Their support helped me overcome challenging moments and complete this project successfully.
