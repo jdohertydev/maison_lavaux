@@ -189,6 +189,9 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
       - [3. Update Operations](#3-update-operations)
       - [4. Delete Operations](#4-delete-operations)
       - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
+      - [6. Contact Us](#6-contact-us)
+      - [7. Review (Edit/Delete)](#7-review-editdelete)
+      - [8. Analytics](#8-analytics)
     - [Viewport Testing](#viewport-testing)
       - [Screenshot - Desktop](#screenshot---desktop)
       - [Screenshot - Tablet](#screenshot---tablet)
@@ -2244,64 +2247,117 @@ Below is a summary of the test files and their respective apps, created with ass
 Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) operations function as expected and handle edge cases gracefully. Below is a detailed summary of the test scenarios performed:
 
 #### 1. Create Operations
-Test Scenarios:
-- Valid Inputs: Ensured new records (e.g., products, reviews, orders) were successfully created with valid data.
-  - Example: Adding a new product with all required fields (name, price, category, stock).
-  - Result: Record created successfully and visible in the frontend.
+**Test Scenarios:**
+- **Valid Inputs:** Ensured new records (e.g., products, reviews, orders) were successfully created with valid data.
+  - **Example:** Adding a new product with all required fields (name, price, category, stock).
+  - **Result:** Record created successfully and visible in the frontend.
 
-- Invalid Inputs: Tested creation with missing or invalid data.
-  - Example: Attempted to create a product without a price or category.
-  - Expected Result: Validation error displayed, record not saved.
-  - Actual Result: Form prevented submission and displayed an error message: `Price is required.`
+- **Invalid Inputs:** Tested creation with missing or invalid data.
+  - **Example:** Attempted to create a product without a price or category.
+  - **Expected Result:** Validation error displayed, record not saved.
+  - **Actual Result:** Form prevented submission and displayed an error message: `Price is required.`
 
 #### 2. Read Operations
-Test Scenarios:
-- Valid Data Retrieval: Verified that all pages correctly display data from the database.
-  - Example: Viewing the product details page.
-  - Result: Product information (e.g., name, description, price, stock status) displayed as expected.
+**Test Scenarios:**
+- **Valid Data Retrieval:** Verified that all pages correctly display data from the database.
+  - **Example:** Viewing the product details page.
+  - **Result:** Product information (e.g., name, description, price, stock status) displayed as expected.
 
-- Edge Cases:
+- **Edge Cases:**
   - Accessed a non-existent product via direct URL (e.g., `/products/999`).
-  - Expected Result: Custom 404 error page displayed.
-  - Actual Result: "Page not found" error page displayed.
+  - **Expected Result:** Custom 404 error page displayed.
+  - **Actual Result:** "Page not found" error page displayed.
 
 #### 3. Update Operations
-Test Scenarios:
-- Valid Update: Edited existing records using valid inputs.
-  - Example: Changed a product’s price and stock quantity as an admin.
-  - Result: Updates reflected immediately in the product list and details page.
+**Test Scenarios:**
+- **Valid Update:** Edited existing records using valid inputs.
+  - **Example:** Changed a product’s price and stock quantity as an admin.
+  - **Result:** Updates reflected immediately in the product list and details page.
 
-- Invalid Update: Attempted to update records with invalid inputs.
-  - Example: Setting a negative price for a product.
-  - Expected Result: Validation error displayed, update rejected.
-  - Actual Result: Error message: `Price must be a positive number.`
+- **Invalid Update:** Attempted to update records with invalid inputs.
+  - **Example:** Setting a negative price for a product.
+  - **Expected Result:** Validation error displayed, update rejected.
+  - **Actual Result:** Error message: `Price must be a positive number.`
 
-- Concurrency Testing: Tested simultaneous updates by different users.
-  - Example: Two users updating the same product stock.
-  - Result: Last update overwrote previous changes, handled without errors.
+- **Concurrency Testing:** Tested simultaneous updates by different users.
+  - **Example:** Two users updating the same product stock.
+  - **Result:** Last update overwrote previous changes, handled without errors.
 
 #### 4. Delete Operations
-Test Scenarios:
-- Valid Deletion: Successfully deleted records.
-  - Example: Removed a product from the catalog.
-  - Result: Product no longer appeared in the frontend or admin panel.
+**Test Scenarios:**
+- **Valid Deletion:** Successfully deleted records.
+  - **Example:** Removed a product from the catalog.
+  - **Result:** Product no longer appeared in the frontend or admin panel.
 
-- Restricted Deletion: Attempted to delete restricted or related records.
-  - Example: Tried deleting a product that is part of an active order.
-  - Expected Result: Error displayed, record not deleted.
-  - Actual Result: Error: `Cannot delete product linked to existing orders.`
+- **Restricted Deletion:** Attempted to delete restricted or related records.
+  - **Example:** Tried deleting a product that is part of an active order.
+  - **Expected Result:** Error displayed, record not deleted.
+  - **Actual Result:** Error: `Cannot delete product linked to existing orders.`
 
 #### 5. Edge Cases for Stock Validation
-Test Scenarios:
-- Zero Stock:
+**Test Scenarios:**
+- **Zero Stock:**
   - Attempted to add a product with zero stock to the shopping cart.
-  - Expected Result: Error message displayed: `This product is out of stock.`
-  - Actual Result: Add-to-cart button disabled, error message displayed.
+  - **Expected Result:** Error message displayed: `This product is out of stock.`
+  - **Actual Result:** Add-to-cart button disabled, error message displayed.
 
-- Low Stock:
+- **Low Stock:**
   - Added more items to the cart than available in stock.
-  - Expected Result: Error message: `Only 2 items available.`
-  - Actual Result: Validation error displayed, cart updated with available quantity.
+  - **Expected Result:** Error message: `Only 2 items available.`
+  - **Actual Result:** Validation error displayed, cart updated with available quantity.
+
+#### 6. Contact Us
+**Test Scenarios:**
+- **Frontend:**
+  - Submitted the form with all valid inputs (name, email, message).
+  - **Expected Result:** Success message displayed: `Your message has been sent successfully.`
+  - **Actual Result:** Success message displayed and form reset.
+
+- **Backend:**
+  - Verified form submissions were stored correctly in the database.
+  - **Result:** Contact messages stored with accurate timestamps.
+
+- **Edge Cases:**
+  - Submitted form with missing or invalid inputs (e.g., no email).
+  - **Expected Result:** Validation error displayed.
+  - **Actual Result:** Error: `Please enter a valid email address.`
+
+#### 7. Review (Edit/Delete)
+**Test Scenarios:**
+- **Edit:**
+  - Edited an existing review with valid inputs.
+  - **Result:** Updated review saved and displayed on the product page.
+
+  - Edited a review with invalid inputs (e.g., blank fields).
+  - **Expected Result:** Validation error displayed.
+  - **Actual Result:** Error: `Review content cannot be empty.`
+
+- **Delete:**
+  - Successfully deleted a review.
+  - **Result:** Review removed from both frontend and backend.
+
+  - Attempted to delete another user's review.
+  - **Expected Result:** Access denied.
+  - **Actual Result:** 403 Forbidden error displayed.
+
+#### 8. Analytics
+**Test Scenarios:**
+- **Valid Data Retrieval:**
+  - Viewed product performance metrics (e.g., views, purchases, revenue).
+  - **Result:** Data displayed accurately with sortable and filterable columns.
+
+- **Edge Cases:**
+  - Filtered data for a time range with no sales or views.
+  - **Expected Result:** Empty results displayed with a "No data available" message.
+  - **Actual Result:** Correct message displayed.
+
+- **Concurrency:**
+  - Tested multiple admins viewing analytics simultaneously.
+  - **Result:** No performance issues or data inconsistencies detected.
+
+- **Usability:**
+  - Adjusted filters (e.g., date range, top-performing products).
+  - **Result:** Filters applied successfully, data updated dynamically.
 
 ### Viewport Testing
 
