@@ -182,7 +182,28 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [Lighthouse Audit Results](#lighthouse-audit-results)
   - [Testing](#testing)
     - [User Stories Testing](#user-stories-testing)
-    - [Automated Testing](#automated-testing)
+      - [Manual Tests for Acceptance Criteria](#manual-tests-for-acceptance-criteria)
+        - [Epic 1: User Experience (UX)](#epic-1-user-experience-ux)
+          - [User Story: Minimal Load Times](#user-story-minimal-load-times)
+          - [User Story: Seamless Navigation](#user-story-seamless-navigation)
+          - [User Story: Clean and Professional Design](#user-story-clean-and-professional-design)
+        - [Epic 2: Product Browsing and Reviews](#epic-2-product-browsing-and-reviews)
+          - [User Story: Leave a Review](#user-story-leave-a-review)
+          - [User Story: Edit or Delete Reviews](#user-story-edit-or-delete-reviews)
+          - [User Story: View Detailed Product Information](#user-story-view-detailed-product-information)
+          - [User Story: Search for Products](#user-story-search-for-products)
+        - [Epic 3: Checkout and Payment](#epic-3-checkout-and-payment)
+          - [User Story: Secure Payments via Stripe](#user-story-secure-payments-via-stripe)
+          - [User Story: View Order Summary](#user-story-view-order-summary)
+        - [Epic 4: Admin Product Management](#epic-4-admin-product-management)
+          - [User Story: Manage Product Visibility](#user-story-manage-product-visibility)
+          - [User Story: Assign Products to Categories](#user-story-assign-products-to-categories)
+        - [Epic 5: Admin Product Management](#epic-5-admin-product-management)
+          - [User Story: Edit Product Details](#user-story-edit-product-details)
+          - [User Story: Delete Products](#user-story-delete-products)
+        - [Epic 6: Sales and Analytics](#epic-6-sales-and-analytics)
+          - [User Story: Compare Product Performance](#user-story-compare-product-performance)
+          - [User Story: Sort Analytics Data](#user-story-sort-analytics-data)
     - [Manual Testing](#manual-testing)
       - [1. Create Operations](#1-create-operations)
       - [2. Read Operations](#2-read-operations)
@@ -192,6 +213,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
       - [6. Contact Us](#6-contact-us)
       - [7. Review (Edit/Delete)](#7-review-editdelete)
       - [8. Analytics](#8-analytics)
+    - [Automated Testing](#automated-testing)
     - [Viewport Testing](#viewport-testing)
       - [Screenshot - Desktop](#screenshot---desktop)
       - [Screenshot - Tablet](#screenshot---tablet)
@@ -2212,35 +2234,146 @@ While the results are commendable, these benchmarks indicate room for improvemen
 | Epic 6: Sales and Analytics | As an admin, I can compare the performance of multiple products side by side so that I can make informed inventory or marketing decisions. | - Admins can view a dashboard comparing product performance metrics such as sales volume, revenue generated, and customer ratings.<br>- The comparison includes key metrics like total units sold, total revenue, average customer rating, and total page views.<br>- The dashboard allows filtering by product categories and specific date ranges.<br>- Data is displayed in a table format with optional graphical visualisations (e.g., bar charts, line graphs).<br>- Admins can export the comparison data as a CSV file for further analysis. | PASS |
 | Epic 6: Sales and Analytics | As an admin, I can sort analytics data (e.g., revenue, views, purchases) so that I can prioritise metrics most relevant to my goals. | - Admins can sort analytics data by metrics such as revenue, page views, and purchases.<br>- Sorting is available in ascending and descending order.<br>- Sortable metrics include total revenue, total views, and purchase counts.<br>- The sorting functionality updates the displayed data immediately.<br>- The sorted view persists until reset or changed by the user. | PASS |
 
-### Automated Testing
+#### Manual Tests for Acceptance Criteria
 
-Below is a summary of the test files and their respective apps, created with assistance from ChatGPT:
+##### Epic 1: User Experience (UX)
 
+###### User Story: Minimal Load Times
+**Manual Tests:**
+- Tested page load times using **Google Chrome DevTools** and **Lighthouse**.
+  - Verified all pages load within 2-3 seconds on desktop and mobile.
+  - Ensured image-heavy content loads without blocking user interaction.
+- Checked responsive design on multiple devices (desktop, tablet, mobile).
+- Verified interactive elements like buttons and links provided visual feedback.
+- Triggered actions to test toast notifications for success or error messages.
 
-| App            | Test File                | Number of Tests | Result |
-|----------------|--------------------------|-----------------|--------|
-| Analytics      | `test_admin.py`          | 3               | PASS   |
-|                | `test_models.py`         | 4               | PASS   |
-| Bag            | `test_context.py`        | 3               | PASS   |
-|                | `test_views.py`          | 4               | PASS   |
-| Products       | `test_forms.py`          | 7               | PASS   |
-|                | `test_models.py`         | 8               | PASS   |
-|                | `test_urls.py`           | 8               | PASS   |
-|                | `test_views.py`          | 4               | PASS   |
-|                | `test_widgets.py`        | 2               | PASS   |
-| Profiles       | `test_forms.py`          | 6               | PASS   |
-|                | `test_models.py`         | 5               | PASS   |
-|                | `test_views.py`          | 5               | PASS   |
-| Checkout       | `test_admin.py`          | 0               | PASS   |
-|                | `test_models.py`         | 4               | PASS   |
-|                | `test_signals.py`        | 2               | PASS   |
-|                | `test_views.py`          | 8               | PASS   |
-| Contact        | `test_admin.py`          | 0               | PASS   |
-|                | `test_forms.py`          | 5               | PASS   |
-|                | `test_models.py`         | 4               | PASS   |
-|                | `test_views.py`          | 8               | PASS   |
-| Home           | `test_views.py`          | 8               | PASS   |
-| Maison Lavaux  | `test_sitemaps.py`       | 5               | PASS   |
+**Result:** PASS
+
+###### User Story: Seamless Navigation
+**Manual Tests:**
+- Checked navigation menu links (Home, Shop, About Us, Contact Us) across pages.
+- Verified dropdown menus for product categories load and function correctly.
+- Tested hamburger menu expansion on smaller devices.
+- Verified footer links (Privacy Policy, Terms and Conditions, Customer Support) navigate properly.
+
+**Result:** PASS
+
+###### User Story: Clean and Professional Design
+**Manual Tests:**
+- Verified product catalogue layout, displaying images, titles, prices, and ratings.
+- Tested filtering by categories and price ranges.
+- Verified sorting by relevance, price, and rating.
+- Checked pagination or infinite scroll functionality for product browsing.
+- Ensured all product images load without errors or show placeholders if missing.
+
+**Result:** PASS
+
+##### Epic 2: Product Browsing and Reviews
+
+###### User Story: Leave a Review
+**Manual Tests:**
+- Submitted reviews for purchased products.
+  - Verified reviews appear with correct content and star ratings.
+- Tested error handling when submitting incomplete or invalid reviews.
+
+**Result:** PASS
+
+###### User Story: Edit or Delete Reviews
+**Manual Tests:**
+- Edited reviews from the product detail page.
+  - Verified updates reflect immediately on the product page.
+- Deleted reviews and confirmed they no longer display.
+- Verified a confirmation prompt appears before deletion.
+- Tested access control by attempting to edit/delete reviews of other users.
+
+**Result:** PASS
+
+###### User Story: View Detailed Product Information
+**Manual Tests:**
+- Opened product pages to confirm correct display of name, price, description, images, and ratings.
+- Tested scrolling through multiple images in gallery view.
+- Triggered error handling for unavailable products.
+  
+**Result:** PASS
+
+###### User Story: Search for Products
+**Manual Tests:**
+- Used keywords to search for products by name, description, and category.
+- Verified relevant search results are displayed correctly.
+- Tested empty search results show a user-friendly message.
+
+**Result:** PASS
+
+##### Epic 3: Checkout and Payment
+
+###### User Story: Secure Payments via Stripe
+**Manual Tests:**
+- Entered payment details on the checkout page and submitted orders.
+- Verified payments are processed via Stripe.
+- Checked confirmation message and email receipt after successful payment.
+
+**Result:** PASS
+
+###### User Story: View Order Summary
+**Manual Tests:**
+- Checked order summary on the checkout page, including taxes and discounts.
+- Verified summary updates dynamically with cart changes.
+
+**Result:** PASS
+
+##### Epic 4: Admin Product Management
+
+###### User Story: Manage Product Visibility
+**Manual Tests:**
+- Toggled product visibility in the admin panel.
+- Verified hidden products do not appear on the storefront.
+- Checked success messages after visibility updates.
+
+**Result:** PASS
+
+###### User Story: Assign Products to Categories
+**Manual Tests:**
+- Assigned categories to products in the admin panel.
+- Confirmed products display under the correct categories on the storefront.
+
+**Result:** PASS
+
+##### Epic 5: Admin Product Management
+
+###### User Story: Edit Product Details
+**Manual Tests:**
+- Updated product information (name, price, description, stock) in the admin panel.
+- Verified changes reflect on the storefront in real-time.
+- Tested validation errors for invalid inputs (e.g., negative prices).
+
+**Result:** PASS
+
+###### User Story: Delete Products
+**Manual Tests:**
+- Deleted products via the admin panel.
+- Confirmed deleted products are removed from the storefront and search results.
+- Verified a confirmation prompt prevents accidental deletion.
+
+**Result:** PASS
+
+##### Epic 6: Sales and Analytics
+
+###### User Story: Compare Product Performance
+**Manual Tests:**
+- Accessed a dashboard displaying metrics like sales, revenue, ratings, and views.
+- Tested filters for product categories and date ranges.
+- Verified data visualization with bar charts and line graphs.
+- Exported comparison data as a CSV file.
+
+**Result:** PASS
+
+###### User Story: Sort Analytics Data
+**Manual Tests:**
+- Sorted analytics data by revenue, page views, and purchase counts.
+- Verified sorting in ascending and descending order updates data immediately.
+- Checked persistence of sorted view until reset or changed.
+
+**Result:** PASS
 
 ### Manual Testing
 
@@ -2358,6 +2491,36 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
 - **Usability:**
   - Adjusted filters (e.g., date range, top-performing products).
   - **Result:** Filters applied successfully, data updated dynamically.
+
+### Automated Testing
+
+Below is a summary of the test files and their respective apps, created with assistance from ChatGPT:
+
+
+| App            | Test File                | Number of Tests | Result |
+|----------------|--------------------------|-----------------|--------|
+| Analytics      | `test_admin.py`          | 3               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+| Bag            | `test_context.py`        | 3               | PASS   |
+|                | `test_views.py`          | 4               | PASS   |
+| Products       | `test_forms.py`          | 7               | PASS   |
+|                | `test_models.py`         | 8               | PASS   |
+|                | `test_urls.py`           | 8               | PASS   |
+|                | `test_views.py`          | 4               | PASS   |
+|                | `test_widgets.py`        | 2               | PASS   |
+| Profiles       | `test_forms.py`          | 6               | PASS   |
+|                | `test_models.py`         | 5               | PASS   |
+|                | `test_views.py`          | 5               | PASS   |
+| Checkout       | `test_admin.py`          | 0               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+|                | `test_signals.py`        | 2               | PASS   |
+|                | `test_views.py`          | 8               | PASS   |
+| Contact        | `test_admin.py`          | 0               | PASS   |
+|                | `test_forms.py`          | 5               | PASS   |
+|                | `test_models.py`         | 4               | PASS   |
+|                | `test_views.py`          | 8               | PASS   |
+| Home           | `test_views.py`          | 8               | PASS   |
+| Maison Lavaux  | `test_sitemaps.py`       | 5               | PASS   |
 
 ### Viewport Testing
 
