@@ -1222,7 +1222,8 @@ By implementing these practices, the project demonstrates a commitment to creati
 
 ## E-Commerce Business Model
 
-This application incorporates several key strategies to ensure a sustainable and successful e-commerce business. Below are the primary components that underline the model:
+Maison Lavaux operates on a **Business-to-Customer (B2C)** model, incorporating several key strategies to build a sustainable and successful e-commerce business. Below are the primary components underpinning this model:
+
 
 ### Search Engine Optimization (SEO)
 
