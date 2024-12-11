@@ -115,8 +115,9 @@ class OrderLineItem(models.Model):
         - Update the order total
         - Deduct product stock
         """
-        # Calculate line item total
-        self.lineitem_total = self.product.price * self.quantity
+        # Use discounted price if available, otherwise fallback to original price
+        price = self.product.discount_price if self.product.discount_price else self.product.price
+        self.lineitem_total = price * self.quantity
 
         # Ensure sufficient stock is available
         if self.product.stock_quantity < self.quantity:
