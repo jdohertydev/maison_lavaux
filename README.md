@@ -198,6 +198,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
     - [Bugs](#bugs)
       - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
       - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
+      - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
   - [Acknowledgements](#acknowledgements)
 
 ## User Experience
@@ -2347,7 +2348,6 @@ During the development of the shopping bag functionality, a bug was identified w
 **Root Cause**  
 Duplicate IDs for the quantity buttons were causing conflicts in JavaScript, which relies on unique element identifiers for event handling.
 
-
 **Resolution**  
 The following changes were implemented to fix the issue:  
 - **Replaced** ID-based selectors with `data-item_id` and `data-size` attributes to uniquely identify elements.  
@@ -2360,7 +2360,6 @@ The following changes were implemented to fix the issue:
 **Impact**  
 - The functionality now works seamlessly across all screen sizes.  
 - Prevented potential conflicts or errors caused by duplicate IDs in the HTML.  
-
 
 **Reference**  
 This solution adheres to best practices for dynamic element handling in JavaScript and ensures robust management of quantity controls.
@@ -2409,6 +2408,43 @@ The following updates were made:
 **Impact**  
 This fix improved HTML validation, ensured better accessibility, and maintained a seamless user experience.
 
+#### Bug 3: Incorrect Price Display in Order Details
+
+**Description**  
+On the **checkout success page**, the order details section incorrectly displayed the original price of products, even when a discounted price was applied during checkout. This caused discrepancies between the information displayed to the user and the actual total calculated.
+
+**Steps to Reproduce**  
+1. Add a product with a discounted price to the shopping bag.  
+2. Proceed to checkout and complete the payment process.  
+3. Observe the **Order Details** section on the checkout success page, where the original price is displayed instead of the discounted price.
+
+**Root Cause**  
+The `checkout_success.html` template used the `item.product.price` attribute directly, ignoring any applicable discounts.
+
+**Resolution**  
+The following changes were made:  
+1. Updated the `checkout_success.html` template to use the `lineitem_total` from the `OrderLineItem` model for price calculations.  
+2. Refactored the `OrderLineItem` model's `save()` method to ensure that `lineitem_total` reflects the discounted price if applicable.  
+
+**Updated Code Snippet**
+```html
+<div class="col-12 col-md-8 text-md-right">
+    <p class="small mb-0">{{ item.quantity }} @ ${{ item.lineitem_total|div:item.quantity|floatformat:2|intcomma }} each</p>
+</div>
+```
+
+**Testing and Validation**  
+1. Tested with products with and without discounts to ensure the correct price is displayed.  
+2. Verified that the `lineitem_total` calculation in the admin panel matches the displayed price on the checkout success page.  
+3. Ensured the fix does not affect the overall total or delivery cost calculations.
+
+**Impact**  
+- Resolved discrepancies in the displayed and calculated prices.  
+- Improved user trust by ensuring accurate price information in the order details.  
+
+**Acknowledgment**  
+Special thanks to the project mentor, Gareth McGirr, for identifying the discrepancy and guiding the resolution process.
+
 ## Acknowledgements
 
 - [The Perfume Shop](https://www.theperfumeshop.com/):  
@@ -2420,10 +2456,11 @@ This fix improved HTML validation, ensured better accessibility, and maintained 
 - ChatGPT:
   Served as a teacher and mentor, providing guidance throughout the project.
 
-- Spence (Code Institute Mentor):  
-  Recommended using Django Humanize to add subtle touches of user-friendly functionality and ensured the project adhered to accepted industry standards.
+- Spence and Gareth, (Code Institute Mentors):  
+  Spence - for recommended using Django Humanize to add subtle touches of user-friendly functionality and ensured the project adhered to accepted industry standards.
+  Gareth - for getting me to the finish line.
 
-- The Code Institute Mentors:  
+- The Code Institute Tutors:  
   Their support helped me overcome challenging moments and complete this project successfully.
 
 - Gary Dolan and his [ci-p5-pokemon-tcg-ireland project](https://github.com/GaryDolan/ci-p5-pokemon-tcg-ireland):  
