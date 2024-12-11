@@ -186,6 +186,9 @@ def add_review(request, product_id):
 
 @login_required
 def edit_review(request, product_id, review_id):
+    """
+    Edit an existing review for a specific product by the logged-in user.
+    """
     product = get_object_or_404(Product, pk=product_id)
     review = get_object_or_404(
         Review, pk=review_id, product=product, user=request.user
