@@ -199,6 +199,7 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
       - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
       - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
       - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
+      - [Bug 4: Pagination Sorting Issue](#bug-4-pagination-sorting-issue)
   - [Acknowledgements](#acknowledgements)
 
 ## User Experience
@@ -2441,6 +2442,12 @@ The following changes were made:
 **Impact**  
 - Resolved discrepancies in the displayed and calculated prices.  
 - Improved user trust by ensuring accurate price information in the order details.  
+
+#### Bug 4: Pagination Sorting Issue
+
+- Issue: When navigating through paginated product lists, sorting parameters (e.g., `sort` and `direction`) were not persisting, causing inconsistent sorting behavior across pages.
+- Fix: Updated the pagination logic in the template to include `sort` and `direction` query parameters dynamically in the "Previous" and "Next" links.
+- Status: Resolved.
 
 **Acknowledgment**  
 Special thanks to the project mentor, Gareth McGirr, for identifying the discrepancy and guiding the resolution process.
