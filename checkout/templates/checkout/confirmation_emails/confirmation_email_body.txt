@@ -5,11 +5,21 @@ This is a confirmation of your order at Maison Lavaux. Your order information is
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date|naturaltime }}
 
-Order Total: ${{ order_total|floatformat:2|intcomma }}
-Delivery: ${{ delivery_cost|floatformat:2|intcomma }}
-Grand Total: ${{ grand_total|floatformat:2|intcomma }}
+Order Details:
+{% for item in order.lineitems.all %}
+- {{ item.product.name }}{% if item.product_size %} (Size: {{ item.product_size|upper }}){% endif %}  
+  Quantity: {{ item.quantity }}  
+  Price: ${{ item.lineitem_total|floatformat:2|intcomma }}  
+{% endfor %}
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+Order Total: ${{ order.order_total|floatformat:2|intcomma }}
+Delivery: ${{ order.delivery_cost|floatformat:2|intcomma }}
+Grand Total: ${{ order.grand_total|floatformat:2|intcomma }}
+
+Your order will be shipped to:
+{{ order.street_address1 }}{% if order.street_address2 %}, {{ order.street_address2 }}{% endif %},  
+{{ order.town_or_city }}, {{ order.county }}{% if order.postcode %}, {{ order.postcode }}{% endif %},  
+{{ order.country }}.
 
 We've got your phone number on file as {{ order.phone_number }}.
 
@@ -17,6 +27,5 @@ If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Thank you for your order!
 
-Sincerely,
-
+Sincerely,  
 Maison Lavaux
