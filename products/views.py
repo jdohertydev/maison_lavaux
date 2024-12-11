@@ -2,13 +2,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Case, When, F, Q
+from django.db.models import Case, When, F, Q, Value, DecimalField
 from django.db.models.functions import Lower
 from analytics.models import SalesData
 
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
-
 
 def all_products(request):
     """
@@ -35,56 +34,63 @@ def all_products(request):
     )
 
     # Handle sorting
-    if request.GET:
-        if "sort" in request.GET:
-            sortkey = request.GET["sort"]
-            if sortkey == "name":
-                products = products.annotate(lower_name=Lower("name"))
-                sortkey = "lower_name"
-            elif sortkey == "price":
-                sortkey = "effective_price"
-            elif sortkey == "category":
-                sortkey = "category__name"
-
-            if "direction" in request.GET:
-                direction = request.GET["direction"]
-                if direction == "desc":
-                    sortkey = f"-{sortkey}"
-
-            products = products.order_by(sortkey)
-
-        # Handle category filtering
-        if "category" in request.GET:
-            categories = request.GET["category"].split(",")
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
-            meta_description = (
-                "Explore our "
-                + ", ".join(
-                    cat.friendly_name or cat.name for cat in categories
+    if "sort" in request.GET:
+        sortkey = request.GET["sort"]
+        if sortkey == "name":
+            products = products.annotate(lower_name=Lower("name"))
+            sortkey = "lower_name"
+        elif sortkey == "price":
+            sortkey = "effective_price"
+        elif sortkey == "category":
+            sortkey = "category__name"
+        elif sortkey == "rating":
+            # Annotate products to handle NULL ratings
+            products = products.annotate(
+                rating_sort=Case(
+                    When(rating__isnull=True, then=Value(0, output_field=DecimalField())),  # Treat NULL as 0
+                    default=F("rating"),
                 )
-                + " collection. Handcrafted luxury fragrances from Paris."
             )
+            sortkey = "rating_sort"
 
-        # Handle search queries
-        if "q" in request.GET:
-            query = request.GET["q"]
-            if not query.strip():
-                messages.error(
-                    request,
-                    "You didn't enter any search criteria!"
-                )
+        if "direction" in request.GET:
+            direction = request.GET["direction"]
+            if direction == "desc":
+                sortkey = f"-{sortkey}"
 
-                return redirect(reverse("products"))
+        products = products.order_by(sortkey)
 
-            queries = Q(name__icontains=query) | Q(
-                description__icontains=query
+    # Handle category filtering
+    if "category" in request.GET:
+        categories = request.GET["category"].split(",")
+        products = products.filter(category__name__in=categories)
+        categories = Category.objects.filter(name__in=categories)
+        meta_description = (
+            "Explore our "
+            + ", ".join(
+                cat.friendly_name or cat.name for cat in categories
             )
-            products = products.filter(queries)
-            meta_description = (
-                f"Search results for '{query}'. Discover handcrafted perfumes "
-                f"by Maison Lavaux."
+            + " collection. Handcrafted luxury fragrances from Paris."
+        )
+
+    # Handle search queries
+    if "q" in request.GET:
+        query = request.GET["q"]
+        if not query.strip():
+            messages.error(
+                request,
+                "You didn't enter any search criteria!"
             )
+            return redirect(reverse("products"))
+
+        queries = Q(name__icontains=query) | Q(
+            description__icontains=query
+        )
+        products = products.filter(queries)
+        meta_description = (
+            f"Search results for '{query}'. Discover handcrafted perfumes "
+            f"by Maison Lavaux."
+        )
 
     # Implement pagination
     paginator = Paginator(products, 12)  # Show 12 products per page
@@ -108,7 +114,6 @@ def all_products(request):
     }
 
     return render(request, "products/products.html", context)
-
 
 def product_detail(request, product_id):
     """A view to show individual product details and reviews"""
@@ -140,7 +145,6 @@ def product_detail(request, product_id):
     }
 
     return render(request, "products/product_detail.html", context)
-
 
 @login_required
 def add_review(request, product_id):
@@ -180,7 +184,6 @@ def add_review(request, product_id):
 
     return render(request, "products/add_review.html", context)
 
-
 @login_required
 def edit_review(request, product_id, review_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -206,7 +209,6 @@ def edit_review(request, product_id, review_id):
     }
     return render(request, "products/edit_review.html", context)
 
-
 @login_required
 def delete_review(request, product_id, review_id):
     """Delete a specific review."""
@@ -220,14 +222,12 @@ def delete_review(request, product_id, review_id):
         return redirect("product_detail", product_id=product_id)
 
     return render(
-        request,
         "products/confirm_delete_review.html",
         {
             "review": review,
             "product": review.product,
         },
     )
-
 
 @login_required
 def add_product(request):
@@ -256,7 +256,6 @@ def add_product(request):
     }
 
     return render(request, template, context)
-
 
 @login_required
 def edit_product(request, product_id):
@@ -288,7 +287,6 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
-
 
 @login_required
 def delete_product(request, product_id):
