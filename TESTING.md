@@ -62,11 +62,33 @@
 
 To ensure Python files (.py extensions) are PEP8 valid, the following protocol was followed:
 
-1. Installing Black (`$ pip install black`)
-2. Update requirements (`$ pip freeze >> requirements.txt`)
-3. Run Black (`$ black .`)
-4. Run Black to format Python files with a specific line length of 79 characters (`$ black --line-length 79 .`)
-5. Manual check all .py files with CI Python Linter. I created `list_py_files.py` to extract the file names of all .py files in the project and tested it only on the files I worked on.
+1. **Installing Black**:  
+   Black was chosen as a code formatter because it enforces a consistent coding style, improves code readability, and minimizes debates over formatting. It is widely used and trusted within the Python community for its simplicity and efficiency.
+
+   - Command: `$ pip install black`
+
+2. **Updating Requirements**:  
+   Updated the `requirements.txt` file to document the inclusion of Black as a development dependency for transparency and future maintainability.
+
+   - Command: `$ pip freeze >> requirements.txt`
+
+3. **Running Black**:  
+   Applied Black to the entire project to automatically reformat all `.py` files according to PEP8 standards.
+
+   - Command: `$ black .`
+
+4. **Formatting with Specific Line Length**:  
+   Used Black's `--line-length` flag to set the maximum line length to 79 characters, adhering to PEP8 recommendations for readability.
+
+   - Command: `$ black --line-length 79 .`
+
+5. **Manual Validation with CI Python Linter**:  
+   After running Black, all `.py` files were manually validated using the CI Python Linter tool. This double-check ensures that the files comply with all PEP8 rules and that no errors were overlooked during formatting.  
+
+   Additionally, I created a script, `list_py_files.py`, to extract and validate the file names of all `.py` files in the project.
+
+   **Why Use CI Python Linter?**  
+   The CI Python Linter provides a quick, efficient way to validate PEP8 compliance and highlights issues not automatically resolved by Black, ensuring a higher standard of code quality.
 
 ![CI Python Linter Screenshot](readme-images/python-linter-screenshot.png)
 
@@ -813,11 +835,11 @@ Below is a summary of the test files and their respective apps, created with ass
 | Profiles       | `test_forms.py`          | 6               | PASS   |
 |                | `test_models.py`         | 5               | PASS   |
 |                | `test_views.py`          | 5               | PASS   |
-| Checkout       | `test_admin.py`          | 0               | PASS   |
+| Checkout       | `test_admin.py`          | 3               | PASS   |
 |                | `test_models.py`         | 4               | PASS   |
 |                | `test_signals.py`        | 2               | PASS   |
 |                | `test_views.py`          | 8               | PASS   |
-| Contact        | `test_admin.py`          | 0               | PASS   |
+| Contact        | `test_admin.py`          | 5               | PASS   |
 |                | `test_forms.py`          | 5               | PASS   |
 |                | `test_models.py`         | 4               | PASS   |
 |                | `test_views.py`          | 8               | PASS   |
