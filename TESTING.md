@@ -706,11 +706,6 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Example:** Removed a product from the catalog.
   - **Result:** Product no longer appeared in the frontend or admin panel.
 
-- **Restricted Deletion:** Attempted to delete restricted or related records.
-  - **Example:** Tried deleting a product that is part of an active order.
-  - **Expected Result:** Error displayed, record not deleted.
-  - **Actual Result:** Error: `Cannot delete product linked to existing orders.`
-
 ### 5. Edge Cases for Stock Validation
 **Test Scenarios:**
 - **Zero Stock:**
