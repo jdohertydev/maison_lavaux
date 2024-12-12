@@ -648,8 +648,6 @@ While the results are commendable, these benchmarks indicate room for improvemen
 **Manual Tests:**
 - Accessed a dashboard displaying metrics like sales, revenue, ratings, and views.
 - Tested filters for product categories and date ranges.
-- Verified data visualization with bar charts and line graphs.
-- Exported comparison data as a CSV file.
 
 **Result:** PASS
 
