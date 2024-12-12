@@ -878,54 +878,60 @@ The result showed that there were no functionality issues, all navigation links 
 
 ### Bug 1: Quantity Controls - Duplicate IDs
 
-**Description**  
+**Priority:** High  
+**Severity:** High  
+
+**Description:**  
 During the development of the shopping bag functionality, a bug was identified where the quantity increment (+) and decrement (-) buttons did not function properly in the desktop view. This was caused by duplicate IDs assigned to the buttons, with one set for the mobile view and another for the desktop view. Since CSS controlled the visibility of these buttons based on screen size, JavaScript only recognized the first button with the duplicate ID, resulting in functionality issues on other views.
 
-**Steps to Reproduce**  
+**Steps to Reproduce:**  
 1. Add a product to the shopping bag.  
 2. Switch between mobile and desktop views.  
 3. Attempt to use the quantity increment (+) or decrement (-) buttons in both views.  
 4. Observe that only one set of buttons works, depending on the screen size.
 
-**Root Cause**  
-Duplicate IDs for the quantity buttons were causing conflicts in JavaScript, which relies on unique element identifiers for event handling.
+**Resolution:**  
+- Replaced ID-based selectors with `data-item_id` and `data-size` attributes to uniquely identify elements.
+- Updated JavaScript to dynamically locate and handle elements using `data-item_id` and `data-size`.  
+- Enhanced logic to:
+  - Prevent duplicate handling of increment/decrement buttons.
+  - Enable/disable buttons based on the quantity range (1–99).
 
-**Resolution**  
-The following changes were implemented to fix the issue:  
-- **Replaced** ID-based selectors with `data-item_id` and `data-size` attributes to uniquely identify elements.  
-- **Updated** JavaScript to dynamically locate and handle elements using `data-item_id` and `data-size`.  
-- **Enhanced** the logic to:  
-  - Prevent duplicate handling of increment/decrement buttons.  
-  - Enable/disable buttons based on the quantity range (1–99).  
-- **Tested** functionality across mobile and desktop views to ensure consistent behavior.
+**Related Code Snippets:**  
+```javascript
+// Updated JavaScript for handling quantity changes
+document.querySelectorAll('[data-item_id]').forEach(button => {
+    button.addEventListener('click', function () {
+        const itemId = this.getAttribute('data-item_id');
+        const size = this.getAttribute('data-size');
+        // Logic to handle increment/decrement
+    });
+});
+```
 
-**Impact**  
-- The functionality now works seamlessly across all screen sizes.  
-- Prevented potential conflicts or errors caused by duplicate IDs in the HTML.  
-
-**Reference**  
-This solution adheres to best practices for dynamic element handling in JavaScript and ensures robust management of quantity controls.
+**Impact:**  
+- The functionality now works seamlessly across all screen sizes.
+- Prevented potential conflicts or errors caused by duplicate IDs in the HTML.
 
 ### Bug 2: HTML Validation Error - `for` Attribute in Form Label
 
-**Description**  
+**Priority:** Medium  
+**Severity:** Low  
+
+**Description:**  
 A validation error occurred in the form used to save delivery information. The `<label>` in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input field. This violated HTML validation rules, causing accessibility and standards compliance issues.
 
-**Steps to Reproduce**  
-1. Navigate to the checkout page in an **unauthenticated state**.  
+**Steps to Reproduce:**  
+1. Navigate to the checkout page in an unauthenticated state.  
 2. Inspect the HTML structure of the `<label>` element.  
 3. Observe that the `for` attribute references `id-save-info`, which does not exist in the DOM.  
 4. Use the [W3C Validator](https://validator.w3.org/) to confirm the validation error.
 
-**Root Cause**  
-The `else` block for unauthenticated users included a `<label>` with a `for` attribute referencing `id-save-info`. However, the input element with this ID was not rendered in the DOM for unauthenticated users.
+**Resolution:**  
+- Removed the `for="id-save-info"` attribute from the `<label>` in the unauthenticated user block.
+- Adjusted the `<label>` to act as a container for "Create an account" and "Login" links instead.
 
-**Resolution**  
-The following updates were made:  
-1. Removed the `for="id-save-info"` attribute from the `<label>` in the unauthenticated user block.  
-2. Adjusted the `<label>` to act as a container for "Create an account" and "Login" links instead.  
-
-**Updated Code Snippet**
+**Related Code Snippets:**  
 ```html
 <div class="form-check form-check-inline float-right mr-0">
     {% if user.is_authenticated %}
@@ -940,55 +946,72 @@ The following updates were made:
 </div>
 ```
 
-**Testing and Validation**  
-1. Verified the fix using the [W3C Validator](https://validator.w3.org/) to ensure compliance.  
-2. Tested the functionality for both authenticated and unauthenticated users:  
-   - **Authenticated Users**: Checkbox is visible and fully functional.  
-   - **Unauthenticated Users**: Login and signup links are displayed correctly without errors.  
-3. Ensured cross-browser compatibility and consistent user experience.
-
-**Impact**  
-This fix improved HTML validation, ensured better accessibility, and maintained a seamless user experience.
+**Impact:**  
+- Improved HTML validation, ensuring better accessibility.
+- Maintained a seamless user experience for both authenticated and unauthenticated users.
 
 ### Bug 3: Incorrect Price Display in Order Details
 
-**Description**  
+**Priority:** High  
+**Severity:** High  
+
+**Description:**  
 On the **checkout success page**, the order details section incorrectly displayed the original price of products, even when a discounted price was applied during checkout. This caused discrepancies between the information displayed to the user and the actual total calculated.
 
-**Steps to Reproduce**  
+**Steps to Reproduce:**  
 1. Add a product with a discounted price to the shopping bag.  
 2. Proceed to checkout and complete the payment process.  
 3. Observe the **Order Details** section on the checkout success page, where the original price is displayed instead of the discounted price.
 
-**Root Cause**  
-The `checkout_success.html` template used the `item.product.price` attribute directly, ignoring any applicable discounts.
+**Resolution:**  
+- Updated the `checkout_success.html` template to use the `lineitem_total` from the `OrderLineItem` model for price calculations.
+- Refactored the `OrderLineItem` model's `save()` method to ensure that `lineitem_total` reflects the discounted price if applicable.
 
-**Resolution**  
-The following changes were made:  
-1. Updated the `checkout_success.html` template to use the `lineitem_total` from the `OrderLineItem` model for price calculations.  
-2. Refactored the `OrderLineItem` model's `save()` method to ensure that `lineitem_total` reflects the discounted price if applicable.  
-
-**Updated Code Snippet**
-```html
-<div class="col-12 col-md-8 text-md-right">
-    <p class="small mb-0">{{ item.quantity }} @ ${{ item.lineitem_total|div:item.quantity|floatformat:2|intcomma }} each</p>
-</div>
+**Related Code Snippets:**  
+```python
+# OrderLineItem model save() method
+def save(self, *args, **kwargs):
+    self.lineitem_total = self.product.price * self.quantity
+    if self.product.discounted_price:
+        self.lineitem_total = self.product.discounted_price * self.quantity
+    super().save(*args, **kwargs)
 ```
 
-**Testing and Validation**  
-1. Tested with products with and without discounts to ensure the correct price is displayed.  
-2. Verified that the `lineitem_total` calculation in the admin panel matches the displayed price on the checkout success page.  
-3. Ensured the fix does not affect the overall total or delivery cost calculations.
-
-**Impact**  
+**Impact:**  
 - Resolved discrepancies in the displayed and calculated prices.  
 - Improved user trust by ensuring accurate price information in the order details.
 
-**Acknowledgment**  
-Special thanks to the project mentor, Gareth McGirr, for identifying the discrepancy and guiding the resolution process.
-
 ### Bug 4: Pagination Sorting Issue
 
-- Issue: When navigating through paginated product lists, sorting parameters (e.g., `sort` and `direction`) were not persisting, causing inconsistent sorting behavior across pages.
-- Fix: Updated the pagination logic in the template to include `sort` and `direction` query parameters dynamically in the "Previous" and "Next" links.
-- Status: Resolved.
+**Priority:** Medium  
+**Severity:** Medium  
+
+**Description:**  
+When navigating through paginated product lists, sorting parameters (e.g., `sort` and `direction`) were not persisting, causing inconsistent sorting behavior across pages. This resulted in users experiencing unexpected order changes when moving between pages.
+
+**Steps to Reproduce:**  
+1. Navigate to a product list page with pagination enabled.
+2. Apply sorting parameters (e.g., sort by price in ascending order).
+3. Move to the next page using the "Next" button.
+4. Observe that the sorting order is reset to the default, instead of persisting the chosen sorting parameters.
+
+**Resolution:**  
+- Updated the pagination logic in the template to dynamically append `sort` and `direction` query parameters to the "Previous" and "Next" links.
+- Ensured that sorting options persist across all paginated pages.
+
+**Related Code Snippets:**  
+```html
+<!-- Updated pagination links in the template -->
+<ul class="pagination">
+    <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&sort={{ request.GET.sort }}&direction={{ request.GET.direction }}">Previous</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}&sort={{ request.GET.sort }}&direction={{ request.GET.direction }}">Next</a>
+    </li>
+</ul>
+```
+
+**Impact:**  
+- Improved user experience by ensuring consistent sorting behavior across paginated pages.
+- Reduced user frustration caused by unexpected order changes.
