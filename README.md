@@ -182,12 +182,12 @@ View the live version of the website at [Maison Lavaux](https://maison-lavaux-eb
 
 In website development, epics are high-level objectives that represent major areas of functionality or user needs. Each epic encompasses multiple user stories, providing structure and clarity in the development process. They ensure all work aligns with the overarching goals of the project and facilitate tracking progress across related features. These are the epics I chose for my project:
 
-1. User Experience (UX) [#10](https://github.com/jdohertydev/maison_lavaux/issues/10)
-2. Product Browsing and Reviews [#11](https://github.com/jdohertydev/maison_lavaux/issues/11)
-3. Checkout and Payment [#12](https://github.com/jdohertydev/maison_lavaux/issues/12)
-4. Messaging and Communication [#13](https://github.com/jdohertydev/maison_lavaux/issues/13)
-5. Admin Product Management [#14](https://github.com/jdohertydev/maison_lavaux/issues/14)
-6. Sales and Analytics [#15](https://github.com/jdohertydev/maison_lavaux/issues/15)
+1. User Experience (UX)
+2. Product Browsing and Reviews
+3. Checkout and Payment
+4. Messaging and Communication
+5. Admin Product Management
+6. Sales and Analytics
 
 ### User Stories
 
