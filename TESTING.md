@@ -7,7 +7,6 @@
     - [CSS Validation](#css-validation)
     - [JS Validation](#js-validation)
     - [Codebase Cleanup](#codebase-cleanup)
-      - [Reason for Deletion](#reason-for-deletion)
   - [Lighthouse Audit Results](#lighthouse-audit-results)
   - [Testing](#testing)
   - [User Stories Testing](#user-stories-testing)
@@ -45,7 +44,6 @@
     - [7. Review (Edit/Delete)](#7-review-editdelete)
     - [8. Analytics](#8-analytics)
   - [Automated Testing](#automated-testing)
-    - [Purpose of Automated Tests](#purpose-of-automated-tests)
   - [Viewport Testing](#viewport-testing)
     - [Screenshot - Desktop](#screenshot---desktop)
     - [Screenshot - Tablet](#screenshot---tablet)
@@ -424,7 +422,7 @@ As part of maintaining a clean and organized codebase, the following files were 
 - `profiles/admin.py`
 - `profiles/tests.py`
 
-#### Reason for Deletion
+**Reason for Deletion**
 
 It is a good practice to regularly review the project's codebase and remove files that are not contributing to its current functionality. This not only maintains code quality but also ensures that future developers can easily understand and contribute without confusion. Keeping the project clean is key to scalability and maintainability. The rationale behind the removal includes:
 
@@ -807,7 +805,7 @@ Automated tests were created to ensure the reliability and consistency of the ap
    - Submitting invalid data in forms.
    - Accessing restricted pages without proper permissions.
 
-### Purpose of Automated Tests
+**Purpose of Automated Tests**
 
 Automated tests were implemented to:
 
