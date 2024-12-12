@@ -1088,7 +1088,7 @@ To enhance the user experience, custom error pages were implemented for common H
 
 The project implements an email verification system for new user registrations, requiring users to confirm their email addresses before fully activating their accounts. The configuration ensures that email verification is mandatory, enforced by setting `ACCOUNT_EMAIL_VERIFICATION = "mandatory"` in the project's settings. Additionally, users must enter their email address twice during signup to minimize errors and improve reliability.
 
-As this feature is currently being tested using [Ethereal Email](https://ethereal.email/), users will not receive an actual email to their personal accounts for verification. Instead, test emails can be viewed directly within the Ethereal Email interface. This approach ensures secure testing without sending live emails during the development phase.
+As this feature is currently being tested using [Ethereal Email](https://ethereal.email/), users will not receive an actual email to their personal accounts for verification. Instead, test emails can be viewed directly within the Ethereal Email interface (commonly referred to as a sandbox). This approach ensures secure testing without sending live emails during the development phase.
 
 ![Verify Your Email](readme-images/verify-your-email.png)
 
