@@ -34,31 +34,32 @@ def all_products(request):
     )
 
     # Handle sorting
+    valid_sort_keys = ["name", "price", "category", "rating"]
     if "sort" in request.GET:
         sortkey = request.GET["sort"]
-        if sortkey == "name":
-            products = products.annotate(lower_name=Lower("name"))
-            sortkey = "lower_name"
-        elif sortkey == "price":
-            sortkey = "effective_price"
-        elif sortkey == "category":
-            sortkey = "category__name"
-        elif sortkey == "rating":
-            # Annotate products to handle NULL ratings
-            products = products.annotate(
-                rating_sort=Case(
-                    When(rating__isnull=True, then=Value(0, output_field=DecimalField())),  # Treat NULL as 0
-                    default=F("rating"),
+        if sortkey in valid_sort_keys:
+            if sortkey == "name":
+                products = products.annotate(lower_name=Lower("name"))
+                sortkey = "lower_name"
+            elif sortkey == "price":
+                sortkey = "effective_price"
+            elif sortkey == "category":
+                sortkey = "category__name"
+            elif sortkey == "rating":
+                products = products.annotate(
+                    rating_sort=Case(
+                        When(rating__isnull=True, then=Value(0, output_field=DecimalField())),  # Treat NULL as 0
+                        default=F("rating"),
+                    )
                 )
-            )
-            sortkey = "rating_sort"
+                sortkey = "rating_sort"
 
-        if "direction" in request.GET:
-            direction = request.GET["direction"]
-            if direction == "desc":
-                sortkey = f"-{sortkey}"
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortkey = f"-{sortkey}"
 
-        products = products.order_by(sortkey)
+            products = products.order_by(sortkey)
 
     # Handle category filtering
     if "category" in request.GET:
