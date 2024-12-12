@@ -43,6 +43,8 @@
   - [7. Review (Edit/Delete)](#7-review-editdelete)
   - [8. Analytics](#8-analytics)
 - [Automated Testing](#automated-testing)
+  - [Automated Testing](#automated-testing-1)
+    - [Purpose of Automated Tests](#purpose-of-automated-tests)
 - [Viewport Testing](#viewport-testing)
   - [Screenshot - Desktop](#screenshot---desktop)
   - [Screenshot - Tablet](#screenshot---tablet)
@@ -706,6 +708,46 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Result:** Filters applied successfully, data updated dynamically.
 
 ## Automated Testing
+
+### Automated Testing
+
+Automated tests were created to ensure the reliability and consistency of the application across various functionalities. These tests primarily focus on the following key areas:
+
+1. **Model Testing**: Verifies the integrity and correctness of the database models, ensuring that fields, methods, and relationships between models behave as expected. For instance:
+   - Validation of required fields.
+   - Proper functioning of custom model methods (e.g., calculating totals or formatting outputs).
+
+2. **Form Testing**: Ensures that forms validate input data correctly and handle edge cases. This includes:
+   - Validating required fields and input constraints (e.g., minimum or maximum length).
+   - Testing custom form methods or logic (e.g., pre-filling fields or handling special cases).
+
+3. **View Testing**: Focuses on testing the functionality of views, both class-based and function-based, to confirm:
+   - Correct HTTP responses for different scenarios (e.g., GET, POST, invalid requests).
+   - Rendering of the expected templates with the correct context data.
+   - Proper handling of authentication and authorization for protected views.
+
+4. **URL Testing**: Verifies that all application URLs resolve correctly to the intended views, ensuring seamless navigation and routing.
+
+5. **Admin Panel Testing**: Ensures that customizations in the admin panel, such as list displays, search filters, and actions, function correctly.
+
+6. **Widget Testing**: Tests custom widgets (e.g., dynamic form fields or interactive UI elements) to ensure they work as intended and provide the expected user experience.
+
+7. **Edge Case and Error Testing**: Ensures robust handling of edge cases and unexpected inputs, such as:
+   - Submitting invalid data in forms.
+   - Accessing restricted pages without proper permissions.
+
+---
+
+#### Purpose of Automated Tests
+
+Automated tests were implemented to:
+
+- **Enhance Reliability**: By catching bugs and inconsistencies early, the application maintains a high level of quality and stability.
+- **Support Refactoring**: Automated tests provide a safety net, ensuring that changes or refactoring do not break existing functionality.
+- **Save Time**: Automating repetitive test scenarios reduces manual testing effort and allows for faster iterations during development.
+- **Improve Code Coverage**: Comprehensive test coverage ensures that all critical parts of the application are tested, reducing the likelihood of undetected issues in production.
+
+By covering these aspects, the automated tests help maintain a robust and reliable application that can handle diverse user interactions and edge cases effectively.
 
 Below is a summary of the test files and their respective apps, created with assistance from ChatGPT:
 
