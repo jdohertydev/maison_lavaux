@@ -1,61 +1,61 @@
 ## Validation, Testing and Bugs
 
 - [Validation, Testing and Bugs](#validation-testing-and-bugs)
-  - [Validation](#validation)
-    - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
-    - [HTML Validation](#html-validation)
-    - [CSS Validation](#css-validation)
-    - [JS Validation](#js-validation)
-    - [Codebase Cleanup](#codebase-cleanup)
-      - [Reason for Deletion](#reason-for-deletion)
-  - [Lighthouse Audit Results](#lighthouse-audit-results)
+- [Validation](#validation)
+  - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [JS Validation](#js-validation)
+  - [Codebase Cleanup](#codebase-cleanup)
+    - [Reason for Deletion](#reason-for-deletion)
+- [Lighthouse Audit Results](#lighthouse-audit-results)
 - [Testing](#testing)
-  - [User Stories Testing](#user-stories-testing)
-    - [Manual Tests for Acceptance Criteria](#manual-tests-for-acceptance-criteria)
-      - [Epic 1: User Experience (UX)](#epic-1-user-experience-ux)
-        - [User Story: Minimal Load Times](#user-story-minimal-load-times)
-        - [User Story: Seamless Navigation](#user-story-seamless-navigation)
-        - [User Story: Clean and Professional Design](#user-story-clean-and-professional-design)
-      - [Epic 2: Product Browsing and Reviews](#epic-2-product-browsing-and-reviews)
-        - [User Story: Leave a Review](#user-story-leave-a-review)
-        - [User Story: Edit or Delete Reviews](#user-story-edit-or-delete-reviews)
-        - [User Story: View Detailed Product Information](#user-story-view-detailed-product-information)
-        - [User Story: Search for Products](#user-story-search-for-products)
-      - [Epic 3: Checkout and Payment](#epic-3-checkout-and-payment)
-        - [User Story: Secure Payments via Stripe](#user-story-secure-payments-via-stripe)
-        - [User Story: View Order Summary](#user-story-view-order-summary)
-      - [Epic 4: Admin Product Management](#epic-4-admin-product-management)
-        - [User Story: Manage Product Visibility](#user-story-manage-product-visibility)
-        - [User Story: Assign Products to Categories](#user-story-assign-products-to-categories)
-      - [Epic 5: Admin Product Management](#epic-5-admin-product-management)
-        - [User Story: Edit Product Details](#user-story-edit-product-details)
-        - [User Story: Delete Products](#user-story-delete-products)
-      - [Epic 6: Sales and Analytics](#epic-6-sales-and-analytics)
-        - [User Story: Compare Product Performance](#user-story-compare-product-performance)
-        - [User Story: Sort Analytics Data](#user-story-sort-analytics-data)
-  - [Manual Testing](#manual-testing)
-    - [1. Create Operations](#1-create-operations)
-    - [2. Read Operations](#2-read-operations)
-    - [3. Update Operations](#3-update-operations)
-    - [4. Delete Operations](#4-delete-operations)
-    - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
-    - [6. Contact Us](#6-contact-us)
-    - [7. Review (Edit/Delete)](#7-review-editdelete)
-    - [8. Analytics](#8-analytics)
-  - [Automated Testing](#automated-testing)
-  - [Viewport Testing](#viewport-testing)
-    - [Screenshot - Desktop](#screenshot---desktop)
-    - [Screenshot - Tablet](#screenshot---tablet)
-    - [Screenshot - Mobile](#screenshot---mobile)
-  - [Compatibility Testing](#compatibility-testing)
-    - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
-  - [Bugs](#bugs)
-    - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
-    - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
-    - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
-    - [Bug 4: Pagination Sorting Issue](#bug-4-pagination-sorting-issue)
+- [User Stories Testing](#user-stories-testing)
+  - [Manual Tests for Acceptance Criteria](#manual-tests-for-acceptance-criteria)
+    - [Epic 1: User Experience (UX)](#epic-1-user-experience-ux)
+      - [User Story: Minimal Load Times](#user-story-minimal-load-times)
+      - [User Story: Seamless Navigation](#user-story-seamless-navigation)
+      - [User Story: Clean and Professional Design](#user-story-clean-and-professional-design)
+    - [Epic 2: Product Browsing and Reviews](#epic-2-product-browsing-and-reviews)
+      - [User Story: Leave a Review](#user-story-leave-a-review)
+      - [User Story: Edit or Delete Reviews](#user-story-edit-or-delete-reviews)
+      - [User Story: View Detailed Product Information](#user-story-view-detailed-product-information)
+      - [User Story: Search for Products](#user-story-search-for-products)
+    - [Epic 3: Checkout and Payment](#epic-3-checkout-and-payment)
+      - [User Story: Secure Payments via Stripe](#user-story-secure-payments-via-stripe)
+      - [User Story: View Order Summary](#user-story-view-order-summary)
+    - [Epic 4: Admin Product Management](#epic-4-admin-product-management)
+      - [User Story: Manage Product Visibility](#user-story-manage-product-visibility)
+      - [User Story: Assign Products to Categories](#user-story-assign-products-to-categories)
+    - [Epic 5: Admin Product Management](#epic-5-admin-product-management)
+      - [User Story: Edit Product Details](#user-story-edit-product-details)
+      - [User Story: Delete Products](#user-story-delete-products)
+    - [Epic 6: Sales and Analytics](#epic-6-sales-and-analytics)
+      - [User Story: Compare Product Performance](#user-story-compare-product-performance)
+      - [User Story: Sort Analytics Data](#user-story-sort-analytics-data)
+- [Manual Testing](#manual-testing)
+  - [1. Create Operations](#1-create-operations)
+  - [2. Read Operations](#2-read-operations)
+  - [3. Update Operations](#3-update-operations)
+  - [4. Delete Operations](#4-delete-operations)
+  - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
+  - [6. Contact Us](#6-contact-us)
+  - [7. Review (Edit/Delete)](#7-review-editdelete)
+  - [8. Analytics](#8-analytics)
+- [Automated Testing](#automated-testing)
+- [Viewport Testing](#viewport-testing)
+  - [Screenshot - Desktop](#screenshot---desktop)
+  - [Screenshot - Tablet](#screenshot---tablet)
+  - [Screenshot - Mobile](#screenshot---mobile)
+- [Compatibility Testing](#compatibility-testing)
+  - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
+- [Bugs](#bugs)
+  - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
+  - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
+  - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
+  - [Bug 4: Pagination Sorting Issue](#bug-4-pagination-sorting-issue)
 
-### Validation
+## Validation
 
 To ensure Python files (.py extensions) are PEP8 valid, the following protocol was followed:
 
@@ -67,7 +67,7 @@ To ensure Python files (.py extensions) are PEP8 valid, the following protocol w
 
 ![CI Python Linter Screenshot](readme-images/python-linter-screenshot.png)
 
-#### Manual Testing for PEP8 Compliance
+### Manual Testing for PEP8 Compliance
 
 These files have been manually tested using CI Python Linter ([https://pep8ci.herokuapp.com/](https://pep8ci.herokuapp.com/)) to ensure compliance with PEP8 standards:
 
@@ -183,7 +183,7 @@ These files have been manually tested using CI Python Linter ([https://pep8ci.he
   </tbody>
 </table>
 
-#### HTML Validation
+### HTML Validation
 
 To validate the HTML code, all static files had to be deployed and checked manually (logged out and logged in where appropriate) using the [Markup Validation Service](https://validator.w3.org/). I created list_html_files.py to extract the file names of all .html files in the project and tested it only on the files I worked on.
 
@@ -314,7 +314,7 @@ To validate the HTML code, all static files had to be deployed and checked manua
   </tbody>
 </table>
 
-#### CSS Validation
+### CSS Validation
 
 To validate the CSS used in the project, I deployed the project on Heroku. Then, I selected the 'View Source' option by right-clicking on the webpage, located 'style.css', and opened it in a separate window. Finally, I ran this code through [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/) for validation. 
 
@@ -352,7 +352,7 @@ The results were as follows:
   </tbody>
 </table>
 
-#### JS Validation
+### JS Validation
 
 These files have been manually validated using [JS Hint](https://jshint.com/):
 
@@ -378,7 +378,7 @@ These files have been manually validated using [JS Hint](https://jshint.com/):
 
 ![Screenshot of JSHint Validator for dynamic_title.js](readme-images/jshint-validator.png)
 
-#### Codebase Cleanup
+### Codebase Cleanup
 
 As part of maintaining a clean and organized codebase, the following files were removed:
 
@@ -399,7 +399,7 @@ As part of maintaining a clean and organized codebase, the following files were 
 - `profiles/admin.py`
 - `profiles/tests.py`
 
-##### Reason for Deletion
+#### Reason for Deletion
 
 It is a good practice to regularly review the project's codebase and remove files that are not contributing to its current functionality. This not only maintains code quality but also ensures that future developers can easily understand and contribute without confusion. Keeping the project clean is key to scalability and maintainability. The rationale behind the removal includes:
 
@@ -411,7 +411,7 @@ It is a good practice to regularly review the project's codebase and remove file
 
 4. **Enhanced Collaboration**: A clean project with no unused or redundant files makes it easier for other developers to understand the purpose of each file. This is particularly beneficial when multiple developers are working on the project, as it ensures a shared understanding and reduces the likelihood of duplicated efforts or confusion.
 
-### Lighthouse Audit Results
+## Lighthouse Audit Results
 
 The site performed well in a Lighthouse, achieving:
 
@@ -427,7 +427,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 ## Testing
 
-### User Stories Testing
+## User Stories Testing
 
 | Epic | User Story | Acceptance Criteria | Result |
 |------|------------|---------------------|--------|
@@ -447,11 +447,11 @@ While the results are commendable, these benchmarks indicate room for improvemen
 | Epic 6: Sales and Analytics | As an admin, I can compare the performance of multiple products side by side so that I can make informed inventory or marketing decisions. | - Admins can view a dashboard comparing product performance metrics such as sales volume, revenue generated, and customer ratings.<br>- The comparison includes key metrics like total units sold, total revenue, average customer rating, and total page views.<br>- The dashboard allows filtering by product categories and specific date ranges.<br>- Data is displayed in a table format with optional graphical visualisations (e.g., bar charts, line graphs).<br>- Admins can export the comparison data as a CSV file for further analysis. | PASS |
 | Epic 6: Sales and Analytics | As an admin, I can sort analytics data (e.g., revenue, views, purchases) so that I can prioritise metrics most relevant to my goals. | - Admins can sort analytics data by metrics such as revenue, page views, and purchases.<br>- Sorting is available in ascending and descending order.<br>- Sortable metrics include total revenue, total views, and purchase counts.<br>- The sorting functionality updates the displayed data immediately.<br>- The sorted view persists until reset or changed by the user. | PASS |
 
-#### Manual Tests for Acceptance Criteria
+### Manual Tests for Acceptance Criteria
 
-##### Epic 1: User Experience (UX)
+#### Epic 1: User Experience (UX)
 
-###### User Story: Minimal Load Times
+##### User Story: Minimal Load Times
 **Manual Tests:**
 - Tested page load times using **Google Chrome DevTools** and **Lighthouse**.
   - Verified all pages load within 2-3 seconds on desktop and mobile.
@@ -462,7 +462,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Seamless Navigation
+##### User Story: Seamless Navigation
 **Manual Tests:**
 - Checked navigation menu links (Home, Shop, About Us, Contact Us) across pages.
 - Verified dropdown menus for product categories load and function correctly.
@@ -471,7 +471,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Clean and Professional Design
+##### User Story: Clean and Professional Design
 **Manual Tests:**
 - Verified product catalogue layout, displaying images, titles, prices, and ratings.
 - Tested filtering by categories and price ranges.
@@ -481,9 +481,9 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-##### Epic 2: Product Browsing and Reviews
+#### Epic 2: Product Browsing and Reviews
 
-###### User Story: Leave a Review
+##### User Story: Leave a Review
 **Manual Tests:**
 - Submitted reviews for purchased products.
   - Verified reviews appear with correct content and star ratings.
@@ -491,7 +491,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Edit or Delete Reviews
+##### User Story: Edit or Delete Reviews
 **Manual Tests:**
 - Edited reviews from the product detail page.
   - Verified updates reflect immediately on the product page.
@@ -501,7 +501,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: View Detailed Product Information
+##### User Story: View Detailed Product Information
 **Manual Tests:**
 - Opened product pages to confirm correct display of name, price, description, images, and ratings.
 - Tested scrolling through multiple images in gallery view.
@@ -509,7 +509,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
   
 **Result:** PASS
 
-###### User Story: Search for Products
+##### User Story: Search for Products
 **Manual Tests:**
 - Used keywords to search for products by name, description, and category.
 - Verified relevant search results are displayed correctly.
@@ -517,9 +517,9 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-##### Epic 3: Checkout and Payment
+#### Epic 3: Checkout and Payment
 
-###### User Story: Secure Payments via Stripe
+##### User Story: Secure Payments via Stripe
 **Manual Tests:**
 - Entered payment details on the checkout page and submitted orders.
 - Verified payments are processed via Stripe.
@@ -527,16 +527,16 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: View Order Summary
+##### User Story: View Order Summary
 **Manual Tests:**
 - Checked order summary on the checkout page, including taxes and discounts.
 - Verified summary updates dynamically with cart changes.
 
 **Result:** PASS
 
-##### Epic 4: Admin Product Management
+#### Epic 4: Admin Product Management
 
-###### User Story: Manage Product Visibility
+##### User Story: Manage Product Visibility
 **Manual Tests:**
 - Toggled product visibility in the admin panel.
 - Verified hidden products do not appear on the storefront.
@@ -544,16 +544,16 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Assign Products to Categories
+##### User Story: Assign Products to Categories
 **Manual Tests:**
 - Assigned categories to products in the admin panel.
 - Confirmed products display under the correct categories on the storefront.
 
 **Result:** PASS
 
-##### Epic 5: Admin Product Management
+#### Epic 5: Admin Product Management
 
-###### User Story: Edit Product Details
+##### User Story: Edit Product Details
 **Manual Tests:**
 - Updated product information (name, price, description, stock) in the admin panel.
 - Verified changes reflect on the storefront in real-time.
@@ -561,7 +561,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Delete Products
+##### User Story: Delete Products
 **Manual Tests:**
 - Deleted products via the admin panel.
 - Confirmed deleted products are removed from the storefront and search results.
@@ -569,9 +569,9 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-##### Epic 6: Sales and Analytics
+#### Epic 6: Sales and Analytics
 
-###### User Story: Compare Product Performance
+##### User Story: Compare Product Performance
 **Manual Tests:**
 - Accessed a dashboard displaying metrics like sales, revenue, ratings, and views.
 - Tested filters for product categories and date ranges.
@@ -580,7 +580,7 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-###### User Story: Sort Analytics Data
+##### User Story: Sort Analytics Data
 **Manual Tests:**
 - Sorted analytics data by revenue, page views, and purchase counts.
 - Verified sorting in ascending and descending order updates data immediately.
@@ -588,11 +588,11 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-### Manual Testing
+## Manual Testing
 
 Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) operations function as expected and handle edge cases gracefully. Below is a detailed summary of the test scenarios performed:
 
-#### 1. Create Operations
+### 1. Create Operations
 **Test Scenarios:**
 - **Valid Inputs:** Ensured new records (e.g., products, reviews, orders) were successfully created with valid data.
   - **Example:** Adding a new product with all required fields (name, price, category, stock).
@@ -603,7 +603,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Validation error displayed, record not saved.
   - **Actual Result:** Form prevented submission and displayed an error message: `Price is required.`
 
-#### 2. Read Operations
+### 2. Read Operations
 **Test Scenarios:**
 - **Valid Data Retrieval:** Verified that all pages correctly display data from the database.
   - **Example:** Viewing the product details page.
@@ -614,7 +614,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Custom 404 error page displayed.
   - **Actual Result:** "Page not found" error page displayed.
 
-#### 3. Update Operations
+### 3. Update Operations
 **Test Scenarios:**
 - **Valid Update:** Edited existing records using valid inputs.
   - **Example:** Changed a product’s price and stock quantity as an admin.
@@ -629,7 +629,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Example:** Two users updating the same product stock.
   - **Result:** Last update overwrote previous changes, handled without errors.
 
-#### 4. Delete Operations
+### 4. Delete Operations
 **Test Scenarios:**
 - **Valid Deletion:** Successfully deleted records.
   - **Example:** Removed a product from the catalog.
@@ -640,7 +640,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Error displayed, record not deleted.
   - **Actual Result:** Error: `Cannot delete product linked to existing orders.`
 
-#### 5. Edge Cases for Stock Validation
+### 5. Edge Cases for Stock Validation
 **Test Scenarios:**
 - **Zero Stock:**
   - Attempted to add a product with zero stock to the shopping cart.
@@ -652,7 +652,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Error message: `Only 2 items available.`
   - **Actual Result:** Validation error displayed, cart updated with available quantity.
 
-#### 6. Contact Us
+### 6. Contact Us
 **Test Scenarios:**
 - **Frontend:**
   - Submitted the form with all valid inputs (name, email, message).
@@ -668,7 +668,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Validation error displayed.
   - **Actual Result:** Error: `Please enter a valid email address.`
 
-#### 7. Review (Edit/Delete)
+### 7. Review (Edit/Delete)
 **Test Scenarios:**
 - **Edit:**
   - Edited an existing review with valid inputs.
@@ -686,7 +686,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - **Expected Result:** Access denied.
   - **Actual Result:** 403 Forbidden error displayed.
 
-#### 8. Analytics
+### 8. Analytics
 **Test Scenarios:**
 - **Valid Data Retrieval:**
   - Viewed product performance metrics (e.g., views, purchases, revenue).
@@ -705,7 +705,7 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
   - Adjusted filters (e.g., date range, top-performing products).
   - **Result:** Filters applied successfully, data updated dynamically.
 
-### Automated Testing
+## Automated Testing
 
 Below is a summary of the test files and their respective apps, created with assistance from ChatGPT:
 
@@ -735,37 +735,37 @@ Below is a summary of the test files and their respective apps, created with ass
 | Home           | `test_views.py`          | 8               | PASS   |
 | Maison Lavaux  | `test_sitemaps.py`       | 5               | PASS   |
 
-### Viewport Testing
+## Viewport Testing
 
 Viewport Testing involved physically testing the project's responsiveness across various devices with different viewports. The test included mobile phones with small and large viewports, as well as tablets. Additionally, testing was conducted on PCs with resolutions of 1366px * 768px (HD) and 1920px * 1080px (Full HD).
 
-#### Screenshot - Desktop
+### Screenshot - Desktop
 
 ![Screenshot - Desktop](readme-images/screenshot-desktop.png)
 
-#### Screenshot - Tablet
+### Screenshot - Tablet
 
 ![Screenshot - Tablet](readme-images/screenshot-tablet.png)
 
-#### Screenshot - Mobile
+### Screenshot - Mobile
 
 ![Screenshot - Mobile](readme-images/screenshot-mobile.png)
 
 After testing, it was confirmed that the content looked great and functioned properly on all tested devices. As a result, the viewport testing was a success, meeting all the expected criteria without any problems.
 
-### Compatibility Testing
+## Compatibility Testing
 
 The website was tested on all major browsers, including Google Chrome, Mozilla Firefox, Microsoft Edge, Opera, and Safari. The expected outcome was that the project would function correctly in all these browsers.
 
-#### Comparing Chrome and Edge
+### Comparing Chrome and Edge
 
 The result showed that there were no functionality issues, all navigation links worked, and the form responded appropriately to empty fields.
 
 ![CI Comparing Chrome and Edge](readme-images/chrome-vs-edge.png)
 
-### Bugs
+## Bugs
 
-#### Bug 1: Quantity Controls - Duplicate IDs
+### Bug 1: Quantity Controls - Duplicate IDs
 
 **Description**  
 During the development of the shopping bag functionality, a bug was identified where the quantity increment (+) and decrement (-) buttons did not function properly in the desktop view. This was caused by duplicate IDs assigned to the buttons, with one set for the mobile view and another for the desktop view. Since CSS controlled the visibility of these buttons based on screen size, JavaScript only recognized the first button with the duplicate ID, resulting in functionality issues on other views.
@@ -795,7 +795,7 @@ The following changes were implemented to fix the issue:
 **Reference**  
 This solution adheres to best practices for dynamic element handling in JavaScript and ensures robust management of quantity controls.
 
-#### Bug 2: HTML Validation Error - `for` Attribute in Form Label
+### Bug 2: HTML Validation Error - `for` Attribute in Form Label
 
 **Description**  
 A validation error occurred in the form used to save delivery information. The `<label>` in the unauthenticated user block referenced a `for` attribute (`for="id-save-info"`) that pointed to a non-existent or hidden input field. This violated HTML validation rules, causing accessibility and standards compliance issues.
@@ -839,7 +839,7 @@ The following updates were made:
 **Impact**  
 This fix improved HTML validation, ensured better accessibility, and maintained a seamless user experience.
 
-#### Bug 3: Incorrect Price Display in Order Details
+### Bug 3: Incorrect Price Display in Order Details
 
 **Description**  
 On the **checkout success page**, the order details section incorrectly displayed the original price of products, even when a discounted price was applied during checkout. This caused discrepancies between the information displayed to the user and the actual total calculated.
@@ -876,7 +876,7 @@ The following changes were made:
 **Acknowledgment**  
 Special thanks to the project mentor, Gareth McGirr, for identifying the discrepancy and guiding the resolution process.
 
-#### Bug 4: Pagination Sorting Issue
+### Bug 4: Pagination Sorting Issue
 
 - Issue: When navigating through paginated product lists, sorting parameters (e.g., `sort` and `direction`) were not persisting, causing inconsistent sorting behavior across pages.
 - Fix: Updated the pagination logic in the template to include `sort` and `direction` query parameters dynamically in the "Previous" and "Next" links.
