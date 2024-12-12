@@ -1,61 +1,62 @@
-## Validation, Testing and Bugs
+# Validation, Testing and Bugs
 
 - [Validation, Testing and Bugs](#validation-testing-and-bugs)
-- [Validation](#validation)
-  - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
-  - [HTML Validation](#html-validation)
-  - [CSS Validation](#css-validation)
-  - [JS Validation](#js-validation)
-  - [Codebase Cleanup](#codebase-cleanup)
-    - [Reason for Deletion](#reason-for-deletion)
-- [Lighthouse Audit Results](#lighthouse-audit-results)
-- [Testing](#testing)
-- [User Stories Testing](#user-stories-testing)
-  - [Manual Tests for Acceptance Criteria](#manual-tests-for-acceptance-criteria)
-    - [Epic 1: User Experience (UX)](#epic-1-user-experience-ux)
-      - [User Story: Minimal Load Times](#user-story-minimal-load-times)
-      - [User Story: Seamless Navigation](#user-story-seamless-navigation)
-      - [User Story: Clean and Professional Design](#user-story-clean-and-professional-design)
-    - [Epic 2: Product Browsing and Reviews](#epic-2-product-browsing-and-reviews)
-      - [User Story: Leave a Review](#user-story-leave-a-review)
-      - [User Story: Edit or Delete Reviews](#user-story-edit-or-delete-reviews)
-      - [User Story: View Detailed Product Information](#user-story-view-detailed-product-information)
-      - [User Story: Search for Products](#user-story-search-for-products)
-    - [Epic 3: Checkout and Payment](#epic-3-checkout-and-payment)
-      - [User Story: Secure Payments via Stripe](#user-story-secure-payments-via-stripe)
-      - [User Story: View Order Summary](#user-story-view-order-summary)
-    - [Epic 4: Admin Product Management](#epic-4-admin-product-management)
-      - [User Story: Manage Product Visibility](#user-story-manage-product-visibility)
-      - [User Story: Assign Products to Categories](#user-story-assign-products-to-categories)
-    - [Epic 5: Admin Product Management](#epic-5-admin-product-management)
-      - [User Story: Edit Product Details](#user-story-edit-product-details)
-      - [User Story: Delete Products](#user-story-delete-products)
-    - [Epic 6: Sales and Analytics](#epic-6-sales-and-analytics)
-      - [User Story: Compare Product Performance](#user-story-compare-product-performance)
-      - [User Story: Sort Analytics Data](#user-story-sort-analytics-data)
-- [Manual Testing](#manual-testing)
-  - [1. Create Operations](#1-create-operations)
-  - [2. Read Operations](#2-read-operations)
-  - [3. Update Operations](#3-update-operations)
-  - [4. Delete Operations](#4-delete-operations)
-  - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
-  - [6. Contact Us](#6-contact-us)
-  - [7. Review (Edit/Delete)](#7-review-editdelete)
-  - [8. Analytics](#8-analytics)
-- [Automated Testing](#automated-testing)
-  - [Automated Testing](#automated-testing-1)
+  - [Validation](#validation)
+    - [Manual Testing for PEP8 Compliance](#manual-testing-for-pep8-compliance)
+    - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
+    - [JS Validation](#js-validation)
+    - [Codebase Cleanup](#codebase-cleanup)
+      - [Reason for Deletion](#reason-for-deletion)
+  - [Lighthouse Audit Results](#lighthouse-audit-results)
+  - [Testing](#testing)
+  - [User Stories Testing](#user-stories-testing)
+    - [Manual Tests for Acceptance Criteria](#manual-tests-for-acceptance-criteria)
+      - [Epic 1: User Experience (UX)](#epic-1-user-experience-ux)
+        - [User Story: Minimal Load Times](#user-story-minimal-load-times)
+        - [User Story: Seamless Navigation](#user-story-seamless-navigation)
+        - [User Story: Clean and Professional Design](#user-story-clean-and-professional-design)
+      - [Epic 2: Product Browsing and Reviews](#epic-2-product-browsing-and-reviews)
+        - [User Story: Leave a Review](#user-story-leave-a-review)
+        - [User Story: Edit or Delete Reviews](#user-story-edit-or-delete-reviews)
+        - [User Story: View Detailed Product Information](#user-story-view-detailed-product-information)
+        - [User Story: Search for Products](#user-story-search-for-products)
+      - [Epic 3: Checkout and Payment](#epic-3-checkout-and-payment)
+        - [User Story: Secure Payments via Stripe](#user-story-secure-payments-via-stripe)
+        - [User Story: View Order Summary](#user-story-view-order-summary)
+      - [Epic 4: Messaging and Communication](#epic-4-messaging-and-communication)
+        - [User Story: View All Messages Submitted by Users](#user-story-view-all-messages-submitted-by-users)
+        - [User Story: Fill Out a Contact Form](#user-story-fill-out-a-contact-form)
+      - [Epic 5: Admin Product Management](#epic-5-admin-product-management)
+        - [User Story: Edit Product Details](#user-story-edit-product-details)
+        - [User Story: Delete Products](#user-story-delete-products)
+        - [User Story: Manage Product Visibility](#user-story-manage-product-visibility)
+        - [User Story: Assign Products to Categories](#user-story-assign-products-to-categories)
+      - [Epic 6: Sales and Analytics](#epic-6-sales-and-analytics)
+        - [User Story: Compare Product Performance](#user-story-compare-product-performance)
+        - [User Story: Sort Analytics Data](#user-story-sort-analytics-data)
+  - [Manual Testing](#manual-testing)
+    - [1. Create Operations](#1-create-operations)
+    - [2. Read Operations](#2-read-operations)
+    - [3. Update Operations](#3-update-operations)
+    - [4. Delete Operations](#4-delete-operations)
+    - [5. Edge Cases for Stock Validation](#5-edge-cases-for-stock-validation)
+    - [6. Contact Us](#6-contact-us)
+    - [7. Review (Edit/Delete)](#7-review-editdelete)
+    - [8. Analytics](#8-analytics)
+  - [Automated Testing](#automated-testing)
     - [Purpose of Automated Tests](#purpose-of-automated-tests)
-- [Viewport Testing](#viewport-testing)
-  - [Screenshot - Desktop](#screenshot---desktop)
-  - [Screenshot - Tablet](#screenshot---tablet)
-  - [Screenshot - Mobile](#screenshot---mobile)
-- [Compatibility Testing](#compatibility-testing)
-  - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
-- [Bugs](#bugs)
-  - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
-  - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
-  - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
-  - [Bug 4: Pagination Sorting Issue](#bug-4-pagination-sorting-issue)
+  - [Viewport Testing](#viewport-testing)
+    - [Screenshot - Desktop](#screenshot---desktop)
+    - [Screenshot - Tablet](#screenshot---tablet)
+    - [Screenshot - Mobile](#screenshot---mobile)
+  - [Compatibility Testing](#compatibility-testing)
+    - [Comparing Chrome and Edge](#comparing-chrome-and-edge)
+  - [Bugs](#bugs)
+    - [Bug 1: Quantity Controls - Duplicate IDs](#bug-1-quantity-controls---duplicate-ids)
+    - [Bug 2: HTML Validation Error - `for` Attribute in Form Label](#bug-2-html-validation-error---for-attribute-in-form-label)
+    - [Bug 3: Incorrect Price Display in Order Details](#bug-3-incorrect-price-display-in-order-details)
+    - [Bug 4: Pagination Sorting Issue](#bug-4-pagination-sorting-issue)
 
 ## Validation
 
@@ -536,22 +537,57 @@ While the results are commendable, these benchmarks indicate room for improvemen
 
 **Result:** PASS
 
-#### Epic 4: Admin Product Management
+#### Epic 4: Messaging and Communication
 
-##### User Story: Manage Product Visibility
+##### User Story: View All Messages Submitted by Users
+
 **Manual Tests:**
-- Toggled product visibility in the admin panel.
-- Verified hidden products do not appear on the storefront.
-- Checked success messages after visibility updates.
 
-**Result:** PASS
+1. **Submitting a Message:**
+   - Filled out the contact form on the website with valid details (name, email, and message).
+     - **Example:** Submitted the message: "I have a question about product availability."
+     - **Expected Result:** The message was saved to the database and displayed in the admin panel in a structured format.
+     - **Actual Result:** The message was correctly saved and appeared under the "Messages" section in the admin panel.
 
-##### User Story: Assign Products to Categories
+2. **Validating Input Fields:**
+   - Tested the contact form with various inputs:
+     - **Valid Inputs:** Entered a proper name, valid email address, and a message.
+       - **Result:** Form submitted successfully, and a success message was displayed to the user.
+     - **Invalid Inputs:** Left the email field blank or entered an incorrectly formatted email.
+       - **Expected Result:** Validation error message displayed: "Please enter a valid email address."
+       - **Actual Result:** Validation error was shown, and the message was not submitted.
+
+3. **Viewing Messages in Admin Panel:**
+   - Navigated to the admin panel and accessed the "Messages" section.
+     - **Result:** All submitted messages were displayed with fields for name, email, message content, and submission timestamp.
+     - Verified that messages were sorted by the date of submission for easy review.
+
+**Result:** **PASS**
+
+##### User Story: Fill Out a Contact Form
+
 **Manual Tests:**
-- Assigned categories to products in the admin panel.
-- Confirmed products display under the correct categories on the storefront.
 
-**Result:** PASS
+1. **Filling Out the Form:**
+   - Submitted the contact form with valid details (name, email, and message).
+     - **Example:** "John Doe, john.doe@example.com, 'What are your shipping times?'"
+     - **Expected Result:** A success message was displayed: "Your message has been sent successfully."
+     - **Actual Result:** The success message appeared, and the form reset for new input.
+
+2. **Error Handling:**
+   - Tested form submission with invalid or missing inputs:
+     - Left the message field blank.
+       - **Expected Result:** Validation error message displayed: "This field is required."
+       - **Actual Result:** Error message appeared, and the form was not submitted.
+     - Entered an email in an invalid format (e.g., `not_an_email`).
+       - **Expected Result:** Validation error displayed: "Please enter a valid email address."
+       - **Actual Result:** Validation error shown, and the message was not submitted.
+
+3. **Database Validation:**
+   - Verified that all valid submissions were stored in the database with correct timestamps and linked to the user's account (if logged in).
+     - **Result:** Messages appeared in the database table with all fields populated accurately.
+
+**Result:** **PASS**
 
 #### Epic 5: Admin Product Management
 
@@ -568,6 +604,21 @@ While the results are commendable, these benchmarks indicate room for improvemen
 - Deleted products via the admin panel.
 - Confirmed deleted products are removed from the storefront and search results.
 - Verified a confirmation prompt prevents accidental deletion.
+
+**Result:** PASS
+
+##### User Story: Manage Product Visibility
+**Manual Tests:**
+- Toggled product visibility in the admin panel.
+- Verified hidden products do not appear on the storefront.
+- Checked success messages after visibility updates.
+
+**Result:** PASS
+
+##### User Story: Assign Products to Categories
+**Manual Tests:**
+- Assigned categories to products in the admin panel.
+- Confirmed products display under the correct categories on the storefront.
 
 **Result:** PASS
 
@@ -709,8 +760,6 @@ Manual testing was conducted to ensure all CRUD (Create, Read, Update, Delete) o
 
 ## Automated Testing
 
-### Automated Testing
-
 Automated tests were created to ensure the reliability and consistency of the application across various functionalities. These tests primarily focus on the following key areas:
 
 1. **Model Testing**: Verifies the integrity and correctness of the database models, ensuring that fields, methods, and relationships between models behave as expected. For instance:
@@ -736,9 +785,7 @@ Automated tests were created to ensure the reliability and consistency of the ap
    - Submitting invalid data in forms.
    - Accessing restricted pages without proper permissions.
 
----
-
-#### Purpose of Automated Tests
+### Purpose of Automated Tests
 
 Automated tests were implemented to:
 
